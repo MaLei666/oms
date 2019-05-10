@@ -1,0 +1,545 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block base_title %}
+    {{ title }}
+{% endblock base_title %}
+
+{% block base_content %}
+    <!-- 右边主体 -->
+    <div class="app-content">
+        <div class="app-content-body fade-in-up">
+            <div class="padder" style="padding-top: 10px;">
+                <div class="col-md-12" style="padding-left: 0; padding-right: 0;">
+                    <div class="panel panel-default" id="body-content">
+                        <div class="panel-heading" >
+                            <div style="display: block; border-left: 5px solid #1c2b36; padding-left: 10px; font-size: 20px; font-weight: bolder; line-height: 25px;color: #1c2b36;">
+                                {{ title }}
+                            </div>
+                        </div>
+
+                        <div class="selectBox" style="padding: 15px;padding-bottom: 0">
+                            {% if request.user.role > 1 %}
+                                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#AddContModal"><i
+                                            class="fa fa-plus"></i> 添加任务</a>
+                                {% endif %}
+
+                            <!-- 功能 -->
+                            <form class="navbar-form pull-right " role="search" style="margin-top: 0;">
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="keyword"
+                                               class="form-control input-sm bg-light no-border rounded "
+                                               placeholder="关键词查找记录" style="width: 150px;">
+                                        <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-sm bg-auto rounded">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                    </div>
+                                </div>
+                            </form>
+                                <span style="font-size: 14px; padding-top: 5px;" class="pull-right">共 <b
+                                        style="color: orangered">{{ record_nums }}</b> 条</span>
+                            </div>
+
+                        <div class="panel-body" id="table_content">
+                            <!-- 列表 -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-striped table-bordered">
+                                        <!-- 标题行 -->
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">任务名称</th>
+                                            <th class="text-center">任务类型</th>
+                                            <th class="text-center">执行时间</th>
+                                            <th class="text-center">创建时间</th>
+                                            <th class="text-center">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for each_content in contents.object_list %}
+                                            <tr class="gradeX odd" role="row">
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{{ each_content.id }}
+                                                </td>
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{{ each_content.task_name }}
+                                                </td>
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{{ each_content.task_type }}
+                                                </td>
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;"> {{ each_content.start_time }} ~ {{ each_content.end_time }}
+                                                </td>
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{{ each_content.create_time }}
+                                                </td>
+
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    <a type="button" class="btn btn-xs"
+                                                       style="background-color: #1c84c6;color: white;"
+                                                      data-toggle="modal"
+                                                       data-target="#ShowContModal{{ each_content.id }}">
+                                                        详情
+                                                    </a>
+                                                    <a type="button" class="btn btn-xs"
+                                                       style="background-color: #1c84c6;color: white;"
+                                                      data-toggle="modal"
+                                                       data-target="#ContContModal{{ each_content.id }}">
+                                                        设备
+                                                    </a>
+                                                    <a type="button" class="btn btn-xs"
+                                                       style="background-color: #1c84c6;color: white;"
+                                                      data-toggle="modal"
+                                                       data-target="#EditContModal{{ each_content.id }}">
+                                                        修改
+                                                    </a>
+                                                    <button class="btn btn-xs"
+                                                                style="background-color: #c7254e;color: white;"
+                                                                data-toggle="modal"
+                                                                data-target="#DeleteContModal{{ each_content.id }}">
+                                                        删除
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="padding-top: 0; padding-bottom: 0;">
+                            <div class="text-center">
+                                <ul class="pagination" style="margin-top: 10px; margin-bottom: 10px;">
+
+                                    <!-- 上一页 -->
+                                    {% if contents.has_previous %}
+                                        <li><a href="?{{ contents.previous_page_number.querystring }}">上一页<span
+                                                class="sr-only"></span></a></li>
+                                        <li><a href="?{{ contents.previous_page_number.querystring }}">&laquo;<span
+                                                class="sr-only"></span></a></li>
+                                    {% endif %}
+
+                                    <!-- 页码 -->
+                                    {% for page in contents.pages %}
+                                        {% if page %}
+                                            <!-- 当前页 -->
+                                            {% ifequal page contents.number %}
+                                                <li class="active"><a href="?page={{ page }}">{{ page }}<span
+                                                        class="sr-only">(current)</span></a></li>
+                                                <!-- 其它页 -->
+                                            {% else %}
+                                                <li><a href="?page={{ page }}">{{ page }}<span
+                                                        class="sr-only"></span></a></li>
+                                            {% endifequal %}
+                                            <!-- 省略页 -->
+                                        {% else %}
+                                            <li><a href="">...<span class="sr-only"></span></a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    <!-- 下一页 -->
+                                    {% if contents.has_next %}
+                                        <li><a href="?{{ contents.next_page_number.querystring }}">&raquo;<span
+                                                class="sr-only"></span></a></li>
+                                        <li><a href="?{{ contents.next_page_number.querystring }}">下一页<span
+                                                class="sr-only"></span></a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock base_content %}
+
+{% block base_footer_html %}
+<div class="modal inmodal" id="AddContModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+{#	<div class="col-sm-12">#}
+        <div class="modal-dialog" style="width: 70%">
+            <div class="modal-content" style="margin-top: 100px;">
+				<div class="fixed-table-toolbar2">
+					<div id="mapLayout">
+						<div class="ibox float-e-margins">
+							<div class="ibox-content">
+                                <div class="modal-header"
+                                     style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <i class="icon-close" style="font-size: 18px;"></i>
+                                    </button>
+                                    <h4 class="modal-title">添加任务</h4>
+                                </div>
+                                <form class="form-horizontal m-t" id="signupForm">
+								<table class="table table-bordered t-m-b" style="width: 100%;margin-left: 0px;margin-right: 0px;">
+									<tr>
+										<td class="td_text_center">任务名称:</td>
+										<td style="width:25%;">
+											<input id="taskName" name="taskName"  style="height: 30px;width: 98%;" type="text">
+										</td>
+
+										<td class="td_text_center">任务类型:</td>
+										<td>
+											<select name="taskType" id="taskType" style="height: 30px;width: 98%;" onChange="typeSelect();">
+												<option value="">请选择...</option>
+												<option value="1">临检</option>
+												<option value="2">日检</option>
+												<option value="3">周检</option>
+												<option value="4">月检</option>
+												<option value="5">季检</option>
+												<option value="6">年检</option>
+
+											</select>
+										</td>
+
+
+										<td class="td_text_center">任务模式:</td>
+										<td style="text-align: center;">
+											<input type="radio" name="status" value="0" checked>&nbsp;启用
+										</td>
+									</tr>
+
+									<tr>
+
+                                        <td class="td_text_center">单位名称:</td>
+										<td>
+                                        <select name="unitId" id="unitId" class="form-control" style="height: 30px;width: 98%;font-size: 12px">
+                                            <option value="">请选择...</option>
+                                            {% for each_company in company %}
+                                                <option value="{{ each_company.id }}">{{ each_company.name }}</option>
+                                            {% endfor %}
+                                        </select>
+										</td>
+
+										<td class="td_text_center">职能部门:</td>
+										<td>
+											<select name="deptId" id="deptId" class="form-control selectpicker" style="height: 30px;width: 98%;font-size: 12px">
+                                            <option value="">请选择...</option>
+                                            {% for each_depts in depts %}
+                                                <option value="{{ each_depts.id }}">{{ each_depts.name }}</option>
+                                            {% endfor %}
+										    </select>
+										</td>
+
+										<td class="td_text_center">执行用户:</td>
+										<td style="width:25%;">
+											<input id="userName" name="userName" type="hidden">
+											<select name="userId" id="userId" class="form-control" style="height: 30px;width: 98%;font-size: 12px">
+                                                <option value="">请选择...</option>
+                                                {% for each_user in users %}
+                                                    <option value="{{ each_user.id }}">{{ each_user.chinese_name }}</option>
+                                                {% endfor %}
+                                            </select>
+										</td>
+									</tr>
+
+									<tr>
+										<td colspan="6" style="height: 30px;text-align: center" >
+											<input id="startTime" name="startTime" type="hidden">
+											<input id="endTime" name="endTime" type="hidden">
+											<div name="dateDiv" id="dateDiv" ></div>
+										</td>
+									</tr>
+
+									<tr>
+										<td colspan="6">
+											<div class="columns pull-right m-l1" >
+												<span style="margin-left: 5px;">设备类型:</span>
+												<select name="devType" id="devType" class="selectwidth140">
+													<option value="">请选择...</option>
+                                                    {% for each_device in devices %}
+                                                        <option value="{{ each_device.dev_type }}">{{ each_device.dev_type }}</option>
+                                                    {% endfor %}
+                                                </select>
+
+												<span style="margin-left: 5px;">设备状态:</span>
+												<select name="devStatus" id="devStatus" class="selectwidth140">
+													<option value="">请选择...</option>
+													<option value="0">正常</option>
+													<option value="1">故障</option>
+												</select>
+												<span style="margin-left: 5px;">安装位置:</span>
+                                                <input id="installPosition" name="installPosition" type="text" class="selectwidth140" placeholder="">
+                                                <input id="devId" name="devId" type="text" class="selectwidth140" placeholder="设备编号">
+                                                <button type="button" class="btn btn-success btn-sm" onclick="reLoad()">查询</button>
+                                                <button type="submit"  class="btn btn-primary btn-sm" onclick="">提交</button>
+											</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td colspan="6">
+											<input id="name3" name="name3" type="hidden">
+											<table id="exampleTable" data-mobile-responsive="true"></table>
+										</td>
+									</tr>
+								</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+{#</div>#}
+<script src="{% static 'js/inspect/inspectContent/add.js' %}"></script>
+<script src="{% static 'js/common.js' %}"></script>
+<script src="{% static 'plugins/layer/laydateNew/laydate.js' %}"></script>
+<script src="{% static 'plugins/layer/layer.js' %}"></script>
+<script src="{% static 'plugins/layer/layer.min.js' %}"></script>
+<script src="{% static 'js/inspect/inspectContent/inspectContent.js' %}"></script>
+<script src="{% static 'js/inspect/inspectContent/add.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js'%}"></script>
+
+
+
+
+{#    <div class="modal inmodal" id="AddContModal" tabindex="-1"     role="dialog" aria-hidden="true"#}
+{#         data-backdrop="static">#}
+{#        <div class="modal-dialog" style="width: 450px;">#}
+{#            <div class="modal-content" style="margin-top: 100px;">#}
+{##}
+{#                <div class="modal-header"#}
+{#                     style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">#}
+{#                    <button type="button" class="close" data-dismiss="modal">#}
+{#                        <i class="icon-close" style="font-size: 18px;"></i>#}
+{#                    </button>#}
+{#                    <h4 class="modal-title">添加任务</h4>#}
+{#                </div>#}
+{##}
+{#                <form method="post" id="id_AddContForm">#}
+{#                    <div class="form-group"#}
+{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">#}
+{#                        <div class="col-md-3">#}
+{#                            <span style="font-size: 14px;">任务名称：</span>#}
+{#                        </div>#}
+{#                        <div class="col-md-9">#}
+{#                            <input type="text" class="form-control" placeholder="任务名称"#}
+{#                                       maxlength="20" name="task_name" required="">#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group"#}
+{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
+{#                        <div class="col-md-3">#}
+{#                            <span style="font-size: 14px;">任务类型：</span>#}
+{#                        </div>#}
+{#                        <div class="col-md-9">#}
+{#                            <input type="text" class="form-control" placeholder="任务类型"#}
+{#                                       maxlength="20" name="task_type" required="">#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group"#}
+{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
+{#                        <div class="col-md-3">#}
+{#                            <span style="font-size: 14px;">开始时间：</span>#}
+{#                        </div>#}
+{#                        <div class="col-md-9">#}
+{#                            <input type="text" class="form-control" placeholder="开始时间"#}
+{#                                       maxlength="20" name="start_time" required="">#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group"#}
+{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
+{#                        <div class="col-md-3">#}
+{#                            <span style="font-size: 14px;">结束时间：</span>#}
+{#                        </div>#}
+{#                        <div class="col-md-9">#}
+{#                            <input type="text" class="form-control" placeholder="结束时间"#}
+{#                                       maxlength="20" name="end_time" required="">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group"#}
+{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
+{#                        <div class="col-md-3">#}
+{#                            <span style="font-size: 14px;">备注：</span>#}
+{#                        </div>#}
+{#                        <div class="col-md-9">#}
+{#                            <input type="text" class="form-control" placeholder="备注"#}
+{#                                       maxlength="20" name="comment" required="">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="modal-footer" style="padding-top: 10px; padding-bottom: 10px;">#}
+{#                        <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>#}
+{#                        <a class="btn btn-sm btn-default" id="id_AddContBtn">添加</a>#}
+{#                    </div>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <!-- 添加平台 -->#}
+{#    <script>#}
+{#        $(function () {#}
+{#            // 提交表单#}
+{#            $('#id_AddContBtn').on('click', function () {#}
+{#                $.ajax({#}
+{#                    cache: false,#}
+{#                    type: "POST",#}
+{#                    url: "{% url 'sys_inspect:inspect_contents_add' %}",#}
+{#                    data: $('#id_AddContForm').serialize(),#}
+{#                    async: true,#}
+{#                    beforeSend: function (xhr, settings) {#}
+{#                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");#}
+{#                    },#}
+{#                    success: function (data) {#}
+{#                        if (data.status == 'success') {#}
+{#                            window.location.reload();#}
+{#                        } else if (data.status == 'failed') {#}
+{#                            window.alert(data.msg);#}
+{#                        }#}
+{#                    }#}
+{#                });#}
+{#            });#}
+{#        })#}
+{#    </script>#}
+
+    {% for each_device in devices.object_list %}
+{#        修改设备#}
+        <div class="modal inmodal" id="EditContModal{{ each_device.id }}" tabindex="-1" role="dialog" aria-hidden="true"
+             data-backdrop="static">
+            <div class="modal-dialog" style="width: 500px;">
+                <div class="modal-content" style="margin-top: 100px;" >
+                    <div class="modal-header"
+                         style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="icon-close" style="font-size: 18px;"></i>
+                        </button>
+                        <h4 class="modal-title">修改设备</h4>
+                    </div>
+
+                    <form method="post" id="id_EditContForm{{ each_device.id }}">
+                        <input type="hidden" name="dev_id" value="{{ each_device.id }}">
+                            <div class="col-md-12" style="padding-top: 20px">
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 14px;">设备名称：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder="设备名称"
+                                               maxlength="20" name="dev_name" required="" value="{{ each_device.dev_name }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 14px;">安装位置：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder="安装位置"
+                                               maxlength="20" name="install_position" required="" value="{{ each_device.install_position }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 14px;">备注：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder="备注"
+                                               maxlength="20" name="comment" required="" value="{{ each_device.comment }}">
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="modal-footer" style="padding-right: 30px;padding-top: 10px; padding-bottom: 10px;">
+                            <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>
+                            <a class="btn btn-sm btn-default" id="id_EditContBtn{{ each_device.id }}">修改</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 修改设备 -->
+        <script>
+            $(function () {
+                // 提交表单
+                $('#id_EditContBtn{{ each_device.id }}').on('click', function () {
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{% url 'sys_inspect:inspect_device_edit'%}",
+                        data: $('#id_EditContForm{{ each_device.id }}').serialize(),
+                        async: true,
+                        beforeSend: function (xhr, settings) {
+                            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                        },
+                        success: function (data) {
+                            if (data.status == 'success') {
+                                window.location.reload();
+                            } else if (data.status == 'failed') {
+                                window.alert(data.msg);
+                            }
+                        }
+                    });
+                });
+            })
+        </script>
+
+        <!-- 删除设备 -->
+        <div class="modal inmodal" id="DeleteContModal{{ each_device.id }}" tabindex="-1" role="dialog" aria-hidden="true"
+             data-backdrop="static">
+            <div class="modal-dialog modal-sm" style="padding-top: 10%;">
+                <div class="modal-content">
+                    <div class="modal-header"
+                         style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="icon-close" style="font-size: 18px;"></i>
+                        </button>
+                        <h4 class="modal-title">警告！</h4>
+                    </div>
+
+                    <form method="post" id="id_DeleteContForm{{ each_device.id }}">
+                        <input type="hidden" name="dev_id" value="{{ each_device.id }}">
+                        <div class="modal-body">
+                            <span style="font-size: 16px;color: black;">是否确定删除该平台？</span>
+                        </div>
+                    </form>
+
+                    <div class="modal-footer" style="padding: 10px;">
+                        <a class="btn btn-default" data-dismiss="modal" style="padding: 2px 10px;">取消</a>
+                        <a class="btn btn-default" id="id_DeleteContBtn{{ each_device.id }}" style="padding: 2px 10px;">确定</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 删除平台 -->
+        <script>
+            $(function () {
+                // 提交表单
+                $('#id_DeleteContBtn{{ each_device.id }}').on('click', function () {
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{% url 'sys_inspect:inspect_device_delete' %}",
+                        data: $('#id_DeleteContForm{{ each_device.id }}').serialize(),
+                        async: true,
+                        beforeSend: function (xhr, settings) {
+                            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                        },
+                        success: function (data) {
+                            if (data.status == 'success') {
+                               window.location.reload();
+                            } else if (data.status == 'failed') {
+                                window.alert(data.msg);
+                            }
+                        }
+                    });
+                });
+            })
+        </script>
+    {% endfor %}
+{% endblock base_footer_html %}
