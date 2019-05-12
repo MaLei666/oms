@@ -1,5 +1,5 @@
 """
-Django settings for opms project.
+Django settings for oms project.
 
 *   为可选修改项目
 **  为必须修改的项目
@@ -85,7 +85,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'opms.urls'
+ROOT_URLCONF = 'oms.urls'
 
 
 ######################################
@@ -110,7 +110,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'opms.wsgi.application'
+WSGI_APPLICATION = 'oms.wsgi.application'
 
 
 ######################################

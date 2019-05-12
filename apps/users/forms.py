@@ -7,7 +7,7 @@ from django import forms
 ######################################
 # 自定义模块
 ######################################
-from .forms import *
+# from .forms import *
 
 
 ######################################
@@ -50,38 +50,38 @@ class ChangeUserPasswordForm(forms.Form):
 ######################################
 class AddUnitForm(forms.Form):
     name = forms.CharField(max_length=30,required=True)
-    connect = forms.CharField(max_length=30)
-    connect_phone = forms.CharField(max_length=30)
-    comment = forms.CharField( max_length=200)
-    address = forms.CharField( max_length=50)
+    connect = forms.CharField(max_length=30,required=False)
+    connect_phone = forms.CharField(max_length=30,required=False)
+    comment = forms.CharField( max_length=200,required=False)
+    address = forms.CharField( max_length=50,required=False)
 
 ######################################
 # 修改单位表单
 ######################################
 class EditUnitForm(forms.Form):
     name = forms.CharField(max_length=30,required=True)
-    connect = forms.CharField(max_length=30)
-    connect_phone = forms.CharField(max_length=30)
-    comment = forms.CharField( max_length=200)
-    address = forms.CharField( max_length=50)
+    connect = forms.CharField(max_length=30,required=False)
+    connect_phone = forms.CharField(max_length=30,required=False)
+    comment = forms.CharField( max_length=200,required=False)
+    address = forms.CharField( max_length=50,required=False)
 
 ######################################
 # 添加部门表单
 ######################################
 class AddDeptForm(forms.Form):
     name = forms.CharField(max_length=20,required=True)
-    connect = forms.CharField(max_length=30)
-    connect_phone = forms.CharField( max_length=30)
-    comment = forms.CharField(blank=True, null=True, max_length=1000)
+    connect = forms.CharField(max_length=30,required=False)
+    connect_phone = forms.CharField( max_length=30,required=False)
+    comment = forms.CharField(max_length=1000,required=False)
 
 ######################################
 # 修改部门表单
 ######################################
 class EditDeptForm(forms.Form):
     name = forms.CharField(max_length=20,required=True)
-    connect = forms.CharField(max_length=30)
-    connect_phone = forms.CharField( max_length=30)
-    comment = forms.CharField(blank=True, null=True, max_length=1000)
+    connect = forms.CharField(max_length=30,required=False)
+    connect_phone = forms.CharField( max_length=30,required=False)
+    comment = forms.CharField( max_length=1000,required=False)
 
 ######################################
 # 添加用户表单

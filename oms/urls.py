@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from opms.settings import MEDIA_ROOT
+from oms.settings import MEDIA_ROOT
 from django.views.static import serve
 from document_management.views import upload_image
 from django.conf import settings

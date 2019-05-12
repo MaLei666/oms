@@ -451,12 +451,12 @@
 
                                 <!-- 二级菜单 -->
                                 <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                    <li {% ifequal web_chose_left_2 'user_list' %}class="active"{% endifequal %}>
+                                    <li {% ifequal web_chose_left_2 'unit' %}class="active"{% endifequal %}>
                                         <a href="{% url 'users:unit_list' %}">
                                             <span>单位管理</span>
                                         </a>
                                     </li>
-                                    <li {% ifequal web_chose_left_2 'user_list' %}class="active"{% endifequal %}>
+                                    <li {% ifequal web_chose_left_2 'dept' %}class="active"{% endifequal %}>
                                         <a href="{% url 'users:dept_list' %}">
                                             <span>部门管理</span>
                                         </a>

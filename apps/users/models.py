@@ -25,6 +25,8 @@ class UserCompany(models.Model):
     update_user=models.CharField(verbose_name='更新者',max_length=45,blank=True,null=True)
     update_time=models.DateTimeField(verbose_name='更新时间',blank=True,null=True)
     comment=models.CharField(verbose_name='备注',blank=True,null=True,max_length=1000)
+    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (0, '停用')), default=1)
+
 
     class Meta:
         verbose_name = '单位'
@@ -39,7 +41,8 @@ class UserCompany(models.Model):
 ######################################
 class UserDepartment(models.Model):
     name = models.CharField(verbose_name='部门名称', max_length=20)
-    company = models.ForeignKey(UserCompany, verbose_name='公司', on_delete=models.CASCADE)
+    company = models.ForeignKey(UserCompany, verbose_name='所属单位ID', on_delete=models.CASCADE)
+    company_name=models.CharField(verbose_name='所属单位',max_length=30)
     connect = models.CharField(verbose_name='联系人', max_length=30, blank=True, null=True)
     connect_phone = models.CharField(verbose_name='联系电话', max_length=30, blank=True, null=True)
     create_user = models.CharField(verbose_name='创建者', max_length=45)
@@ -47,6 +50,8 @@ class UserDepartment(models.Model):
     update_user = models.CharField(verbose_name='更新者', max_length=45, blank=True, null=True)
     update_time = models.DateTimeField(verbose_name='更新时间', blank=True, null=True)
     comment = models.CharField(verbose_name='备注', blank=True, null=True, max_length=1000)
+    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (0, '停用')), default=1)
+
 
     class Meta:
         verbose_name = '部门'

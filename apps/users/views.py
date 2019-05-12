@@ -33,7 +33,7 @@ from .models import *
 from operation_record.models import UserOperationRecord
 from utils.send_email import send_email_verificode
 from utils.user_func import get_ip_location
-from opms.settings import GAODE_API_KEY, CITY_ID, DEVELPER_EMAIL_ADDRESS, EMAIL_HOST_USER
+from oms.settings import GAODE_API_KEY, CITY_ID, DEVELPER_EMAIL_ADDRESS, EMAIL_HOST_USER
 # from online_management.models import TroubleRecord, DeployRecord
 
 
@@ -205,10 +205,10 @@ class LogoutView(LoginStatusCheck, View):
 ######################################
 # 单位列表
 ######################################
-class UnitViews(LoginStatusCheck, View):
+class UnitListView(LoginStatusCheck, View):
     def get(self, request):
         # 页面选择
-        web_chose_left_1 = 'users'
+        web_chose_left_1 = 'user_management'
         web_chose_left_2 = 'unit'
         web_chose_middle = ''
 
@@ -223,7 +223,7 @@ class UnitViews(LoginStatusCheck, View):
         # 公司
         units = UserCompany.objects.filter()
 
-        devices_nums = units.count()
+        units_nums = units.count()
 
         # 判断页码
         try:
@@ -235,18 +235,17 @@ class UnitViews(LoginStatusCheck, View):
         p = Paginator(units, 17, request=request)
 
         # 分页处理后的 QuerySet
-        devices = p.page(page)
+        units = p.page(page)
 
         context = {
             'web_chose_left_1': web_chose_left_1,
             'web_chose_left_2': web_chose_left_2,
             'web_chose_middle': web_chose_middle,
             'title': title,
-            'devices': devices,
-            'depts':depts,
-            'devices_nums': devices_nums,
-            'users':users,
             'units': units,
+            'depts':depts,
+            'units_nums': units_nums,
+            'users':users,
         }
         return render(request, 'users/units/unit_list.html', context=context)
 
@@ -355,6 +354,53 @@ class DeleteUnitView(LoginStatusCheck, View):
 # 部门列表
 ######################################
 class DeptListView(LoginStatusCheck, View):
+    def get(self, request):
+        # 页面选择
+        web_chose_left_1 = 'user_management'
+        web_chose_left_2 = 'dept'
+        web_chose_middle = ''
+
+        title = '部门列表'
+
+        # 用户
+        users = UserProfile.objects.filter()
+
+        # 部门
+        depts=UserDepartment.objects.filter()
+
+        # 公司
+        units = UserCompany.objects.filter()
+
+        depts_nums = depts.count()
+
+        # 判断页码
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        # 对取到的数据进行分页，记得定义每页的数量
+        p = Paginator(depts, 17, request=request)
+
+        # 分页处理后的 QuerySet
+        depts = p.page(page)
+
+        context = {
+            'web_chose_left_1': web_chose_left_1,
+            'web_chose_left_2': web_chose_left_2,
+            'web_chose_middle': web_chose_middle,
+            'title': title,
+            'units': units,
+            'depts':depts,
+            'depts_nums': depts_nums,
+            'users':users,
+        }
+        return render(request, 'users/units/dept_list.html', context=context)
+
+######################################
+# 添加部门
+######################################
+class AddDeptView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role > 1:
             add_dept_form = AddDeptForm(request.POST)
@@ -362,14 +408,16 @@ class DeptListView(LoginStatusCheck, View):
                 name = request.POST.get('name')
 
                 if UserDepartment.objects.filter(name=name):
-                    return HttpResponse('{"status":"failed", "msg":"该部门已存在！"}', content_type='application/json')
+                    return HttpResponse('{"status":"failed", "msg":"该部门名称已经被使用！"}', content_type='application/json')
 
                 # 获取信息
                 dept = UserDepartment()
+                dept.company_id=request.POST.get('company_id')
+                dept.company_name=UserCompany.objects.get(id=dept.company_id).name
                 dept.name = name
                 dept.connect = request.POST.get('connect')
                 dept.connect_phone = request.POST.get('connect_phone')
-                dept.create_user = request.user.chinese_name
+                dept.create_user = request.user.username
                 dept.comment = request.POST.get('comment')
                 dept.save()
 
@@ -389,15 +437,14 @@ class DeptListView(LoginStatusCheck, View):
         else:
             return HttpResponse(status=403)
 
-
 ######################################
 # 修改部门
 ######################################
 class EditDeptView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role > 1:
-            edit_dept_form = EditDeptForm(request.POST)
-            if edit_dept_form.is_valid():
+            # edit_dept_form = EditDeptForm(request.POST)
+            # if edit_dept_form.is_valid():
 
                 # 获取设备
                 dept = UserDepartment.objects.get(id=request.POST.get('id'))
@@ -421,8 +468,8 @@ class EditDeptView(LoginStatusCheck, View):
                 op_record.save()
 
                 return HttpResponse('{"status":"success", "msg":"部门信息修改成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"部门信息填写错误，请检查！"}', content_type='application/json')
+            # else:
+            #     return HttpResponse('{"status":"failed", "msg":"部门信息填写错误，请检查！"}', content_type='application/json')
         else:
             return HttpResponse(status=403)
 

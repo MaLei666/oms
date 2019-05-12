@@ -7,7 +7,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 ######################################
 # 自己写的模块
 ######################################
-from opms.settings import SERVER_URL, EMAIL_HOST_USER
+from oms.settings import SERVER_URL, EMAIL_HOST_USER
 
 ######################################
 # 系统模块

@@ -25,7 +25,7 @@ from utils.login_check import LoginStatusCheck
 from .forms import *
 from .models import *
 from operation_record.models import UserOperationRecord
-from opms.settings import WEBSSH_IP, WEBSSH_PORT
+from oms.settings import WEBSSH_IP, WEBSSH_PORT
 
 
 ##############################################################################
