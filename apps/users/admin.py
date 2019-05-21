@@ -19,7 +19,6 @@ class UserAdmin(UserAdmin):
 ######################################
 admin.site.register(UserCompany)
 admin.site.register(UserDepartment)
-admin.site.register(UserPosition)
 admin.site.register(UserProfile, UserAdmin)
 admin.site.register(UserEmailVirificationCode)
 admin.site.register(UserLoginInfo)

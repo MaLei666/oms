@@ -3,21 +3,5 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>AngularJS</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.6.3 (sftp://root@192.168.1.137:822/root/.local/share/virtualenvs/spider-ZJojIwe4/bin/python)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.6.3 (sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python)" project-jdk-type="Python SDK" />
 </project>

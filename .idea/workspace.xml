@@ -1,839 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../Django/OPMS_v3/manage.py" description="#!/usr/bin/env python" line="0" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9774198c-6149-41df-86a0-7f634a4bb801" name="Default Changelist" comment="初始化">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/oms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/templatetags/doc_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/document_management/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/templatetags/host_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/host_management/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/migrations/0002_useroperationrecord_op_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/migrations/0003_auto_20190403_1526.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/templatetags/op_record_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/operation_record/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/templatetags/platfom_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/platform_management/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/spider_data/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/migrations/0006_remove_inspectcontentinfo_content_no.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/templatetags/user_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/login_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/send_email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/user_func.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/vechain/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/baseinfo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/dbinfo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/document.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/guzhang.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/host.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/hostinfo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/index.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/message.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/userinfo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/display/webssh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extra_apps/webssh/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/platform-management/logo/confluence.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/platform-management/logo/git.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/platform-management/logo/jenkins.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/platform-management/logo/showdoc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/platform-management/logo/zabbix.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/platform-management/logo/zentao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/2018/07/QQи`иnиTиa20180704113519.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/2018/07/иlй╨иgб╠и`з╓иUзю-иlз╥й╨бд.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/2018/07/иlй╨иgб╠и`з╓иUзю-иlз╥й╨бд_0zcWPHx.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/2018/08/4115.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/2018/12/微信图片_20181210143132.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/users/avatar/system.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opms/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opms/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opms/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/autocomplete.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/changelists.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/forms.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/responsive_rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/vendor/select2/LICENSE-SELECT2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/vendor/select2/select2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/vendor/select2/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/css/widgets.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/fonts/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/fonts/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/fonts/Roboto-Bold-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/fonts/Roboto-Light-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/fonts/Roboto-Regular-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/calendar-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/gis/move_vertex_off.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/gis/move_vertex_on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-addlink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-alert.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-changelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-clock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-deletelink.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-no.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-unknown-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-unknown.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/icon-yes.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/inline-delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/selector-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/sorting-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/tooltag-add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/img/tooltag-arrowright.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/SelectBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/SelectFilter2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/actions.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/admin/DateTimeShortcuts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/admin/RelatedObjectLookups.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/autocomplete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/cancel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/change_form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/collapse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/collapse.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/inlines.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/inlines.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/jquery.init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/popup_response.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/prepopulate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/prepopulate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/prepopulate_init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/timeparse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/urlify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/LICENSE-JQUERY.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/LICENSE-SELECT2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/pt-BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sr-Cyrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/zh-CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/i18n/zh-TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/bootstrap-select.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/simple-line-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/weather.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/sourcesanspro/sourcesanspro-bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/sourcesanspro/sourcesanspro-light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/sourcesanspro/sourcesanspro.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/avatar/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/bg_login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/error/403.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/error/404.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/error/500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/error/tfans.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/clouds.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/little_rain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/many_cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/rain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/smoke.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/snow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/sun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/sun_cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/thundershower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/weather/windy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/页面载入出错.xht" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/bootstrap-select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/dict/add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/dict/dict.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/dict/edit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/deviceQuery/deviceQuery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectContent/add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectContent/device.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectContent/edit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectContent/inspectContent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectContent/inspectContent.js.old" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectContent/show.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectDevice/edit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectDevice/inspectDevice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectDevice/show.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectFault/distribute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectFault/inspectFault.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectFault/show.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectJob/inspectJob.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectJob/inspectJob.js.old" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectJob/show.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectTask/inspectTask.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectTask/inspectTask.js.old" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/inspectTask/show.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/inspect/statInspect/statInspect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery-2.2.4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/nav_menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/bootstrap_date/bootstrap-datetimepicker.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/bootstrap_date/bootstrap-datetimepicker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/bootstrap_date/bootstrap-select.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/bootstrap_date/bootstrap-select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/bootstrap_date/moment-with-locales.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/CHANGES.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/adapters/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/build-config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/ckeditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/contents.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/lang/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/lang/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/de-ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/en-au.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/en-gb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/es-mx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/oc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/tt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/about/dialogs/about.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/about/dialogs/logo_ckeditor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/codesnippet/dialogs/codesnippet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/colordialog/dialogs/colordialog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/colordialog/dialogs/colordialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/copyformatting/cursors/cursor-disabled.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/copyformatting/cursors/cursor.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/copyformatting/styles/copyformatting.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/dialog/dialogDefinition.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/div/dialogs/div.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/find/dialogs/find.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/flash/dialogs/flash.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/flash/images/placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/checkbox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/hiddenfield.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/radio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/textarea.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/dialogs/textfield.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/forms/images/hiddenfield.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/icons_hidpi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/iframe/dialogs/iframe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/iframe/images/placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/image/dialogs/image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/image/images/noimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/link/dialogs/anchor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/link/dialogs/link.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/link/images/anchor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/link/images/hidpi/anchor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/liststyle/dialogs/liststyle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/magicline/images/hidpi/icon-rtl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/magicline/images/hidpi/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/magicline/images/icon-rtl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/magicline/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/pagebreak/images/pagebreak.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/pastefromword/filter/default.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/preview/preview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/dialogs/dialog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/dialogs/options.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/dialogs/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_address.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_blockquote.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_div.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_h1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_h2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_h3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_h4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_h5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_h6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_p.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/showblocks/images/block_pre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/dialogs/smiley.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/angel_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/angel_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/angry_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/angry_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/broken_heart.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/broken_heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/confused_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/confused_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/cry_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/cry_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/devil_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/devil_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/embaressed_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/embarrassed_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/embarrassed_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/envelope.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/envelope.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/heart.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/kiss.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/kiss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/lightbulb.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/lightbulb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/omg_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/omg_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/regular_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/regular_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/sad_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/sad_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/shades_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/shades_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/teeth_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/teeth_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/thumbs_down.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/thumbs_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/thumbs_up.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/thumbs_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/tongue_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/tongue_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/tounge_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/whatchutalkingabout_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/whatchutalkingabout_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/wink_smile.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/smiley/images/wink_smile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/cy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/de-ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/en-au.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/en-ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/en-gb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/eo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/es-mx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ku.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/no.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/oc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/si.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/tt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/ug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/specialchar/dialogs/specialchar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/table/dialogs/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/tableselection/styles/tableselection.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/tabletools/dialogs/tableCell.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/templates/dialogs/templates.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/templates/dialogs/templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/templates/templates/default.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/templates/templates/images/template1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/templates/templates/images/template2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/templates/templates/images/template3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/widget/images/handle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/dialogs/ciframe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/dialogs/wsc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/dialogs/wsc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/dialogs/wsc_ie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/css/samples.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/img/github-top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/img/header-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/img/header-separator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/img/navigation-tip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/js/sample.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/js/sf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/ajax.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/api.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/appendto.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/assets/inlineall/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/assets/outputxhtml/outputxhtml.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/assets/posteddata.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/assets/sample.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/assets/uilanguages/languages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/codesnippet/codesnippet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/datafiltering.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/dialog/assets/my_dialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/dialog/dialog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/divreplace.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/enterkey/enterkey.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.fla" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.swf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/htmlwriter/assets/outputforflash/swfobject.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/htmlwriter/outputforflash.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/htmlwriter/outputhtml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/inlineall.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/inlinebycode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/inlinetextarea.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/jquery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/magicline/magicline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/readonly.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/replacebyclass.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/replacebycode.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/sample.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/sample.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/sample_posteddata.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/tabindex.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/toolbar/toolbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/uicolor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/uilanguages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/wysiwygarea/fullpage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/old/xhtmlstyle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/css/fontello.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/font/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/font/fontello.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/font/fontello.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/font/fontello.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/font/fontello.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/js/abstracttoolbarmodifier.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/js/fulltoolbareditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/js/toolbarmodifier.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/samples/toolbarconfigurator/js/toolbartextmodifier.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/dialog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/dialog_ie.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/dialog_ie8.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/dialog_iequirks.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/editor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/editor_gecko.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/editor_ie.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/editor_ie8.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/editor_iequirks.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/icons_hidpi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/hidpi/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/hidpi/lock-open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/hidpi/lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/hidpi/refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/lock-open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/images/spinner.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/skins/moono-lisa/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/ckeditor/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/extend/layer.ext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/need/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/skins/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/skins/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/theme/default/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/theme/default/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/theme/default/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/theme/default/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydate/theme/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydateNew/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydateNew/theme/default/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydateNew/theme/default/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydateNew/theme/default/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydateNew/theme/default/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/laydateNew/theme/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layer.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/data/chatlog.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/data/friend.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/data/group.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/data/groups.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/layim.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/layim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/layim/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/mobile/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/mobile/need/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/icon_ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/textbg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/xubox_ico0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/xubox_loading0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/xubox_loading1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/xubox_loading2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/xubox_loading3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/default/xubox_title0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/layer.ext.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/moon/default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/skin/moon/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/theme/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/theme/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/theme/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/theme/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/theme/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/layer/theme/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/font/summernote.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/font/summernote.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/font/summernote.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-ar-AR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-bg-BG.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-ca-ES.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-cs-CZ.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-da-DK.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-de-DE.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-es-ES.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-es-EU.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-fa-IR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-fi-FI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-fr-FR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-he-IL.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-hu-HU.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-id-ID.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-it-IT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-ja-JP.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-ko-KR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-lt-LT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-nb-NO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-nl-NL.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-pl-PL.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-pt-BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-pt-PT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-ro-RO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-ru-RU.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-sk-SK.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-sl-SI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-sr-RS-Latin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-sr-RS.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-sv-SE.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-th-TH.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-tr-TR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-uk-UA.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-vi-VN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-zh-CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/lang/summernote-zh-TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/plugin/hello/summernote-ext-hello.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/plugin/specialchars/summernote-ext-specialchars.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/summernote.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/summernote.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/summernote.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/plugins/summernote/summernote.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/css/fullscreen.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/css/xterm.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/img/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/js/fullscreen.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/webssh_static/js/xterm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/document_management/document/doc_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/document_management/document/doc_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/error/403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/error/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/error/500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/host/db_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/host/db_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/host/host_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/host/host_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/other/data_dict_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/other/host_op_record.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/other/project_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/other/system_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/other/use_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/port/domain_name_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/port/domain_name_resolve_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/port/network_dvice_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/host_management/port/port_to_port_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/platform-management/platform_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/platform-management/user_platform_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/spider_data/dp_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/spider_data/dp_re_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/spider_data/dp_shop_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/spider_data/zhihu_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/spider_data/zhihu_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/login/forget_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/login/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/login/reset_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/login_base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/units/dept_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/units/unit_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_change_avatar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_change_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_change_passwd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_info_other.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_login_record.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user/user_op_record.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/user_base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/vechain/artifact_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/备注.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/oms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/oms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -841,8 +17,143 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7089">
+              <caret line="449" column="32" selection-start-line="449" selection-start-column="32" selection-end-line="449" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="97" column="82" selection-start-line="97" selection-start-column="82" selection-end-line="97" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1411">
+              <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/users/units/dept_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3264">
+              <caret line="192" column="62" selection-start-line="192" selection-start-column="59" selection-end-line="192" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/users/units/unit_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="327" column="16" selection-start-line="327" selection-start-column="16" selection-end-line="327" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5287">
+              <caret line="311" column="51" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/sys_inspect/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1887">
+              <caret line="135" column="78" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>#!/usr/bin/env python</find>
+      <find>#!/</find>
+      <find>DeleteDevModal</find>
+      <find>devices</find>
+      <find>id_AddDevForm</find>
+      <find>id_AddDevBtn</find>
+      <find>id_EditDevForm</find>
+      <find>id_EditDevBtn</find>
+      <find>设备</find>
+      <find>id_DeleteDevForm</find>
+      <find>id_DeleteDevBtn</find>
+      <find>web_chose_left_2</find>
+      <find>暂无</find>
+      <find>web_chose_left_1</find>
+      <find>id_EditUnitBtn</find>
+      <find>id_EditUnitForm</find>
+      <find>unit</find>
+      <find>Unit</find>
+      <find>单位</find>
+      <find>company_id</find>
+      <find>company</find>
+      <find>_id</find>
+      <find>EditDevModal</find>
+      <find>´</find>
+      <find>Foreign</find>
+      <find>is_active</find>
+      <find>ForeignKey</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/apps/users</dir>
+      <dir>$PROJECT_DIR$/apps</dir>
+    </dirStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/apps/vechain/forms.py" />
+        <option value="$PROJECT_DIR$/apps/vechain/urls.py" />
+        <option value="$PROJECT_DIR$/apps/spider_data/forms.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/oms/settings.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/apps/users/forms.py" />
+        <option value="$PROJECT_DIR$/templates/users/units/dept_list.html" />
+        <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/templates/users/units/unit_list.html" />
+        <option value="&lt;02f4c021-f77b-4940-b5d3-0f6ae352336d&gt;/home/py_code/oms/apps/users/migrations/0001_initial.py" />
+        <option value="$PROJECT_DIR$/apps/users/models.py" />
+      </list>
+    </option>
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -855,24 +166,95 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="806" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="sys_inspect" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="sys_inspect" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="units" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -890,6 +272,32 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="oms" type="Python.DjangoServer" factoryName="Django server">
+      <module name="oms" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="oms.settings" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="0.0.0.0" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -901,37 +309,62 @@
       <option name="presentableId" value="Default" />
       <updated>1557452907316</updated>
       <workItem from="1557452909145" duration="254000" />
+      <workItem from="1557642995597" duration="284000" />
+      <workItem from="1557643319933" duration="3976000" />
+      <workItem from="1557648711317" duration="5583000" />
+      <workItem from="1557750532163" duration="19000" />
+      <workItem from="1558445409367" duration="3489000" />
     </task>
+    <task id="LOCAL-00001" summary="5-12更新 单位管理、部门管理 html页面">
+      <created>1557667814514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557667814514</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254000" />
+    <option name="totallyTimeSpent" value="13605000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19456366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" weight="0.32961586" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32961586" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32961586" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.47211897" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32935154" />
-      <window_info anchor="right" id="Remote Host" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3283767" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32961586" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32961586" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32961586" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.19670959" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -939,6 +372,146 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始化" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始化" />
+    <MESSAGE value="5-12更新 单位管理、部门管理 html页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="5-12更新 单位管理、部门管理 html页面" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/apps/host_management/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="e#70#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Django/OPMS_v3/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="21" />
+          <folding>
+            <element signature="e#22#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/host_management/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="57" column="44" selection-start-line="57" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/host_management/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8921">
+          <caret line="542" selection-start-line="542" selection-end-line="542" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7089">
+          <caret line="449" column="32" selection-start-line="449" selection-start-column="32" selection-end-line="449" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/units/dept_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3264">
+          <caret line="192" column="62" selection-start-line="192" selection-start-column="59" selection-end-line="192" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5287">
+          <caret line="311" column="51" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="135" column="78" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/units/unit_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="327" column="16" selection-start-line="327" selection-start-column="16" selection-end-line="327" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="97" column="82" selection-start-line="97" selection-start-column="82" selection-end-line="97" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

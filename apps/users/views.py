@@ -854,9 +854,6 @@ class UserListView(LoginStatusCheck, View):
         web_chose_left_2 = 'user_list'
         web_chose_middle = ''
 
-        # 职位列表
-        positions = UserPosition.objects.all()
-
         # 用户记录
         users = UserProfile.objects.all().order_by('-date_joined')
 
@@ -959,7 +956,7 @@ class AddUserView(LoginStatusCheck, View):
                 user.email = email
                 user.mobile = mobile
                 user.gender = gender
-                user.position = UserPosition.objects.get(id=int(position))
+                # user.position = UserPosition.objects.get(id=int(position))
                 user.role = int(role)
                 user.status = int(status)
                 user.password = make_password(password)

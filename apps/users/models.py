@@ -60,22 +60,22 @@ class UserDepartment(models.Model):
     def __str__(self):
         return "%s - %s" % (self.company.name, self.name)
 
-
-######################################
-# 职位表
-######################################
-class UserPosition(models.Model):
-    name = models.CharField(verbose_name='职位', max_length=20)
-    department = models.ForeignKey(UserDepartment, verbose_name='部门', on_delete=models.CASCADE)
-    desc = models.CharField(verbose_name='描述', max_length=200, blank=True, null=True)
-    add_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True)
-
-    class Meta:
-        verbose_name = '职位'
-        verbose_name_plural = verbose_name
-
-    def __str__(self):
-        return "%s - %s - %s" % (self.department.company.name, self.department.name, self.name)
+#
+# ######################################
+# # 职位表
+# ######################################
+# class UserPosition(models.Model):
+#     name = models.CharField(verbose_name='职位', max_length=20)
+#     department = models.ForeignKey(UserDepartment, verbose_name='部门', on_delete=models.CASCADE)
+#     desc = models.CharField(verbose_name='描述', max_length=200, blank=True, null=True)
+#     add_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True)
+#
+#     class Meta:
+#         verbose_name = '职位'
+#         verbose_name_plural = verbose_name
+#
+#     def __str__(self):
+#         return "%s - %s - %s" % (self.department.company.name, self.department.name, self.name)
 
 
 ######################################
@@ -83,20 +83,21 @@ class UserPosition(models.Model):
 ######################################
 class UserProfile(AbstractUser):
     role = models.PositiveSmallIntegerField(verbose_name='角色', choices=((1, '普通用户'), (2, '管理员'), (3, '超级管理员')), default=1)
-    chinese_name = models.CharField(verbose_name='名字', max_length=10)
-    wechat = models.CharField(verbose_name='微信', max_length=30, blank=True, null=True)
-    qq = models.CharField(verbose_name='QQ', max_length=20, blank=True, null=True)
+    user_name = models.CharField(verbose_name='名字', max_length=10)
+    company_id=models.IntegerField(verbose_name='单位ID')
+    dept_id=models.IntegerField(verbose_name='部门ID')
     mobile = models.CharField(verbose_name='手机号', max_length=20)
     avatar = models.ImageField(verbose_name='用户头像', max_length=200, upload_to='users/avatar/%Y/%m',
                                default='users/avatar/default.png', null=True, blank=True)
-    birthday = models.DateField(verbose_name='生日', blank=True, null=True)
     gender = models.CharField(verbose_name='性别', choices=(('male', '男'), ('female', '女')), default='male',
                               max_length=10)
-    address = models.CharField(verbose_name='地址', max_length=50, blank=True, null=True)
-    position = models.ForeignKey(UserPosition, verbose_name='职位', on_delete=models.CASCADE, blank=True, null=True)
-    desc = models.CharField(verbose_name='描述', max_length=200, blank=True, null=True)
+    # position = models.ForeignKey(UserPosition, verbose_name='职位', on_delete=models.CASCADE, blank=True, null=True)
+    create_user = models.CharField(verbose_name='创建者', max_length=45)
+    create_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True)
+    update_user = models.CharField(verbose_name='更新者', max_length=45, blank=True, null=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', blank=True, null=True)
+    comment = models.CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (2, '停用')), default=1)
-    stop_time = models.DateTimeField(verbose_name='停用时间', blank=True, null=True)
 
     class Meta:
         verbose_name = '用户'
