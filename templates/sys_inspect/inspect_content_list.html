@@ -211,8 +211,8 @@
 										<td>
                                         <select name="unitId" id="unitId" class="form-control" style="height: 30px;width: 98%;font-size: 12px">
                                             <option value="">请选择...</option>
-                                            {% for each_company in company %}
-                                                <option value="{{ each_company.id }}">{{ each_company.name }}</option>
+                                            {% for each_unit in units %}
+                                                <option value="{{ each_unit.id }}">{{ each_unit.name }}</option>
                                             {% endfor %}
                                         </select>
 										</td>

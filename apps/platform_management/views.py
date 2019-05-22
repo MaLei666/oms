@@ -34,7 +34,7 @@ class CompanyPlatformListView(LoginStatusCheck, View):
     def get(self, request):
         # 页面选择
         web_chose_left_1 = 'platform'
-        web_chose_left_2 = 'company'
+        web_chose_left_2 = 'unit'
         web_chose_middle = ''
 
         title = '内部平台'

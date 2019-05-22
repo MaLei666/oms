@@ -47,7 +47,7 @@ class InspectDevInfoViews(LoginStatusCheck, View):
         depts=UserDepartment.objects.filter()
 
         # 公司
-        company = UserCompany.objects.filter()
+        units = UserCompany.objects.filter()
 
         # 数据字典
         dicts=DataDictInfo.objects.filter()
@@ -75,7 +75,7 @@ class InspectDevInfoViews(LoginStatusCheck, View):
             'depts':depts,
             'devices_nums': devices_nums,
             'users':users,
-            'company': company,
+            'units': units,
             'dicts':dicts
         }
         return render(request, 'sys_inspect/inspect_dev_list.html', context=context)
@@ -201,7 +201,7 @@ class ContentViews(LoginStatusCheck, View):
         depts = UserDepartment.objects.filter()
 
         #公司
-        company=UserCompany.objects.filter()
+        units=UserCompany.objects.filter()
 
         #设备
         devices=InspectDevInfo.objects.filter()
@@ -231,7 +231,7 @@ class ContentViews(LoginStatusCheck, View):
             'contents_nums': contents_nums,
             'depts': depts,
             'users': users,
-            'company':company,
+            'units':units,
             'devices':devices
         }
         return render(request, 'sys_inspect/inspect_content_list.html', context=context)

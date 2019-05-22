@@ -361,7 +361,7 @@
                                 <select id="id_select" name="position" class="selectpicker bla bli form-control"
                                         data-live-search="true" style="display: none;">
                                     {% for each_position in positions %}
-                                        <option value="{{ each_position.id }}">{{ each_position.department.company.name }}
+                                        <option value="{{ each_position.id }}">{{ each_position.department.unit.name }}
                                             - {{ each_position.department.name }} - {{ each_position.name }}</option>
                                     {% endfor %}
                                 </select>
@@ -552,7 +552,7 @@
                                             {% for each_position in positions %}
                                                 <option value="{{ each_position.id }}"
                                                         {% ifequal each_user.position.id each_position.id %}
-                                                        selected {% endifequal %}>{{ each_position.department.company.name }}
+                                                        selected {% endifequal %}>{{ each_position.department.unit.name }}
                                                     - {{ each_position.department.name }}
                                                     - {{ each_position.name }}</option>
                                             {% endfor %}

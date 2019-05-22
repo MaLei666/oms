@@ -58,7 +58,7 @@ class InspectDevInfo(models.Model):
     status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (0, '停用')), default=1)
 
     class Meta:
-        verbose_name = '设备表'
+        verbose_name = '巡检设备'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -93,6 +93,12 @@ class InspectContentInfo(models.Model):
     name3 =models.CharField(max_length=25,verbose_name='名称3',blank=True,null=True)
     status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (0, '停用')), default=1)
 
+    class Meta:
+        verbose_name = '巡检任务'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.id
 
 
 

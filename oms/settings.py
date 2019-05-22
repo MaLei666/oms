@@ -119,11 +119,10 @@ WSGI_APPLICATION = 'oms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'opm',
+        'NAME': 'oms',
         'USER': 'root',
         'PASSWORD': 'zkyr1006',
-        # 'HOST': '192.168.1.137',
-        'HOST':'58.132.209.229',
+        'HOST': '192.168.1.137',
         'PORT': '3306',
     }
 }

@@ -20,8 +20,8 @@
 
                         <div class="selectBox" style="padding: 15px;padding-bottom: 0">
                             {% if request.user.role > 1 %}
-                                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#AddDevModal"><i
-                                            class="fa fa-plus"></i> 添加设备</a>
+                                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#AddDeptModal"><i
+                                            class="fa fa-plus"></i> 添加部门</a>
                                 {% endif %}
 
                             <!-- 功能 -->
@@ -53,70 +53,64 @@
                                         <thead>
                                         <tr role="row">
                                             <th class="text-center">ID</th>
-                                            <th class="text-center">设备id</th>
-                                            <th class="text-center">设备名称</th>
-                                            <th class="text-center">设备类型</th>
-                                            <th class="text-center">设备状态</th>
                                             <th class="text-center">单位名称</th>
-                                            <th class="text-center">安装位置</th>
-                                            <th class="text-center">添加人员</th>
-                                            <th class="text-center">创建时间</th>
-                                            <th class="text-center">运行模式</th>
+                                            <th class="text-center">部门名称</th>
+                                            <th class="text-center">部门地址</th>
+                                            <th class="text-center">联系人</th>
+                                            <th class="text-center">联系电话</th>
+                                            <th class="text-center">状态</th>
+                                            <th class="text-center">备注</th>
                                             <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-                                        {% for each_device in devices.object_list %}
+                                        {% for each_dept in depts.object_list %}
                                             <tr class="gradeX odd" role="row">
-                                                <td class="text-center">{{ forloop.counter }}</td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_device.dev_id }}
+                                                    style="vertical-align:middle;">{{ each_dept.id }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_device.dev_name }}
+                                                    style="vertical-align:middle;">{{ each_dept.unit_name }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{% for each_dict in dicts%}{% if each_dict.value is each_device.dev_type %}
-                                                    {{ each_dict.name }}{% else %}未知{% endif %}
-                                                    {% endfor %}
+                                                    style="vertical-align:middle;">{{ each_dept.name }}
+                                                </td>
+
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{% if each_dept.address %}{{ each_dept.address }}
+                                                    {% else %}-{% endif %}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;"> {% if each_device.dev_status is 1 %}
-                                                    <a  class="btn btn-xs" style="background-color: #1ab394; color: white">正常 {% else %}
-                                                    <a  class="btn btn-xs" style="background-color: #f8ac59; color: white">故障{% endif %} </a></td>
-                                                <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_device.unit_name }}
+                                                    style="vertical-align:middle;">{% if each_dept.connect %}{{ each_dept.connect }}
+                                                {% else %}-{% endif %}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_device.install_position }}
+                                                    style="vertical-align:middle;">{% if each_dept.connect_phone %}{{ each_dept.connect_phone }}
+                                                {% else %}-{% endif %}
                                                 </td>
+
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">
-                                                    {% for each_user in users %}{% if each_user.id is each_device.create_user %}
-                                                        {{ each_user.chinese_name }}{% else %}暂无{% endif %}
-                                                    {% endfor %}
-                                                </td>
-                                                <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_device.create_time }}
-                                                </td>
-                                                <td class="text-center"
-                                                    style="vertical-align:middle;">{% if each_device.status is 1 %}
+                                                    style="vertical-align:middle;">{% if each_dept.status is 1 %}
                                                     <a  class="btn btn-xs">启用 {% else %}
                                                     <a  class="btn btn-xs">禁用{% endif %} </a>
+                                                </td>
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{% if each_dept.comment %}
+                                                        {{ each_dept.comment  }}{% else %}-{% endif %}
                                                 </td>
 
                                                 <td class="text-center" style="vertical-align:middle;">
                                                     <a type="button" class="btn btn-xs"
                                                        style="background-color: #1c84c6;color: white;"
                                                       data-toggle="modal"
-                                                       data-target="#EditDevModal{{ each_device.id }}">
+                                                       data-target="#EditDeptModal{{ each_dept.id }}">
                                                         修改
                                                     </a>
                                                     <button class="btn btn-xs"
                                                                 style="background-color: #c7254e;color: white;"
                                                                 data-toggle="modal"
-                                                                data-target="#DeleteDevModal{{ each_device.id }}">
+                                                                data-target="#DeleteDeptModal{{ each_dept.id }}">
                                                         删除
                                                     </button>
                                                 </td>
@@ -132,18 +126,18 @@
                                 <ul class="pagination" style="margin-top: 10px; margin-bottom: 10px;">
 
                                     <!-- 上一页 -->
-                                    {% if devices.has_previous %}
-                                        <li><a href="?{{ devices.previous_page_number.querystring }}">上一页<span
+                                    {% if depts.has_previous %}
+                                        <li><a href="?{{ depts.previous_page_number.querystring }}">上一页<span
                                                 class="sr-only"></span></a></li>
-                                        <li><a href="?{{ devices.previous_page_number.querystring }}">&laquo;<span
+                                        <li><a href="?{{ depts.previous_page_number.querystring }}">&laquo;<span
                                                 class="sr-only"></span></a></li>
                                     {% endif %}
 
                                     <!-- 页码 -->
-                                    {% for page in devices.pages %}
+                                    {% for page in depts.pages %}
                                         {% if page %}
                                             <!-- 当前页 -->
-                                            {% ifequal page devices.number %}
+                                            {% ifequal page depts.number %}
                                                 <li class="active"><a href="?page={{ page }}">{{ page }}<span
                                                         class="sr-only">(current)</span></a></li>
                                                 <!-- 其它页 -->
@@ -158,10 +152,10 @@
                                     {% endfor %}
 
                                     <!-- 下一页 -->
-                                    {% if devices.has_next %}
-                                        <li><a href="?{{ devices.next_page_number.querystring }}">&raquo;<span
+                                    {% if depts.has_next %}
+                                        <li><a href="?{{ depts.next_page_number.querystring }}">&raquo;<span
                                                 class="sr-only"></span></a></li>
-                                        <li><a href="?{{ devices.next_page_number.querystring }}">下一页<span
+                                        <li><a href="?{{ depts.next_page_number.querystring }}">下一页<span
                                                 class="sr-only"></span></a></li>
                                     {% endif %}
                                 </ul>
@@ -175,7 +169,7 @@
 {% endblock base_content %}
 
 {% block base_footer_html %}
-    <div class="modal inmodal" id="AddDevModal" tabindex="-1" role="dialog" aria-hidden="true"
+    <div class="modal inmodal" id="AddDeptModal" tabindex="-1" role="dialog" aria-hidden="true"
          data-backdrop="static">
         <div class="modal-dialog" style="width: 30%;">
             <div class="modal-content" style="margin-top: 100px;">
@@ -185,10 +179,11 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <i class="icon-close" style="font-size: 18px;"></i>
                     </button>
-                    <h4 class="modal-title">添加设备</h4>
+                    <h4 class="modal-title">添加部门</h4>
                 </div>
 
-                <form method="post" id="id_AddDevForm">
+                <form method="post" id="id_AddDeptForm">
+
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">
                         <div class="col-md-3">
@@ -207,48 +202,42 @@
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
                         <div class="col-md-3">
-                            <span style="font-size: 12px;">设备类型:</span>
+                            <span style="font-size: 12px;">部门名称:</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <select name="dev_type" id="dev_type" class="form-control selectpicker">
-                            <option value="">请选择...</option>
-                            {% for each_dict in dicts %}
-                                <option value="{{ each_dict.value }}">{{ each_dict.name }}</option>
-                            {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group"
-                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
-                        <div class="col-md-3">
-                            <span style="font-size: 12px;">设备id:</span>
-                        </div>
-                        <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder="设备id"
-                                       maxlength="20" name="dev_id" required="">
+                            <input type="text" class="form-control" placeholder='部门名称'
+                                   maxlength="20" name="name" required="">
                         </div>
                     </div>
 
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                         <div class="col-md-3">
-                            <span style="font-size: 12px;">设备名称：</span>
+                            <span style="font-size: 12px;">部门地址:</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder="设备名称"
-                                       maxlength="20" name="dev_name" required="">
+                            <input type="text" class="form-control" placeholder='部门地址' name="address">
                         </div>
                     </div>
 
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                         <div class="col-md-3">
-                            <span style="font-size: 12px;">安装位置：</span>
+                            <span style="font-size: 12px;">联系人：</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder="安装位置"
-                                       maxlength="20" name="install_position" required="">
+                            <input type="text" class="form-control" placeholder="联系人"
+                                       maxlength="20" name="connect">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">联系电话：</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder="联系电话" name="connect_phone">
                         </div>
                     </div>
 
@@ -258,7 +247,7 @@
                         </div>
                         <div class="col-md-9" style="padding: 0;">
                             <input type="radio" name="status" value="1" checked/>&nbsp;启用&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="status" value="2"/>&nbsp;禁用
+                            <input type="radio" name="status" value="0"/>&nbsp;禁用
                         </div>
                     </div>
 
@@ -268,13 +257,12 @@
                             <span style="font-size: 12px;">备注：</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder="备注"
-                                       maxlength="20" name="comment" required="">
+                            <input type="text" class="form-control" placeholder="备注" name="comment">
                         </div>
                     </div>
                     <div class="modal-footer" style="padding-top: 10px; padding-bottom: 10px;">
                         <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>
-                        <a class="btn btn-sm btn-default" id="id_AddDevBtn">添加</a>
+                        <a class="btn btn-sm btn-default" id="id_AddDeptBtn">添加</a>
                     </div>
                 </form>
             </div>
@@ -285,12 +273,12 @@
     <script>
         $(function () {
             // 提交表单
-            $('#id_AddDevBtn').on('click', function () {
+            $('#id_AddDeptBtn').on('click', function () {
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{% url 'sys_inspect:inspect_devices_add' %}",
-                    data: $('#id_AddDevForm').serialize(),
+                    url: "{% url 'users:dept_add' %}",
+                    data: $('#id_AddDeptForm').serialize(),
                     async: true,
                     beforeSend: function (xhr, settings) {
                         xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
@@ -307,9 +295,9 @@
         })
     </script>
 
-    {% for each_device in devices.object_list %}
-{#        修改设备#}
-        <div class="modal inmodal" id="EditDevModal{{ each_device.id }}" tabindex="-1" role="dialog" aria-hidden="true"
+    {% for each_dept in depts.object_list %}
+{#        修改部门#}
+        <div class="modal inmodal" id="EditDeptModal{{ each_dept.id }}" tabindex="-1" role="dialog" aria-hidden="true"
              data-backdrop="static">
             <div class="modal-dialog" style="width: 500px;">
                 <div class="modal-content" style="margin-top: 100px;" >
@@ -318,11 +306,11 @@
                         <button type="button" class="close" data-dismiss="modal">
                             <i class="icon-close" style="font-size: 18px;"></i>
                         </button>
-                        <h4 class="modal-title">修改设备</h4>
+                        <h4 class="modal-title">部门修改</h4>
                     </div>
 
-                    <form method="post" id="id_EditDevForm{{ each_device.id }}">
-                        <input type="hidden" name="id" value="{{ each_device.id }}">
+                    <form method="post" id="id_EditDeptForm{{ each_dept.id }}">
+                        <input type="hidden" name="id" value="{{ each_dept.id }}">
                             <div class="col-md-12" style="padding-top: 20px">
 
                                 <div class="form-group"
@@ -332,52 +320,48 @@
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
                                         <input type="text" class="form-control" placeholder="单位名称"
-                                               maxlength="20" name="unit_name" required="" value="{{ each_device.unit_name }}" readonly>
+                                               maxlength="20" name="unit_name" required="" value="{{ each_dept.unit_name }}" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">部门名称:</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder='部门名称'
+                                               maxlength="20" name="name" required="" value="{{ each_dept.name }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">部门地址:</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder='部门地址' name="address" value="{{ each_dept.address }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group"
                                      style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                                     <div class="col-md-3">
-                                        <span style="font-size: 12px;">设备ID：</span>
+                                        <span style="font-size: 12px;">联系人：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="设备ID"
-                                               maxlength="20" name="dev_id" required="" value="{{ each_device.dev_id }}" readonly>
+                                        <input type="text" class="form-control" placeholder="联系人"
+                                                   maxlength="20" name="connect" value="{{ each_dept.connect }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group"
                                      style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                                     <div class="col-md-3">
-                                        <span style="font-size: 12px;">设备类型：</span>
+                                        <span style="font-size: 12px;">联系电话：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="设备ID"
-                                               maxlength="20" name="dev_id" required="" value={% for each_dict in dicts %}
-                                            {% if each_dict.value is each_device.dev_type %}{{ each_dict.name }}{% else %}未知
-                                            {% endif %}{% endfor %} readonly>
-                                    </div>
-                                </div>
-
-                                <div class="form-group"
-                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
-                                    <div class="col-md-3">
-                                        <span style="font-size: 12px;">设备名称：</span>
-                                    </div>
-                                    <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="设备名称"
-                                               maxlength="20" name="dev_name" required="" value="{{ each_device.dev_name }}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
-                                    <div class="col-md-3">
-                                        <span style="font-size: 12px;">安装位置：</span>
-                                    </div>
-                                    <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="安装位置"
-                                               maxlength="20" name="install_position" required="" value="{{ each_device.install_position }}">
+                                        <input type="text" class="form-control" placeholder="联系电话" name="connect_phone" value="{{ each_dept.connect_phone }}">
                                     </div>
                                 </div>
 
@@ -386,24 +370,24 @@
                                         <span style="font-size: 12px;">运行模式：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-										<input type="radio" name="status" value="1" checked/>&nbsp;启用&nbsp;&nbsp;&nbsp;
-										<input type="radio" name="status" value="2"/>&nbsp;禁用
-								    </div>
+                                        <input type="radio" name="status" value="1" checked/>&nbsp;启用&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="status" value="0"/>&nbsp;禁用
+                                    </div>
                                 </div>
 
-                                <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                                     <div class="col-md-3">
                                         <span style="font-size: 12px;">备注：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="备注"
-                                               maxlength="20" name="comment" required="" value="{{ each_device.comment }}">
+                                        <input type="text" class="form-control" placeholder="备注" name="comment" value="{{ each_dept.comment }}">
                                     </div>
                                 </div>
                             </div>
                         <div class="modal-footer" style="padding-right: 30px;padding-top: 10px; padding-bottom: 10px;">
                             <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>
-                            <a class="btn btn-sm btn-default" id="id_EditDevBtn{{ each_device.id }}">修改</a>
+                            <a class="btn btn-sm btn-default" id="id_EditDeptBtn{{ each_dept.id }}">修改</a>
                         </div>
                     </form>
                 </div>
@@ -414,12 +398,12 @@
         <script>
             $(function () {
                 // 提交表单
-                $('#id_EditDevBtn{{ each_device.id }}').on('click', function () {
+                $('#id_EditDeptBtn{{ each_dept.id }}').on('click', function () {
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{% url 'sys_inspect:inspect_device_edit'%}",
-                        data: $('#id_EditDevForm{{ each_device.id }}').serialize(),
+                        url: "{% url 'users:dept_edit'%}",
+                        data: $('#id_EditDeptForm{{ each_dept.id }}').serialize(),
                         async: true,
                         beforeSend: function (xhr, settings) {
                             xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
@@ -436,8 +420,8 @@
             })
         </script>
 
-        <!-- 删除设备 -->
-        <div class="modal inmodal" id="DeleteDevModal{{ each_device.id }}" tabindex="-1" role="dialog" aria-hidden="true"
+        <!-- 删除部门 -->
+        <div class="modal inmodal" id="DeleteDeptModal{{ each_dept.id }}" tabindex="-1" role="dialog" aria-hidden="true"
              data-backdrop="static">
             <div class="modal-dialog modal-sm" style="padding-top: 10%;">
                 <div class="modal-content">
@@ -449,16 +433,16 @@
                         <h4 class="modal-title" style="font-size: 16px;">警告！</h4>
                     </div>
 
-                    <form method="post" id="id_DeleteDevForm{{ each_device.id }}">
-                        <input type="hidden" name="id" value="{{ each_device.id }}">
+                    <form method="post" id="id_DeleteDeptForm{{ each_dept.id }}">
+                        <input type="hidden" name="id" value="{{ each_dept.id }}">
                         <div class="modal-body" style="font-size: 14px">
-                            <span>是否确定删除该设备？</span>
+                            <span>是否确定删除该部门？</span>
                         </div>
                     </form>
 
                     <div class="modal-footer" style="padding: 10px;">
                         <a class="btn btn-default" data-dismiss="modal" style="padding: 2px 10px;font-size: 12px">取消</a>
-                        <a class="btn btn-default" id="id_DeleteDevBtn{{ each_device.id }}" style="padding: 2px 10px;font-size: 12px">确定</a>
+                        <a class="btn btn-default" id="id_DeleteDeptBtn{{ each_dept.id }}" style="padding: 2px 10px;font-size: 12px">确定</a>
                     </div>
 
                 </div>
@@ -469,12 +453,12 @@
         <script>
             $(function () {
                 // 提交表单
-                $('#id_DeleteDevBtn{{ each_device.id }}').on('click', function () {
+                $('#id_DeleteDeptBtn{{ each_dept.id }}').on('click', function () {
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{% url 'sys_inspect:inspect_device_delete' %}",
-                        data: $('#id_DeleteDevForm{{ each_device.id }}').serialize(),
+                        url: "{% url 'users:dept_delete' %}",
+                        data: $('#id_DeleteDeptForm{{ each_dept.id }}').serialize(),
                         async: true,
                         beforeSend: function (xhr, settings) {
                             xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");

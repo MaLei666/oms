@@ -268,7 +268,7 @@ class AddUnitView(LoginStatusCheck, View):
                 unit.connect = request.POST.get('connect')
                 unit.connect_phone = request.POST.get('connect_phone')
                 unit.address = request.POST.get('address')
-                unit.create_user = request.user.chinese_name
+                unit.create_user = request.user.user_name
                 unit.comment = request.POST.get('comment')
                 unit.save()
 
@@ -412,8 +412,8 @@ class AddDeptView(LoginStatusCheck, View):
 
                 # 获取信息
                 dept = UserDepartment()
-                dept.company_id=request.POST.get('company_id')
-                dept.company_name=UserCompany.objects.get(id=dept.company_id).name
+                dept.unit_id=request.POST.get('unit_id')
+                dept.unit_name=UserCompany.objects.get(id=dept.unit_id).name
                 dept.name = name
                 dept.connect = request.POST.get('connect')
                 dept.connect_phone = request.POST.get('connect_phone')
@@ -893,7 +893,7 @@ class UserListView(LoginStatusCheck, View):
                     english_name__icontains=keyword) | Q(mobile__icontains=keyword) | Q(wechat__icontains=keyword) | Q(
                     qq__icontains=keyword) | Q(address__icontains=keyword) | Q(desc__icontains=keyword) | Q(
                     position__name__icontains=keyword) | Q(position__department__name__icontains=keyword) | Q(
-                    position__department__company__name__icontains=keyword)
+                    position__department__unit__name__icontains=keyword)
             )
 
         # 判断页码

@@ -58,7 +58,7 @@
                                                     style="color: orangered;">[ {{ request.user.get_role_display }} ]</span>
                                         </td>
                                         <td class="text-center" style="width: 10%; font-weight: bolder;">公司</td>
-                                        <td style="width: 23%">{{ request.user.position.department.company.name }}</td>
+                                        <td style="width: 23%">{{ request.user.position.department.unit.name }}</td>
                                         <td class="text-center" style="width: 10%; font-weight: bolder;">地址</td>
                                         <td style="width: 23%">
                                             {% if request.user.address %}{{ request.user.address }}{% else %}
