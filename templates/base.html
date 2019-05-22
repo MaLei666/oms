@@ -92,7 +92,7 @@
                         <img src="{{ MEDIA_URL }}{{ request.user.avatar }}" style="width: 40px; height: 40px;">
                         <i class="on md b-white bottom"></i>
                     </span>
-                            <span class="hidden-sm hidden-md">{{ request.user.chinese_name }}</span>
+                            <span class="hidden-sm hidden-md">{{ request.user.user_name }}</span>
                             <i class="caret"></i>
                         </a>
 
@@ -135,7 +135,7 @@
                                                 <i class="badge badge-success"></i>
                                             </div>
                                             <div class="media-body">
-                                                <p style="margin-bottom: 0;">{{ each.chinese_name }}</p>
+                                                <p style="margin-bottom: 0;">{{ each.user_name }}</p>
                                                 <small class="text-muted">{{ each.position.department.name }}
                                                     - {{ each.position.name }}</small>
                                             </div>
@@ -186,7 +186,7 @@
                         <span class="clear">
                             <span class="block m-t-sm">
                                 <strong class="font-bold text-lt"
-                                        style="color: LightGrey !important;">{{ request.user.chinese_name }} [ {{ request.user.position.name }} ]</strong>
+                                        style="color: LightGrey !important;">{{ request.user.user_name }} [ {{ request.user.position.name }} ]</strong>
                             </span>
                         </span>
                             </a>
@@ -467,11 +467,11 @@
                                         </a>
                                     </li>
 
-{#                                    <li {% ifequal web_chose_left_2 'user_list' %}class="active"{% endifequal %}>#}
-{#                                        <a href="{% url 'users:user_list' %}">#}
-{#                                            <span>用户列表</span>#}
-{#                                        </a>#}
-{#                                    </li>#}
+                                    <li {% ifequal web_chose_left_2 'user_list' %}class="active"{% endifequal %}>
+                                        <a href="{% url 'users:user_list' %}">
+                                            <span>用户管理</span>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </li>

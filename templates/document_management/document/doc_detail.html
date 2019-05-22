@@ -101,7 +101,7 @@
                                     <a href="{% url 'document_management:doc_list' doc_cate %}"
                                        class="btn btn-sm btn-default"><i
                                             class="fa fa-reply">&nbsp;&nbsp;返回列表</i></a>
-                                    <a class="btn btn-sm btn-default">作者：{{ doc_info.add_user.chinese_name }}</a>
+                                    <a class="btn btn-sm btn-default">作者：{{ doc_info.add_user.user_name }}</a>
                                     <a class="btn btn-sm btn-default">更新：{{ doc_info.update_time }}</a>
                                     <a class="btn btn-sm btn-default">类型：{{ doc_info.get_belong_display }}</a>
                                     <a class="btn btn-sm btn-default">标签：{% for each in doc_info.tags.all %}
@@ -167,7 +167,7 @@
                                         </td>
                                         <td width="70%" style="padding-left: 15px;">
                                             <a href="{% url 'users:other_user_info' each_record.op_user.id %}"
-                                               style="color:#006699 ;">{{ each_record.op_user.chinese_name }}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{ each_record.get_operation_display }}
+                                               style="color:#006699 ;">{{ each_record.op_user.user_name }}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{ each_record.get_operation_display }}
                                         </td>
                                     </tr>
                                 {% endfor %}

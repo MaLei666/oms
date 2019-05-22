@@ -84,7 +84,7 @@
                                     <select id="user_chose" class="selectpicker2" data-live-search="true">
                                         <option value="0" {% if check_user == 0 %}selected{% endif %}>所有用户</option>
                                         {% for each_user in users %}
-                                            <option value="{{ each_user.id }}" {% if check_user == each_user.id %}selected{% endif %}>{{ each_user.chinese_name }}</option>
+                                            <option value="{{ each_user.id }}" {% if check_user == each_user.id %}selected{% endif %}>{{ each_user.user_name }}</option>
                                         {% endfor %}
                                     </select>
                                 </span>
@@ -141,7 +141,7 @@
                                                     <td class="text-center"
                                                         style="vertical-align:middle;">{{ each_doc.get_belong_display }}</td>
                                                     <td class="text-center"
-                                                        style="vertical-align:middle;">{{ each_doc.add_user.chinese_name }}</td>
+                                                        style="vertical-align:middle;">{{ each_doc.add_user.user_name }}</td>
                                                     <td class="text-center"
                                                         style="vertical-align:middle;">{{ each_doc.update_time }}</td>
                                                     <td class="text-center" style="vertical-align:middle;">

@@ -29,7 +29,7 @@ class UserForgetPasswordForm(forms.Form):
 # 修改用户信息表单
 ######################################
 class ChangeUserInfoForm(forms.Form):
-    chinese_name = forms.CharField(max_length=20, required=False)
+    user_name = forms.CharField(max_length=20, required=False)
     mobile = forms.CharField(max_length=15, required=False)
     wechat = forms.CharField(max_length=20, required=False)
     qq = forms.CharField(max_length=15, required=False)
@@ -87,8 +87,7 @@ class EditDeptForm(forms.Form):
 # 添加用户表单
 ######################################
 class AddUserForm(forms.Form):
-    username = forms.CharField(min_length=4, max_length=20, required=True)
-    chinese_name = forms.CharField(max_length=20, required=True)
+    user_name = forms.CharField(max_length=20, required=True)
     email = forms.EmailField()
     mobile = forms.CharField(min_length=6, max_length=20, required=True)
     password = forms.CharField(min_length=6, max_length=20, required=True)
@@ -99,8 +98,7 @@ class AddUserForm(forms.Form):
 # 修改用户表单
 ######################################
 class EditUserForm(forms.Form):
-    username = forms.CharField(min_length=4, max_length=20, required=True)
-    chinese_name = forms.CharField(max_length=20, required=True)
+    user_name = forms.CharField(max_length=20, required=True)
     email = forms.EmailField()
     mobile = forms.CharField(min_length=6, max_length=20, required=True)
 

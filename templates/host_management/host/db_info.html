@@ -97,7 +97,7 @@
                                             <td class="font-bold text-center">管理员密码</td>
                                             <td class="text-center">{{ db_records.db_admin_pass }}</td>
                                             <td class="font-bold text-center">添加人</td>
-                                            <td class="text-center">{{ db_records.add_user.chinese_name }}</td>
+                                            <td class="text-center">{{ db_records.add_user.user_name }}</td>
                                             <td class="font-bold text-center">添加时间</td>
                                             <td class="text-center">{{ db_records.add_time }}</td>
                                         </tr>
@@ -107,7 +107,7 @@
                                             <td class="font-bold text-center">更新日期</td>
                                             <td class="text-center">{{ db_records.update_time }}</td>
                                             <td class="font-bold text-center">更新人</td>
-                                            <td class="text-center">{{ db_records.update_user.chinese_name }}</td>
+                                            <td class="text-center">{{ db_records.update_user.user_name }}</td>
                                         </tr>
 
                                         </tbody>
@@ -140,7 +140,7 @@
                                                     <td class="text-center">{{ each_db_user_record.username }}</td>
                                                     <td class="text-center">{{ each_db_user_record.password }}</td>
                                                     <td class="text-center">{{ each_db_user_record.grant_login }}</td>
-                                                    <td class="text-center">{{ each_db_user_record.add_user.chinese_name }}</td>
+                                                    <td class="text-center">{{ each_db_user_record.add_user.user_name }}</td>
                                                     <td class="text-center">{{ each_db_user_record.add_time }}</td>
 {#                                                    <td class="text-center">{{ each_db_user_record.update_user.chinese_name }}</td>#}
                                                     <td class="text-center">{{ each_db_user_record.update_time }}</td>
@@ -200,7 +200,7 @@
                                             {% for each_db_db_record in db_db_records %}
                                                 <tr class="gradeX odd" role="row">
                                                     <td class="text-center">{{ each_db_db_record.name }}</td>
-                                                    <td class="text-center">{{ each_db_db_record.add_user.chinese_name }}</td>
+                                                    <td class="text-center">{{ each_db_db_record.add_user.user_name }}</td>
                                                     <td class="text-center">{{ each_db_db_record.add_time }}</td>
                                                     <td class="text-center">{{ each_db_db_record.update_time }}</td>
                                                     <td class="text-center">
@@ -287,7 +287,7 @@
                             <div class="col-md-9" style="padding: 0;">
                                 <select name="creatuser" class="selectpicker form-control" style="display: none;">
                                         {% for each_user in users %}
-                                            <option value="{{ each_user.id }}">{{ each_user.chinese_name }}</option>
+                                            <option value="{{ each_user.id }}">{{ each_user.user_name }}</option>
                                         {% endfor %}
                                 </select>
                             </div>

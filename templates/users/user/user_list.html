@@ -102,7 +102,7 @@
                                                 <div class="panel" style="margin-bottom: 30px;">
                                                     <div class="panel-heading"
                                                          style="background-color: #1c2b36; color: white;">
-                                                        <span style="font-size: 15px;">{{ each_user.position.department.name }} - {{ each_user.position.name }} - {{ each_user.chinese_name }}</span>
+                                                        <span style="font-size: 15px;">{{ each_user.position.department.name }} - {{ each_user.position.name }} - {{ each_user.user_name }}</span>
                                                     </div>
                                                     <div class="panel-body">
                                                         <div class="m-t-xs">
@@ -169,7 +169,7 @@
                                             <div class="panel" style="margin-bottom: 10px;">
                                                 <div class="panel-heading"
                                                      style="background-color: #1c2b36; color: white;">
-                                                    <span style="font-size: 15px;">{{ each_user.position.department.name }} - {{ each_user.position.name }} - {{ each_user.chinese_name }}</span>
+                                                    <span style="font-size: 15px;">{{ each_user.position.department.name }} - {{ each_user.position.name }} - {{ each_user.user_name }}</span>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="m-t-xs">
@@ -317,7 +317,7 @@
                             </div>
                             <div class="col-md-9" style="padding: 0;">
                                 <input type="text" class="form-control" placeholder="名字"
-                                       maxlength="20" name="chinese_name" required="">
+                                       maxlength="20" name="user_name" required="">
                             </div>
                         </div>
 
@@ -480,8 +480,8 @@
                                                class="form-control"
                                                placeholder="中文名"
                                                maxlength="20"
-                                               name="chinese_name"
-                                               required="" value="{{ each_user.chinese_name }}">
+                                               name="user_name"
+                                               required="" value="{{ each_user.user_name }}">
                                     </div>
                                 </div>
 

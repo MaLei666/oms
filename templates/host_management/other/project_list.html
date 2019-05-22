@@ -111,7 +111,7 @@
                                                             {{ each_project.run_env }}{% else %}
                                                             暂无{% endif %}</td>
                                                     <td class="text-center"
-                                                        style="vertical-align:middle;">{{ each_project.op_user.chinese_name }}</td>
+                                                        style="vertical-align:middle;">{{ each_project.op_user.user_name }}</td>
                                                     <td class="text-center"
                                                         style="vertical-align:middle;">{{ each_project.update_time }}</td>
                                                     <td class="text-center" style="vertical-align:middle;">
@@ -238,7 +238,7 @@
                             <div class="col-md-9" style="padding: 0;">
                                 <select name="op_user" class="selectpicker form-control" style="display: none;">
                                     {% for each_user in users %}
-                                        <option value="{{ each_user.id }}">{{ each_user.chinese_name }}</option>
+                                        <option value="{{ each_user.id }}">{{ each_user.user_name }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -310,7 +310,7 @@
                                         {% for each_user in users %}
                                             <option value="{{ each_user.id }}"
                                                     {% if each_user.id == each_project.op_user.id %}
-                                                    selected {% endif %}>{{ each_user.chinese_name }}</option>
+                                                    selected {% endif %}>{{ each_user.user_name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>

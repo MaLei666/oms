@@ -138,7 +138,7 @@ class LoginView(View):
                     op_record.status = 1
                     op_record.op_num = user.id
                     op_record.operation = 5
-                    op_record.action = "用户 [ %s ] 登录了系统" % user.chinese_name
+                    op_record.action = "用户 [ %s ] 登录了系统" % user.user_name
                     op_record.save()
 
                     return HttpResponseRedirect(reverse('users:index'))
@@ -195,7 +195,7 @@ class LogoutView(LoginStatusCheck, View):
         op_record.status = 1
         op_record.op_num = request.user.id
         op_record.operation = 6
-        op_record.action = "用户 [ %s ] 退出了系统" % request.user.chinese_name
+        op_record.action = "用户 [ %s ] 退出了系统" % request.user.user_name
         op_record.save()
 
         logout(request)
@@ -664,7 +664,7 @@ class ChangeUserInfoView(LoginStatusCheck, View):
 
         if change_user_info_form.is_valid():
             user = request.user
-            user.chinese_name=request.POST.get('chinese_name')
+            user.user_name=request.POST.get('user_name')
             user.mobile = request.POST.get('mobile')
             user.wechat = request.POST.get('wechat')
             user.qq = request.POST.get('qq')
@@ -854,19 +854,13 @@ class UserListView(LoginStatusCheck, View):
         web_chose_left_2 = 'user_list'
         web_chose_middle = ''
 
-        # 用户记录
-        users = UserProfile.objects.all().order_by('-date_joined')
+        # 用户
+        users = UserProfile.objects.all()
+        units=UserCompany.objects.all()
+        depts=UserDepartment.objects.all()
 
         # 用户选择
         user_check = request.GET.get('user_check', 'all')
-
-        # 激活
-        if user_check == 'active':
-            users = users.filter(is_active=True)
-
-        # 未激活
-        if user_check == 'notactive':
-            users = users.filter(is_active=False)
 
         # 正常
         if user_check == 'up':
@@ -889,12 +883,9 @@ class UserListView(LoginStatusCheck, View):
 
         if keyword != '':
             users = users.filter(
-                Q(username__icontains=keyword) | Q(email__icontains=keyword) | Q(chinese_name__icontains=keyword) | Q(
-                    english_name__icontains=keyword) | Q(mobile__icontains=keyword) | Q(wechat__icontains=keyword) | Q(
-                    qq__icontains=keyword) | Q(address__icontains=keyword) | Q(desc__icontains=keyword) | Q(
-                    position__name__icontains=keyword) | Q(position__department__name__icontains=keyword) | Q(
-                    position__department__unit__name__icontains=keyword)
-            )
+                Q(username__icontains=keyword) | Q(email__icontains=keyword) | Q(user_name__icontains=keyword)
+                | Q(mobile__icontains=keyword) |Q(address__icontains=keyword) | Q(comment__icontains=keyword) | Q(
+                    position__unit__icontains=keyword) )
 
         # 判断页码
         try:
@@ -912,8 +903,9 @@ class UserListView(LoginStatusCheck, View):
             'web_chose_left_1': web_chose_left_1,
             'web_chose_left_2': web_chose_left_2,
             'web_chose_middle': web_chose_middle,
-            'positions': positions,
             'users': users,
+            'units':units,
+            'depts':depts,
             'user_check': user_check,
             'keyword': keyword,
         }
@@ -927,40 +919,27 @@ class AddUserView(LoginStatusCheck, View):
         if request.user.role > 1:
             add_user_form = AddUserForm(request.POST)
             if add_user_form.is_valid():
-                username = request.POST.get('username')
-                email = request.POST.get('email')
+                user_name = request.POST.get('user_name')
                 password = request.POST.get('password')
                 re_password = request.POST.get('re_password')
 
-                if UserProfile.objects.filter(username=username):
+                if UserProfile.objects.filter(user_name=user_name):
                     return HttpResponse('{"status":"failed", "msg":"该用户名已经被另外的用户使用！"}', content_type='application/json')
-
-                if UserProfile.objects.filter(email=email):
-                    return HttpResponse('{"status":"failed", "msg":"该邮箱已经被另外的用户使用！"}', content_type='application/json')
 
                 if password != re_password:
                     return HttpResponse('{"status":"failed", "msg":"两次密码不一致，请检查！"}', content_type='application/json')
 
-                # 获取信息
-                chinese_name = request.POST.get('chinese_name')
-                mobile = request.POST.get('mobile')
-                gender = request.POST.get('gender')
-                position = request.POST.get('position')
-                role = request.POST.get('role')
-                status = request.POST.get('status')
-
                 # 添加用户
                 user = UserProfile()
-                user.username = username
-                user.chinese_name = chinese_name
-                user.email = email
-                user.mobile = mobile
-                user.gender = gender
-                # user.position = UserPosition.objects.get(id=int(position))
-                user.role = int(role)
-                user.status = int(status)
-                user.password = make_password(password)
-                user.is_active = False
+                user.user_name = request.POST.get('user_name')
+                user.email = request.POST.get('email')
+                user.mobile = request.POST.get('mobile')
+                user.gender = request.POST.get('gender')
+                user.role = int(request.POST.get('role'))
+                user.status = int(request.POST.get('status'))
+                user.password = password
+                user.comment=request.POST.get('comment')
+                user.is_active = True
                 user.save()
 
                 # 添加操作记录
@@ -970,10 +949,10 @@ class AddUserView(LoginStatusCheck, View):
                 op_record.status = 1
                 op_record.op_num = user.id
                 op_record.operation = 1
-                op_record.action = "新增用户 [ %s ]" % chinese_name
+                op_record.action = "新增用户 [ %s ]" % request.POST.get('user_name')
                 op_record.save()
 
-                return HttpResponse('{"status":"success", "msg":"用户添加成功，但未激活，请知悉！"}', content_type='application/json')
+                return HttpResponse('{"status":"success", "msg":"用户添加成功！"}', content_type='application/json')
             else:
                 return HttpResponse('{"status":"failed", "msg":"填写的内容不正确，请检查！"}', content_type='application/json')
         else:
@@ -989,26 +968,14 @@ class EditUserView(LoginStatusCheck, View):
             edit_user_form = EditUserForm(request.POST)
             if edit_user_form.is_valid():
                 # 被修改的用户
-                uid = int(request.POST.get('uid'))
-                edit_user = UserProfile.objects.get(id=uid)
+                user_id = int(request.POST.get('id'))
+                edit_user = UserProfile.objects.get(id=user_id)
 
                 # 判断修改用户名
-                username = request.POST.get('username')
-                if edit_user.username != username:
-                    if UserProfile.objects.filter(username=username):
-                        return HttpResponse('{"status":"failed", "msg":"该用户名已经被另外的用户使用！"}',
-                                            content_type='application/json')
-                    else:
-                        edit_user.username = username
-
-                # 判断修改邮箱
-                email = request.POST.get('email')
-                if edit_user.email != email:
-                    if UserProfile.objects.filter(email=email):
-                        return HttpResponse('{"status":"failed", "msg":"该邮箱已经被另外的用户使用！"}',
-                                            content_type='application/json')
-                    else:
-                        edit_user.email = email
+                user_name = request.POST.get('user_name')
+                if edit_user.user_name != user_name:
+                    if UserProfile.objects.filter(username=user_name):
+                        return HttpResponse('{"status":"failed", "msg":"该用户名已被使用！"}')
 
                 # 修改密码
                 password = request.POST.get('password', '')
@@ -1020,13 +987,17 @@ class EditUserView(LoginStatusCheck, View):
                     else:
                         edit_user.password = make_password(password)
 
-                # 获取其它信息
-                chinese_name = request.POST.get('chinese_name')
-                mobile = request.POST.get('mobile')
-                gender = request.POST.get('gender')
-                position = request.POST.get('position')
-                role = request.POST.get('role')
-                status = request.POST.get('status')
+
+                # 修改其它信息
+                edit_user.user_name = request.POST.get('user_name')
+                edit_user.mobile = request.POST.get('mobile')
+                edit_user.gender = request.POST.get('gender')
+                edit_user.role = request.POST.get('role')
+                edit_user.status = request.POST.get('status')
+                edit_user.comment=request.POST.get('comment')
+
+                # 保存修改
+                edit_user.save()
 
                 # 添加操作记录
                 op_record = UserOperationRecord()
@@ -1035,33 +1006,9 @@ class EditUserView(LoginStatusCheck, View):
                 op_record.status = 1
                 op_record.operation = 2
                 op_record.op_num = edit_user.id
-                op_record.action = "修改用户 [ %s ]" % chinese_name
-
-                # 判断是否修改用户状态，保存操作记录
-                if edit_user.status != int(status):
-
-                    # 启用
-                    if int(status) == 1:
-                        op_record.operation = 3
-                        op_record.action = "启用用户 [ %s ]" % chinese_name
-
-                    # 停用
-                    if int(status) == 2:
-                        op_record.operation = 4
-                        op_record.action = "停用用户 [ %s ]" % chinese_name
+                op_record.action = "修改用户 [ %s ]" % user_name
 
                 op_record.save()
-
-                # 修改其它信息
-                edit_user.chinese_name = chinese_name
-                edit_user.mobile = mobile
-                edit_user.gender = gender
-                edit_user.position_id = int(position)
-                edit_user.role = int(role)
-                edit_user.status = int(status)
-
-                # 保存修改
-                edit_user.save()
 
                 return HttpResponse('{"status":"success", "msg":"用户修改成功！"}', content_type='application/json')
             else:
@@ -1145,7 +1092,7 @@ class UserOperationRecordView(LoginStatusCheck, View):
         keyword = request.GET.get('keyword', '')
 
         if keyword != '':
-            records = records.filter(Q(op_user__chinese_name__icontains=keyword) | Q(action__icontains=keyword))
+            records = records.filter(Q(op_user__user_name__icontains=keyword) | Q(action__icontains=keyword))
 
         # 用户选择
         user_check = request.GET.get('user_check', 'all')

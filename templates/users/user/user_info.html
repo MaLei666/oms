@@ -24,7 +24,7 @@
 
                         <div style="text-align: center;padding-top: 10px;">
                             <p style="font-size: 18px;font-weight: bolder;color: #fff;">{{ request.user.position.department.name }}
-                                - {{ request.user.position.name }} - {{ request.user.chinese_name }}</p>
+                                - {{ request.user.position.name }} - {{ request.user.user_name }}</p>
                             <p style="font-size: 18px;font-weight: bolder;color: #fff;">JOIN DAYS
                                 - {{ request.user.get_join_days }}</p>
                         </div>
@@ -43,7 +43,7 @@
                                     <tr class="gradeX odd" role="row">
                                         <td class="text-center" style="width: 10%; font-weight: bolder;">姓名</td>
                                         <td style="width: 23%">
-                                            {{ request.user.chinese_name }}</td>
+                                            {{ request.user.user_name }}</td>
 
                                         <td class="text-center" style="width: 10%; font-weight: bolder;">性别</td>
                                         <td style="width: 23%">{{ request.user.get_gender_display }}</td>
@@ -172,8 +172,8 @@
                             </div>
                             <div class="col-md-9" style="padding: 0;">
                                 <input type="text" class="form-control" placeholder="姓名"
-                                       maxlength="255" name="chinese_name"
-                                       {% if request.user.chinese_name %}value="{{ request.user.chinese_name }}"{% endif %}>
+                                       maxlength="255" name="user_name"
+                                       {% if request.user.user_name %}value="{{ request.user.user_name }}"{% endif %}>
                             </div>
                         </div>
 

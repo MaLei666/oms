@@ -835,7 +835,7 @@ class OSListView(LoginStatusCheck, View):
             if keyword != '':
                 systems = systems.filter(
                     Q(name__icontains=keyword) | Q(version__icontains=keyword) | Q(desc__icontains=keyword) | Q(
-                        add_user__chinese_name__icontains=keyword) | Q(update_user__chinese_name__icontains=keyword))
+                        add_user__user_namee__icontains=keyword) | Q(update_user__user_namee__icontains=keyword))
 
             # 数量
             system_nums = systems.count()
@@ -987,8 +987,8 @@ class ProjectListView(LoginStatusCheck, View):
             if keyword != '':
                 projects = projects.filter(
                     Q(name__icontains=keyword) | Q(run_env__icontains=keyword) | Q(
-                        add_user__chinese_name__icontains=keyword) | Q(
-                        update_user__chinese_name__icontains=keyword) | Q(op_user__chinese_name__icontains=keyword))
+                        add_user__user_name__icontains=keyword) | Q(
+                        update_user__user_name__icontains=keyword) | Q(op_user__user_name__icontains=keyword))
 
             # 数量
             project_nums = projects.count()
@@ -1598,8 +1598,8 @@ class UseListView(LoginStatusCheck, View):
             if keyword != '':
                 uses = uses.filter(
                     Q(name__icontains=keyword) | Q(desc__icontains=keyword) | Q(
-                        add_user__chinese_name__icontains=keyword) | Q(
-                        update_user__chinese_name__icontains=keyword))
+                        add_user__user_name__icontains=keyword) | Q(
+                        update_user__user_name__icontains=keyword))
 
             # 数量
             use_nums = uses.count()
@@ -1741,7 +1741,7 @@ class HostOperationView(LoginStatusCheck, View):
             keyword = request.GET.get('keyword', '')
             if keyword != '':
                 records = records.filter(
-                    Q(op_user__chinese_name=keyword) | Q(action__icontains=keyword))
+                    Q(op_user__user_name=keyword) | Q(action__icontains=keyword))
 
             # 用户选择
             user_check = request.GET.get('user_check', 'all')

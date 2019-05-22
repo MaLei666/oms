@@ -233,7 +233,7 @@
 											<select name="userId" id="userId" class="form-control" style="height: 30px;width: 98%;font-size: 12px">
                                                 <option value="">请选择...</option>
                                                 {% for each_user in users %}
-                                                    <option value="{{ each_user.id }}">{{ each_user.chinese_name }}</option>
+                                                    <option value="{{ each_user.id }}">{{ each_user.user_name }}</option>
                                                 {% endfor %}
                                             </select>
 										</td>

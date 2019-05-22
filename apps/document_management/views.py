@@ -137,7 +137,7 @@ class DocumentListView(LoginStatusCheck, View):
             keyword = request.GET.get('keyword', '')
             if keyword != '':
                 docs = docs.filter(Q(subject__icontains=keyword) | Q(content__icontains=keyword) | Q(
-                    add_user__chinese_name__icontains=keyword) | Q(update_user__chinese_name__icontains=keyword))
+                    add_user__user_name__icontains=keyword) | Q(update_user__user_name__icontains=keyword))
 
             # 记录数量
             doc_nums = docs.count()
