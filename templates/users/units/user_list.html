@@ -20,8 +20,8 @@
 
                         <div class="selectBox" style="padding: 15px;padding-bottom: 0">
                             {% if request.user.role > 1 %}
-                                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#AddDeptModal"><i
-                                            class="fa fa-plus"></i> 添加部门</a>
+                                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#AddUserModal"><i
+                                            class="fa fa-plus"></i> 添加用户</a>
                                 {% endif %}
 
                             <!-- 功能 -->
@@ -53,64 +53,70 @@
                                         <thead>
                                         <tr role="row">
                                             <th class="text-center">ID</th>
-                                            <th class="text-center">单位名称</th>
-                                            <th class="text-center">部门名称</th>
-                                            <th class="text-center">部门地址</th>
-                                            <th class="text-center">联系人</th>
+                                            <th class="text-center">所属单位</th>
+                                            <th class="text-center">所属部门</th>
+                                            <th class="text-center">登陆账号</th>
+                                            <th class="text-center">用户姓名</th>
+                                            <th class="text-center">用户角色</th>
                                             <th class="text-center">联系电话</th>
-                                            <th class="text-center">状态</th>
-                                            <th class="text-center">备注</th>
+                                            <th class="text-center">邮箱地址</th>
+                                            <th class="text-center">用户状态</th>
+                                            <th class="text-center">创建时间</th>
                                             <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-                                        {% for each_dept in depts.object_list %}
+                                        {% for each_user in users.object_list %}
                                             <tr class="gradeX odd" role="row">
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_dept.id }}
+                                                    style="vertical-align:middle;">{{ each_user.id }}
+                                                </td>
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    {{ each_user.unit_name }}
+                                                </td>
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    {{ each_user.dept_name }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_dept.unit_name }}
+                                                    style="vertical-align:middle;">{{ each_user.username }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_dept.name }}
-                                                </td>
-
-                                                <td class="text-center"
-                                                    style="vertical-align:middle;">{% if each_dept.address %}{{ each_dept.address }}
-                                                    {% else %}-{% endif %}
+                                                    style="vertical-align:middle;">{{ each_user.unit_name }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{% if each_dept.connect %}{{ each_dept.connect }}
-                                                {% else %}-{% endif %}
-                                                </td>
-                                                <td class="text-center"
-                                                    style="vertical-align:middle;">{% if each_dept.connect_phone %}{{ each_dept.connect_phone }}
-                                                {% else %}-{% endif %}
+                                                    style="vertical-align:middle;">{{ each_user.role }}
                                                 </td>
 
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{% if each_dept.status is 1 %}
+                                                    style="vertical-align:middle;">{% if each_user.mobile %}{{ each_user.mobile }}
+                                                {% else %}-{% endif %}
+                                                </td>
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{% if each_user.email %}{{ each_user.email }}
+                                                {% else %}-{% endif %}
+                                                </td>
+
+                                                <td class="text-center"
+                                                    style="vertical-align:middle;">{% if each_user.status is 1 %}
                                                     <a  class="btn btn-xs">启用 {% else %}
                                                     <a  class="btn btn-xs">禁用{% endif %} </a>
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{% if each_dept.comment %}
-                                                        {{ each_dept.comment  }}{% else %}-{% endif %}
+                                                    style="vertical-align:middle;">{{ each_user.create_time }}
                                                 </td>
 
                                                 <td class="text-center" style="vertical-align:middle;">
                                                     <a type="button" class="btn btn-xs"
                                                        style="background-color: #1c84c6;color: white;"
                                                       data-toggle="modal"
-                                                       data-target="#EditDeptModal{{ each_dept.id }}">
+                                                       data-target="#EditUserModal{{ each_user.id }}">
                                                         修改
                                                     </a>
                                                     <button class="btn btn-xs"
                                                                 style="background-color: #c7254e;color: white;"
                                                                 data-toggle="modal"
-                                                                data-target="#DeleteDeptModal{{ each_dept.id }}">
+                                                                data-target="#DeleteUserModal{{ each_user.id }}">
                                                         删除
                                                     </button>
                                                 </td>
@@ -126,18 +132,18 @@
                                 <ul class="pagination" style="margin-top: 10px; margin-bottom: 10px;">
 
                                     <!-- 上一页 -->
-                                    {% if depts.has_previous %}
-                                        <li><a href="?{{ depts.previous_page_number.querystring }}">上一页<span
+                                    {% if users.has_previous %}
+                                        <li><a href="?{{ users.previous_page_number.querystring }}">上一页<span
                                                 class="sr-only"></span></a></li>
-                                        <li><a href="?{{ depts.previous_page_number.querystring }}">&laquo;<span
+                                        <li><a href="?{{ users.previous_page_number.querystring }}">&laquo;<span
                                                 class="sr-only"></span></a></li>
                                     {% endif %}
 
                                     <!-- 页码 -->
-                                    {% for page in depts.pages %}
+                                    {% for page in users.pages %}
                                         {% if page %}
                                             <!-- 当前页 -->
-                                            {% ifequal page depts.number %}
+                                            {% ifequal page users.number %}
                                                 <li class="active"><a href="?page={{ page }}">{{ page }}<span
                                                         class="sr-only">(current)</span></a></li>
                                                 <!-- 其它页 -->
@@ -152,10 +158,10 @@
                                     {% endfor %}
 
                                     <!-- 下一页 -->
-                                    {% if depts.has_next %}
-                                        <li><a href="?{{ depts.next_page_number.querystring }}">&raquo;<span
+                                    {% if users.has_next %}
+                                        <li><a href="?{{ users.next_page_number.querystring }}">&raquo;<span
                                                 class="sr-only"></span></a></li>
-                                        <li><a href="?{{ depts.next_page_number.querystring }}">下一页<span
+                                        <li><a href="?{{ users.next_page_number.querystring }}">下一页<span
                                                 class="sr-only"></span></a></li>
                                     {% endif %}
                                 </ul>
@@ -169,7 +175,7 @@
 {% endblock base_content %}
 
 {% block base_footer_html %}
-    <div class="modal inmodal" id="AddDeptModal" tabindex="-1" role="dialog" aria-hidden="true"
+    <div class="modal inmodal" id="AddUserModal" tabindex="-1" role="dialog" aria-hidden="true"
          data-backdrop="static">
         <div class="modal-dialog" style="width: 30%;">
             <div class="modal-content" style="margin-top: 100px;">
@@ -179,10 +185,24 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <i class="icon-close" style="font-size: 18px;"></i>
                     </button>
-                    <h4 class="modal-title">添加部门</h4>
+                    <h4 class="modal-title">添加用户</h4>
                 </div>
 
-                <form method="post" id="id_AddDeptForm">
+                <form method="post" id="id_AddUserForm">
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户角色:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <select name="role" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            <option value="1">超级管理员</option>
+                            <option value="2">平台管理员</option>
+                            <option value="3">普通用户</option>
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">
@@ -200,44 +220,84 @@
                     </div>
 
                     <div class="form-group"
-                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">
                         <div class="col-md-3">
                             <span style="font-size: 12px;">部门名称:</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder='部门名称'
-                                   maxlength="20" name="name" required="">
+                            <select name="dept_id" id="dept_id" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            {% for each_dept in  depts %}
+                                <option value="{{ each_dept.id }}">{{ each_dept.name }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">登录账号:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='登录账号'
+                                   maxlength="30" name="username" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户名称:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='用户名称'
+                                   maxlength="20" name="user_name" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户密码:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='用户密码'
+                                   maxlength="20" name="password" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户性别:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <select name="gender" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            <option value="male">男</option>
+                            <option value="female">女</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                         <div class="col-md-3">
-                            <span style="font-size: 12px;">部门地址:</span>
+                            <span style="font-size: 12px;">联系电话:</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder='部门地址' name="address">
+                            <input type="text" class="form-control" placeholder='联系电话' name="mobile">
                         </div>
                     </div>
 
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                         <div class="col-md-3">
-                            <span style="font-size: 12px;">联系人：</span>
+                            <span style="font-size: 12px;">邮箱地址:</span>
                         </div>
                         <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder="联系人"
-                                       maxlength="20" name="connect">
-                        </div>
-                    </div>
-
-                    <div class="form-group"
-                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
-                        <div class="col-md-3">
-                            <span style="font-size: 12px;">联系电话：</span>
-                        </div>
-                        <div class="col-md-9" style="padding: 0;">
-                            <input type="text" class="form-control" placeholder="联系电话" name="connect_phone">
+                            <input type="text" class="form-control" placeholder='邮箱地址' name="email">
                         </div>
                     </div>
 
@@ -262,23 +322,23 @@
                     </div>
                     <div class="modal-footer" style="padding-top: 10px; padding-bottom: 10px;">
                         <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>
-                        <a class="btn btn-sm btn-default" id="id_AddDeptBtn">添加</a>
+                        <a class="btn btn-sm btn-default" id="id_AddUserBtn">添加</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- 添加设备 -->
+    <!-- 添加用户 -->
     <script>
         $(function () {
             // 提交表单
-            $('#id_AddDeptBtn').on('click', function () {
+            $('#id_AddUserBtn').on('click', function () {
                 $.ajax({
                     cache: false,
                     type: "POST",
                     url: "{% url 'users:dept_add' %}",
-                    data: $('#id_AddDeptForm').serialize(),
+                    data: $('#id_AddUserForm').serialize(),
                     async: true,
                     beforeSend: function (xhr, settings) {
                         xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
@@ -295,9 +355,9 @@
         })
     </script>
 
-    {% for each_dept in depts.object_list %}
-{#        修改部门#}
-        <div class="modal inmodal" id="EditDeptModal{{ each_dept.id }}" tabindex="-1" role="dialog" aria-hidden="true"
+    {% for each_user in users.object_list %}
+{#        修改用户#}
+        <div class="modal inmodal" id="EditUserModal{{ each_user.id }}" tabindex="-1" role="dialog" aria-hidden="true"
              data-backdrop="static">
             <div class="modal-dialog" style="width: 500px;">
                 <div class="modal-content" style="margin-top: 100px;" >
@@ -306,12 +366,23 @@
                         <button type="button" class="close" data-dismiss="modal">
                             <i class="icon-close" style="font-size: 18px;"></i>
                         </button>
-                        <h4 class="modal-title">部门修改</h4>
+                        <h4 class="modal-title">用户修改</h4>
                     </div>
 
-                    <form method="post" id="id_EditDeptForm{{ each_dept.id }}">
-                        <input type="hidden" name="id" value="{{ each_dept.id }}">
+                    <form method="post" id="id_EditUserForm{{ each_user.id }}">
+                        <input type="hidden" name="id" value="{{ each_user.id }}">
                             <div class="col-md-12" style="padding-top: 20px">
+
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">用户角色：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder="单位名称"
+                                               maxlength="20" name="role" required="" value="{{ each_user.role }}" readonly>
+                                    </div>
+                                </div>
 
                                 <div class="form-group"
                                      style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
@@ -320,48 +391,60 @@
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
                                         <input type="text" class="form-control" placeholder="单位名称"
-                                               maxlength="20" name="unit_name" required="" value="{{ each_dept.unit_name }}" readonly>
+                                               maxlength="20" name="unit_name" required="" value="{{ each_user.unit_name }}" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">登录账号：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder="登录账号"
+                                               maxlength="20" name="username" required="" value="{{ each_user.username }}" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">用户名称：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder="用户名称"
+                                               maxlength="20" name="user_name" required="" value="{{ each_user.user_name }}" readonly>
                                     </div>
                                 </div>
 
                                 <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
                                     <div class="col-md-3">
-                                        <span style="font-size: 12px;">部门名称:</span>
+                                        <span style="font-size: 12px;">用户性别:</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder='部门名称'
-                                               maxlength="20" name="name" required="" value="{{ each_dept.name }}">
+                                        <input type="text" class="form-control" placeholder='用户名称'
+                                               maxlength="20" name="gender" required="" value="{{ each_user.gender }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group"
                                      style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
                                     <div class="col-md-3">
-                                        <span style="font-size: 12px;">部门地址:</span>
+                                        <span style="font-size: 12px;">联系电话:</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder='部门地址' name="address" value="{{ each_dept.address }}">
+                                        <input type="text" class="form-control" placeholder='联系电话' name="mobile" value="{{ each_user.mobile }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group"
                                      style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                                     <div class="col-md-3">
-                                        <span style="font-size: 12px;">联系人：</span>
+                                        <span style="font-size: 12px;">邮箱地址：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
                                         <input type="text" class="form-control" placeholder="联系人"
-                                                   maxlength="20" name="connect" value="{{ each_dept.connect }}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group"
-                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
-                                    <div class="col-md-3">
-                                        <span style="font-size: 12px;">联系电话：</span>
-                                    </div>
-                                    <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="联系电话" name="connect_phone" value="{{ each_dept.connect_phone }}">
+                                                   maxlength="20" name="email" value="{{ each_user.email }}">
                                     </div>
                                 </div>
 
@@ -381,29 +464,29 @@
                                         <span style="font-size: 12px;">备注：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="备注" name="comment" value="{{ each_dept.comment }}">
+                                        <input type="text" class="form-control" placeholder="备注" name="comment" value="{{ each_user.comment }}">
                                     </div>
                                 </div>
                             </div>
                         <div class="modal-footer" style="padding-right: 30px;padding-top: 10px; padding-bottom: 10px;">
                             <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>
-                            <a class="btn btn-sm btn-default" id="id_EditDeptBtn{{ each_dept.id }}">修改</a>
+                            <a class="btn btn-sm btn-default" id="id_EditUserBtn{{ each_user.id }}">修改</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <!-- 修改设备 -->
+        <!-- 修改用户 -->
         <script>
             $(function () {
                 // 提交表单
-                $('#id_EditDeptBtn{{ each_dept.id }}').on('click', function () {
+                $('#id_EditUserBtn{{ each_user.id }}').on('click', function () {
                     $.ajax({
                         cache: false,
                         type: "POST",
                         url: "{% url 'users:dept_edit'%}",
-                        data: $('#id_EditDeptForm{{ each_dept.id }}').serialize(),
+                        data: $('#id_EditUserForm{{ each_user.id }}').serialize(),
                         async: true,
                         beforeSend: function (xhr, settings) {
                             xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
@@ -420,8 +503,8 @@
             })
         </script>
 
-        <!-- 删除部门 -->
-        <div class="modal inmodal" id="DeleteDeptModal{{ each_dept.id }}" tabindex="-1" role="dialog" aria-hidden="true"
+        <!-- 删除用户 -->
+        <div class="modal inmodal" id="DeleteUserModal{{ each_user.id }}" tabindex="-1" role="dialog" aria-hidden="true"
              data-backdrop="static">
             <div class="modal-dialog modal-sm" style="padding-top: 10%;">
                 <div class="modal-content">
@@ -433,16 +516,16 @@
                         <h4 class="modal-title" style="font-size: 16px;">警告！</h4>
                     </div>
 
-                    <form method="post" id="id_DeleteDeptForm{{ each_dept.id }}">
-                        <input type="hidden" name="id" value="{{ each_dept.id }}">
+                    <form method="post" id="id_DeleteUserForm{{ each_user.id }}">
+                        <input type="hidden" name="id" value="{{ each_user.id }}">
                         <div class="modal-body" style="font-size: 14px">
-                            <span>是否确定删除该部门？</span>
+                            <span>是否确定删除该用户？</span>
                         </div>
                     </form>
 
                     <div class="modal-footer" style="padding: 10px;">
                         <a class="btn btn-default" data-dismiss="modal" style="padding: 2px 10px;font-size: 12px">取消</a>
-                        <a class="btn btn-default" id="id_DeleteDeptBtn{{ each_dept.id }}" style="padding: 2px 10px;font-size: 12px">确定</a>
+                        <a class="btn btn-default" id="id_DeleteUserBtn{{ each_user.id }}" style="padding: 2px 10px;font-size: 12px">确定</a>
                     </div>
 
                 </div>
@@ -453,12 +536,12 @@
         <script>
             $(function () {
                 // 提交表单
-                $('#id_DeleteDeptBtn{{ each_dept.id }}').on('click', function () {
+                $('#id_DeleteUserBtn{{ each_user.id }}').on('click', function () {
                     $.ajax({
                         cache: false,
                         type: "POST",
                         url: "{% url 'users:dept_delete' %}",
-                        data: $('#id_DeleteDeptForm{{ each_dept.id }}').serialize(),
+                        data: $('#id_DeleteUserForm{{ each_user.id }}').serialize(),
                         async: true,
                         beforeSend: function (xhr, settings) {
                             xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
