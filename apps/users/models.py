@@ -82,7 +82,7 @@ class UserDepartment(models.Model):
 # 用户扩展表
 ######################################
 class UserProfile(AbstractUser):
-    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=((1, '超级管理员'), (2, '管理员'), (3, '普通用户')))
+    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=((1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员')))
     user_name = models.CharField(verbose_name='名字', max_length=10)
     unit_id=models.IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name=models.IntegerField(verbose_name='单位名称', null=True, blank=True)

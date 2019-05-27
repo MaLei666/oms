@@ -37,7 +37,7 @@ from oms.settings import WEBSSH_IP, WEBSSH_PORT
 ######################################
 class HostListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'host_management'
             web_chose_left_2 = 'host'
@@ -140,7 +140,7 @@ class WebSSHView(LoginStatusCheck, View):
 ######################################
 class AddHostInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             add_host_info_form = AddHostInfoForm(request.POST)
             if add_host_info_form.is_valid():
                 in_ip = request.POST.get('in_ip')
@@ -261,7 +261,7 @@ class DeleteHostView(LoginStatusCheck, View):
 ######################################
 class EditHostInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_host_info_form = EditHostInfoForm(request.POST)
             if edit_host_info_form.is_valid():
 
@@ -382,7 +382,7 @@ class DatabaseInfoView(LoginStatusCheck, View):
 ######################################
 class AddDatabaseInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             if DatabaseInfo.objects.filter(host_id=int(request.POST.get('host_id'))).filter(status=1):
                 return HttpResponse('{"status":"failed", "msg":"该主机的记录已经存在，请检查！"}', content_type='application/json')
 
@@ -423,7 +423,7 @@ class AddDatabaseInfoView(LoginStatusCheck, View):
 ######################################
 class EditDatabaseInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_db_info_form = EditDatabaseInfoForm(request.POST)
             if edit_db_info_form.is_valid():
                 db_info = DatabaseInfo.objects.get(id=int(request.POST.get('db_id')))
@@ -468,7 +468,7 @@ class EditDatabaseInfoView(LoginStatusCheck, View):
 ######################################
 class DeleteDatabaseInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             db_info = DatabaseInfo.objects.get(id=int(request.POST.get('db_id')))
 
             # 添加操作记录
@@ -491,7 +491,7 @@ class DeleteDatabaseInfoView(LoginStatusCheck, View):
 ######################################
 class AddDatabaseDBView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             if DatabaseDBInfo.objects.filter(db_id=int(request.POST.get('db_id'))).filter(
                     name=request.POST.get('name')).filter(status=1):
                 return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
@@ -532,7 +532,7 @@ class AddDatabaseDBView(LoginStatusCheck, View):
 ######################################
 class EditDatabaseDBView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             db_info = DatabaseDBInfo.objects.get(id=int(request.POST.get('db_id')))
 
             # 判断记录是否存在
@@ -573,7 +573,7 @@ class EditDatabaseDBView(LoginStatusCheck, View):
 ######################################
 class DeleteDatabaseDBView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             db_info = DatabaseDBInfo.objects.get(id=int(request.POST.get('db_id')))
 
             # 添加操作记录
@@ -595,7 +595,7 @@ class DeleteDatabaseDBView(LoginStatusCheck, View):
 ######################################
 class AddDatabaseUserView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 判断用户
             db_user = DatabaseUserInfo.objects.filter(db_id=int(request.POST.get('db_id'))).filter(
                 username=request.POST.get('username'))
@@ -642,7 +642,7 @@ class AddDatabaseUserView(LoginStatusCheck, View):
 ######################################
 class EditDatabaseUserView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 判断用户
             db_user = DatabaseUserInfo.objects.get(id=int(request.POST.get('db_user_id')))
 
@@ -689,7 +689,7 @@ class EditDatabaseUserView(LoginStatusCheck, View):
 ######################################
 class DeleteDatabaseUserView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 判断用户
             db_user = DatabaseUserInfo.objects.get(id=int(request.POST.get('db_user_id')))
 
@@ -717,7 +717,7 @@ class DeleteDatabaseUserView(LoginStatusCheck, View):
 ######################################
 class AddHostServiceView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             add_service_form = AddHostServiceForm(request.POST)
             if add_service_form.is_valid():
                 service = HostServiceInfo()
@@ -759,7 +759,7 @@ class AddHostServiceView(LoginStatusCheck, View):
 ######################################
 class EditHostServiceView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_service_form = EditHostServiceForm(request.POST)
             if edit_service_form.is_valid():
                 service = HostServiceInfo.objects.get(id=int(request.POST.get('ser_id')))
@@ -821,7 +821,7 @@ class DeleteHostServiceView(LoginStatusCheck, View):
 ######################################
 class OSListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'basic_setting'
             web_chose_left_2 = 'os'
@@ -870,7 +870,7 @@ class OSListView(LoginStatusCheck, View):
 ######################################
 class AddOSView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             add_os_form = AddOsForm(request.POST)
             if add_os_form.is_valid():
                 # 判断是否有相同的记录
@@ -915,7 +915,7 @@ class AddOSView(LoginStatusCheck, View):
 ######################################
 class EditOSView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_os_form = EditOsForm(request.POST)
             if edit_os_form.is_valid():
                 os = OperatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
@@ -948,7 +948,7 @@ class EditOSView(LoginStatusCheck, View):
 ######################################
 class DeleteOSView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             os = OperatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
 
             # 添加操作记录
@@ -970,7 +970,7 @@ class DeleteOSView(LoginStatusCheck, View):
 ######################################
 class ProjectListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'basic_setting'
             web_chose_left_2 = 'project'
@@ -1024,7 +1024,7 @@ class ProjectListView(LoginStatusCheck, View):
 ######################################
 class AddProjectView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             add_project_form = AddProjectForm(request.POST)
             if add_project_form.is_valid():
                 # 判断是否有相同的记录
@@ -1065,7 +1065,7 @@ class AddProjectView(LoginStatusCheck, View):
 ######################################
 class EditProjectView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_project_form = EditProjectForm(request.POST)
             if edit_project_form.is_valid():
                 pro = ProjectInfo.objects.get(id=int(request.POST.get('pro_id')))
@@ -1097,7 +1097,7 @@ class EditProjectView(LoginStatusCheck, View):
 ######################################
 class DeleteProjectView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             pro = ProjectInfo.objects.get(id=int(request.POST.get('pro_id')))
 
             # 添加操作记录
@@ -1119,7 +1119,7 @@ class DeleteProjectView(LoginStatusCheck, View):
 ######################################
 class PortToPortListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'port_domain'
             web_chose_left_2 = 'port_port'
@@ -1167,7 +1167,7 @@ class PortToPortListView(LoginStatusCheck, View):
 ######################################
 class AddPortToPortView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             ip_in = request.POST.get('ip_in')
             port_in = request.POST.get('port_in')
 
@@ -1211,7 +1211,7 @@ class AddPortToPortView(LoginStatusCheck, View):
 ######################################
 class EditPortToPortView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             port_info = PortToPortInfo.objects.get(id=int(request.POST.get('p_id')))
 
             ip_in = request.POST.get('ip_in')
@@ -1255,7 +1255,7 @@ class EditPortToPortView(LoginStatusCheck, View):
 ######################################
 class DeletePortToPortView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             port_info = PortToPortInfo.objects.get(id=int(request.POST.get('p_id')))
 
             # 添加操作记录
@@ -1279,7 +1279,7 @@ class DeletePortToPortView(LoginStatusCheck, View):
 ######################################
 class DomainNameListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'port_domain'
             web_chose_left_2 = 'domain_name'
@@ -1326,7 +1326,7 @@ class DomainNameListView(LoginStatusCheck, View):
 ######################################
 class AddDomainNameView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             name = request.POST.get('name')
 
             if DomainNameInfo.objects.filter(name=name).filter(status=1):
@@ -1365,7 +1365,7 @@ class AddDomainNameView(LoginStatusCheck, View):
 ######################################
 class EditDomainNameView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             domain_info = DomainNameInfo.objects.get(id=int(request.POST.get('do_id')))
 
             name = request.POST.get('name')
@@ -1404,7 +1404,7 @@ class EditDomainNameView(LoginStatusCheck, View):
 ######################################
 class DeleteDomainNameView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             domain_info = DomainNameInfo.objects.get(id=int(request.POST.get('do_id')))
 
             # 添加操作记录
@@ -1428,7 +1428,7 @@ class DeleteDomainNameView(LoginStatusCheck, View):
 ######################################
 class DomainNameResolveListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'port_domain'
             web_chose_left_2 = 'domain_resolve'
@@ -1477,7 +1477,7 @@ class DomainNameResolveListView(LoginStatusCheck, View):
 ######################################
 class AddDomainNameResolveView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             name = request.POST.get('name')
             domain_name_id = int(request.POST.get('domain_name'))
 
@@ -1519,7 +1519,7 @@ class AddDomainNameResolveView(LoginStatusCheck, View):
 ######################################
 class EditDomainNameResolveView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             domain_info = DomainNameResolveInfo.objects.get(id=int(request.POST.get('do_id')))
 
             name = request.POST.get('name')
@@ -1561,7 +1561,7 @@ class EditDomainNameResolveView(LoginStatusCheck, View):
 ######################################
 class DeleteDomainNameResolveView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             domain_info = DomainNameResolveInfo.objects.get(id=int(request.POST.get('do_id')))
 
             # 添加操作记录
@@ -1584,7 +1584,7 @@ class DeleteDomainNameResolveView(LoginStatusCheck, View):
 ######################################
 class UseListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'basic_setting'
             web_chose_left_2 = 'use'
@@ -1634,7 +1634,7 @@ class UseListView(LoginStatusCheck, View):
 ######################################
 class AddUseView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             add_use_form = AddUseForm(request.POST)
             if add_use_form.is_valid():
                 # 判断是否有相同的记录
@@ -1674,7 +1674,7 @@ class AddUseView(LoginStatusCheck, View):
 ######################################
 class EditUseView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_use_form = EditUseForm(request.POST)
             if edit_use_form.is_valid():
                 use = UseInfo.objects.get(id=int(request.POST.get('use_id')))
@@ -1705,7 +1705,7 @@ class EditUseView(LoginStatusCheck, View):
 ######################################
 class DeleteUseView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             use = UseInfo.objects.get(id=int(request.POST.get('use_id')))
 
             # 添加操作记录
@@ -1729,7 +1729,7 @@ class DeleteUseView(LoginStatusCheck, View):
 ######################################
 class HostOperationView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'log_management'
             web_chose_left_2 = 'op_log'
@@ -1797,7 +1797,7 @@ class HostOperationView(LoginStatusCheck, View):
 ######################################
 class DictListView(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'basic_setting'
             web_chose_left_2 = 'dict'
@@ -1838,7 +1838,7 @@ class DictListView(LoginStatusCheck, View):
 ######################################
 class AddDictView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             name = request.POST.get('name')
             value = request.POST.get('value')
 
@@ -1877,7 +1877,7 @@ class AddDictView(LoginStatusCheck, View):
 ######################################
 class EditDictView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             dict_info = DataDictInfo.objects.get(name=request.POST.get('name'))
             name = request.POST.get('name')
             value = request.POST.get('value')
@@ -1916,7 +1916,7 @@ class EditDictView(LoginStatusCheck, View):
 ######################################
 class DeleteDictView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             dict_info = DataDictInfo.objects.get(id=int(request.POST.get('id')))
 
             # 添加操作记录

@@ -35,6 +35,15 @@ urlpatterns = [
     # 部门删除
     path('dept/delete', DeleteDeptView.as_view(), name='dept_delete'),
 
+    # 用户列表
+    path('user/list', UserListView.as_view(), name='user_list'),
+    # 用户添加
+    path('user/add', AddUserView.as_view(), name='user_add'),
+    # 用户修改
+    path('user/edit', EditUserView.as_view(), name='user_edit'),
+    # 用户删除
+    path('user/delete', DeleteUserView.as_view(), name='user_delete'),
+
     # # 用户激活请求
     # path('email/active', SendActiveUserEmailView.as_view(), name='send_active_email'),
     #

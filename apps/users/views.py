@@ -254,7 +254,7 @@ class UnitListView(LoginStatusCheck, View):
 ######################################
 class AddUnitView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             add_unit_form = AddUnitForm(request.POST)
             if add_unit_form.is_valid():
                 name = request.POST.get('name')
@@ -294,7 +294,7 @@ class AddUnitView(LoginStatusCheck, View):
 ######################################
 class EditUnitView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             edit_unit_form = EditUnitForm(request.POST)
             if edit_unit_form.is_valid():
 
@@ -402,7 +402,7 @@ class DeptListView(LoginStatusCheck, View):
 ######################################
 class AddDeptView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             add_dept_form = AddDeptForm(request.POST)
             if add_dept_form.is_valid():
                 name = request.POST.get('name')
@@ -442,7 +442,7 @@ class AddDeptView(LoginStatusCheck, View):
 ######################################
 class EditDeptView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             # edit_dept_form = EditDeptForm(request.POST)
             # if edit_dept_form.is_valid():
 
@@ -915,7 +915,7 @@ class UserListView(LoginStatusCheck, View):
 ######################################
 class AddUserView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             add_user_form = AddUserForm(request.POST)
             if add_user_form.is_valid():
                 username = request.POST.get('username')
@@ -967,7 +967,7 @@ class AddUserView(LoginStatusCheck, View):
 ######################################
 class EditUserView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_user_form = EditUserForm(request.POST)
             if edit_user_form.is_valid():
                 # 被修改的用户
@@ -1004,6 +1004,27 @@ class EditUserView(LoginStatusCheck, View):
         else:
             return HttpResponse(status=403)
 
+######################################
+# 删除部门
+######################################
+class DeleteUserView(LoginStatusCheck, View):
+    def post(self, request):
+        try:
+            user = UserProfile.objects.get(id=request.POST.get('id'))
+
+            # 添加操作记录
+            op_record = UserOperationRecord()
+            op_record.op_user = request.user
+            op_record.belong = 5
+            op_record.status = 1
+            op_record.op_num = user.id
+            op_record.operation = 4
+            op_record.action = "删除用户：%s" % (user.user_name)
+            op_record.save()
+            user.delete()
+            return HttpResponse('{"status":"success", "msg":"用户删除成功！"}', content_type='application/json')
+        except Exception as e:
+            return HttpResponse('{"status":"falied", "msg":"用户删除失败！"}', content_type='application/json')
 
 ######################################
 # 用户登录信息

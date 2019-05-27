@@ -15,7 +15,7 @@ from pure_pagination import PageNotAnInteger, Paginator, EmptyPage
 ######################################
 class Artifact_List_View(LoginStatusCheck, View):
     def get(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'vechain'
             web_chose_left_2 = 'artifact'

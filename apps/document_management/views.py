@@ -34,7 +34,7 @@ from operation_record.models import UserOperationRecord
 ######################################
 class DocumentAddView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             tags = request.POST.get("tags", "")
             if tags == "":
                 return HttpResponse('{"status":"failed", "msg":"标签为必填项！"}', content_type='application/json')
@@ -98,7 +98,7 @@ class DocumentAddView(LoginStatusCheck, View):
 ######################################
 class DocumentListView(LoginStatusCheck, View):
     def get(self, request, doc_cate):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'document_management'
             web_chose_left_2 = doc_cate
@@ -174,7 +174,7 @@ class DocumentListView(LoginStatusCheck, View):
 ######################################
 class DocumentDetailView(LoginStatusCheck, View):
     def get(self, request, doc_id):
-        if request.user.role > 1:
+        if request.user.role <3:
             # 页面选择
             web_chose_left_1 = 'document_management'
             web_chose_left_2 = ''
@@ -238,7 +238,7 @@ def upload_image(request):
 ######################################
 class DocumentEditView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             tags = request.POST.get("tags", "")
             if tags == "":
                 return HttpResponse('{"status":"failed", "msg":"标签为必填项！"}', content_type='application/json')
@@ -304,7 +304,7 @@ class DocumentEditView(LoginStatusCheck, View):
 ######################################
 class DocumentDeleteView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             doc_obj = Document.objects.get(id=int(request.POST.get('doc_id')))
             try:
                 doc_obj.status = 0
@@ -337,7 +337,7 @@ class DocumentDeleteView(LoginStatusCheck, View):
 ######################################
 class DocumentDownloadView(LoginStatusCheck, View):
     def get(self, request, doc_id):
-        if request.user.role > 1:
+        if request.user.role <3:
             doc_info = Document.objects.get(id=int(doc_id))
             time_now = time.strftime("%Y%m%H%M%S", time.localtime())
             filename = doc_info.subject + '_' + time_now

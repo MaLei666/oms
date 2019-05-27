@@ -91,7 +91,7 @@ class AddCompanyPlatformView(LoginStatusCheck, View):
 ######################################
 class EditPlatInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role <3:
             edit_host_info_form = EditPlatformForm(request.POST)
             if edit_host_info_form.is_valid():
 

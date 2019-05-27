@@ -8,25 +8,22 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/document_management/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/document_management/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/host_management/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/host_management/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/platform_management/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/platform_management/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/sys_inspect/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/sys_inspect/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/vechain/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/vechain/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/document_management/document/doc_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/document_management/document/doc_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/document_management/document/doc_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/document_management/document/doc_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/host_management/host/db_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/host_management/host/db_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/host_management/host/host_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/host_management/host/host_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/host_management/host/host_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/host_management/host/host_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/host_management/other/host_op_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/host_management/other/host_op_record.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/host_management/other/project_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/host_management/other/project_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/host_management/other/data_dict_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/host_management/other/data_dict_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/units/unit_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/units/unit_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/user/user_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/user/user_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/user/user_info_other.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/user/user_info_other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/units/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/units/user_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/user/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/user/user_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/user/user_login_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/user/user_login_record.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/user/user_op_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/user/user_op_record.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vechain/artifact_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vechain/artifact_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,108 +36,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="1008" column="60" selection-start-line="1008" selection-start-column="60" selection-end-line="1008" selection-end-column="60" />
+            <state relative-caret-position="726">
+              <caret line="967" column="6" selection-start-line="967" selection-start-column="6" selection-end-line="967" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+        <entry file="file://$PROJECT_DIR$/classes/templates/system/user/add1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1004">
-              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="630">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
+        <entry file="file://$PROJECT_DIR$/classes/templates/system/user/add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
+            <state relative-caret-position="476">
+              <caret line="28" column="62" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/users/units/unit_list.html">
+        <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="373" column="49" selection-start-line="373" selection-start-column="34" selection-end-line="373" selection-end-column="49" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-13">
+              <caret line="253" column="33" selection-start-line="253" selection-start-column="33" selection-end-line="253" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+        <entry file="file://$PROJECT_DIR$/classes/templates/system/user/user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+            <state relative-caret-position="117">
+              <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="311" column="51" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/users/units/user_list.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/users/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2339" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="470" column="67" lean-forward="true" selection-start-line="470" selection-start-column="67" selection-end-line="470" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/users/units/dept_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1615">
-              <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="186" selection-end-column="62" />
+            <state relative-caret-position="1083">
+              <caret line="364" column="48" selection-start-line="364" selection-start-column="48" selection-end-line="364" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#!/usr/bin/env python</find>
-      <find>#!/</find>
-      <find>DeleteDevModal</find>
-      <find>devices</find>
-      <find>id_AddDevForm</find>
-      <find>id_AddDevBtn</find>
-      <find>id_EditDevForm</find>
-      <find>id_EditDevBtn</find>
-      <find>设备</find>
-      <find>id_DeleteDevForm</find>
-      <find>id_DeleteDevBtn</find>
-      <find>web_chose_left_2</find>
-      <find>暂无</find>
-      <find>web_chose_left_1</find>
-      <find>id_EditUnitBtn</find>
-      <find>unit</find>
-      <find>Unit</find>
-      <find>单位</find>
-      <find>company_id</find>
       <find>company</find>
       <find>_id</find>
       <find>EditDevModal</find>
@@ -151,10 +126,32 @@
       <find>UserPosition</find>
       <find>chinese_name</find>
       <find>id_EditUnitForm</find>
+      <find>部门</find>
+      <find>设备</find>
+      <find>Dept</find>
+      <find>depts</find>
+      <find>each_dept</find>
+      <find>is_superuser</find>
+      <find>request.user.role &gt; 1</find>
+      <find>user</find>
+      <find>request.user.role</find>
+      <find>.user.role &lt; 3</find>
+      <find>ser.role &lt;3</find>
+      <find>.user.role &lt;3</find>
+      <find>signupForm</find>
+      <find>下一步</find>
+      <find>layui-layer-btn</find>
+      <find>id_AddUserForm</find>
+      <find>load</find>
+      <find>add1</find>
+      <find>id_AddUserBtn</find>
+      <find>普通用户</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/apps/users</dir>
       <dir>$PROJECT_DIR$/apps</dir>
+      <dir>$PROJECT_DIR$/classes/static</dir>
+      <dir>$PROJECT_DIR$/classes</dir>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
@@ -170,32 +167,42 @@
         <option value="$PROJECT_DIR$/apps/spider_data/forms.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/oms/settings.py" />
-        <option value="$PROJECT_DIR$/apps/users/urls.py" />
         <option value="$PROJECT_DIR$/templates/users/units/dept_list.html" />
         <option value="&lt;02f4c021-f77b-4940-b5d3-0f6ae352336d&gt;/home/py_code/oms/apps/users/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/apps/users/admin.py" />
-        <option value="$PROJECT_DIR$/apps/users/models.py" />
         <option value="$PROJECT_DIR$/templates/users/user/user_info.html" />
-        <option value="$PROJECT_DIR$/apps/host_management/views.py" />
-        <option value="$PROJECT_DIR$/apps/document_management/views.py" />
-        <option value="$PROJECT_DIR$/templates/host_management/host/host_info.html" />
-        <option value="$PROJECT_DIR$/templates/host_management/host/host_list.html" />
         <option value="$PROJECT_DIR$/templates/host_management/other/project_list.html" />
         <option value="$PROJECT_DIR$/templates/host_management/other/host_op_record.html" />
         <option value="$PROJECT_DIR$/templates/document_management/document/doc_list.html" />
-        <option value="$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html" />
-        <option value="$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html" />
         <option value="$PROJECT_DIR$/templates/document_management/document/doc_detail.html" />
         <option value="$PROJECT_DIR$/templates/users/index.html" />
         <option value="$PROJECT_DIR$/templates/users/user/user_info_other.html" />
         <option value="$PROJECT_DIR$/templates/users/user/user_op_record.html" />
         <option value="$PROJECT_DIR$/templates/host_management/host/db_info.html" />
-        <option value="$PROJECT_DIR$/templates/users/user/user_list.html" />
         <option value="$PROJECT_DIR$/templates/users/user/user_login_record.html" />
-        <option value="$PROJECT_DIR$/templates/users/units/unit_list.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/apps/users/forms.py" />
+        <option value="$PROJECT_DIR$/apps/sys_inspect/views.py" />
+        <option value="$PROJECT_DIR$/apps/platform_management/views.py" />
+        <option value="$PROJECT_DIR$/apps/host_management/views.py" />
+        <option value="$PROJECT_DIR$/apps/document_management/views.py" />
+        <option value="$PROJECT_DIR$/apps/vechain/views.py" />
+        <option value="$PROJECT_DIR$/templates/users/units/unit_list.html" />
+        <option value="$PROJECT_DIR$/templates/vechain/artifact_list.html" />
+        <option value="$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html" />
+        <option value="$PROJECT_DIR$/templates/host_management/host/host_list.html" />
+        <option value="$PROJECT_DIR$/templates/host_management/other/data_dict_list.html" />
+        <option value="$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html" />
+        <option value="$PROJECT_DIR$/templates/host_management/host/host_info.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/classes/templates/system/user/user.html" />
+        <option value="$PROJECT_DIR$/classes/templates/system/user/add.html" />
+        <option value="$PROJECT_DIR$/templates/users/units/add/add.html" />
+        <option value="$PROJECT_DIR$/classes/templates/system/user/add1.html" />
+        <option value="$PROJECT_DIR$/apps/users/models.py" />
+        <option value="$PROJECT_DIR$/templates/users/user/user_list.html" />
         <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls.py" />
+        <option value="$PROJECT_DIR$/templates/users/units/user_list.html" />
       </list>
     </option>
   </component>
@@ -223,6 +230,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,25 +247,144 @@
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="sys_inspect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap-table" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="appjs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="appjs" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="appjs" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="lay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="lay" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="dict" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
@@ -287,10 +414,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -302,6 +429,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/js" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -358,7 +490,12 @@
       <workItem from="1557750532163" duration="19000" />
       <workItem from="1558445409367" duration="3720000" />
       <workItem from="1558527727398" duration="280000" />
-      <workItem from="1558528027548" duration="3255000" />
+      <workItem from="1558528027548" duration="3344000" />
+      <workItem from="1558616694335" duration="2289000" />
+      <workItem from="1558772964361" duration="892000" />
+      <workItem from="1558848851835" duration="9000" />
+      <workItem from="1558848875070" duration="2194000" />
+      <workItem from="1558959377003" duration="5275000" />
     </task>
     <task id="LOCAL-00001" summary="5-12更新 单位管理、部门管理 html页面">
       <created>1557667814514</created>
@@ -374,11 +511,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558449941973</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="19-05-22更新 人员管理">
+      <created>1558533177854</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1558533177855</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17371000" />
+    <option name="totallyTimeSpent" value="28119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -393,7 +537,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20028612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21459228" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -426,7 +570,8 @@
     <MESSAGE value="初始化" />
     <MESSAGE value="5-12更新 单位管理、部门管理 html页面" />
     <MESSAGE value="19-05-21更新 修改users model.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="19-05-21更新 修改users model.py" />
+    <MESSAGE value="19-05-22更新 人员管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="19-05-22更新 人员管理" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apps/host_management/admin.py">
@@ -472,9 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/host_management/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/sys_inspect/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -499,78 +641,273 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/migrations/0001_initial.py" />
-    <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html">
+    <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5287">
-          <caret line="311" column="51" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="135" column="78" selection-start-line="135" selection-start-column="78" selection-end-line="135" selection-end-column="78" />
+        <state relative-caret-position="1360">
+          <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/users/units/dept_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1615">
+        <state relative-caret-position="3162">
           <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="186" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/users/units/unit_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
+        <state relative-caret-position="5338">
           <caret line="373" column="49" selection-start-line="373" selection-start-column="34" selection-end-line="373" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/users/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/remote_sources/-1616823060/-1825072993/django/contrib/auth/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2339" />
+        <state relative-caret-position="4709">
+          <caret line="287" column="6" selection-start-line="287" selection-start-column="6" selection-end-line="287" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+          <caret line="130" column="12" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="12" />
+          <caret line="243" column="12" selection-start-line="243" selection-start-column="12" selection-end-line="243" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/spider_data/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1981" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/platform_management/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/operation_record/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/host_management/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <caret line="142" column="31" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
+          <caret line="263" column="31" selection-start-line="263" selection-start-column="31" selection-end-line="263" selection-end-column="31" />
+          <caret line="384" column="31" selection-start-line="384" selection-start-column="31" selection-end-line="384" selection-end-column="31" />
+          <caret line="425" column="31" selection-start-line="425" selection-start-column="31" selection-end-line="425" selection-end-column="31" />
+          <caret line="470" column="31" selection-start-line="470" selection-start-column="31" selection-end-line="470" selection-end-column="31" />
+          <caret line="493" column="31" selection-start-line="493" selection-start-column="31" selection-end-line="493" selection-end-column="31" />
+          <caret line="534" column="31" selection-start-line="534" selection-start-column="31" selection-end-line="534" selection-end-column="31" />
+          <caret line="575" column="31" selection-start-line="575" selection-start-column="31" selection-end-line="575" selection-end-column="31" />
+          <caret line="597" column="31" selection-start-line="597" selection-start-column="31" selection-end-line="597" selection-end-column="31" />
+          <caret line="644" column="31" selection-start-line="644" selection-start-column="31" selection-end-line="644" selection-end-column="31" />
+          <caret line="691" column="31" selection-start-line="691" selection-start-column="31" selection-end-line="691" selection-end-column="31" />
+          <caret line="719" column="31" selection-start-line="719" selection-start-column="31" selection-end-line="719" selection-end-column="31" />
+          <caret line="761" column="31" selection-start-line="761" selection-start-column="31" selection-end-line="761" selection-end-column="31" />
+          <caret line="823" column="31" selection-start-line="823" selection-start-column="31" selection-end-line="823" selection-end-column="31" />
+          <caret line="872" column="31" selection-start-line="872" selection-start-column="31" selection-end-line="872" selection-end-column="31" />
+          <caret line="917" column="31" selection-start-line="917" selection-start-column="31" selection-end-line="917" selection-end-column="31" />
+          <caret line="950" column="31" selection-start-line="950" selection-start-column="31" selection-end-line="950" selection-end-column="31" />
+          <caret line="972" column="31" selection-start-line="972" selection-start-column="31" selection-end-line="972" selection-end-column="31" />
+          <caret line="1026" column="31" selection-start-line="1026" selection-start-column="31" selection-end-line="1026" selection-end-column="31" />
+          <caret line="1067" column="31" selection-start-line="1067" selection-start-column="31" selection-end-line="1067" selection-end-column="31" />
+          <caret line="1099" column="31" selection-start-line="1099" selection-start-column="31" selection-end-line="1099" selection-end-column="31" />
+          <caret line="1121" column="31" selection-start-line="1121" selection-start-column="31" selection-end-line="1121" selection-end-column="31" />
+          <caret line="1169" column="31" selection-start-line="1169" selection-start-column="31" selection-end-line="1169" selection-end-column="31" />
+          <caret line="1213" column="31" selection-start-line="1213" selection-start-column="31" selection-end-line="1213" selection-end-column="31" />
+          <caret line="1257" column="31" selection-start-line="1257" selection-start-column="31" selection-end-line="1257" selection-end-column="31" />
+          <caret line="1281" column="31" selection-start-line="1281" selection-start-column="31" selection-end-line="1281" selection-end-column="31" />
+          <caret line="1328" column="31" selection-start-line="1328" selection-start-column="31" selection-end-line="1328" selection-end-column="31" />
+          <caret line="1367" column="31" selection-start-line="1367" selection-start-column="31" selection-end-line="1367" selection-end-column="31" />
+          <caret line="1406" column="31" selection-start-line="1406" selection-start-column="31" selection-end-line="1406" selection-end-column="31" />
+          <caret line="1430" column="31" selection-start-line="1430" selection-start-column="31" selection-end-line="1430" selection-end-column="31" />
+          <caret line="1479" column="31" selection-start-line="1479" selection-start-column="31" selection-end-line="1479" selection-end-column="31" />
+          <caret line="1521" column="31" selection-start-line="1521" selection-start-column="31" selection-end-line="1521" selection-end-column="31" />
+          <caret line="1563" column="31" selection-start-line="1563" selection-start-column="31" selection-end-line="1563" selection-end-column="31" />
+          <caret line="1586" column="31" selection-start-line="1586" selection-start-column="31" selection-end-line="1586" selection-end-column="31" />
+          <caret line="1636" column="31" selection-start-line="1636" selection-start-column="31" selection-end-line="1636" selection-end-column="31" />
+          <caret line="1676" column="31" selection-start-line="1676" selection-start-column="31" selection-end-line="1676" selection-end-column="31" />
+          <caret line="1707" column="31" selection-start-line="1707" selection-start-column="31" selection-end-line="1707" selection-end-column="31" />
+          <caret line="1731" column="31" selection-start-line="1731" selection-start-column="31" selection-end-line="1731" selection-end-column="31" />
+          <caret line="1799" column="31" selection-start-line="1799" selection-start-column="31" selection-end-line="1799" selection-end-column="31" />
+          <caret line="1840" column="31" selection-start-line="1840" selection-start-column="31" selection-end-line="1840" selection-end-column="31" />
+          <caret line="1879" column="31" selection-start-line="1879" selection-start-column="31" selection-end-line="1879" selection-end-column="31" />
+          <caret line="1918" column="31" selection-start-line="1918" selection-start-column="31" selection-end-line="1918" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/document_management/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1682">
+          <caret line="308" column="16" lean-forward="true" selection-start-line="308" selection-start-column="16" selection-end-line="308" selection-end-column="16" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="470" column="67" lean-forward="true" selection-start-line="470" selection-start-column="67" selection-end-line="470" selection-end-column="67" />
+        <state relative-caret-position="142">
+          <caret line="214" column="39" selection-start-line="214" selection-start-column="39" selection-end-line="214" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/units/user_list.html">
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/add.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1004">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state relative-caret-position="430">
+          <caret line="93" column="81" selection-start-line="93" selection-start-column="75" selection-end-line="93" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/user/user_list.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/remote_sources/-1616823060/-1825072993/django/contrib/staticfiles/templatetags/staticfiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/units/add/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="73" column="20" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/user/add.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/add1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="125" column="1" lean-forward="true" selection-end-line="125" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="526" column="22" selection-start-line="526" selection-start-column="22" selection-end-line="526" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/css/plugins/bootstrap-table/bootstrap-table.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2864" selection-start-column="2864" selection-end-column="2864" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/js/lay/modules/layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="748" selection-start-line="748" selection-end-line="748" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/add1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/userTree.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="62" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3643">
+          <caret line="292" column="22" selection-start-line="292" selection-end-line="293" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="311" column="51" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/dict/dict.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="253" column="33" selection-start-line="253" selection-start-column="33" selection-end-line="253" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="1008" column="60" selection-start-line="1008" selection-start-column="60" selection-end-line="1008" selection-end-column="60" />
+        <state relative-caret-position="726">
+          <caret line="967" column="6" selection-start-line="967" selection-start-column="6" selection-end-line="967" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="44" column="60" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/user/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="255" column="9" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/units/user_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="364" column="48" selection-start-line="364" selection-start-column="48" selection-end-line="364" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

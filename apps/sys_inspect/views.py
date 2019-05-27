@@ -86,7 +86,7 @@ class InspectDevInfoViews(LoginStatusCheck, View):
 class AddDevView(LoginStatusCheck, View):
     def post(self, request):
 
-        if request.user.role > 1:
+        if request.user.role < 3:
             add_dev_form = AddDevForm(request.POST)
             if add_dev_form.is_valid():
                 dev_id = request.POST.get('dev_id')
@@ -128,7 +128,7 @@ class AddDevView(LoginStatusCheck, View):
 ######################################
 class EditDevInfoView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             edit_dev_info_form = EditDevForm(request.POST)
             if edit_dev_info_form.is_valid():
 
@@ -241,7 +241,7 @@ class ContentViews(LoginStatusCheck, View):
 ######################################
 class AddContView(LoginStatusCheck, View):
     def post(self, request):
-        if request.user.role > 1:
+        if request.user.role < 3:
             add_cont_form = AddContForm(request.POST)
             if add_cont_form.is_valid():
                 content = InspectContentInfo()

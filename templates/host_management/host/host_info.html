@@ -59,7 +59,7 @@
                                 <a class="btn btn-sm btn-default" href="{% url 'host_management:host_list' %}"><i
                                         class="fa fa-reply"></i> 返回列表</a>
 
-                                {% if request.user.role > 1 %}
+                                {% if request.user.role < 3 %}
                                     <a class="btn btn-sm btn-default" data-toggle="modal"
                                        data-target="#AddHostServiceModal"><i
                                             class="fa fa-plus"></i> 添加服务</a>
@@ -100,7 +100,7 @@
                                             <td class="text-center">{{ records.admin_user }}</td>
                                             <td class="font-bold text-center">管理员密码</td>
                                             <td class="text-center">
-                                                {% if request.user.role < 2 %}
+                                                {% if request.user.role > 2 %}
                                                     无权限{% else %}{{ records.admin_pass }}{% endif %}</td>
                                             <td class="font-bold text-center">备注</td>
                                             <td colspan="7" class="text-center">{{ records.desc }}</td>
@@ -133,7 +133,7 @@
                                                                     <i class="fa fa-ellipsis-v"
                                                                        style="font-size: 14px; color: white;"></i>
                                                                 </a>
-                                                                            {% if request.user.role > 1 %}
+                                                                            {% if request.user.role < 3 %}
                                                                                 <!-- 隐藏功能 -->
                                                                              <div class="dropdown-menu" style="width: 20px;">
                                                                                 <div class="panel bg-white">
