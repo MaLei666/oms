@@ -186,7 +186,7 @@
     <div class="modal inmodal" id="AddUserModal" tabindex="-1" role="dialog" aria-hidden="true"
          data-backdrop="static">
         <div class="modal-dialog" style="width: 30%;">
-            <div class="modal-content" style="margin-top: 50px;width: 350px;">
+            <div class="modal-content" style="margin-top: 50px;width: 400px;">
 
                 <div class="modal-header"
                      style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
@@ -197,162 +197,148 @@
                 </div>
 
                 <form method="post" id="id_AddUserForm">
-                    <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 100px;padding-top: 20px">
-                        <label class="col-sm-8" style="font-size: 14px">1、选择添加人员角色：</label>
-                        <div class="col-sm-9">
-                            <select name="roleId" id="roleId" class="form-control" style="width: 300px">
-                                <option value="">请选择...</option>
-                                <option value="1">超级管理员</option>
-                                <option value="2">平台管理员</option>
-                                <option value="3">单位管理员</option>
+                    <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-top: 20px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户角色:</span>
+                        </div>
+                        <div class="col-sm-9" style="padding: 0;">
+                            <input type="text" class="form-control" maxlength="20" name="role" required="" value="单位管理员" readonly>
+{#                            <select name="role" id="role" class="form-control" >#}
+{#                                <option value="">请选择...</option>#}
+{#                                <option value="1">超级管理员</option>#}
+{#                                <option value="2">平台管理员</option>#}
+{#                                <input value="3" readonly="">单位管理员</input>#}
+{#                            </select>#}
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">单位名称:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            {% if role == 1 %}
+                                <input  readonly>
+                            {% else %}
+                            <select name="unit_id" id="unit_id" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            {% for each_unit in  units %}
+                                <option value="{{ each_unit.id }}">{{ each_unit.name }}</option>
+                            {% endfor %}{% endif %}
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">部门名称:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <select name="dept_id" id="dept_id" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            {% for each_dept in depts %}
+                                <option value="{{ each_dept.id }}">{{ each_dept.name }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">登录账号:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='登录账号'
+                                   maxlength="30" name="username" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户名称:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='用户名称'
+                                   maxlength="20" name="user_name" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户密码:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='用户密码'
+                                   maxlength="20" name="password" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">用户性别:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <select name="gender" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            <option value="male">男</option>
+                            <option value="female">女</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">联系电话:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='联系电话' name="mobile">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">邮箱地址:</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder='邮箱地址' name="email">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">运行模式：</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="radio" name="status" value="1" checked/>&nbsp;启用&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="status" value="0"/>&nbsp;禁用
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">备注：</span>
+                        </div>
+                        <div class="col-md-9" style="padding: 0;">
+                            <input type="text" class="form-control" placeholder="备注" name="comment">
                         </div>
                     </div>
                     <div class="modal-footer" style="padding-top: 10px; padding-bottom: 10px;">
                         <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>
-                        <a class="btn btn-sm btn-default" id="id_AddUserBtn">下一步</a>
+                        <a class="btn btn-sm btn-default" id="id_AddUserBtn">添加</a>
                     </div>
-                </form>
-                <form method="post" id="id_AddUserForm">
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">用户角色:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <select name="role" class="form-control selectpicker">#}
-{#                            <option value="">请选择...</option>#}
-{#                            <option value="1">超级管理员</option>#}
-{#                            <option value="2">平台管理员</option>#}
-{#                            <option value="3">单位管理员</option>#}
-{#                            </select>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">单位名称:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <select name="unit_id" id="unit_id" class="form-control selectpicker">#}
-{#                            <option value="">请选择...</option>#}
-{#                            {% for each_unit in  units %}#}
-{#                                <option value="{{ each_unit.id }}">{{ each_unit.name }}</option>#}
-{#                            {% endfor %}#}
-{#                            </select>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">部门名称:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <select name="dept_id" id="dept_id" class="form-control selectpicker">#}
-{#                            <option value="">请选择...</option>#}
-{#                            {% for each_dept in depts %}#}
-{#                                <option value="{{ each_dept.id }}">{{ each_dept.name }}</option>#}
-{#                            {% endfor %}#}
-{#                            </select>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">登录账号:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="text" class="form-control" placeholder='登录账号'#}
-{#                                   maxlength="30" name="username" required="">#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">用户名称:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="text" class="form-control" placeholder='用户名称'#}
-{#                                   maxlength="20" name="user_name" required="">#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">用户密码:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="text" class="form-control" placeholder='用户密码'#}
-{#                                   maxlength="20" name="password" required="">#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">用户性别:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <select name="gender" class="form-control selectpicker">#}
-{#                            <option value="">请选择...</option>#}
-{#                            <option value="male">男</option>#}
-{#                            <option value="female">女</option>#}
-{#                            </select>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">联系电话:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="text" class="form-control" placeholder='联系电话' name="mobile">#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">邮箱地址:</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="text" class="form-control" placeholder='邮箱地址' name="email">#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">运行模式：</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="radio" name="status" value="1" checked/>&nbsp;启用&nbsp;&nbsp;&nbsp;#}
-{#                            <input type="radio" name="status" value="0"/>&nbsp;禁用#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="form-group"#}
-{#                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">#}
-{#                        <div class="col-md-3">#}
-{#                            <span style="font-size: 12px;">备注：</span>#}
-{#                        </div>#}
-{#                        <div class="col-md-9" style="padding: 0;">#}
-{#                            <input type="text" class="form-control" placeholder="备注" name="comment">#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="modal-footer" style="padding-top: 10px; padding-bottom: 10px;">#}
-{#                        <a class="btn btn-sm btn-default" data-dismiss="modal">取消</a>#}
-{#                        <a class="btn btn-sm btn-default" id="id_AddUserBtn">添加</a>#}
-{#                    </div>#}
-                </form>
+                    </form>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
     <!-- 添加用户 -->
     <script>
@@ -385,7 +371,7 @@
         <div class="modal inmodal" id="EditUserModal{{ each_user.id }}" tabindex="-1" role="dialog" aria-hidden="true"
              data-backdrop="static">
             <div class="modal-dialog" style="width: 500px;">
-                <div class="modal-content" style="margin-top: 100px;" >
+                <div class="modal-content" style="margin-top: 50px;" >
                     <div class="modal-header"
                          style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
                         <button type="button" class="close" data-dismiss="modal">
@@ -404,8 +390,12 @@
                                         <span style="font-size: 12px;">用户角色：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="单位名称"
-                                               maxlength="20" name="role" required="" value="{{ each_user.role }}" readonly>
+                                        <input type="text" class="form-control"
+                                           {% if each_user.role == 1 %} value="超级管理员"
+                                           {% elif each_user.role == 2 %} value="平台管理员"
+                                           {% elif each_user.role == 3 %} value="单位管理员"
+                                           {% endif %}
+                                           readonly>
                                     </div>
                                 </div>
 
@@ -415,8 +405,17 @@
                                         <span style="font-size: 12px;">单位名称：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="单位名称"
-                                               maxlength="20" name="unit_name" required="" value="{{ each_user.unit_name }}" readonly>
+                                        <input type="text" class="form-control" value="{{ each_user.unit_name }}" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">部门名称：</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" value="{{ each_user.dept_name }}" readonly>
                                     </div>
                                 </div>
 
@@ -432,23 +431,24 @@
                                 </div>
 
                                 <div class="form-group"
+                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                                    <div class="col-md-3">
+                                        <span style="font-size: 12px;">用户密码:</span>
+                                    </div>
+                                    <div class="col-md-9" style="padding: 0;">
+                                        <input type="text" class="form-control" placeholder='用户密码'
+                                               maxlength="20" name="password" required="" value="{{ each_user.password }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
                                      style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                                     <div class="col-md-3">
                                         <span style="font-size: 12px;">用户名称：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
                                         <input type="text" class="form-control" placeholder="用户名称"
-                                               maxlength="20" name="user_name" required="" value="{{ each_user.user_name }}" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="form-group" style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
-                                    <div class="col-md-3">
-                                        <span style="font-size: 12px;">用户性别:</span>
-                                    </div>
-                                    <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder='用户名称'
-                                               maxlength="20" name="gender" required="" value="{{ each_user.gender }}">
+                                               maxlength="20" name="user_name" required="" value="{{ each_user.user_name }}">
                                     </div>
                                 </div>
 

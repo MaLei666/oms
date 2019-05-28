@@ -926,23 +926,21 @@ class AddUserView(LoginStatusCheck, View):
 
                 # 添加用户
                 user = UserProfile()
-                user.role=request.POST.get('role')
+                user.role=3
                 user.username=request.POST.get('username')
                 user.user_name = request.POST.get('user_name')
-                user.password = password
-                user.unit_id=request.POST.get('unit_id')
-                user.unit_name=UserCompany.objects.get(id=request.POST.get('unit_id'))
-                user.dept_id=request.POST.get('dept_id')
-                user.dept_name=UserCompany.objects.get(id=request.POST.get('dept_id'))
+                user.password = make_password(password)
+                user.unit_id=int(request.POST.get('unit_id'))
+                user.unit_name=UserCompany.objects.get(id=request.POST.get('unit_id')).name
+                user.dept_id=int(request.POST.get('dept_id'))
+                user.dept_name=UserDepartment.objects.get(id=request.POST.get('dept_id')).name
                 user.email = request.POST.get('email')
                 user.mobile = request.POST.get('mobile')
                 user.gender = request.POST.get('gender')
-                user.role = int(request.POST.get('role'))
                 user.status = int(request.POST.get('status'))
                 user.create_user=request.user.username
                 user.user_id_create=request.user.id
                 user.comment=request.POST.get('comment')
-                user.is_active = request.POST.get('is_active')
                 user.save()
 
                 # 添加操作记录
@@ -975,14 +973,17 @@ class EditUserView(LoginStatusCheck, View):
                 edit_user = UserProfile.objects.get(id=user_id)
 
                 # 修改密码
-                password = request.POST.get('password', '')
+                password = request.POST.get('password')
                 edit_user.password = make_password(password)
 
                 # 修改其它信息
                 edit_user.user_name = request.POST.get('user_name')
                 edit_user.mobile = request.POST.get('mobile')
+                edit_user.email = request.POST.get('email')
                 edit_user.status = request.POST.get('status')
                 edit_user.comment=request.POST.get('comment')
+                edit_user.update_user=request.user.username
+                edit_user.update_time=datetime.datetime.now()
 
                 # 保存修改
                 edit_user.save()
@@ -1005,7 +1006,7 @@ class EditUserView(LoginStatusCheck, View):
             return HttpResponse(status=403)
 
 ######################################
-# 删除部门
+# 删除用户
 ######################################
 class DeleteUserView(LoginStatusCheck, View):
     def post(self, request):

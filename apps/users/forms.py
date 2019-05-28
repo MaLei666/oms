@@ -88,10 +88,8 @@ class EditDeptForm(forms.Form):
 ######################################
 class AddUserForm(forms.Form):
     user_name = forms.CharField(max_length=20, required=True)
-    email = forms.EmailField()
-    mobile = forms.CharField(min_length=6, max_length=20, required=True)
-    password = forms.CharField(min_length=6, max_length=20, required=True)
-    re_password = forms.CharField(min_length=6, max_length=20, required=True)
+    # mobile = forms.CharField(min_length=6, max_length=20, required=True)
+    # password = forms.CharField(min_length=6, max_length=20, required=True)
 
 
 ######################################
@@ -99,8 +97,6 @@ class AddUserForm(forms.Form):
 ######################################
 class EditUserForm(forms.Form):
     user_name = forms.CharField(max_length=20, required=True)
-    email = forms.EmailField()
-    mobile = forms.CharField(min_length=6, max_length=20, required=True)
 
 
 
