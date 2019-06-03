@@ -83,7 +83,7 @@
                                                     style="vertical-align:middle;">{{ each_user.username }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_user.unit_name }}
+                                                    style="vertical-align:middle;">{{ each_user.user_name }}
                                                 </td>
                                                 <td class="text-center"
                                                     style="vertical-align:middle;">{% if each_user.role is 1 %}超级管理员
@@ -202,13 +202,15 @@
                             <span style="font-size: 12px;">用户角色:</span>
                         </div>
                         <div class="col-sm-9" style="padding: 0;">
-                            <input type="text" class="form-control" maxlength="20" name="role" required="" value="单位管理员" readonly>
-{#                            <select name="role" id="role" class="form-control" >#}
-{#                                <option value="">请选择...</option>#}
-{#                                <option value="1">超级管理员</option>#}
-{#                                <option value="2">平台管理员</option>#}
-{#                                <input value="3" readonly="">单位管理员</input>#}
-{#                            </select>#}
+{#                            <input type="text" class="form-control" maxlength="20" name="role" required="" value="单位管理员" readonly>#}
+                            <select name="role" id="role" class="form-control">
+                                <option value="">请选择...</option>
+                                <option value="1">超级管理员</option>
+                                <option value="2">平台管理员</option>
+                                <option value="3">单位管理员</option>
+                                <option value="4">一般用户</option>
+
+                            </select>
                         </div>
                     </div>
 
@@ -340,6 +342,48 @@
                 </div>
             </div>
 
+    <script src="{% static 'js/common.js' %}"></script>
+{#    <script src="{% static 'js/user/user.js' %}"></script>#}
+    <script src="{% static 'js/lay/modules/layer.js' %}"></script>
+
+{#    <script>#}
+{#        $(function () {#}
+{#            $('#id_AddUserBtn').on('click', function () {#}
+{#            // iframe层#}
+{#                $(layer.open({#}
+{#                    // type : 2,#}
+{#                    title : '系统管理/增加',#}
+{#                    maxmin : false,#}
+{#                    shadeClose : false, // 点击遮罩关闭层#}
+{#                    area : [ '400px', '260px' ],#}
+{#                    id: 'uer_add0',#}
+{#                    btn: ['下一步','取&nbsp;消'],#}
+{#                    btnAlign: 'c',#}
+{#                    moveType: 1,#}
+{#                    content : prefix + '/add',#}
+{#                    btn1: function(index, layero){#}
+{#                        var body = layer.getChildFrame('body', index);#}
+{#                        var role = body.find('#role').val();#}
+{#                        if (role == '' || role == 'null') {#}
+{#                            layer.msg('用户角色不允许为空!', {#}
+{#                                area : [ '400px', '260px' ],#}
+{#                                time: 5000,#}
+{#                                btn: ['确定']#}
+{#                            });#}
+{#                        } else {#}
+{#                            layer.closeAll();#}
+{#                            add1(role);#}
+{#                            return;#}
+{#                        }#}
+{#                    },#}
+{#                    btn2: function(index, layero){#}
+{#                        layer.closeAll();#}
+{#                        return;#}
+{#                        }#}
+{#                    });#}
+{#                });#}
+{#            })#}
+{#    </script>#}
     <!-- 添加用户 -->
     <script>
         $(function () {
@@ -405,7 +449,7 @@
                                         <span style="font-size: 12px;">单位名称：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" value="{{ each_user.unit_name }}" readonly>
+                                        <input type="text" class="form-control" {% if each_user.unit_name %} value="{{ each_user.unit_name }}" {% else %} value="-"{% endif %} readonly>
                                     </div>
                                 </div>
 
@@ -415,7 +459,7 @@
                                         <span style="font-size: 12px;">部门名称：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" value="{{ each_user.dept_name }}" readonly>
+                                        <input type="text" class="form-control" {% if each_user.dept_name %} value="{{ each_user.dept_name }}" {% else %} value="-"{% endif %} readonly>
                                     </div>
                                 </div>
 
@@ -427,17 +471,6 @@
                                     <div class="col-md-9" style="padding: 0;">
                                         <input type="text" class="form-control" placeholder="登录账号"
                                                maxlength="20" name="username" required="" value="{{ each_user.username }}" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="form-group"
-                                     style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
-                                    <div class="col-md-3">
-                                        <span style="font-size: 12px;">用户密码:</span>
-                                    </div>
-                                    <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder='用户密码'
-                                               maxlength="20" name="password" required="" value="{{ each_user.password }}">
                                     </div>
                                 </div>
 
@@ -468,7 +501,7 @@
                                         <span style="font-size: 12px;">邮箱地址：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="联系人"
+                                        <input type="text" class="form-control" placeholder="邮箱地址"
                                                    maxlength="20" name="email" value="{{ each_user.email }}">
                                     </div>
                                 </div>
@@ -510,7 +543,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{% url 'users:dept_edit'%}",
+                        url: "{% url 'users:user_edit'%}",
                         data: $('#id_EditUserForm{{ each_user.id }}').serialize(),
                         async: true,
                         beforeSend: function (xhr, settings) {
@@ -557,7 +590,7 @@
             </div>
         </div>
 
-        <!-- 删除平台 -->
+        <!-- 删除用户 -->
         <script>
             $(function () {
                 // 提交表单
@@ -565,7 +598,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{% url 'users:dept_delete' %}",
+                        url: "{% url 'users:user_delete' %}",
                         data: $('#id_DeleteUserForm{{ each_user.id }}').serialize(),
                         async: true,
                         beforeSend: function (xhr, settings) {

@@ -82,7 +82,7 @@ class UserDepartment(models.Model):
 # 用户扩展表
 ######################################
 class UserProfile(AbstractUser):
-    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=((1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员')))
+    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=((1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员'),(4, '一般用户')),null=True,blank=True)
     user_name = models.CharField(verbose_name='名字', max_length=10)
     unit_id=models.IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name=models.CharField(verbose_name='单位名称',max_length=100, null=True, blank=True)
@@ -100,7 +100,7 @@ class UserProfile(AbstractUser):
     update_time = models.DateTimeField(verbose_name='更新时间', blank=True, null=True)
     comment = models.CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (2, '停用')), default=1)
-    user_id_create=models.BigIntegerField(verbose_name='创建用户id')
+    user_id_create=models.BigIntegerField(verbose_name='创建用户id',null=True,blank=True)
 
     class Meta:
         verbose_name = '用户'

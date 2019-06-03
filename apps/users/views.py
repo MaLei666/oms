@@ -972,10 +972,6 @@ class EditUserView(LoginStatusCheck, View):
                 user_id = int(request.POST.get('id'))
                 edit_user = UserProfile.objects.get(id=user_id)
 
-                # 修改密码
-                password = request.POST.get('password')
-                edit_user.password = make_password(password)
-
                 # 修改其它信息
                 edit_user.user_name = request.POST.get('user_name')
                 edit_user.mobile = request.POST.get('mobile')
