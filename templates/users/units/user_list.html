@@ -83,12 +83,12 @@
                                                     style="vertical-align:middle;">{{ each_user.username }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_user.user_name }}
+                                                    style="vertical-align:middle;">{% if each_user.user_name %}{{ each_user.user_name }}{% else %}-{% endif %}
                                                 </td>
                                                 <td class="text-center"
                                                     style="vertical-align:middle;">{% if each_user.role is 1 %}超级管理员
                                                     {% elif each_user.role is 2 %}平台管理员
-                                                    {% elif each_user.role is 3 %}单位管理员{% endif %}
+                                                    {% elif each_user.role is 3 %}单位管理员{% else %}-{% endif %}
                                                 </td>
 
                                                 <td class="text-center"
@@ -186,7 +186,7 @@
     <div class="modal inmodal" id="AddUserModal" tabindex="-1" role="dialog" aria-hidden="true"
          data-backdrop="static">
         <div class="modal-dialog" style="width: 30%;">
-            <div class="modal-content" style="margin-top: 50px;width: 400px;">
+            <div class="modal-content" style="margin-top: 50px;width: 500px;">
 
                 <div class="modal-header"
                      style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
@@ -209,7 +209,6 @@
                                 <option value="2">平台管理员</option>
                                 <option value="3">单位管理员</option>
                                 <option value="4">一般用户</option>
-
                             </select>
                         </div>
                     </div>
@@ -360,28 +359,13 @@
 {#                    btn: ['下一步','取&nbsp;消'],#}
 {#                    btnAlign: 'c',#}
 {#                    moveType: 1,#}
-{#                    content : prefix + '/add',#}
+{#                    content :"{% url 'users:user_add' %}",#}
 {#                    btn1: function(index, layero){#}
 {#                        var body = layer.getChildFrame('body', index);#}
-{#                        var role = body.find('#role').val();#}
-{#                        if (role == '' || role == 'null') {#}
-{#                            layer.msg('用户角色不允许为空!', {#}
-{#                                area : [ '400px', '260px' ],#}
-{#                                time: 5000,#}
-{#                                btn: ['确定']#}
-{#                            });#}
-{#                        } else {#}
-{#                            layer.closeAll();#}
-{#                            add1(role);#}
-{#                            return;#}
-{#                        }#}
-{#                    },#}
-{#                    btn2: function(index, layero){#}
-{#                        layer.closeAll();#}
-{#                        return;#}
-{#                        }#}
-{#                    });#}
-{#                });#}
+{#                            },#}
+{#                        }),#}
+{#                    )#}
+{#                })#}
 {#            })#}
 {#    </script>#}
     <!-- 添加用户 -->
@@ -438,6 +422,7 @@
                                            {% if each_user.role == 1 %} value="超级管理员"
                                            {% elif each_user.role == 2 %} value="平台管理员"
                                            {% elif each_user.role == 3 %} value="单位管理员"
+                                           {% else %} value="-"
                                            {% endif %}
                                            readonly>
                                     </div>
@@ -522,7 +507,9 @@
                                         <span style="font-size: 12px;">备注：</span>
                                     </div>
                                     <div class="col-md-9" style="padding: 0;">
-                                        <input type="text" class="form-control" placeholder="备注" name="comment" value="{{ each_user.comment }}">
+                                        <input type="text" class="form-control" placeholder="备注" name="comment"
+                                                {% if each_user.comment == "None" %} value=""
+                                                {% else %} value="{{ each_user.comment }}"{% endif %}>
                                     </div>
                                 </div>
                             </div>

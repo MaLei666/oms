@@ -44,8 +44,8 @@ class ShopInfo(models.Model):
 
 class ZhihuList(models.Model):
     # id = models.AutoField(primary_key= True)
-    question=models.CharField(verbose_name='问题标题', max_length=30)
-    hot=models.CharField(verbose_name='问题热度', max_length=30)
+    question=models.CharField(verbose_name='问题标题', max_length=255)
+    hot=models.CharField(verbose_name='问题热度', max_length=255)
     answer_count=models.IntegerField(verbose_name='回答数')
 
 
