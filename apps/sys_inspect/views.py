@@ -197,11 +197,12 @@ class ContentViews(LoginStatusCheck, View):
         # 用户
         users = UserProfile.objects.filter()
 
+        # 公司
+        units = UserCompany.objects.filter()
+
         # 部门
         depts = UserDepartment.objects.filter()
 
-        #公司
-        units=UserCompany.objects.filter()
 
         #设备
         devices=InspectDevInfo.objects.filter()
@@ -245,11 +246,13 @@ class AddContView(LoginStatusCheck, View):
             add_cont_form = AddContForm(request.POST)
             if add_cont_form.is_valid():
                 content = InspectContentInfo()
-                content.task_name = request.POST.get('taskName')
-                content.task_type = request.POST.get('taskType')
+                content.task_name = request.POST.get('task_name')
+                content.task_type = request.POST.get('task_type')
                 content.dept_id= request.POST.get('deptId')
                 content.unit_id=request.POST.get('unitId')
                 content.user_id=request.POST.get('userId')
+                content.user_name=UserProfile.objects.get(id=content.user_id).user_name
+                content.create_user=request.user.user_name
 
 
                 content.start_time = request.POST.get('startTime')
@@ -278,20 +281,20 @@ class AddContView(LoginStatusCheck, View):
 class DeleteContView(LoginStatusCheck, View):
     def post(self, request):
         try:
-            dev_id = request.POST.get('dev_id')
-            device = InspectDevInfo.objects.get(id=int(dev_id))
+            cont_id = request.POST.get('cont_id')
+            content = InspectContentInfo.objects.get(id=int(cont_id))
 
             # 添加操作记录
             op_record = UserOperationRecord()
             op_record.op_user = request.user
             op_record.belong = 5
             op_record.status = 1
-            op_record.op_num = device.id
+            op_record.op_num = content.id
             op_record.operation = 4
-            op_record.action = "删除巡检设备设备：%s：%s" % (device.dev_id,device.dev_name)
+            op_record.action = "删除巡检任务：%s：%s" % (content.id,content.task_name)
             op_record.save()
-            device.delete()
-            return HttpResponse('{"status":"success", "msg":"巡检设备删除成功！"}', content_type='application/json')
+            content.delete()
+            return HttpResponse('{"status":"success", "msg":"巡检任务删除成功！"}', content_type='application/json')
         except Exception as e:
-            return HttpResponse('{"status":"falied", "msg":"巡检设备删除失败！"}', content_type='application/json')
+            return HttpResponse('{"status":"falied", "msg":"巡检任务删除失败！"}', content_type='application/json')
 

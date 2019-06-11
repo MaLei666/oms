@@ -27,7 +27,7 @@ urlpatterns = [
     path('content/add', AddContView.as_view(), name='inspect_contents_add'),
 
     # 删除任务
-    path('content/delete', DeleteDevView.as_view(), name='inspect_contents_delete'),
+    path('content/delete', DeleteContView.as_view(), name='inspect_contents_delete'),
 
 ]
 

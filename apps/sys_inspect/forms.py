@@ -24,7 +24,7 @@ class AddDevForm(forms.Form):
 class AddContForm(forms.Form):
     # content_no =forms.CharField(max_length=45,required=True )
     task_name =forms.CharField(max_length=45,required=True )
-    taskType =forms.IntegerField(required=True )
+    task_type =forms.IntegerField(required=True )
     start_time =forms.DateTimeField(required=True )
     end_time =forms.DateTimeField(required=True )
     comment = forms.CharField(max_length=10, required=False)
