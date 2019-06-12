@@ -4,6 +4,7 @@
 {% block base_title %}
     {{ title }}
 {% endblock base_title %}
+<script src="{% static 'plugins/layer/laydateNew/laydate.js' %}"></script>
 
 {% block base_content %}
     <!-- 右边主体 -->
@@ -40,7 +41,7 @@
                                     </div>
                                 </div>
                             </form>
-                                <span style="font-size: 14px; padding-top: 5px;" class="pull-right">共 <b
+                                <span style="font-size: 12px; padding-top: 5px;" class="pull-right">共 <b
                                         style="color: orangered">{{ record_nums }}</b> 条</span>
                             </div>
 
@@ -55,9 +56,12 @@
                                             <th class="text-center">ID</th>
                                             <th class="text-center">任务名称</th>
                                             <th class="text-center">任务类型</th>
+                                            <th class="text-center">单位名称</th>
+                                            <th class="text-center">部门名称</th>
+                                            <th class="text-center">执行用户</th>
                                             <th class="text-center">执行时间</th>
-                                            <th class="text-center">创建时间</th>
                                             <th class="text-center">创建用户</th>
+                                            <th class="text-center">创建时间</th>
                                             <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
@@ -71,17 +75,35 @@
                                                 <td class="text-center"
                                                     style="vertical-align:middle;">{{ each_content.task_name }}
                                                 </td>
+                                                <td class="text-center">
+                                                    <a type="button" class="btn btn-xs"
+                                                       style="background-color: #1c84c6;color: white;">
+                                                        {% if each_content.task_type == 1 %}临检
+                                                        {% elif  each_content.task_type == 2 %}日检
+                                                        {% elif  each_content.task_type == 3 %}周检
+                                                        {% elif  each_content.task_type == 4 %}月检
+                                                        {% elif  each_content.task_type == 5 %}季检
+                                                        {% elif  each_content.task_type == 6 %}年检
+                                                    {% endif %}
+                                                    </a>
+                                                </td>
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    {% if each_content.unit_name %}{{ each_content.unit_name }}{% else %}-{% endif %}
+                                                </td>
+                                                <td class="text-center" style="vertical-align:middle;">
+                                                    {% if each_content.dept_name %}{{ each_content.dept_name }}{% else %}-{% endif %}
+                                                </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_content.task_type }}
+                                                    style="vertical-align:middle;"> {{ each_content.user_name }}
                                                 </td>
                                                 <td class="text-center"
                                                     style="vertical-align:middle;"> {{ each_content.start_time }} ~ {{ each_content.end_time }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_content.create_time }}
+                                                    style="vertical-align:middle;">{{ each_content.create_user }}
                                                 </td>
                                                 <td class="text-center"
-                                                    style="vertical-align:middle;">{{ each_content.create_user }}
+                                                    style="vertical-align:middle;">{{ each_content.create_time }}
                                                 </td>
 
                                                 <td class="text-center" style="vertical-align:middle;">
@@ -94,7 +116,7 @@
                                                     <a type="button" class="btn btn-xs"
                                                        style="background-color: #1c84c6;color: white;"
                                                       data-toggle="modal"
-                                                       data-target="#ContContModal{{ each_content.id }}">
+                                                       data-target="#AddDevModal{{ each_content.id }}">
                                                         设备
                                                     </a>
                                                     <button class="btn btn-xs"
@@ -159,147 +181,6 @@
 {% endblock base_content %}
 
 {% block base_footer_html %}
-{#<div class="modal inmodal" id="AddContModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">#}
-{#	<div class="col-sm-12">#}
-{#        <div class="modal-dialog" style="width: 70%">#}
-{#            <div class="modal-content" style="margin-top: 100px;">#}
-{#				<div class="fixed-table-toolbar2">#}
-{#					<div id="mapLayout">#}
-{#						<div class="ibox float-e-margins">#}
-{#							<div class="ibox-content">#}
-{#                                <div class="modal-header"#}
-{#                                     style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">#}
-{#                                    <button type="button" class="close" data-dismiss="modal">#}
-{#                                        <i class="icon-close" style="font-size: 18px;"></i>#}
-{#                                    </button>#}
-{#                                    <h4 class="modal-title">添加任务</h4>#}
-{#                                </div>#}
-{#                                <form class="form-horizontal m-t" id="signupForm">#}
-{#								<table class="table table-bordered t-m-b" style="width: 100%;margin-left: 0px;margin-right: 0px;">#}
-{#									<tr>#}
-{#										<td class="td_text_center">任务名称:</td>#}
-{#										<td style="width:25%;">#}
-{#											<input id="task_name" name="task_name"  style="height: 30px;width: 98%;" type="text">#}
-{#										</td>#}
-{##}
-{#										<td class="td_text_center">任务类型:</td>#}
-{#										<td>#}
-{#											<select name="task_type" id="task_type" style="height: 30px;width: 98%;" onChange="typeSelect();">#}
-{#												<option value="">请选择...</option>#}
-{#												<option value="1">临检</option>#}
-{#												<option value="2">日检</option>#}
-{#												<option value="3">周检</option>#}
-{#												<option value="4">月检</option>#}
-{#												<option value="5">季检</option>#}
-{#												<option value="6">年检</option>#}
-{##}
-{#											</select>#}
-{#										</td>#}
-{##}
-{##}
-{#										<td class="td_text_center">任务模式:</td>#}
-{#										<td style="text-align: center;">#}
-{#											<input type="radio" name="status" value="0" checked>&nbsp;启用#}
-{#										</td>#}
-{#									</tr>#}
-{##}
-{#									<tr>#}
-{##}
-{#                                        <td class="td_text_center">单位名称:</td>#}
-{#										<td>#}
-{#                                        <select name="unitId" id="unitId" class="form-control" style="height: 30px;width: 98%;font-size: 12px">#}
-{#                                            <option value="">请选择...</option>#}
-{#                                            {% for each_unit in units %}#}
-{#                                                <option value="{{ each_unit.id }}">{{ each_unit.name }}</option>#}
-{#                                            {% endfor %}#}
-{#                                        </select>#}
-{#										</td>#}
-{##}
-{#										<td class="td_text_center">职能部门:</td>#}
-{#										<td>#}
-{#											<select name="deptId" id="deptId" class="form-control selectpicker" style="height: 30px;width: 98%;font-size: 12px">#}
-{#                                            <option value="">请选择...</option>#}
-{#                                            {% for each_depts in depts %}#}
-{#                                                <option value="{{ each_depts.id }}">{{ each_depts.name }}</option>#}
-{#                                            {% endfor %}#}
-{#										    </select>#}
-{#										</td>#}
-{##}
-{#										<td class="td_text_center">执行用户:</td>#}
-{#										<td style="width:25%;">#}
-{#											<input id="userName" name="userName" type="hidden">#}
-{#											<select name="userId" id="userId" class="form-control" style="height: 30px;width: 98%;font-size: 12px">#}
-{#                                                <option value="">请选择...</option>#}
-{#                                                {% for each_user in users %}#}
-{#                                                    <option value="{{ each_user.id }}">{{ each_user.user_name }}</option>#}
-{#                                                {% endfor %}#}
-{#                                            </select>#}
-{#										</td>#}
-{#									</tr>#}
-{##}
-{#									<tr>#}
-{#										<td colspan="6" style="height: 30px;text-align: center" >#}
-{#											<input id="startTime" name="startTime" type="hidden">#}
-{#											<input id="endTime" name="endTime" type="hidden">#}
-{#											<div name="dateDiv" id="dateDiv" ></div>#}
-{#										</td>#}
-{#									</tr>#}
-{##}
-{#									<tr>#}
-{#										<td colspan="6">#}
-{#											<div class="columns pull-right m-l1" >#}
-{#												<span style="margin-left: 5px;">设备类型:</span>#}
-{#												<select name="devType" id="devType" class="selectwidth140">#}
-{#													<option value="">请选择...</option>#}
-{#                                                    {% for each_device in devices %}#}
-{#                                                        <option value="{{ each_device.dev_type }}">{{ each_device.dev_type }}</option>#}
-{#                                                    {% endfor %}#}
-{#                                                </select>#}
-{##}
-{#												<span style="margin-left: 5px;">设备状态:</span>#}
-{#												<select name="devStatus" id="devStatus" class="selectwidth140">#}
-{#													<option value="">请选择...</option>#}
-{#													<option value="0">正常</option>#}
-{#													<option value="1">故障</option>#}
-{#												</select>#}
-{#												<span style="margin-left: 5px;">安装位置:</span>#}
-{#                                                <input id="installPosition" name="installPosition" type="text" class="selectwidth140" placeholder="">#}
-{#                                                <input id="devId" name="devId" type="text" class="selectwidth140" placeholder="设备编号">#}
-{#                                                <button type="button" class="btn btn-success btn-sm" onclick="reLoad()">查询</button>#}
-{#                                                <button type="submit"  class="btn btn-primary btn-sm" onclick="">提交</button>#}
-{#											</div>#}
-{#										</td>#}
-{#									</tr>#}
-{##}
-{##}
-{#									<tr>#}
-{#										<td colspan="6">#}
-{#											<input id="name3" name="name3" type="hidden">#}
-{#											<table id="exampleTable" data-mobile-responsive="true"></table>#}
-{#										</td>#}
-{#									</tr>#}
-{#								</table>#}
-{#								</form>#}
-{#							</div>#}
-{#						</div>#}
-{#					</div>#}
-{#				</div>#}
-{#			</div>#}
-{#		</div>#}
-{#    </div>#}
-{#</div>#}
-{#<script src="{% static 'js/inspect/inspectContent/add.js' %}"></script>#}
-{#<script src="{% static 'js/common.js' %}"></script>#}
-{#<script src="{% static 'plugins/layer/laydateNew/laydate.js' %}"></script>#}
-{#<script src="{% static 'plugins/layer/layer.js' %}"></script>#}
-{#<script src="{% static 'plugins/layer/layer.min.js' %}"></script>#}
-{#<script src="{% static 'js/inspect/inspectContent/inspectContent.js' %}"></script>#}
-{#<script src="{% static 'js/inspect/inspectContent/add.js' %}"></script>#}
-{#<script src="{% static 'plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js'%}"></script>#}
-
-
-
-
     <div class="modal inmodal" id="AddContModal" tabindex="-1"     role="dialog" aria-hidden="true"
          data-backdrop="static">
         <div class="modal-dialog" style="width: 450px;">
@@ -308,16 +189,50 @@
                 <div class="modal-header"
                      style="background-color: #1c2b36; color: white;padding-top: 10px; padding-bottom: 10px;">
                     <button type="button" class="close" data-dismiss="modal">
-                        <i class="icon-close" style="font-size: 18px;"></i>
+                        <i class="icon-close" style="font-size: 18px;" ></i>
                     </button>
                     <h4 class="modal-title">添加任务</h4>
                 </div>
 
                 <form method="post" id="id_AddContForm">
+
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;padding-top: 20px">
                         <div class="col-md-3">
-                            <span style="font-size: 14px;">任务名称：</span>
+                            <span style="font-size: 12px;">单位名称:</span>
+                        </div>
+                        <div class="col-md-9" >
+                            {% if role == 1 %}
+                                <input  readonly>
+                            {% else %}
+                            <select name="unit_id" id="unit_id" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            {% for each_unit in  units %}
+                                <option value="{{ each_unit.id }}">{{ each_unit.name }}</option>
+                            {% endfor %}{% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">部门名称:</span>
+                        </div>
+                        <div class="col-md-9">
+                            <select name="dept_id" id="dept_id" class="form-control selectpicker">
+                            <option value="">请选择...</option>
+                            {% for each_dept in depts %}
+                                <option value="{{ each_dept.id }}">{{ each_dept.name }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">任务名称：</span>
                         </div>
                         <div class="col-md-9">
                             <input type="text" class="form-control" placeholder="任务名称"
@@ -328,45 +243,61 @@
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px">
                         <div class="col-md-3">
-                            <span style="font-size: 14px;">任务类型：</span>
+                            <span style="font-size: 12px;">任务类型：</span>
                         </div>
                         <div class="col-md-9">
                             <select name="task_type" id="task_type" style="height: 30px;width: 98%;" onChange="typeSelect();">
+                                <option value="">请选择...</option>
+                                <option value="1">临检</option>
+                                <option value="2">日检</option>
+                                <option value="3">周检</option>
+                                <option value="4">月检</option>
+                                <option value="5">季检</option>
+                                <option value="6">年检</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">开始时间：</span>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="start_time" class="form-control" id="start_time_selete">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">结束时间：</span>
+                        </div>
+                        <div class="col-md-9">
+                            <input name="end_time" class="form-control" id="end_time_selete">
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
+                        <div class="col-md-3">
+                            <span style="font-size: 12px;">执行用户:</span>
+                        </div>
+                        <div class="col-md-9">
+                            <select name="user_id" id="user_id" class="form-control selectpicker">
                             <option value="">请选择...</option>
-                            <option value="1">临检</option>
-                            <option value="2">日检</option>
-                            <option value="3">周检</option>
-                            <option value="4">月检</option>
-                            <option value="5">季检</option>
-                            <option value="6">年检</option>
-                        </select>
+                            {% for each_user in users %}
+                                <option value="{{ each_user.id }}">{{ each_user.user_name }}</option>
+                            {% endfor %}
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group"
                          style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
                         <div class="col-md-3">
-                            <span style="font-size: 14px;">开始时间：</span>
-                        </div>
-                        <div class="col-md-9">
-                            <input type="datetime-local" class="form-control" name="start_time" required="">
-                        </div>
-                    </div>
-
-                    <div class="form-group"
-                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
-                        <div class="col-md-3">
-                            <span style="font-size: 14px;">结束时间：</span>
-                        </div>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="结束时间"
-                                       maxlength="20" name="end_time" required="">
-                        </div>
-                    </div>
-                    <div class="form-group"
-                         style="vertical-align: middle;line-height: 34px;padding-bottom: 30px;">
-                        <div class="col-md-3">
-                            <span style="font-size: 14px;">备注：</span>
+                            <span style="font-size: 12px;">备注：</span>
                         </div>
                         <div class="col-md-9">
                             <input type="text" class="form-control" placeholder="备注"
@@ -383,6 +314,10 @@
     </div>
 
     <!-- 添加平台 -->
+    <script>
+
+    </script>
+
     <script>
         $(function () {
             // 提交表单
@@ -405,7 +340,21 @@
                     }
                 });
             });
-        })
+        });
+        laydate.render({
+            elem: '#start_time_selete',
+            calendar: true,
+            type: 'datetime',
+            value: new Date()
+
+        });
+        laydate.render({
+            elem: '#end_time_selete',
+            calendar: true,
+            type: 'datetime',
+            value: new Date()
+
+        });
     </script>
 
     {% for each_content in contents.object_list %}
@@ -426,7 +375,7 @@
                     <form method="post" id="id_DeleteContForm{{ each_content.id }}">
                         <input type="hidden" name="id" value="{{ each_content.id }}">
                         <div class="modal-body" style="font-size: 14px">
-                            <span>是否确定删除该设备？</span>
+                            <span>是否确定删除该任务？</span>
                         </div>
                     </form>
 
@@ -464,5 +413,6 @@
                 });
             })
         </script>
+
     {% endfor %}
 {% endblock base_footer_html %}

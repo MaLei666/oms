@@ -248,15 +248,17 @@ class AddContView(LoginStatusCheck, View):
                 content = InspectContentInfo()
                 content.task_name = request.POST.get('task_name')
                 content.task_type = request.POST.get('task_type')
-                content.dept_id= request.POST.get('deptId')
-                content.unit_id=request.POST.get('unitId')
-                content.user_id=request.POST.get('userId')
+                content.dept_id= request.POST.get('dept_id')
+                content.dept_name=UserDepartment.objects.get(id=content.dept_id).name
+                content.unit_id=request.POST.get('unit_id')
+                content.unit_name=UserCompany.objects.get(id=content.unit_id).name
+                content.user_id=request.POST.get('user_id')
                 content.user_name=UserProfile.objects.get(id=content.user_id).user_name
                 content.create_user=request.user.user_name
 
 
-                content.start_time = request.POST.get('startTime')
-                content.end_time = request.POST.get('endTime')
+                content.start_time = request.POST.get('start_time')
+                content.end_time = request.POST.get('end_time')
                 content.save()
 
                 # 添加操作记录
@@ -281,7 +283,7 @@ class AddContView(LoginStatusCheck, View):
 class DeleteContView(LoginStatusCheck, View):
     def post(self, request):
         try:
-            cont_id = request.POST.get('cont_id')
+            cont_id = request.POST.get('id')
             content = InspectContentInfo.objects.get(id=int(cont_id))
 
             # 添加操作记录

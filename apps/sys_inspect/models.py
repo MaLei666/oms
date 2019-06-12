@@ -73,7 +73,9 @@ class InspectContentInfo(models.Model):
     # content_no =models.CharField(max_length=45,verbose_name='内容编号')
     platform_id =models.CharField(max_length=45,verbose_name='平台ID',blank=True,null=True),
     dept_id =models.BigIntegerField(blank=True,null=True)
+    dept_name =models.CharField(max_length=100,blank=True,null=True,verbose_name='部门名称')
     unit_id =models.BigIntegerField(blank=True,null=True)
+    unit_name=models.CharField(max_length=100,blank=True,null=True,verbose_name='单位名称')
     user_id =models.BigIntegerField(blank=True,null=True)
     user_name =models.CharField(max_length=10,verbose_name='用户名称',blank=True,null=True)
     task_name =models.CharField(max_length=45,verbose_name='任务名称')
