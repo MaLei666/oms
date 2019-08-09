@@ -9,14 +9,15 @@
 
 {% block login_base_body %}
     <div id="login_board">
-        <div class="row">
-            <div class="col-sm-4" style="float: left;">
-                <div id="login_box">
+        <div class="row" >
+            <div class="col-sm-4" style="">
+                <div id="login_box" style="background-color: #122b40;boder:1px;solid-color: grey">
                     <p class="m-t"></p>
                     <div>
-                        <i class="glyphicon glyphicon-send" style="font-size: x-large; color: #1c2b36;"></i>
+                        <i class="glyphicon glyphicon-send" style="font-size: x-large; color: white;"></i>
                         <span class="font-bold text-center"
-                              style="font-size: 32px; color: #1c2b36; padding-left: 10px;">登录</span>
+                              style="font-size: 32px; color: white; padding-left: 10px;">登录</span>
+
                     </div>
                     <form class="m-t" role="form" method="post" action="{% url 'users:login' %}">
                         {% csrf_token %}
@@ -25,23 +26,23 @@
 
                         <!-- 用户名或者邮箱 -->
                         <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="用户名/邮箱" required="">
+                            <input type="text" class="form-control" name="username" placeholder="用户名/邮箱" required=""
+                                   style="background-color: #1c2b36;solid-color:red ;color: #ffffff;font-size: 16px;border-radius:18px;outline:none" >
                         </div>
 
                         <!-- 密码 -->
                         <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="密码" required="">
+                            <input type="password" class="form-control" name="password" placeholder="密码" required=""
+                            style="background-color: #1c2b36;solid-color:grey ;color: #ffffff;font-size: 16px;border-radius:18px;outline:none">
                         </div>
                         <!-- 登录按钮 -->
-                        <button type="submit" class="btn bg-black block full-width m-b" style="color: white">登录</button>
+                        <button type="submit" class="btn bg-black block full-width m-b" style="color: white;background-color: dodgerblue">登录</button>
 
                         <small>忘记密码? | <a href="{% url 'users:forget' %}" style="color: #003366;">现在找回</a></small>
                     </form>
                     <p class="m-t"></p>
                 </div>
             </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-6" style="float: right;"></div>
         </div>
     </div>
 {% endblock login_base_body %}

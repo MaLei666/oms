@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/../Django/OPMS_v3/manage.py" description="#!/usr/bin/env python" line="0" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="9774198c-6149-41df-86a0-7f634a4bb801" name="Default Changelist" comment="19-05-27更新 人员管理">
+      <change afterPath="$PROJECT_DIR$/apps/document_management/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/document_management/migrations/0002_auto_20190809_1625.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/host_management/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/host_management/migrations/0002_auto_20190809_1625.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/operation_record/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/operation_record/migrations/0002_useroperationrecord_op_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/platform_management/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/platform_management/migrations/0002_auto_20190809_1625.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/spider_data/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/sys_inspect/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/users/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/vechain/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/oms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/oms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/spider_data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/spider_data/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/units/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/units/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/spider_data/migrations/0002_auto_20190604_2155.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/migrations/0011_auto_20190603_2003.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/migrations/0012_auto_20190603_2004.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/baseinfo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/dbinfo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/document.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/guzhang.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/host.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/hostinfo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/index.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/message.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/userinfo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/display/webssh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oms/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/oms/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/login/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,31 +47,30 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/users/units/user_list.html">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-903">
-              <caret line="511" column="84" selection-start-line="511" selection-start-column="84" selection-end-line="511" selection-end-column="84" />
-              <folding>
-                <element signature="e#585#732#0#HTML" expanded="true" />
-                <element signature="e#892#931#0#HTML" expanded="true" />
-                <element signature="e#11936#11974#0#HTML" expanded="true" />
-                <element signature="e#12254#12278#0#HTML" expanded="true" />
-                <element signature="e#12493#12580#0#HTML" expanded="true" />
-                <element signature="e#14462#14532#0#HTML" expanded="true" />
-                <element signature="e#14615#14639#0#HTML" expanded="true" />
-                <element signature="e#14729#14748#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/host_management/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/spider_data/models.py">
+        <entry file="file://$PROJECT_DIR$/apps/sys_inspect/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+            <state relative-caret-position="127">
+              <caret line="75" column="13" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -63,12 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Dept</find>
-      <find>depts</find>
-      <find>each_dept</find>
-      <find>is_superuser</find>
-      <find>user</find>
-      <find>request.user.role</find>
       <find>.user.role &lt; 3</find>
       <find>ser.role &lt;3</find>
       <find>.user.role &lt;3</find>
@@ -93,6 +111,12 @@
       <find>bootstrap.min.css.map</find>
       <find>css</find>
       <find>AddUserModal</find>
+      <find>DEBUG</find>
+      <find>oms.settings</find>
+      <find>test_oms</find>
+      <find>background</find>
+      <find>bg-black</find>
+      <find>back</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/apps/users</dir>
@@ -100,6 +124,8 @@
       <dir>$PROJECT_DIR$/classes/static</dir>
       <dir>$PROJECT_DIR$/classes</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>C:\Users\Administrator\Desktop\package\python\oms\templates</dir>
+      <dir>C:\Users\Administrator\Desktop\package\python\oms</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -108,14 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/apps/vechain/forms.py" />
-        <option value="$PROJECT_DIR$/apps/vechain/urls.py" />
-        <option value="$PROJECT_DIR$/apps/spider_data/forms.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/oms/settings.py" />
-        <option value="&lt;02f4c021-f77b-4940-b5d3-0f6ae352336d&gt;/home/py_code/oms/apps/users/migrations/0001_initial.py" />
-        <option value="$PROJECT_DIR$/apps/users/admin.py" />
         <option value="$PROJECT_DIR$/templates/users/user/user_info.html" />
         <option value="$PROJECT_DIR$/templates/host_management/other/project_list.html" />
         <option value="$PROJECT_DIR$/templates/host_management/other/host_op_record.html" />
@@ -129,7 +147,6 @@
         <option value="$PROJECT_DIR$/apps/users/forms.py" />
         <option value="$PROJECT_DIR$/apps/sys_inspect/views.py" />
         <option value="$PROJECT_DIR$/apps/platform_management/views.py" />
-        <option value="$PROJECT_DIR$/apps/host_management/views.py" />
         <option value="$PROJECT_DIR$/apps/document_management/views.py" />
         <option value="$PROJECT_DIR$/apps/vechain/views.py" />
         <option value="$PROJECT_DIR$/templates/users/units/unit_list.html" />
@@ -148,14 +165,31 @@
         <option value="$PROJECT_DIR$/apps/users/urls.py" />
         <option value="$PROJECT_DIR$/apps/users/test.py" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
-        <option value="$PROJECT_DIR$/apps/users/views.py" />
         <option value="$PROJECT_DIR$/templates/users/units/dept_list.html" />
         <option value="$PROJECT_DIR$/classes/static/js/appjs/sys/user/user.js" />
         <option value="$PROJECT_DIR$/static/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/templates/users/units/user_list.html" />
         <option value="$PROJECT_DIR$/apps/spider_data/models.py" />
+        <option value="$PROJECT_DIR$/oms/settings/product.py" />
+        <option value="$PROJECT_DIR$/oms/wsgi.py" />
+        <option value="$PROJECT_DIR$/oms/settings/__init__.py" />
+        <option value="$PROJECT_DIR$/oms/urls.py" />
+        <option value="$PROJECT_DIR$/oms/__init__.py" />
+        <option value="$PROJECT_DIR$/apps/host_management/views.py" />
+        <option value="$PROJECT_DIR$/apps/utils/send_email.py" />
+        <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/oms/settings/develop.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/oms/settings/base.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/oms/settings.py" />
+        <option value="$PROJECT_DIR$/static/css/app.css" />
+        <option value="$PROJECT_DIR$/templates/users/login/login.html" />
       </list>
     </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="nKmLWUny" />
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -168,9 +202,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1320" />
+    <option name="y" value="226" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -181,7 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,74 +232,7 @@
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="spider_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="appjs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="appjs" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="appjs" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
@@ -280,26 +248,7 @@
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="lay" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="sys_inspect" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
@@ -312,7 +261,7 @@
               <item name="oms" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="units" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
@@ -321,42 +270,167 @@
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-1616823060" type="d76c9d6b:PyRemoteLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-1616823060" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="-1825072993" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-1616823060" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="-1825072993" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
               <item name="django" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-1616823060" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="-1825072993" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
               <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python 3.6.4" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 (example) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="contrib" type="462c0819:PsiDirectoryNode" />
+              <item name="staticfiles" type="462c0819:PsiDirectoryNode" />
+              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,15 +442,20 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/sys_inspect" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\package\python\oms\apps\sys_inspect" />
       <recent name="$PROJECT_DIR$/static/js/lay/modules" />
       <recent name="$PROJECT_DIR$/static/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\package\python\oms\oms\settings" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -422,7 +501,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="oms.settings" />
       </envs>
-      <option name="SDK_HOME" value="sftp://root@58.132.209.229:822/root/.virtualenvs/oms-pyPb08I5/bin/python" />
+      <option name="SDK_HOME" value="D:\ProgramFiles\python 3.6.4\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -438,6 +517,10 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django server.oms" />
+      <item itemvalue="Python.test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test" />
@@ -473,6 +556,8 @@
       <workItem from="1559467910026" duration="1006000" />
       <workItem from="1559554675979" duration="8619000" />
       <workItem from="1559654145622" duration="2225000" />
+      <workItem from="1565335356961" duration="2725000" />
+      <workItem from="1565338103288" duration="5249000" />
     </task>
     <task id="LOCAL-00001" summary="5-12更新 单位管理、部门管理 html页面">
       <created>1557667814514</created>
@@ -513,7 +598,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41180000" />
+    <option name="totallyTimeSpent" value="49154000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,18 +610,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16237482" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.117395945" />
+      <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.11632871" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32961586" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35935563" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35834268" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47211897" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3283767" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3281075" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32961586" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -545,13 +630,14 @@
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32961586" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32961586" />
-      <window_info active="true" anchor="bottom" id="manage.py@oms" order="15" visible="true" weight="0.32961586" />
+      <window_info active="true" anchor="bottom" id="manage.py@oms" order="15" visible="true" weight="0.32922733" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.19670959" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Cargo" order="6" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,245 +652,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="19-05-27更新 人员管理" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/spider_data/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1981" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/platform_management/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/operation_record/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/host_management/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-          <caret line="142" column="31" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
-          <caret line="263" column="31" selection-start-line="263" selection-start-column="31" selection-end-line="263" selection-end-column="31" />
-          <caret line="384" column="31" selection-start-line="384" selection-start-column="31" selection-end-line="384" selection-end-column="31" />
-          <caret line="425" column="31" selection-start-line="425" selection-start-column="31" selection-end-line="425" selection-end-column="31" />
-          <caret line="470" column="31" selection-start-line="470" selection-start-column="31" selection-end-line="470" selection-end-column="31" />
-          <caret line="493" column="31" selection-start-line="493" selection-start-column="31" selection-end-line="493" selection-end-column="31" />
-          <caret line="534" column="31" selection-start-line="534" selection-start-column="31" selection-end-line="534" selection-end-column="31" />
-          <caret line="575" column="31" selection-start-line="575" selection-start-column="31" selection-end-line="575" selection-end-column="31" />
-          <caret line="597" column="31" selection-start-line="597" selection-start-column="31" selection-end-line="597" selection-end-column="31" />
-          <caret line="644" column="31" selection-start-line="644" selection-start-column="31" selection-end-line="644" selection-end-column="31" />
-          <caret line="691" column="31" selection-start-line="691" selection-start-column="31" selection-end-line="691" selection-end-column="31" />
-          <caret line="719" column="31" selection-start-line="719" selection-start-column="31" selection-end-line="719" selection-end-column="31" />
-          <caret line="761" column="31" selection-start-line="761" selection-start-column="31" selection-end-line="761" selection-end-column="31" />
-          <caret line="823" column="31" selection-start-line="823" selection-start-column="31" selection-end-line="823" selection-end-column="31" />
-          <caret line="872" column="31" selection-start-line="872" selection-start-column="31" selection-end-line="872" selection-end-column="31" />
-          <caret line="917" column="31" selection-start-line="917" selection-start-column="31" selection-end-line="917" selection-end-column="31" />
-          <caret line="950" column="31" selection-start-line="950" selection-start-column="31" selection-end-line="950" selection-end-column="31" />
-          <caret line="972" column="31" selection-start-line="972" selection-start-column="31" selection-end-line="972" selection-end-column="31" />
-          <caret line="1026" column="31" selection-start-line="1026" selection-start-column="31" selection-end-line="1026" selection-end-column="31" />
-          <caret line="1067" column="31" selection-start-line="1067" selection-start-column="31" selection-end-line="1067" selection-end-column="31" />
-          <caret line="1099" column="31" selection-start-line="1099" selection-start-column="31" selection-end-line="1099" selection-end-column="31" />
-          <caret line="1121" column="31" selection-start-line="1121" selection-start-column="31" selection-end-line="1121" selection-end-column="31" />
-          <caret line="1169" column="31" selection-start-line="1169" selection-start-column="31" selection-end-line="1169" selection-end-column="31" />
-          <caret line="1213" column="31" selection-start-line="1213" selection-start-column="31" selection-end-line="1213" selection-end-column="31" />
-          <caret line="1257" column="31" selection-start-line="1257" selection-start-column="31" selection-end-line="1257" selection-end-column="31" />
-          <caret line="1281" column="31" selection-start-line="1281" selection-start-column="31" selection-end-line="1281" selection-end-column="31" />
-          <caret line="1328" column="31" selection-start-line="1328" selection-start-column="31" selection-end-line="1328" selection-end-column="31" />
-          <caret line="1367" column="31" selection-start-line="1367" selection-start-column="31" selection-end-line="1367" selection-end-column="31" />
-          <caret line="1406" column="31" selection-start-line="1406" selection-start-column="31" selection-end-line="1406" selection-end-column="31" />
-          <caret line="1430" column="31" selection-start-line="1430" selection-start-column="31" selection-end-line="1430" selection-end-column="31" />
-          <caret line="1479" column="31" selection-start-line="1479" selection-start-column="31" selection-end-line="1479" selection-end-column="31" />
-          <caret line="1521" column="31" selection-start-line="1521" selection-start-column="31" selection-end-line="1521" selection-end-column="31" />
-          <caret line="1563" column="31" selection-start-line="1563" selection-start-column="31" selection-end-line="1563" selection-end-column="31" />
-          <caret line="1586" column="31" selection-start-line="1586" selection-start-column="31" selection-end-line="1586" selection-end-column="31" />
-          <caret line="1636" column="31" selection-start-line="1636" selection-start-column="31" selection-end-line="1636" selection-end-column="31" />
-          <caret line="1676" column="31" selection-start-line="1676" selection-start-column="31" selection-end-line="1676" selection-end-column="31" />
-          <caret line="1707" column="31" selection-start-line="1707" selection-start-column="31" selection-end-line="1707" selection-end-column="31" />
-          <caret line="1731" column="31" selection-start-line="1731" selection-start-column="31" selection-end-line="1731" selection-end-column="31" />
-          <caret line="1799" column="31" selection-start-line="1799" selection-start-column="31" selection-end-line="1799" selection-end-column="31" />
-          <caret line="1840" column="31" selection-start-line="1840" selection-start-column="31" selection-end-line="1840" selection-end-column="31" />
-          <caret line="1879" column="31" selection-start-line="1879" selection-start-column="31" selection-end-line="1879" selection-end-column="31" />
-          <caret line="1918" column="31" selection-start-line="1918" selection-start-column="31" selection-end-line="1918" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/document_management/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1682">
-          <caret line="308" column="16" lean-forward="true" selection-start-line="308" selection-start-column="16" selection-end-line="308" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="214" column="39" selection-start-line="214" selection-start-column="39" selection-end-line="214" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/user/user_list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/remote_sources/-1616823060/-1825072993/django/contrib/staticfiles/templatetags/staticfiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/units/add/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="73" column="20" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="526" column="22" selection-start-line="526" selection-start-column="22" selection-end-line="526" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/css/plugins/bootstrap-table/bootstrap-table.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2864" selection-start-column="2864" selection-end-column="2864" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/userTree.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/dict/dict.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/user/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="255" column="9" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/add1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="62" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/html/map/centerMap.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/system/unit/show.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="94" column="30" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="972" column="63" selection-start-line="972" selection-start-column="63" selection-end-line="972" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/units/dept_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/units/unit_list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/system/unit/add.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6614">
-          <caret line="4" column="48096" selection-start-line="4" selection-start-column="48096" selection-end-line="4" selection-end-column="48096" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/system/unit/unit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/system/unit/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="36" column="59" lean-forward="true" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/cszz/cszzDevice/edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-311" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="184" column="1" selection-start-line="184" selection-start-column="1" selection-end-line="184" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/css/style-center.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="969" column="14" selection-start-line="969" selection-start-column="14" selection-end-line="969" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/cszz/cszzDevice/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/cszz/cszzDevice/add.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/templates/cszz/cszzDevice/add.html" />
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/cszz/cszzDevice/add.js" />
     <entry file="file://$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5268">
@@ -819,38 +668,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/common/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/cszz/cszzDevice/cszzDevice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-597" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/add.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/add1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="42" lean-forward="true" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/common/common.js" />
+    <entry file="file://$PROJECT_DIR$/classes/templates/cszz/cszzDevice/cszzDevice.html" />
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/add.js" />
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/add1.js" />
     <entry file="file://$PROJECT_DIR$/static/js/user/add.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/remote_sources/-1616823060/-1825072993/django/template/defaulttags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-764">
-          <caret line="1318" column="4" selection-start-line="1318" selection-start-column="4" selection-end-line="1318" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/remote_sources/-1616823060/-1825072993/django/template/defaulttags.py" />
     <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -861,18 +686,7 @@
     <entry file="file://$PROJECT_DIR$/static/js/lay/all.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/lay/modules/layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="745" selection-start-line="745" selection-end-line="745" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/js/lay/modules/layer.js" />
     <entry file="file://$PROJECT_DIR$/static/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-654">
@@ -880,13 +694,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/plugins/layer/mobile/layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="3122" selection-start-line="1" selection-start-column="3122" selection-end-line="1" selection-end-column="3122" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/static/js/plugins/layer/mobile/layer.js" />
     <entry file="file://$PROJECT_DIR$/static/js/lay/modules/layer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
@@ -899,13 +707,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/templates/system/user/user.html" />
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -913,16 +715,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/user.js">
+    <entry file="file://$PROJECT_DIR$/classes/static/js/appjs/sys/user/user.js" />
+    <entry file="file://$PROJECT_DIR$/apps/spider_data/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2181">
-          <caret line="262" column="23" lean-forward="true" selection-start-line="262" selection-start-column="23" selection-end-line="262" selection-end-column="23" />
+        <state relative-caret-position="93">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/users/units/user_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-903">
+        <state relative-caret-position="17">
           <caret line="511" column="84" selection-start-line="511" selection-start-column="84" selection-end-line="511" selection-end-column="84" />
           <folding>
             <element signature="e#585#732#0#HTML" expanded="true" />
@@ -937,10 +740,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/spider_data/models.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="34">
+            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/ProgramFiles/python 3.6.4/Lib/site-packages/django/conf/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+        <state relative-caret-position="747">
+          <caret line="199" selection-start-line="199" selection-end-line="199" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/settings/product.py" />
+    <entry file="file://$PROJECT_DIR$/oms/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/settings/develop.py" />
+    <entry file="file://$PROJECT_DIR$/oms/settings/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/settings/base.py" />
+    <entry file="file://$PROJECT_DIR$/apps/spider_data/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/users/avatar/system.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/users/avatar/default.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display/index.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/platform-management/logo/jenkins.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://D:/ProgramFiles/python 3.6.4/Lib/site-packages/django/contrib/staticfiles/templatetags/staticfiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/login_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="189" column="18" selection-start-line="189" selection-start-column="18" selection-end-line="189" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="1083" column="27" selection-start-line="1083" selection-start-column="21" selection-end-line="1083" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="202" column="22" selection-start-line="202" selection-start-column="22" selection-end-line="202" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="13" column="72" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3468" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oms/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="125" column="23" lean-forward="true" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/host_management/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/sys_inspect/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="13" />
         </state>
       </provider>
     </entry>
