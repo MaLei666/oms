@@ -85,7 +85,7 @@ def send_email_verificode(email_to, purpose='register'):
         mail_content_date = (str(datetime.datetime.now().year) + '年' + str(datetime.datetime.now().month) + '月' + str(datetime.datetime.now().day) + '日 ' + time.strftime("%H:%M:%S"))
 
         # 消息内容
-        email_title = '[ OPMS ] 重 置 密 码 ！（ 有效期 5 分钟 ）'
+        email_title = '重 置 密 码 ！（ 有效期 5 分钟 ）'
         email_body = body_str.format(mail_content_title, mail_content_purpose, mail_content_use, mail_content_msg, mail_content_else, mail_content_date)
 
         msg = EmailMultiAlternatives(email_title, email_body, EMAIL_HOST_USER, [email_to, ])
@@ -107,7 +107,7 @@ def send_email_verificode(email_to, purpose='register'):
         mail_content_date = (str(datetime.datetime.now().year) + '年' + str(datetime.datetime.now().month) + '月' + str(datetime.datetime.now().day) + '日 ' + time.strftime("%H:%M:%S"))
 
         # 消息内容
-        email_title = '[ OPMS ] 用 户 激 活 ！'
+        email_title = '用 户 激 活 ！'
         email_body = body_str.format(mail_content_title, mail_content_purpose, mail_content_use, mail_content_msg, mail_content_else, mail_content_date)
 
         msg = EmailMultiAlternatives(email_title, email_body, EMAIL_HOST_USER, [email_to, ])
@@ -129,7 +129,7 @@ def send_email_verificode(email_to, purpose='register'):
         datetime.datetime.now().day) + '日 ' + time.strftime("%H:%M:%S"))
 
         # 消息内容
-        email_title = '[ OPMS ] 修 改 邮 箱 绑 定 ！（ 有效期 5 分钟 ）'
+        email_title = '修 改 邮 箱 绑 定 ！（ 有效期 5 分钟 ）'
         email_body = body_str.format(mail_content_title, mail_content_purpose, mail_content_use, mail_content_msg,
                                      mail_content_else, mail_content_date)
 

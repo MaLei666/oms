@@ -9,14 +9,14 @@
 
 {% block login_base_body %}
     <div id="login_board">
-        <div class="row" >
-            <div class="col-md-4 col-md-offset-4" style="solid-color: grey">
+        <div class="row" style="margin-top: -70px;margin-left: 100px;margin-right: 100px">
+            <div class="col-md-6 col-md-offset-3" style="solid-color: grey">
                 <div id="login_box" style="background-color: #122b40;border:1px">
                     <p class="m-t"></p>
-                    <div style="line-height: 3;">
-                        <i class="glyphicon glyphicon-send" style="font-size: x-large; color: white;"></i>
+                    <div style="line-height: 3;text-align: center">
+{#                        <i class="glyphicon glyphicon-send" style="font-size: x-large; color: white;"></i>#}
                         <span class="font-bold"
-                              style="font-size: 32px; color: white; padding-left: 10px;">登录</span>
+                              style="font-size: 35px; color: white;">运维管理系统</span>
 
                     </div>
                     <form class="m-t" role="form" method="post" action="{% url 'users:login' %}">
@@ -25,25 +25,26 @@
                         <p style="color: red;">{{ msg }}</p>
 
                         <!-- 用户名或者邮箱 -->
-                        <div class="form-group">
+                        <div class="form-group" style="margin-bottom:40px">
                             <input type="text" class="form-control" name="username" placeholder="用户名/邮箱" required=""
-                                   style="background-color: #1c2b36;solid-color:red ;color: #ffffff;font-size: 16px;border-radius:18px;outline:none" >
+                                   style="background-color: #1c2b36;solid-color:red ;color: #ffffff;font-size: 15px;border-radius:18px;outline:none;text-align: center;height: 40px" >
                         </div>
 
                         <!-- 密码 -->
-                        <div class="form-group">
+                        <div class="form-group" style="margin-bottom:40px;">
                             <input type="password" class="form-control" name="password" placeholder="密码" required=""
-                            style="background-color: #1c2b36;solid-color:grey ;color: #ffffff;font-size: 16px;border-radius:18px;outline:none">
+                            style="background-color: #1c2b36;solid-color:grey ;color: #ffffff;font-size: 15px;border-radius:18px;outline:none;text-align: center;height: 40px">
                         </div>
                         <!-- 登录按钮 -->
-                        <button type="submit" class="btn bg-black block full-width m-b" style="color: white;background-color: dodgerblue">登录</button>
+                        <button type="submit" class="btn bg-black block full-width m-b" style="margin-bottom:30px; color: white;background-color: #22609b;height: 40px;font-size: 15px">登录</button>
 
-                        <small>忘记密码? | <a href="{% url 'users:forget' %}" style="color: #003366;">现在找回</a></small>
+                        <small style="font-size: 13px">忘记密码? | <a href="{% url 'users:forget' %}" style="color: #22609b;font-size: 13px">现在找回</a></small>
                     </form>
                     <p class="m-t"></p>
                 </div>
             </div>
         </div>
+
     </div>
 {% endblock login_base_body %}
 
