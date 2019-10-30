@@ -82,20 +82,19 @@ class UserDepartment(models.Model):
 # 用户扩展表
 ######################################
 class UserProfile(AbstractUser):
-    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=((1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员'),(4, '一般用户')),null=True,blank=True)
-    user_name = models.CharField(verbose_name='名字', max_length=10)
-    unit_id=models.IntegerField(verbose_name='单位ID', null=True, blank=True)
+    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=(((0, '后台开发者')),(1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员'),(4, '一般用户')),null=True,blank=True)
+    user_name = models.CharField(verbose_name='用户姓名', max_length=10)
+    unit_id=models.IntegerField(verbose_name='单位ID', null=True, blank=True,)
     unit_name=models.CharField(verbose_name='单位名称',max_length=100, null=True, blank=True)
     dept_id=models.IntegerField(verbose_name='部门ID', null=True, blank=True)
     dept_name=models.CharField(verbose_name='部门名称',max_length=100, null=True, blank=True)
-    mobile = models.CharField(verbose_name='手机号', max_length=20)
+    mobile = models.CharField(verbose_name='手机号', max_length=20, null=True, blank=True)
     avatar = models.ImageField(verbose_name='用户头像', max_length=200, upload_to='users/avatar/%Y/%m',
                                default='users/avatar/default.png', null=True, blank=True)
-    gender = models.CharField(verbose_name='性别', choices=(('male', '男'), ('female', '女')), default='male',
-                              max_length=10)
-    # position = models.ForeignKey(UserPosition, verbose_name='职位', on_delete=models.CASCADE, blank=True, null=True)
-    create_user = models.CharField(verbose_name='创建者', max_length=45)
-    create_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True)
+    gender = models.IntegerField(verbose_name='性别', choices=((1, '男'), (2, '女')), default='1',null=True, blank=True)
+    # position = models.ForeignKey(UserPosition, verbose_name='职位', on´_delete=models.CASCADE, blank=True, null=True)
+    create_user = models.CharField(verbose_name='创建者', max_length=45,null=True, blank=True)
+    create_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True, null=True, blank=True)
     update_user = models.CharField(verbose_name='更新者', max_length=45, blank=True, null=True)
     update_time = models.DateTimeField(verbose_name='更新时间', blank=True, null=True)
     comment = models.CharField(verbose_name='备注', max_length=200, blank=True, null=True)

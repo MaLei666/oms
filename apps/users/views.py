@@ -666,13 +666,10 @@ class ChangeUserInfoView(LoginStatusCheck, View):
             user = request.user
             user.user_name=request.POST.get('user_name')
             user.mobile = request.POST.get('mobile')
-            user.wechat = request.POST.get('wechat')
-            user.qq = request.POST.get('qq')
-            birthday = request.POST.get('birthday', "")
-            if birthday != '':
-                user.birthday = birthday
-            user.address = request.POST.get('address')
-            user.desc = request.POST.get('desc')
+            user.email=request.POST.get('email')
+            user.gender=request.POST.get('gender')
+            user.comment=request.POST.get('comment')
+
             # 保存修改
             user.save()
             return HttpResponse('{"status":"success", "msg":"用户资料修改成功！"}', content_type='application/json')

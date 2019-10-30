@@ -11,7 +11,34 @@ from .models import *
 
 
 class UserAdmin(UserAdmin):
-    fieldsets = ()
+    # fieldsets=()
+    fieldsets = (
+        ( '用户信息',{
+            'fields':(
+                'avatar',
+                'role',
+                'username',
+                'user_name',
+                'mobile',
+                'email',
+                'gender',
+                'comment',
+            )
+        }),
+        ( '用户状态',{
+            'fields':(
+                'status',
+                'is_staff',
+                'is_active',
+
+            )
+        }),
+        ('用户密码', {
+            'fields': (
+                'password',
+            )
+        }),
+    )
 
 
 ######################################

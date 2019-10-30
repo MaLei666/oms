@@ -29,12 +29,11 @@ class UserForgetPasswordForm(forms.Form):
 # 修改用户信息表单
 ######################################
 class ChangeUserInfoForm(forms.Form):
-    user_name = forms.CharField(max_length=20, required=False)
-    mobile = forms.CharField(max_length=15, required=False)
-    wechat = forms.CharField(max_length=20, required=False)
-    qq = forms.CharField(max_length=15, required=False)
-    address = forms.CharField(max_length=50, required=False)
-    desc = forms.Textarea()
+    user_name = forms.CharField(max_length=10)
+    mobile = forms.CharField(max_length=20, required=False)
+    gender = forms.IntegerField()
+    # position = forms.ForeignKey(UserPosition, verbose_name='职位', on´_delete=forms.CASCADE, required=False)
+    comment = forms.CharField(max_length=200, required=False)
 
 
 ######################################
