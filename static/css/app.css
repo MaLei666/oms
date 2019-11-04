@@ -5112,7 +5112,7 @@ a.text-#000000:hover {
 .box2 {
     /* 父容器设置宽度, 并超出部分不显示 */
     /*width: 200px;*/
-    height: 600px;
+    height: calc(100%);
     overflow: hidden;
 }
 .box3 {

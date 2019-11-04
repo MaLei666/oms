@@ -26,123 +26,125 @@
 
                             <div class="row">
 
-                                <div class="col-md-7" style="padding-right: 10px;">
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;">
+                                <div class="col-md-9" style="padding-right: 10px;">
+                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">
                                         <div class="panel panel-default" style="margin-bottom: 0;">
                                             <div class="text-center">
                                                 <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
-                                                    <a href="{% url 'users:user_list' %}"><i class="fa fa-user"
-                                                                                             style="font-size: 60px;color: #1c2b36;"></i></a>
+                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">
+                                                    <a href="{% url 'users:user_list' %}">
+                                                        <i class="fa fa-user" style="font-size: 55px;"></i>
+{#                                                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>#}
+                                                    </a>
                                                 </div>
                                                 <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">用户数量：{% Get_Users_Nums %}</b>
+                                                    <b style="margin-top: 10px;font-size: 13px">用户数量：{% Get_Users_Nums %}</b>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;">
-                                        <div class="panel panel-default" style="margin-bottom: 0;">
-                                            <div class="text-center">
-                                                <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
-                                                    <a href="{% url 'platform_management:platform_company_list' %}" class="fa fa-home"
-                                                       style="font-size: 60px;color: #1c2b36;"></a>
-                                                </div>
-                                                <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">内部平台：{% Get_Company_Plat_Nums %}</b>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{#                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">#}
+{#                                        <div class="panel panel-default" style="margin-bottom: 0;">#}
+{#                                            <div class="text-center">#}
+{#                                                <div class="panel-body"#}
+{#                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">#}
+{#                                                    <a href="{% url 'platform_management:platform_company_list' %}" class="fa fa-home"#}
+{#                                                       style="font-size: 55px;color: #1c2b36;"></a>#}
+{#                                                </div>#}
+{#                                                <div class="panel-footer">#}
+{#                                                    <b style="margin-top: 10px;font-size: 13px;">内部平台：{% Get_Company_Plat_Nums %}</b>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">#}
+{#                                        <div class="panel panel-default" style="margin-bottom: 0;">#}
+{#                                            <div class="text-center">#}
+{#                                                <div class="panel-body"#}
+{#                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">#}
+{#                                                    <a href="{% url 'platform_management:platform_other_list' %}" class="fa fa-newspaper-o"#}
+{#                                                       style="font-size: 55px;color: #1c2b36;"></a>#}
+{#                                                </div>#}
+{#                                                <div class="panel-footer">#}
+{#                                                    <b style="margin-top: 10px;font-size: 13px;">第三方：{% Get_Others_Plat_Nums %}</b>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
 
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;">
+                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">
                                         <div class="panel panel-default" style="margin-bottom: 0;">
                                             <div class="text-center">
                                                 <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
-                                                    <a href="{% url 'platform_management:platform_other_list' %}" class="fa fa-newspaper-o"
-                                                       style="font-size: 60px;color: #1c2b36;"></a>
-                                                </div>
-                                                <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">第三方：{% Get_Others_Plat_Nums %}</b>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;">
-                                        <div class="panel panel-default" style="margin-bottom: 0;">
-                                            <div class="text-center">
-                                                <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
+                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">
                                                     <a href="{% url 'host_management:host_list' %}"><i
-                                                            class="fa fa-hdd-o"
-                                                            style="font-size: 60px;color: #1c2b36;"></i></a>
+                                                            class="fa fa-laptop"
+                                                            style="font-size: 55px;color: #1c2b36;"></i></a>
                                                 </div>
                                                 <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">主机数量：{% Get_Host_Nums %}</b>
+                                                    <b style="margin-top: 10px;font-size: 13px;">主机数量：{% Get_Host_Nums %}</b>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;padding-top: 20px">
+                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">
                                         <div class="panel panel-default" style="margin-bottom: 0;">
                                             <div class="text-center">
                                                 <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
-                                                    <a href="{% url 'host_management:db_list'%}" class="fa fa-th-list "
-                                                       style="font-size: 60px;color: #1c2b36;"></a>
+                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">
+                                                    <a href="{% url 'host_management:db_list'%}" class="fa fa-database"
+                                                       style="font-size: 55px;color: #1c2b36;"></a>
                                                 </div>
                                                 <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">数据库：{% Get_Db_Nums %}</b>
+                                                    <b style="margin-top: 10px;font-size: 13px;">数据库：{% Get_Db_Nums %}</b>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;padding-top: 20px">
+                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">
                                         <div class="panel panel-default" style="margin-bottom: 0;">
                                             <div class="text-center">
                                                 <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
+                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">
                                                     <a href="{% url 'host_management:port_port_list'%}" class="fa fa-circle-o"
-                                                       style="font-size: 60px;color: #1c2b36;"></a>
+                                                       style="font-size: 55px;color: #1c2b36;"></a>
                                                 </div>
                                                 <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">端口映射：{% Get_Port_Nums %}</b>
+                                                    <b style="margin-top: 10px;font-size: 13px;">端口映射：{% Get_Port_Nums %}</b>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;padding-top: 20px">
+                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">
                                         <div class="panel panel-default" style="margin-bottom: 0;">
                                             <div class="text-center">
                                                 <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
+                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">
                                                     <a href="{% url 'host_management:domain_resolve_list'%}" class="fa fa-sort-amount-desc "
-                                                       style="font-size: 60px;color: #1c2b36;"></a>
+                                                       style="font-size: 55px;color: #1c2b36;"></a>
                                                 </div>
                                                 <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">二级域名：{% Get_Domin_Nums %}</b>
+                                                    <b style="margin-top: 10px;font-size: 13px;">二级域名：{% Get_Domin_Nums %}</b>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3" style="padding-left: 0; padding-right: 20px;padding-top: 20px">
+                                    <div class="col-md-2" style="padding-left: 20px; padding-right: 20px;">
                                         <div class="panel panel-default" style="margin-bottom: 0;">
                                             <div class="text-center">
                                                 <div class="panel-body"
-                                                     style="background-color: #fff; height: 114px;line-height: 114px; vertical-align: middle;">
+                                                     style="background-color: #fff; height: 80px;line-height: 80px; vertical-align: middle;">
                                                     <a href="{% url 'document_management:doc_list' 'document' %}" class="fa fa-file-text-o"
-                                                       style="font-size: 60px;color: #1c2b36;"></a>
+                                                       style="font-size: 55px;color: #1c2b36;"></a>
                                                 </div>
                                                 <div class="panel-footer">
-                                                    <b style="margin-top: 10px; line-height: 27px;font-size: 18px;">文档数量：{% Get_Doc_Nums %}</b>
+                                                    <b style="margin-top: 10px;font-size: 13px;">文档数量：{% Get_Doc_Nums %}</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +153,7 @@
 
                                 </div>
 
-                                <div class="col-md-3" style="padding-right: 0;width: 30%;margin-left: 80px">
+                                <div class="col-md-3" style="height:calc(15%);">
                                     <div class="panel panel-default">
 
                                         <div class="panel-heading pos-rlt text-center"
