@@ -42,7 +42,7 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oms',
+        'NAME': 'oms1',
         'USER': 'root',
         'PASSWORD': 'zkyr1006',
         'HOST': '58.132.209.229',
@@ -54,7 +54,9 @@ DATABASES = {
 # 定义 APP
 ######################################
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
+    'xadmin',
+    # 'crispy_forms'
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
