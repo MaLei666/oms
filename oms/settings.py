@@ -56,7 +56,8 @@ DATABASES = {
 INSTALLED_APPS = [
     # 'django.contrib.admin',
     'xadmin',
-    # 'crispy_forms'
+    'crispy_forms',
+    'reversion',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -174,7 +175,7 @@ USE_TZ = False
 ######################################
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
