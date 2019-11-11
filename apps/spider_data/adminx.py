@@ -1,7 +1,8 @@
-from django.contrib import admin
+# from django.contrib import admin
 from .models import ZhihuInfo,ZhihuList,FoodRank,ShopInfo
+import xadmin
 # Register your models here.
-admin.site.register(ZhihuInfo)
-admin.site.register(ZhihuList)
-admin.site.register(FoodRank)
-admin.site.register(ShopInfo)
+xadmin.site.register(ZhihuInfo)
+xadmin.site.register(ZhihuList)
+xadmin.site.register(FoodRank)
+xadmin.site.register(ShopInfo)

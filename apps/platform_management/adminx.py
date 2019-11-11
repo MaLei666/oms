@@ -1,6 +1,6 @@
-from django.contrib import admin
+# from django.contrib import admin
 from .models import *
-
+import xadmin
 # Register your models here.
-admin.site.register(PlatformInfo)
-admin.site.register(PlatformUserInfo)
+xadmin.site.register(PlatformInfo)
+xadmin.site.register(PlatformUserInfo)

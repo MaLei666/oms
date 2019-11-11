@@ -1,6 +1,6 @@
-from django.contrib import admin
+# from django.contrib import admin
 from .models import *
-
+import xadmin
 # Register your models here.
-admin.site.register(InspectDevInfo)
-admin.site.register(InspectContentInfo)
+xadmin.site.register(InspectDevInfo)
+xadmin.site.register(InspectContentInfo)

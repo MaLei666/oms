@@ -24,8 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 自建APP
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
-# 第三方APP
-sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
+# 第三方APP,xadmin
+sys.path.insert(1, os.path.join(BASE_DIR, 'extra_apps'))
 
 
 ######################################
@@ -54,7 +54,7 @@ DATABASES = {
 # 定义 APP
 ######################################
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'xadmin',
     'crispy_forms',
     'reversion',
@@ -175,7 +175,7 @@ USE_TZ = False
 ######################################
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
