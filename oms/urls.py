@@ -1,10 +1,11 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include,re_path
 from django.conf.urls import url
 from oms.settings import MEDIA_ROOT
 from django.views.static import serve
 from document_management.views import upload_image
 from django.conf import settings
+import xadmin
 
 
 # 错误页面
@@ -13,7 +14,8 @@ handler404 = 'users.views.page_not_found'
 handler500 = 'users.views.page_error'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('xadmin/',xadmin.site.urls),
 
     # 静态文件
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),

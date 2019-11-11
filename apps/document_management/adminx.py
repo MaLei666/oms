@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import *
+import xadmin
 
 # Register your models here.
-admin.site.register(DocumentTags)
-admin.site.register(Document)
+xadmin.site.register(DocumentTags)
+xadmin.site.register(Document)

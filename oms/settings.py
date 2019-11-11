@@ -24,8 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 自建APP
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
-# 第三方APP
-sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
+# 第三方APP,xadmin
+sys.path.insert(1, os.path.join(BASE_DIR, 'extra_apps'))
 
 
 ######################################
@@ -42,7 +42,7 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oms',
+        'NAME': 'oms1',
         'USER': 'root',
         'PASSWORD': 'zkyr1006',
         'HOST': '58.132.209.229',
@@ -55,6 +55,9 @@ DATABASES = {
 ######################################
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'xadmin',
+    'crispy_forms',
+    'reversion',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
