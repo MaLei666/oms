@@ -22,21 +22,21 @@ class GlobalSetting(object):
     site_footer = u"power by bc"
     menu_style = "accordion"
 
-    def get_site_menu(self):
-        return [
-            {
-                'title': '自定义菜单',
-                'icon': 'fa fa-bars',       # Font Awesome图标
-                'menus':(
-                    {
-                        'title': '平台用户',
-                        'icon': 'fa fa-bug',
-                        'url': self.get_model_url(UserProfile,'changelist')
-
-                    },
-
-                )
-            },
+    # def get_site_menu(self):
+    #     return [
+    #         {
+    #             'title': '自定义菜单',
+    #             'icon': 'fa fa-bars',       # Font Awesome图标
+    #             'menus':(
+    #                 {
+    #                     'title': '平台用户',
+    #                     'icon': 'fa fa-bug',
+    #                     'url': self.get_model_url(UserProfile,'changelist')
+    #
+    #                 },
+    #
+    #             )
+    #         },
             # {
             #     'title': 'Bug统计',
             #     'icon': 'fa fa-bug',
@@ -49,7 +49,7 @@ class GlobalSetting(object):
             #         },)
             # }
 
-        ]
+        # ]
 
 
 class UserSetting(object):
@@ -131,4 +131,4 @@ xadmin.site.register(UserEmailVirificationCode)
 xadmin.site.register(UserLoginInfo)
 xadmin.site.register(views.CommAdminView,GlobalSetting)
 xadmin.site.register(views.BaseAdminView,BaseSetting)
-xadmin.site.register(LogEntry)
+# xadmin.site.register(LogEntry)

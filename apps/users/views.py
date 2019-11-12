@@ -868,12 +868,12 @@ class UserListView(LoginStatusCheck, View):
             users = users.filter(status=2)
 
         # 男性
-        if user_check == 'male':
-            users = users.filter(gender='male')
+        if user_check == '1':
+            users = users.filter(gender='2')
 
         # 女性
-        if user_check == 'female':
-            users = users.filter(gender='female')
+        if user_check == '1':
+            users = users.filter(gender='2')
 
         # 查询
         keyword = request.GET.get('keyword', '')
@@ -923,7 +923,7 @@ class AddUserView(LoginStatusCheck, View):
 
                 # 添加用户
                 user = UserProfile()
-                user.role=3
+                user.role=request.POST.get('role')
                 user.username=request.POST.get('username')
                 user.user_name = request.POST.get('user_name')
                 user.password = make_password(password)

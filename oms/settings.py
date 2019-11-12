@@ -84,7 +84,8 @@ INSTALLED_APPS = [
     #区块链
     'vechain',
     # 巡检监督
-    'sys_inspect'
+    'sys_inspect',
+    'rest_framework'
 ]
 
 
