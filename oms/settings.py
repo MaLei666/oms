@@ -39,14 +39,25 @@ ALLOWED_HOSTS = ['*']
 ######################################
 # ** 数据库配置
 ######################################
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'oms',
+#         'USER': 'root',
+#         'PASSWORD': 'zkyr1006',
+#         'HOST': '58.132.209.229',
+#         'PORT': '13306',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oms1',
+        'NAME': 'oms',
         'USER': 'root',
         'PASSWORD': 'zkyr1006',
-        'HOST': '58.132.209.229',
-        'PORT': '13306',
+        'HOST': '192.168.1.237',
+        'PORT': '3306',
     }
 }
 
@@ -88,6 +99,19 @@ INSTALLED_APPS = [
     'rest_framework'
 ]
 
+
+######################################
+# REST_FRAMEWORK
+######################################
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 ######################################
 # 中间件配置

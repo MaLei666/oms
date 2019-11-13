@@ -132,3 +132,4 @@ xadmin.site.register(UserLoginInfo)
 xadmin.site.register(views.CommAdminView,GlobalSetting)
 xadmin.site.register(views.BaseAdminView,BaseSetting)
 # xadmin.site.register(LogEntry)
+

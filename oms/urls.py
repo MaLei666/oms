@@ -6,6 +6,7 @@ from django.views.static import serve
 from document_management.views import upload_image
 from django.conf import settings
 import xadmin
+import rest_framework
 
 
 # 错误页面
@@ -17,6 +18,9 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
 
+    #todo
+    # path('',include('users.urls')),
+
     # 静态文件
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
 
@@ -24,7 +28,7 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
 
     # users
-    path('', include('users.urls')),
+    path('', include('users.urls',namespace='users')),
 
     # host management
     path('host/management/', include('host_management.urls')),

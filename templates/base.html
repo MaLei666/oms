@@ -218,60 +218,35 @@
                                 </a>
                             </li>
 
-                            {% if request.user.role < 3 %}
-                                <!-- 区块链 -->
-                                <li {% ifequal web_chose_left_1 'vechain' %}class="active"{% endifequal %}>
-                                    <a>
-                                        <i class="pull-right fa fa-angle-right"
-                                           style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
-                                        <i class="glyphicon glyphicon-globe"></i>
-                                        <span style="font-size: 13px; ">区块链</span>
-                                    </a>
+                            <li {% ifequal web_chose_left_1 'host_management' %}class="active"{% endifequal %}>
+                                <a>
+                                    <i class="pull-right fa fa-angle-right"
+                                       style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
+                                    <i class="fa fa-television"></i>
+                                    <span style="font-size: 13px; ">主机管理</span>
+                                </a>
 
-                                    <!-- 二级菜单 -->
-                                    <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                        <li {% ifequal web_chose_left_2 'artifact' %}class="active"{% endifequal %}>
-                                            <a href="{% url 'vechain:artifact_list' %}">
-                                                <span>产品</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            {% endif %}
+                                <!-- 二级菜单 -->
+                                <ul class="nav nav-sub dk" style="font-size: 12px;">
+                                    <li {% ifequal web_chose_left_2 'host' %}class="active"{% endifequal %}>
+                                        <a href="{% url 'host_management:host_list' %}">
+                                            <span>主机管理</span>
+                                        </a>
+                                    </li>
 
-                            {% if request.user.role < 3 %}
-                                <!-- 巡检监督 -->
-                                <li {% ifequal web_chose_left_1 'inspect' %}class="active"{% endifequal %}>
-                                    <a>
-                                        <i class="pull-right fa fa-angle-right"
-                                           style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
-                                        <i class="glyphicon glyphicon-globe"></i>
-                                        <span style="font-size: 13px; ">巡检监督</span>
-                                    </a>
-
-                                    <!-- 二级菜单 -->
-                                    <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                        <li {% ifequal web_chose_left_2 'devices' %}class="active"{% endifequal %}>
-                                            <a href="{% url 'sys_inspect:inspect_devices_list' %}">
-                                                <span>设备管理</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                            <li {% ifequal web_chose_left_2 'contents' %}class="active"{% endifequal %}>
-                                                <a href="{% url 'sys_inspect:inspect_contents_list' %}">
-                                                    <span>任务管理</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                </li>
-                            {% endif %}
+                                    <li {% ifequal web_chose_left_2 'database' %}class="active"{% endifequal %}>
+                                        <a href="{% url 'host_management:db_list' %}">
+                                            <span>数据管理</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
                             <li {% ifequal web_chose_left_1 'platform' %}class="active"{% endifequal %}>
                                 <a>
                                     <i class="pull-right fa fa-angle-right" style="width: 5px;font-weight: bolder;"
                                        id="coll_tag_plat"></i>
-                                    <i class="fa fa-desktop"></i>
+                                    <i class="fa fa-window-maximize "></i>
                                     <span style="font-size: 13px; ">平台管理</span>
                                 </a>
 
@@ -291,12 +266,14 @@
                                 </ul>
                             </li>
 
+
+
                             {% if request.user.role < 3 %}
                                     <li {% ifequal web_chose_left_1 'basic_setting' %}class="active"{% endifequal %}>
                                         <a>
                                             <i class="pull-right fa fa-angle-right"
                                                style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
-                                            <i class="glyphicon glyphicon-cog"></i>
+                                            <i class="fa fa-cog"></i>
                                             <span style="font-size: 13px; ">全局配置</span>
                                         </a>
 
@@ -329,56 +306,9 @@
                                 {% endif %}
 
                             <!-- 主机管理 -->
-                            <li {% ifequal web_chose_left_1 'host_management' %}class="active"{% endifequal %}>
-                                <a>
-                                    <i class="pull-right fa fa-angle-right"
-                                       style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
-                                    <i class="glyphicon glyphicon-console"></i>
-                                    <span style="font-size: 13px; ">主机管理</span>
-                                </a>
 
-                                <!-- 二级菜单 -->
-                                <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                    <li {% ifequal web_chose_left_2 'host' %}class="active"{% endifequal %}>
-                                        <a href="{% url 'host_management:host_list' %}">
-                                            <span>主机管理</span>
-                                        </a>
-                                    </li>
 
-                                    <li {% ifequal web_chose_left_2 'database' %}class="active"{% endifequal %}>
-                                        <a href="{% url 'host_management:db_list' %}">
-                                            <span>数据管理</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
 
-                            <!-- 表数据 -->
-                            <li {% ifequal web_chose_left_1 'spider_data' %}class="active"{% endifequal %}>
-                                <a>
-                                    <i class="pull-right fa fa-angle-right" style="width: 5px;font-weight: bolder;"
-                                       id="coll_tag_data"></i>
-                                    <i class="fa fa-file-text-o"></i>
-                                    <span style="font-size: 13px; ">爬虫数据</span>
-                                </a>
-
-                                <!-- 二级菜单 -->
-                                <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                    <li {% ifequal web_chose_left_2 'zhihu' %}class="active"{% endifequal %}>
-                                        <a href="{% url 'spider_data:zhihu_list' %}">
-                                            <span>知乎爬虫</span>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <ul class="nav nav-sub dk" style="font-size: 12px;">
-                                    <li {% ifequal web_chose_left_2 'dianping' %}class="active"{% endifequal %}>
-                                        <a href="{% url 'spider_data:dp_list' %}">
-                                            <span>大众点评</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
 
                             {% if request.user.role < 3 %}
                                 <!-- 主机管理 -->
@@ -386,7 +316,7 @@
                                     <a>
                                         <i class="pull-right fa fa-angle-right"
                                            style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
-                                        <i class="glyphicon glyphicon-globe"></i>
+                                        <i class="fa fa-sort-numeric-asc"></i>
                                         <span style="font-size: 13px; ">端口域名</span>
                                     </a>
 
@@ -440,12 +370,88 @@
                                 </ul>
                             </li>
 
-                            <!-- 二级菜单 -->
+                            <!-- 表数据 -->
+                            <li {% ifequal web_chose_left_1 'spider_data' %}class="active"{% endifequal %}>
+                                <a>
+                                    <i class="pull-right fa fa-angle-right" style="width: 5px;font-weight: bolder;"
+                                       id="coll_tag_data"></i>
+                                    <i class="fa fa-table"></i>
+                                    <span style="font-size: 13px; ">爬虫数据</span>
+                                </a>
+
+                                <!-- 二级菜单 -->
+                                <ul class="nav nav-sub dk" style="font-size: 12px;">
+                                    <li {% ifequal web_chose_left_2 'zhihu' %}class="active"{% endifequal %}>
+                                        <a href="{% url 'spider_data:zhihu_list' %}">
+                                            <span>知乎爬虫</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <ul class="nav nav-sub dk" style="font-size: 12px;">
+                                    <li {% ifequal web_chose_left_2 'dianping' %}class="active"{% endifequal %}>
+                                        <a href="{% url 'spider_data:dp_list' %}">
+                                            <span>大众点评</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            {% if request.user.role < 3 %}
+                                <!-- 区块链 -->
+                                <li {% ifequal web_chose_left_1 'vechain' %}class="active"{% endifequal %}>
+                                    <a>
+                                        <i class="pull-right fa fa-angle-right"
+                                           style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
+                                        <i class="fa fa-link"></i>
+                                        <span style="font-size: 13px; ">区块链</span>
+                                    </a>
+
+                                    <!-- 二级菜单 -->
+                                    <ul class="nav nav-sub dk" style="font-size: 12px;">
+                                        <li {% ifequal web_chose_left_2 'artifact' %}class="active"{% endifequal %}>
+                                            <a href="{% url 'vechain:artifact_list' %}">
+                                                <span>产品</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+
+                            {% if request.user.role < 3 %}
+                                <!-- 巡检监督 -->
+                                <li {% ifequal web_chose_left_1 'inspect' %}class="active"{% endifequal %}>
+                                    <a>
+                                        <i class="pull-right fa fa-angle-right"
+                                           style="width: 5px;font-weight: bolder;" id="coll_tag_ops"></i>
+                                        <i class="fa fa-calendar-check-o"></i>
+                                        <span style="font-size: 13px; ">巡检监督</span>
+                                    </a>
+
+                                    <!-- 二级菜单 -->
+                                    <ul class="nav nav-sub dk" style="font-size: 12px;">
+                                        <li {% ifequal web_chose_left_2 'devices' %}class="active"{% endifequal %}>
+                                            <a href="{% url 'sys_inspect:inspect_devices_list' %}">
+                                                <span>设备管理</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-sub dk" style="font-size: 12px;">
+                                            <li {% ifequal web_chose_left_2 'contents' %}class="active"{% endifequal %}>
+                                                <a href="{% url 'sys_inspect:inspect_contents_list' %}">
+                                                    <span>任务管理</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                </li>
+                            {% endif %}
+
+                            <!-- 一级菜单 -->
                             <li {% ifequal web_chose_left_1 'user_management' %}class="active"{% endifequal %}>
                                 <a>
                                     <i class="pull-right fa fa-angle-right" style="width: 5px;font-weight: bolder;"
                                        id="coll_tag_doc"></i>
-                                    <i class="fa fa-users"></i>
+                                    <i class="fa fa-sliders"></i>
                                     <span style="font-size: 13px; ">系统管理</span>
                                 </a>
 

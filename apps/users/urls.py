@@ -1,11 +1,12 @@
 """
 User app
 """
-from django.urls import path
-from users.views import *
-
+from django.urls import path,include
+from .views import *
+from users.apis.user import UserlistView,user_detail
 
 app_name = 'users'
+
 
 urlpatterns = [
     # 首页
@@ -93,7 +94,7 @@ urlpatterns = [
     path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
 
     # 用户列表
-    path('user/list', UserListView.as_view(), name='user_list'),
+    # path('user/list', UserListView.as_view(), name='user_list'),
 
     # 添加用户
     path('user/add', AddUserView.as_view(), name='add_user'),
@@ -112,6 +113,10 @@ urlpatterns = [
 
     # 获取帮助
     # path('help', AskHelpView.as_view(), name='help'),
+
+    #TODO
+    path('users/userlist',UserlistView,name='user_list'),
+    path('users/userinfo/<int:user_id>/',user_detail,name='userinfo')
 ]
 
 

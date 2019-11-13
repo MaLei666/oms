@@ -12,6 +12,15 @@ from django.db.models import Q
 import datetime
 
 
+__all__=['UserProfile','UserDepartment','UserCompany','UserLoginInfo','UserEmailVirificationCode','ROLE_CHOICES',
+         'STATUS_CHOICES','GENDER_CHOICES','EMAIL_CHOICES','ACTION_CHOICES']
+
+ROLE_CHOICES=((0, '后台开发者'),(1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员'),(4, '一般用户'))
+STATUS_CHOICES=((1, '正常'), (0, '停用'))
+GENDER_CHOICES=((1, '男'), (2, '女'))
+EMAIL_CHOICES=(('register', '注册'), ('forget', '忘记密码'), ('change_email', '修改邮箱绑定'), ('active', '用户激活'))
+ACTION_CHOICES=((1, '登录'), (2, '注销'))
+
 ######################################
 # 单位表
 ######################################
@@ -25,7 +34,7 @@ class UserCompany(models.Model):
     update_user=models.CharField(verbose_name='更新者',max_length=45,blank=True,null=True)
     update_time=models.DateTimeField(verbose_name='更新时间',blank=True,null=True)
     comment=models.CharField(verbose_name='备注',blank=True,null=True,max_length=1000)
-    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (0, '停用')), default=1)
+    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=STATUS_CHOICES, default=1)
 
 
     class Meta:
@@ -50,7 +59,7 @@ class UserDepartment(models.Model):
     update_user = models.CharField(verbose_name='更新者', max_length=45, blank=True, null=True)
     update_time = models.DateTimeField(verbose_name='更新时间', blank=True, null=True)
     comment = models.CharField(verbose_name='备注', blank=True, null=True, max_length=1000)
-    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (0, '停用')), default=1)
+    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=STATUS_CHOICES, default=1)
 
 
     class Meta:
@@ -82,7 +91,7 @@ class UserDepartment(models.Model):
 # 用户扩展表
 ######################################
 class UserProfile(AbstractUser):
-    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=(((0, '后台开发者')),(1, '超级管理员'), (2, '平台管理员'), (3, '单位管理员'),(4, '一般用户')),null=True,blank=True)
+    role = models.PositiveSmallIntegerField(verbose_name='角色', choices=ROLE_CHOICES,null=True,blank=True)
     user_name = models.CharField(verbose_name='用户姓名', max_length=10)
     unit_id=models.IntegerField(verbose_name='单位ID', null=True, blank=True,)
     unit_name=models.CharField(verbose_name='单位名称',max_length=100, null=True, blank=True)
@@ -91,15 +100,15 @@ class UserProfile(AbstractUser):
     mobile = models.CharField(verbose_name='手机号', max_length=20, null=True, blank=True)
     avatar = models.ImageField(verbose_name='用户头像', max_length=200, upload_to='users/avatar/%Y/%m',
                                default='users/avatar/default.png', null=True, blank=True)
-    gender = models.IntegerField(verbose_name='性别', choices=((1, '男'), (2, '女')), default='1',null=True, blank=True)
+    gender = models.IntegerField(verbose_name='性别', choices=GENDER_CHOICES, default='1',null=True, blank=True)
     # position = models.ForeignKey(UserPosition, verbose_name='职位', on´_delete=models.CASCADE, blank=True, null=True)
+    user_id_create=models.BigIntegerField(verbose_name='创建用户id',null=True,blank=True)
     create_user = models.CharField(verbose_name='创建者', max_length=45,null=True, blank=True)
     create_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True, null=True, blank=True)
     update_user = models.CharField(verbose_name='更新者', max_length=45, blank=True, null=True)
     update_time = models.DateTimeField(verbose_name='更新时间', blank=True, null=True)
     comment = models.CharField(verbose_name='备注', max_length=200, blank=True, null=True)
-    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=((1, '正常'), (2, '停用')), default=1)
-    user_id_create=models.BigIntegerField(verbose_name='创建用户id',null=True,blank=True)
+    status = models.PositiveSmallIntegerField(verbose_name='状态', choices=STATUS_CHOICES, default=1)
 
     class Meta:
         verbose_name = '用户'
@@ -119,8 +128,7 @@ class UserProfile(AbstractUser):
 class UserEmailVirificationCode(models.Model):
     code = models.CharField(verbose_name='验证码', max_length=20)
     email = models.EmailField(verbose_name='接收邮箱')
-    purpose = models.CharField(verbose_name='用途', choices=(
-    ('register', '注册'), ('forget', '忘记密码'), ('change_email', '修改邮箱绑定'), ('active', '用户激活')), max_length=20)
+    purpose = models.CharField(verbose_name='用途', choices=EMAIL_CHOICES, max_length=20)
     is_use = models.BooleanField(verbose_name='是否被使用', default=False)
     add_time = models.DateTimeField(verbose_name='添加时间', auto_now_add=True)
 
@@ -135,7 +143,7 @@ class UserEmailVirificationCode(models.Model):
 # 用户登录信息表
 ######################################
 class UserLoginInfo(models.Model):
-    action = models.PositiveSmallIntegerField(verbose_name='动作', choices=((1, '登录'), (2, '注销')), default=1)
+    action = models.PositiveSmallIntegerField(verbose_name='动作', choices=ACTION_CHOICES, default=1)
     user = models.ForeignKey(UserProfile, verbose_name='用户', on_delete=models.CASCADE)
     agent = models.CharField(verbose_name='客户端', max_length=200)
     ip = models.GenericIPAddressField(verbose_name='IP地址')
