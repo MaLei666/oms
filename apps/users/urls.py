@@ -3,7 +3,7 @@ User app
 """
 from django.urls import path,include
 from .views import *
-from users.apis.user import UserlistView,user_detail
+from users.apis.user import UserlistApi,UserInfoApi
 
 app_name = 'users'
 
@@ -61,7 +61,7 @@ urlpatterns = [
     path('modify', ModifyPasswordView.as_view(), name='modify'),
 
     # 用户信息
-    path('user/info', UserInfoView.as_view(), name='user_info'),
+    # path('user/info', UserInfoView.as_view(), name='user_info'),
 
     # 他人信息
     path('other/user/info/<int:uid>', OtherUserInfoView.as_view(), name='other_user_info'),
@@ -115,8 +115,8 @@ urlpatterns = [
     # path('help', AskHelpView.as_view(), name='help'),
 
     #TODO
-    path('users/userlist',UserlistView,name='user_list'),
-    path('users/userinfo/<int:user_id>/',user_detail,name='userinfo')
+    path('users/list',UserlistApi.as_view(),name='user_list'),
+    path('users/info/<int:user_id>/',UserInfoApi.as_view(),name='user_info')
 ]
 
 

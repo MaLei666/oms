@@ -17,8 +17,9 @@
       <sourceFolder url="file://$MODULE_DIR$/apps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/templates" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/extra_apps" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (example)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
