@@ -3,10 +3,11 @@ User app
 """
 from django.urls import path,include
 from .views import *
-from users.apis.user import UserlistApi,UserInfoApi
+from users.apis.user_api import UserlistApi,UserInfoApi
+
+__all__=['urlpatterns','app_name']
 
 app_name = 'users'
-
 
 urlpatterns = [
     # 首页
@@ -35,6 +36,10 @@ urlpatterns = [
     path('dept/edit', EditDeptView.as_view(), name='dept_edit'),
     # 部门删除
     path('dept/delete', DeleteDeptView.as_view(), name='dept_delete'),
+
+    path('users/list', UserlistApi.as_view(), name='user_list'),
+
+    path('users/info/<int:user_id>/', UserInfoApi.as_view(), name='user_info'),
 
     # 用户列表
     path('user/list', UserListView.as_view(), name='user_list'),
@@ -114,9 +119,6 @@ urlpatterns = [
     # 获取帮助
     # path('help', AskHelpView.as_view(), name='help'),
 
-    #TODO
-    path('users/list',UserlistApi.as_view(),name='user_list'),
-    path('users/info/<int:user_id>/',UserInfoApi.as_view(),name='user_info')
 ]
 
 

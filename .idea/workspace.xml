@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9774198c-6149-41df-86a0-7f634a4bb801" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/oms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/oms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/apis/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/apis/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/apis/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/apis/user_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+            <state relative-caret-position="484">
+              <caret line="34" column="60" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="60" />
               <folding>
                 <element signature="e#181#202#0" expanded="true" />
               </folding>
@@ -49,11 +47,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/users/apis/user.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="64" column="28" lean-forward="true" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="79">
+              <caret line="105" column="10" lean-forward="true" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
+              <folding>
+                <element signature="e#90#118#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/apis/user_api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
               <folding>
                 <element signature="e#173#208#0" expanded="true" />
               </folding>
@@ -64,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="883" column="48" lean-forward="true" selection-start-line="880" selection-start-column="8" selection-end-line="883" selection-end-column="48" />
+            <state relative-caret-position="-910">
+              <caret line="854" column="32" selection-start-line="854" selection-start-column="32" selection-end-line="854" selection-end-column="32" />
               <folding>
                 <element signature="e#90#166#0" expanded="true" />
               </folding>
@@ -73,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="118" column="42" lean-forward="true" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
+            <state relative-caret-position="289">
+              <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
               <folding>
                 <element signature="e#17#53#0" expanded="true" />
               </folding>
@@ -97,9 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contrmib</find>
-      <find>STATIC_ROOT</find>
-      <find>urlresolvers</find>
       <find>apps</find>
       <find>autodiscover</find>
       <find>LogEntry</find>
@@ -127,6 +134,9 @@
       <find>user_detail</find>
       <find>SnippetSerializer</find>
       <find>pk</find>
+      <find>user_check</find>
+      <find>units</find>
+      <find>first_name</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/apps/users</dir>
@@ -144,11 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/vechain/views.py" />
-        <option value="$PROJECT_DIR$/templates/users/units/unit_list.html" />
-        <option value="$PROJECT_DIR$/templates/vechain/artifact_list.html" />
-        <option value="$PROJECT_DIR$/templates/sys_inspect/inspect_content_list.html" />
-        <option value="$PROJECT_DIR$/templates/host_management/host/host_list.html" />
         <option value="$PROJECT_DIR$/templates/host_management/other/data_dict_list.html" />
         <option value="$PROJECT_DIR$/templates/sys_inspect/inspect_dev_list.html" />
         <option value="$PROJECT_DIR$/templates/host_management/host/host_info.html" />
@@ -188,13 +193,18 @@
         <option value="$PROJECT_DIR$/templates/users/index.html" />
         <option value="$PROJECT_DIR$/apps/users/adminx.py" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
-        <option value="$PROJECT_DIR$/apps/users/views.py" />
         <option value="$PROJECT_DIR$/oms/urls.py" />
         <option value="$PROJECT_DIR$/apps/users/apis/api.py" />
         <option value="$PROJECT_DIR$/oms/settings.py" />
-        <option value="$PROJECT_DIR$/apps/users/serializers.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls/units_urls.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls/depts_urls.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls/user_urls.py" />
         <option value="$PROJECT_DIR$/apps/users/urls.py" />
+        <option value="$PROJECT_DIR$/apps/users/filter.py" />
         <option value="$PROJECT_DIR$/apps/users/apis/user.py" />
+        <option value="$PROJECT_DIR$/apps/users/apis/user_api.py" />
+        <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/apps/users/serializers.py" />
       </list>
     </option>
   </component>
@@ -255,39 +265,10 @@
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oms" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -314,56 +295,7 @@
               <item name="&lt; Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
               <item name="-186500260" type="d76c9d6b:PyRemoteLibrariesNode" />
               <item name="82317521" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-186500260" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="82317521" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-186500260" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="82317521" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-186500260" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="82317521" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-186500260" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="82317521" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Remote Python 3.6.3 (sftp://root@192.168.1.108:22/root/.local/share/virtualenvs/oms-bJw86J9I/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-186500260" type="d76c9d6b:PyRemoteLibrariesNode" />
-              <item name="82317521" type="788ab980:PyRemoteLibrariesNode$PyRemoteRootNode" />
-              <item name="django" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="fields" type="462c0819:PsiDirectoryNode" />
+              <item name="django_filters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oms" type="b2602c69:ProjectViewProjectNode" />
@@ -393,7 +325,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DevOps" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -533,7 +465,8 @@
       <workItem from="1573635743186" duration="3878000" />
       <workItem from="1573696187289" duration="669000" />
       <workItem from="1573696914652" duration="648000" />
-      <workItem from="1573698474093" duration="9491000" />
+      <workItem from="1573698474093" duration="9559000" />
+      <workItem from="1573783625137" duration="8819000" />
     </task>
     <task id="LOCAL-00001" summary="5-12更新 单位管理、部门管理 html页面">
       <created>1557667814514</created>
@@ -619,11 +552,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573639899726</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="19-11-14更新 前后端分离">
+      <created>1573726627073</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1573726627073</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126244000" />
+    <option name="totallyTimeSpent" value="135131000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,13 +576,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.18303095" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994401" visible="true" weight="0.10192102" />
       <window_info id="Structure" order="1" sideWeight="0.5005599" side_tool="true" weight="0.11632871" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49786553" visible="true" weight="0.21948488" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32874355" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49786553" weight="0.31669536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47211897" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -650,10 +591,10 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3281075" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50213444" side_tool="true" visible="true" weight="0.21948488" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50213444" side_tool="true" weight="0.34301677" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32922733" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32922733" />
-      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.38857782" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.38726333" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32961586" />
       <window_info anchor="bottom" id="manage.py@oms" order="15" weight="0.37849945" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -720,44 +661,10 @@
     <MESSAGE value="19-11-06更新 xadmin配置" />
     <MESSAGE value="19-11-11更新 xadmin配置" />
     <MESSAGE value="19-11-13更新 前后端分离" />
-    <option name="LAST_COMMIT_MESSAGE" value="19-11-13更新 前后端分离" />
+    <MESSAGE value="19-11-14更新 前后端分离" />
+    <option name="LAST_COMMIT_MESSAGE" value="19-11-14更新 前后端分离" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/users/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/host_management/host/host_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4116" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/host_management/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
-          <folding>
-            <element signature="e#90#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/host_management/forms.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/document_management/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vechain/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/vechain/adminx.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -939,16 +846,6 @@
         <state relative-caret-position="-406" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7701">
-          <caret line="453" column="59" selection-start-line="453" selection-start-column="59" selection-end-line="453" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-186500260/82317521/django/db/models/fields/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -1011,9 +908,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/adminx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
+        <state relative-caret-position="832">
           <caret line="128" column="28" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
           <folding>
             <element signature="e#125#138#0" expanded="true" />
@@ -1021,65 +924,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+        <state relative-caret-position="161">
+          <caret line="415" column="39" selection-start-line="415" selection-start-column="39" selection-end-line="415" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls/depts_urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls/user_urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls/units_urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-186500260/82317521/django_filters/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#181#202#0" expanded="true" />
+            <element signature="e#15#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-186500260/82317521/django_filters/filters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5236">
+          <caret line="146" column="30" lean-forward="true" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-186500260/82317521/rest_framework/generics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="273" column="6" selection-start-line="273" selection-start-column="6" selection-end-line="273" selection-end-column="6" />
+        <state relative-caret-position="184">
+          <caret line="192" column="6" selection-start-line="192" selection-start-column="6" selection-end-line="192" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding>
+            <element signature="e#176#197#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="79">
+          <caret line="105" column="10" lean-forward="true" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
           <folding>
             <element signature="e#90#118#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="118" column="42" lean-forward="true" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
-          <folding>
-            <element signature="e#17#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="883" column="48" lean-forward="true" selection-start-line="880" selection-start-column="8" selection-end-line="883" selection-end-column="48" />
+        <state relative-caret-position="-910">
+          <caret line="854" column="32" selection-start-line="854" selection-start-column="32" selection-end-line="854" selection-end-column="32" />
           <folding>
             <element signature="e#90#166#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/apis/user.py">
+    <entry file="file://$PROJECT_DIR$/apps/users/apis/user_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="64" column="28" lean-forward="true" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        <state relative-caret-position="586">
+          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
           <folding>
             <element signature="e#173#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="34" column="60" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="60" />
+          <folding>
+            <element signature="e#181#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+          <folding>
+            <element signature="e#17#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
