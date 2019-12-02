@@ -56,7 +56,7 @@ DATABASES = {
         'NAME': 'oms',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.0.120',
         'PORT': '3306',
     }
 }
