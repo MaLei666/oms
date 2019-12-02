@@ -37,9 +37,9 @@ urlpatterns = [
     # 部门删除
     path('dept/delete', DeleteDeptView.as_view(), name='dept_delete'),
 
-    path('users/list', UserlistApi.as_view(), name='user_list'),
+    # path('users/list', UserlistApi.as_view(), name='user_list'),
 
-    path('users/info/<int:user_id>/', UserInfoApi.as_view(), name='user_info'),
+    # path('users/info/<int:user_id>/', UserInfoApi.as_view(), name='user_info'),
 
     # 用户列表
     path('user/list', UserListView.as_view(), name='user_list'),
@@ -66,7 +66,7 @@ urlpatterns = [
     path('modify', ModifyPasswordView.as_view(), name='modify'),
 
     # 用户信息
-    # path('user/info', UserInfoView.as_view(), name='user_info'),
+    path('user/info', UserInfoView.as_view(), name='user_info'),
 
     # 他人信息
     path('other/user/info/<int:uid>', OtherUserInfoView.as_view(), name='other_user_info'),
@@ -99,7 +99,7 @@ urlpatterns = [
     path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
 
     # 用户列表
-    # path('user/list', UserListView.as_view(), name='user_list'),
+    path('user/list', UserListView.as_view(), name='user_list'),
 
     # 添加用户
     path('user/add', AddUserView.as_view(), name='add_user'),
