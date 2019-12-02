@@ -5,11 +5,6 @@
 # @file : user_api.py
 # @software : PyCharm
 
-from rest_framework import generics
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework.parsers import JSONParser
-from users.models import *
 from users.serializers import UserSerializer,UserInfoSerializer
 from ..filter import *
 
@@ -18,29 +13,34 @@ from ..filter import *
 ######################################
 from pure_pagination import PageNotAnInteger, Paginator, EmptyPage
 from rest_framework.request import Request
-from rest_framework import status,generics
+from rest_framework import status,generics,viewsets,renderers
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 # Todo
 # @csrf_exempt
-class UserlistApi(generics.ListAPIView):
-    queryset = UserProfile.objects.all()
+class UserlistViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = UserProfile.objects.all().order_by('id')
     serializer_class = UserSerializer
     filter_class=UserFilter
-
-
-# @csrf_exempt
-class UserInfoApi(generics.RetrieveUpdateDestroyAPIView):
-    queryset = UserProfile.objects.all()
-    serializer_class = UserInfoSerializer
     lookup_url_kwarg = 'user_id'
 
-class UserCreateApi(generics.ListCreateAPIView):
-    serializer_class = UserSerializer
-    queryset = UserProfile.objects.all()
 
-    def create(self, request, *args, **kwargs):
-        response = super(UserCreateApi, self).create(request, *args, **kwargs)
-        return response
+
+class UserViewSet(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = UserProfile.objects.all().order_by('id')
+    filter_class=UserFilter
+    lookup_url_kwarg = 'user_id'
+
+
+    @action(detail=True)
+    def highlight(self, request, *args, **kwargs):
+        users = self.get_object()
+        Response(users.highlighted)
+
+    def perform_create(self, serializer):
+        serializer.save()
 
 
 

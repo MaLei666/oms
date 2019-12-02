@@ -22,7 +22,7 @@ class BaseSetting(object):
 
 class GlobalSetting(object):
     site_title = u"运维管理平台"
-    site_footer = u"power by bc"
+    site_footer = u"power by ml"
     menu_style = "accordion"
 
     # def get_site_menu(self):

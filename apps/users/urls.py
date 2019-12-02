@@ -3,11 +3,19 @@ User app
 """
 from django.urls import path,include
 from .views import *
-from users.apis.user_api import UserlistApi,UserInfoApi
+from users.apis.user_api import UserlistViewSet,UserViewSet
+from rest_framework import renderers
 
 __all__=['urlpatterns','app_name']
 
 app_name = 'users'
+
+users = UserViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'delete': 'destroy',
+    'post':'create'
+})
 
 urlpatterns = [
     # 首页
@@ -37,18 +45,18 @@ urlpatterns = [
     # 部门删除
     path('dept/delete', DeleteDeptView.as_view(), name='dept_delete'),
 
-    path('users/list', UserlistApi.as_view(), name='user_list'),
-
-    path('users/info/<int:user_id>/', UserInfoApi.as_view(), name='user_info'),
-
     # 用户列表
-    path('user/list', UserListView.as_view(), name='user_list'),
+    path('user/list', UserlistViewSet.as_view({'get':'list'}), name='user_list'),
+    # 用户详情
+    path('user/info/<int:user_id>/', UserlistViewSet.as_view({'get':'retrieve'}), name='user_info'),
+
+
     # 用户添加
-    path('user/add', AddUserView.as_view(), name='user_add'),
+    path('user/add', users, name='user_add'),
     # 用户修改
-    path('user/edit', EditUserView.as_view(), name='user_edit'),
+    path('user/edit/<int:user_id>/', users, name='user_edit'),
     # 用户删除
-    path('user/delete', DeleteUserView.as_view(), name='user_delete'),
+    path('user/delete/<int:user_id>/', users, name='user_delete'),
 
     # # 用户激活请求
     # path('email/active', SendActiveUserEmailView.as_view(), name='send_active_email'),
@@ -64,9 +72,6 @@ urlpatterns = [
 
     # 修改密码
     path('modify', ModifyPasswordView.as_view(), name='modify'),
-
-    # 用户信息
-    # path('user/info', UserInfoView.as_view(), name='user_info'),
 
     # 他人信息
     path('other/user/info/<int:uid>', OtherUserInfoView.as_view(), name='other_user_info'),
@@ -98,17 +103,7 @@ urlpatterns = [
     # 修改用户邮箱
     path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
 
-    # 用户列表
-    # path('user/list', UserListView.as_view(), name='user_list'),
 
-    # 添加用户
-    path('user/add', AddUserView.as_view(), name='add_user'),
-
-    # 修改用户
-    path('user/edit', EditUserView.as_view(), name='edit_user'),
-
-    # 删除用户
-    path('user/delete', AddUserView.as_view(), name='delete_user'),
 
     # 用户登录日志
     path('user/login/record', UserLoginRecordView.as_view(), name='login_record'),

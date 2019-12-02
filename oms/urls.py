@@ -18,9 +18,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
 
-    #todo
-    # path('',include('users.urls')),
-
     # 静态文件
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
 
