@@ -7,6 +7,7 @@
 
 from .models import *
 from rest_framework import serializers
+from datetime import datetime as dt
 
 __all__=('UserSerializer',)
 
@@ -22,22 +23,23 @@ class UserSerializer(serializers.ModelSerializer):
         validated_data['create_user']=self.context['request'].user.username
         validated_data['user_id_create']=self.context['request'].user.id
         obj = super(UserSerializer, self).create(validated_data=validated_data)
-        obj.save()
         return obj
 
-    # def update(self, instance, validated_data):
-    #     instance.user_name=validated_data.get('user_name',instance.user_name)
-    #     instance.mobile=validated_data.get('mobile',instance.mobile)
-    #     instance.avatar=validated_data.get('avatar',instance.avatar)
-    #     instance.gender=validated_data.get('gender',instance.gender)
-    #     instance.comment=validated_data.get('comment',instance.comment)
-    #     instance.status=validated_data.get('user_name',instance.status)
-    #     instance.email=validated_data.get('email',instance.email)
-    #     instance.is_staff=validated_data.get('is_staff',instance.is_staff)
-    #     instance.update_user=validated_data.user.user_name
-    #
-    #     instance.save()
-    #     return instance
+
+    def update(self, instance, validated_data):
+        instance.user_name=validated_data.get('user_name',instance.user_name)
+        instance.password=validated_data.get('password',instance.password)
+        instance.mobile=validated_data.get('mobile',instance.mobile)
+        instance.avatar=validated_data.get('avatar',instance.avatar)
+        instance.gender=validated_data.get('gender',instance.gender)
+        instance.comment=validated_data.get('comment',instance.comment)
+        instance.status=validated_data.get('user_name',instance.status)
+        instance.email=validated_data.get('email',instance.email)
+        instance.is_staff=validated_data.get('is_staff',instance.is_staff)
+        instance.update_user=self.context['request'].user.username
+        instance.update_time=dt.now()
+        return instance
+
 
 
 class UserInfoSerializer(UserSerializer):

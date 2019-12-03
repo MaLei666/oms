@@ -3,19 +3,22 @@ User app
 """
 from django.urls import path,include
 from .views import *
-from users.apis.user_api import UserlistViewSet,UserViewSet
-from rest_framework import renderers
+from users.apis.user_api import UserViewSet
 
 __all__=['urlpatterns','app_name']
 
 app_name = 'users'
 
-users = UserViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'delete': 'destroy',
-    'post':'create'
-})
+users_list=UserViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+users_detail = UserViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'delete'
+        })
 
 urlpatterns = [
     # 首页
@@ -46,17 +49,15 @@ urlpatterns = [
     path('dept/delete', DeleteDeptView.as_view(), name='dept_delete'),
 
     # 用户列表
-    path('user/list', UserlistViewSet.as_view({'get':'list'}), name='user_list'),
+    path('user/list', users_list, name='user_list'),
     # 用户详情
-    path('user/info/<int:user_id>/', UserlistViewSet.as_view({'get':'retrieve'}), name='user_info'),
-
-
+    path('user/info/<int:user_id>', users_detail, name='user_info'),
     # 用户添加
-    path('user/add', users, name='user_add'),
+    path('user/add', users_list, name='user_add'),
     # 用户修改
-    path('user/edit/<int:user_id>/', users, name='user_edit'),
+    path('user/edit/<int:user_id>', users_detail, name='user_edit'),
     # 用户删除
-    path('user/delete/<int:user_id>/', users, name='user_delete'),
+    path('user/delete/<int:user_id>', users_detail, name='user_delete'),
 
     # # 用户激活请求
     # path('email/active', SendActiveUserEmailView.as_view(), name='send_active_email'),

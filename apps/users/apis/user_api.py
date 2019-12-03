@@ -19,28 +19,29 @@ from rest_framework.response import Response
 
 # Todo
 # @csrf_exempt
-class UserlistViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = UserProfile.objects.all().order_by('id')
-    serializer_class = UserSerializer
-    filter_class=UserFilter
-    lookup_url_kwarg = 'user_id'
-
-
-
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = UserProfile.objects.all().order_by('id')
     filter_class=UserFilter
     lookup_url_kwarg = 'user_id'
 
-
-    @action(detail=True)
-    def highlight(self, request, *args, **kwargs):
-        users = self.get_object()
-        Response(users.highlighted)
-
     def perform_create(self, serializer):
         serializer.save()
+
+
+    def partial_update(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return self.update(request, *args, **kwargs)
+
+
+    def delete(self, request,user_id):
+        return self.destroy(request,user_id)
+
+
+
+
+
+
 
 
 
