@@ -5,8 +5,9 @@
 # @file : user_api.py
 # @software : PyCharm
 
-from users.serializers import UserSerializer,UserInfoSerializer
+from users.serializers import UserSerializer
 from ..filter import *
+from utils.code_response import responseFomat
 
 ######################################
 # 第三方模块
@@ -17,6 +18,11 @@ from rest_framework import status,generics,viewsets,renderers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+
+
+__all__=['UserViewSet']
+
+code=responseFomat()
 # Todo
 # @csrf_exempt
 class UserViewSet(viewsets.ModelViewSet):
@@ -25,17 +31,20 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_class=UserFilter
     lookup_url_kwarg = 'user_id'
 
+    # @action(methods=['POST'], detail=False)
     def perform_create(self, serializer):
         serializer.save()
 
-
+    # @action(methods=['PATCH'], detail=True)
     def partial_update(self, request, *args, **kwargs):
         kwargs['partial'] = True
         return self.update(request, *args, **kwargs)
 
 
     def delete(self, request,user_id):
-        return self.destroy(request,user_id)
+        self.destroy(request,user_id)
+        return Response(code.dataHandleSucceeded())
+
 
 
 

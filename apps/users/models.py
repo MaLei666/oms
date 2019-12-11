@@ -98,8 +98,8 @@ class UserProfile(AbstractUser):
     dept_id=models.IntegerField(verbose_name='部门ID', null=True, blank=True)
     dept_name=models.CharField(verbose_name='部门名称',max_length=100, null=True, blank=True)
     mobile = models.CharField(verbose_name='手机号', max_length=20, null=True, blank=True)
-    avatar = models.ImageField(verbose_name='用户头像', max_length=200, upload_to='users/avatar/%Y/%m',
-                               default='users/avatar/default.png', null=True, blank=True)
+    # avatar = models.CharField(verbose_name='用户头像', max_length=200, upload_to='users/avatar/%Y/%m',
+    #                            default='users/avatar/default.png', null=True, blank=True)
     gender = models.IntegerField(verbose_name='性别', choices=GENDER_CHOICES, default='1',null=True, blank=True)
     # position = models.ForeignKey(UserPosition, verbose_name='职位', on´_delete=models.CASCADE, blank=True, null=True)
     user_id_create=models.BigIntegerField(verbose_name='创建用户id',null=True,blank=True)

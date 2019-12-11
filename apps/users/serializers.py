@@ -14,9 +14,10 @@ __all__=('UserSerializer',)
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=UserProfile
-        fields = '__all__'
+        fields = ['id','password', 'last_login', 'username', 'email','role','user_name','unit_id','unit_name','dept_id',
+                  'dept_name','mobile','gender','create_time','comment','status']
         read_only_fields = (
-            'id',
+            'id','username','role','unit_id','dept_id'
         )
 
     def create(self, validated_data):
@@ -27,25 +28,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
     def update(self, instance, validated_data):
-        instance.user_name=validated_data.get('user_name',instance.user_name)
-        instance.password=validated_data.get('password',instance.password)
-        instance.mobile=validated_data.get('mobile',instance.mobile)
-        instance.avatar=validated_data.get('avatar',instance.avatar)
-        instance.gender=validated_data.get('gender',instance.gender)
-        instance.comment=validated_data.get('comment',instance.comment)
-        instance.status=validated_data.get('user_name',instance.status)
-        instance.email=validated_data.get('email',instance.email)
-        instance.is_staff=validated_data.get('is_staff',instance.is_staff)
         instance.update_user=self.context['request'].user.username
         instance.update_time=dt.now()
-        return instance
+        obj=super(UserSerializer,self).update(validated_data=validated_data,instance=instance)
+        return obj
 
 
-
-class UserInfoSerializer(UserSerializer):
-    class Meta:
-        model=UserProfile
-        fields = ['password', 'last_login', 'is_superuser', 'username', 'email', 'is_staff','date_joined','role',
-                  'user_name','unit_id','unit_name','dept_id','dept_name','mobile','avatar','gender','create_user',
-                  'create_time','update_user','update_time','comment','status','user_id_create']
 

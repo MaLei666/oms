@@ -3,7 +3,7 @@ User app
 """
 from django.urls import path,include
 from .views import *
-from users.apis.user_api import UserViewSet
+from users.apis.user_api import *
 
 __all__=['urlpatterns','app_name']
 
@@ -17,6 +17,7 @@ users_list=UserViewSet.as_view({
 users_detail = UserViewSet.as_view({
             'get':'retrieve',
             'patch': 'partial_update',
+            'put':'update',
             'delete': 'delete'
         })
 
