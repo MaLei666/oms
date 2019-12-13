@@ -9,7 +9,7 @@ __all__=['urlpatterns','app_name']
 
 app_name = 'users'
 
-users_list=UserViewSet.as_view({
+user_list=UserViewSet.as_view({
             'get': 'list',
             'post': 'create'
             }
@@ -17,8 +17,29 @@ users_list=UserViewSet.as_view({
 users_detail = UserViewSet.as_view({
             'get':'retrieve',
             'patch': 'partial_update',
-            'put':'update',
-            'delete': 'delete'
+            'delete': 'destroy'
+        })
+
+unit_list=unitViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+unit_detail = unitViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+dept_list=deptViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+dept_detail = deptViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
         })
 
 urlpatterns = [
@@ -32,29 +53,33 @@ urlpatterns = [
     path('logout', LogoutView.as_view(), name='logout'),
 
     # 单位列表
-    path('unit/list', UnitListView.as_view(), name='unit_list'),
+    path('unit/list', unit_list, name='unit_list'),
     # 单位添加
-    path('unit/add', AddUnitView.as_view(), name='unit_add'),
+    path('unit/add', unit_list, name='unit_add'),
+    # 单位详情
+    path('unit/info/<int:unit_id>', unit_detail, name='unit_info'),
     # 单位修改
-    path('unit/edit', EditUnitView.as_view(), name='unit_edit'),
+    path('unit/edit/<int:unit_id>',unit_detail, name='unit_edit'),
     # 单位删除
-    path('unit/delete', DeleteUnitView.as_view(), name='unit_delete'),
+    path('unit/delete/<int:unit_id>', unit_detail, name='unit_delete'),
 
     # 部门列表
-    path('dept/list', DeptListView.as_view(), name='dept_list'),
+    path('dept/list', dept_list, name='dept_list'),
     # 部门添加
-    path('dept/add', AddDeptView.as_view(), name='dept_add'),
+    path('dept/add', dept_list, name='dept_add'),
+    # 部门详情
+    path('dept/info/<int:dept_id>', dept_detail, name='dept_info'),
     # 部门修改
-    path('dept/edit', EditDeptView.as_view(), name='dept_edit'),
+    path('dept/edit/<int:dept_id>', dept_detail, name='dept_edit'),
     # 部门删除
-    path('dept/delete', DeleteDeptView.as_view(), name='dept_delete'),
+    path('dept/delete/<int:dept_id>', dept_detail, name='dept_delete'),
 
     # 用户列表
-    path('user/list', users_list, name='user_list'),
+    path('user/list', user_list, name='user_list'),
     # 用户详情
     path('user/info/<int:user_id>', users_detail, name='user_info'),
     # 用户添加
-    path('user/add', users_list, name='user_add'),
+    path('user/add', user_list, name='user_add'),
     # 用户修改
     path('user/edit/<int:user_id>', users_detail, name='user_edit'),
     # 用户删除

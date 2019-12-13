@@ -5,7 +5,7 @@
 # @file : code_response.py
 # @software : PyCharm
 
-import json,time
+import time
 class responseFomat:
     res_json={
         "code": "",
@@ -14,6 +14,31 @@ class responseFomat:
 
     def __init__(self):
         self.res_json=responseFomat.res_json
+
+    def requestAddSucceed(self):
+        self.res_json['code']=1000
+        self.res_json['message'] = '添加成功！'
+        return self.res_json
+
+    def requestEditSucceed(self):
+        self.res_json['code']=1000
+        self.res_json['message'] = '修改成功！'
+        return self.res_json
+
+    def requestDeleteSucceed(self):
+        self.res_json['code']=1000
+        self.res_json['message'] = '删除成功！'
+        return self.res_json
+
+    def noPermission(self):
+        self.res_json['code']=1001
+        self.res_json['message'] = '当前用户无权限！'
+        return self.res_json
+
+    def duplicateData(self):
+        self.res_json['code'] = 1002
+        self.res_json['message'] = '数据已存在！'
+        return self.res_json
 
     def requestHttpError(self):
         self.res_json['code']=201

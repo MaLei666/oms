@@ -8,6 +8,8 @@ import django_filters
 from django.db.models import Q
 from .models import *
 
+__all__=['UserFilter','unitFilter','deptFilter']
+
 class UserFilter(django_filters.FilterSet):
     role=django_filters.CharFilter(method="role_filter")
     unit_id=django_filters.CharFilter(method="unit_id_filter")
@@ -44,6 +46,63 @@ class UserFilter(django_filters.FilterSet):
     @staticmethod
     def user_name_filter(queryset, value):
         return queryset.filter(user_name__icontains=value)
+
+    @staticmethod
+    def status_filter(queryset, value):
+        return queryset.filter(status=value)
+
+class unitFilter(django_filters.FilterSet):
+    name=django_filters.CharFilter(method="name_filter")
+    connect = django_filters.CharFilter(method="connect_filter")
+    connect_phone = django_filters.CharFilter(method="connect_phone_filter")
+    status=django_filters.CharFilter(method="status_filter")
+
+    class Meta:
+        model = UserCompany
+        fields = ['name', 'connect', 'connect_phone', 'status']
+
+    @staticmethod
+    def name_filter(queryset, value):
+        return queryset.filter(name__icontains=value)
+
+    @staticmethod
+    def connect_filter(queryset, value):
+        return queryset.filter(connect__icontains=value)
+
+    @staticmethod
+    def connect_phone_filter(queryset, value):
+        return queryset.filter(connect_phone__icontains=value)
+
+    @staticmethod
+    def status_filter(queryset, value):
+        return queryset.filter(status=value)
+
+class deptFilter(django_filters.FilterSet):
+    name=django_filters.CharFilter(method="name_filter")
+    unit_name=django_filters.CharFilter(method="unit_name_filter")
+    connect = django_filters.CharFilter(method="connect_filter")
+    connect_phone = django_filters.CharFilter(method="connect_phone_filter")
+    status=django_filters.CharFilter(method="status_filter")
+
+    class Meta:
+        model = UserDepartment
+        fields = ['name', 'unit_name','connect', 'connect_phone', 'status']
+
+    @staticmethod
+    def name_filter(queryset, value):
+        return queryset.filter(name__icontains=value)
+
+    @staticmethod
+    def unit_name_filter(queryset, value):
+        return queryset.filter(unit_name__icontains=value)
+
+    @staticmethod
+    def connect_filter(queryset, value):
+        return queryset.filter(connect__icontains=value)
+
+    @staticmethod
+    def connect_phone_filter(queryset, value):
+        return queryset.filter(connect_phone__icontains=value)
 
     @staticmethod
     def status_filter(queryset, value):
