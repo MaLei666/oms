@@ -159,8 +159,3 @@ class deptSerializer(serializers.ModelSerializer):
                       operation=4,
                       action="[%s]删除部门 [ %s ]" % (instance.unit_name,instance.name))
         return instance
-
-
-
-
-

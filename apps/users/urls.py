@@ -44,10 +44,10 @@ dept_detail = deptViewSet.as_view({
 
 urlpatterns = [
     # 首页
-    path('', IndexView.as_view(), name='index'),
+    # path('', IndexView.as_view(), name='index'),
 
     # 登录
-    path('login/', LoginView.as_view(), name='login'),
+    path('login', LoginView.as_view(), name='login'),
 
     # 登出
     path('logout', LogoutView.as_view(), name='logout'),
@@ -100,11 +100,7 @@ urlpatterns = [
     # 修改密码
     path('modify', ModifyPasswordView.as_view(), name='modify'),
 
-    # 他人信息
-    path('other/user/info/<int:uid>', OtherUserInfoView.as_view(), name='other_user_info'),
 
-    # 修改用户信息
-    path('user/info/change', ChangeUserInfoView.as_view(), name='change_user_info'),
 
     # 用户头像
     path('user/avatar', UserAvatarView.as_view(), name='user_avatar'),
@@ -116,19 +112,19 @@ urlpatterns = [
     path('user/avatar/change/chose', ChangeUserAvatarChoseView.as_view(), name='change_user_avatar_chose'),
 
     # 用户密码
-    path('user/password', UserPasswordView.as_view(), name='user_password'),
+    # path('user/password', UserPasswordView.as_view(), name='user_password'),
 
     # 修改用户密码
     path('user/password/change', ChangeUserPasswordView.as_view(), name='change_user_password'),
 
-    # 用户邮箱
-    path('user/email', UserEmailView.as_view(), name='user_email'),
-
-    # 用户邮箱验证码
-    path('user/email/code', SendChangeUserEmailCodeView.as_view(), name='user_email_code'),
-
-    # 修改用户邮箱
-    path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
+    # # 用户邮箱
+    # path('user/email', UserEmailView.as_view(), name='user_email'),
+    #
+    # # 用户邮箱验证码
+    # path('user/email/code', SendChangeUserEmailCodeView.as_view(), name='user_email_code'),
+    #
+    # # 修改用户邮箱
+    # path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
 
 
 

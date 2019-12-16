@@ -20,9 +20,7 @@ from pure_pagination import PageNotAnInteger, Paginator, EmptyPage
 ######################################
 # 系统模块
 ######################################
-import json
 import datetime
-import urllib
 
 ######################################
 # 自建模块
@@ -35,129 +33,71 @@ from utils.send_email import send_email_verificode
 from utils.user_func import get_ip_location
 from oms.settings import GAODE_API_KEY, CITY_ID, DEVELPER_EMAIL_ADDRESS, EMAIL_HOST_USER
 # from online_management.models import TroubleRecord, DeployRecord
+from utils.code_response import responseFomat
 
-
-######################################
-# 首页
-######################################
-class IndexView(LoginStatusCheck, View):
-    def get(self, request):
-        web_chose_left_1 = 'index'
-        web_chose_left_2 = ''
-        web_chose_middle = ''
-
-        # 获取年月列表
-        ym_list = []
-        # tr_list = []
-        # dep_list = []
-        y_now = datetime.datetime.now().year
-        m_now = datetime.datetime.now().month
-        i = 0
-        while (i < 12):
-            ym_list.append(str(y_now) + '-' + str(m_now))
-            # tr_list.append(TroubleRecord.objects.filter(event_time__year=y_now, event_time__month=m_now).count())
-            # dep_list.append(DeployRecord.objects.filter(deploy_time__year=y_now, deploy_time__month=m_now).count())
-
-            m_now = m_now - 1
-            if m_now == 0:
-                m_now = 12
-                y_now = y_now - 1
-
-            i += 1
-
-        # tr_list = list(reversed(tr_list))
-        ym_list = list(reversed(ym_list))
-        # dep_list = list(reversed(dep_list))
-
-        context = {
-            'web_chose_left_1': web_chose_left_1,
-            'web_chose_left_2': web_chose_left_2,
-            'web_chose_middle': web_chose_middle,
-            'ym_list': ym_list,
-            # 'tr_list': tr_list,
-            # 'dep_list': dep_list,
-        }
-
-        return render(request, 'users/index.html', context=context)
-
+def UserOperation(op_user,belong,status,op_num,operation,action):
+    try:
+        op_record = UserOperationRecord()
+        op_record.op_user = op_user
+        op_record.belong = belong
+        op_record.status = status
+        op_record.op_num = op_num
+        op_record.operation = operation
+        op_record.action = action
+        op_record.save()
+        return 0
+    except Exception as e:
+        return e
 
 ######################################
 # 登录
 ######################################
 class LoginView(View):
-    def get(self, request):
-        context = {}
-        return render(request, 'users/login/login.html', context=context)
-
     def post(self, request):
-        user_login_form = UerLoginForm(request.POST)
+        # user_login_form = UerLoginForm(request.POST)
 
         # 输入合法
-        if user_login_form.is_valid():
+        # if user_login_form.is_valid():
             # 获取提交的登录信息
-            login_username = request.POST.get('username')
-            login_password = request.POST.get('password')
+        login_username = request.POST.get('username')
+        login_password = request.POST.get('password')
 
-            # 认证用户
-            user = authenticate(username=login_username, password=login_password)
+        # 认证用户
+        user = authenticate(username=login_username, password=login_password)
 
-            # 判断用户是否正确
-            if user is not None:
-                if not user.is_active:
-                    return HttpResponseRedirect(reverse('users:send_active_email'))
-                elif (user.status != 1):
-                    msg = '用户已停用，请联系管理员！'
-                else:
-                    uid1 = UserProfile.objects.get(username=login_username).id
-
-                    # 判断用户是否登录
-                    # all_session = Session.objects.all()
-                    #
-                    # if all_session is not None:
-                    #     for session in all_session:
-                    #         uid2 = session.get_decoded().get('_auth_user_id')
-                    #         if uid1 == uid2:
-                    #             session.delete()
-
-                    login(request, user)
-
-                    # 保存登录信息
-                    login_record = UserLoginInfo()
-                    login_record.action = 1
-                    login_record.user = user
-                    login_record.agent = request.META['HTTP_USER_AGENT']
-                    login_record.ip = request.META['REMOTE_ADDR']
-                    login_record.address = '中国 北京'
-                    # login_record.address = get_ip_location(request.META['REMOTE_ADDR'])
-                    login_record.save()
-
-                    # 添加操作记录
-                    op_record = UserOperationRecord()
-                    op_record.op_user = user
-                    op_record.belong = 3
-                    op_record.status = 1
-                    op_record.op_num = user.id
-                    op_record.operation = 5
-                    op_record.action = "用户 [ %s ] 登录了系统" % user.user_name
-                    op_record.save()
-
-                    return HttpResponseRedirect(reverse('users:index'))
+        # 判断用户是否正确
+        if user is not None:
+            if not user.is_active:
+                return HttpResponseRedirect(reverse('users:send_active_email'))
+            elif (user.status != 1):
+                msg = '用户已停用，请联系管理员！'
+                return responseFomat().dataHandleFailed()
             else:
-                msg = '用户名或密码错误！'
+                login(request, user)
 
-            # 账户有问题的情况
-            context = {
-                'msg': msg,
-                'user_login_form': user_login_form,
-            }
-            return render(request, 'users/login/login.html', context=context)
+                # 保存登录信息
+                login_record = UserLoginInfo()
+                login_record.action = 1
+                login_record.user = user
+                login_record.agent = request.META['HTTP_USER_AGENT']
+                login_record.ip = request.META['REMOTE_ADDR']
+                login_record.address = '中国 北京'
+                # login_record.address = get_ip_location(request.META['REMOTE_ADDR'])
+                login_record.save()
+
+                # 添加操作记录
+                UserOperation(op_user=user,
+                              belong=3,
+                              status=1,
+                              op_num=user.id,
+                              operation=5,
+                              action="用户 [ %s ] 登录了系统" % user.user_name)
+
+                return responseFomat().dataHandleSucceeded()
         else:
-            msg = '用户账户或密码不满足长度要求！'
-            context = {
-                'msg': msg,
-                'user_login_form': user_login_form,
-            }
-            return render(request, 'users/login/login.html', context=context)
+            return responseFomat().dataHandleFailed()
+        # else:
+        #     return responseFomat().dataHandleFailed()
 
 
 ######################################
@@ -317,72 +257,6 @@ class ModifyPasswordView(View):
 
 
 ######################################
-# 用户信息
-######################################
-class UserInfoView(LoginStatusCheck, View):
-    def get(self, request):
-        # 页面选择
-        web_chose_left_1 = 'user_management'
-        web_chose_left_2 = 'user_info'
-        web_chose_middle = 'user_info'
-
-        context = {
-            'web_chose_left_1': web_chose_left_1,
-            'web_chose_left_2': web_chose_left_2,
-            'web_chose_middle': web_chose_middle,
-        }
-
-        return render(request, 'users/user/user_info.html', context=context)
-
-
-######################################
-# 他人信息
-######################################
-class OtherUserInfoView(LoginStatusCheck, View):
-    def get(self, request, uid):
-        # 页面选择
-        web_chose_left_1 = 'user_management'
-        web_chose_left_2 = 'user_info'
-        web_chose_middle = 'user_info'
-
-        user_info = UserProfile.objects.get(id=int(uid))
-
-        if request.user.id == int(uid):
-            return HttpResponseRedirect(reverse('users:user_info'))
-
-        context = {
-            'web_chose_left_1': web_chose_left_1,
-            'web_chose_left_2': web_chose_left_2,
-            'web_chose_middle': web_chose_middle,
-            'user_info': user_info,
-        }
-
-        return render(request, 'users/user/user_info_other.html', context=context)
-
-######################################
-# 修改用户信息
-######################################
-class ChangeUserInfoView(LoginStatusCheck, View):
-    def post(self, request):
-        # 验证提交的表单
-        change_user_info_form = ChangeUserInfoForm(request.POST)
-
-        if change_user_info_form.is_valid():
-            user = request.user
-            user.user_name=request.POST.get('user_name')
-            user.mobile = request.POST.get('mobile')
-            user.email=request.POST.get('email')
-            user.gender=request.POST.get('gender')
-            user.comment=request.POST.get('comment')
-
-            # 保存修改
-            user.save()
-            return HttpResponse('{"status":"success", "msg":"用户资料修改成功！"}', content_type='application/json')
-        else:
-            return HttpResponse('{"status":"failed", "msg":"用户资料修改失败，请检查！"}', content_type='application/json')
-
-
-######################################
 # 用户头像
 ######################################
 class UserAvatarView(LoginStatusCheck, View):
@@ -435,25 +309,6 @@ class ChangeUserAvatarChoseView(LoginStatusCheck, View):
             return HttpResponse('{"status":"falied", "msg":"用户头像修改失败！"}', content_type='application/json')
 
 ######################################
-# 用户密码
-######################################
-class UserPasswordView(LoginStatusCheck, View):
-    def get(self, request):
-        # 页面选择
-        web_chose_left_1 = 'user_management'
-        web_chose_left_2 = 'user_info'
-        web_chose_middle = 'user_password'
-
-        context = {
-            'web_chose_left_1': web_chose_left_1,
-            'web_chose_left_2': web_chose_left_2,
-            'web_chose_middle': web_chose_middle,
-        }
-
-        return render(request, 'users/user/user_change_passwd.html', context=context)
-
-
-######################################
 # 修改用户密码
 ######################################
 class ChangeUserPasswordView(LoginStatusCheck, View):
@@ -479,77 +334,6 @@ class ChangeUserPasswordView(LoginStatusCheck, View):
             'msg': msg
         }
         return render(request, 'users/user/user_change_passwd.html', context=context)
-
-######################################
-# 用户邮箱
-######################################
-class UserEmailView(LoginStatusCheck, View):
-    def get(self, request):
-        # 页面选择
-        web_chose_left_1 = 'user_management'
-        web_chose_left_2 = 'user_info'
-        web_chose_middle = 'user_email'
-
-        context = {
-            'web_chose_left_1': web_chose_left_1,
-            'web_chose_left_2': web_chose_left_2,
-            'web_chose_middle': web_chose_middle,
-        }
-        return render(request, 'users/user/user_change_email.html', context=context)
-
-######################################
-# 发送修改用户邮箱验证码
-######################################
-class SendChangeUserEmailCodeView(LoginStatusCheck, View):
-    def post(self, request):
-        email = request.POST.get('email')
-        if UserProfile.objects.filter(email=email):
-            return HttpResponse('{"status":"falied", "msg":"该邮箱已经被绑定为其它用户！"}', content_type='application/json')
-        else:
-            send_status = send_email_verificode(email, 'change_email')
-            if send_status:
-                return HttpResponse('{"status":"success", "msg":"邮件已发送，请注意查收！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"邮件发送失败，请检查！"}', content_type='application/json')
-
-######################################
-# 修改用户邮箱
-######################################
-class ChangeUserEmailView(LoginStatusCheck, View):
-    def post(self, request):
-        email = request.POST.get('email')
-        code = request.POST.get('code')
-
-        if (email is not None) and (email != ''):
-            if (code is not None) and (code != ''):
-                if (len(code) == 4):
-                    code_record = UserEmailVirificationCode.objects.filter(code=code).latest('add_time')
-                    if code_record is not None:
-                        if code_record.email == email:
-                            if (datetime.datetime.now() - code_record.add_time).seconds < 300:
-                                user = request.user
-                                user.email = email
-                                user.save()
-                                return HttpResponse('{"status":"success", "msg":"邮箱修改成功！"}',
-                                                    content_type='application/json')
-                            else:
-                                return HttpResponse('{"status":"failed", "msg":"验证码已过期！"}',
-                                                    content_type='application/json')
-                        else:
-                            return HttpResponse('{"status":"failed", "msg":"邮箱错误！"}', content_type='application/json')
-                    else:
-                        return HttpResponse('{"status":"failed", "msg":"验证码错误！"}', content_type='application/json')
-                else:
-                    return HttpResponse('{"status":"failed", "msg":"验证码错误！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"验证码不能为空！"}', content_type='application/json')
-        else:
-            return HttpResponse('{"status":"failed", "msg":"邮箱不能为空！"}', content_type='application/json')
-
-
-######################################
-# 添加用户
-######################################
 
 
 ######################################
@@ -674,6 +458,7 @@ class UserOperationRecordView(LoginStatusCheck, View):
         return render(request, 'users/user/user_op_record.html', context=context)
 
 
+
 # 错误页面
 def page_not_found(request):
     return render(request, 'error/404.html')
@@ -685,4 +470,116 @@ def page_error(request):
 
 def permission_denied(request):
     return render(request, 'error/403.html')
+
+
+#
+# ######################################
+# # 首页
+# ######################################
+# class IndexView(LoginStatusCheck, View):
+#     def get(self, request):
+#         web_chose_left_1 = 'index'
+#         web_chose_left_2 = ''
+#         web_chose_middle = ''
+#
+#         # 获取年月列表
+#         ym_list = []
+#         # tr_list = []
+#         # dep_list = []
+#         y_now = datetime.datetime.now().year
+#         m_now = datetime.datetime.now().month
+#         i = 0
+#         while (i < 12):
+#             ym_list.append(str(y_now) + '-' + str(m_now))
+#             # tr_list.append(TroubleRecord.objects.filter(event_time__year=y_now, event_time__month=m_now).count())
+#             # dep_list.append(DeployRecord.objects.filter(deploy_time__year=y_now, deploy_time__month=m_now).count())
+#
+#             m_now = m_now - 1
+#             if m_now == 0:
+#                 m_now = 12
+#                 y_now = y_now - 1
+#
+#             i += 1
+#
+#         # tr_list = list(reversed(tr_list))
+#         ym_list = list(reversed(ym_list))
+#         # dep_list = list(reversed(dep_list))
+#
+#         context = {
+#             'web_chose_left_1': web_chose_left_1,
+#             'web_chose_left_2': web_chose_left_2,
+#             'web_chose_middle': web_chose_middle,
+#             'ym_list': ym_list,
+#             # 'tr_list': tr_list,
+#             # 'dep_list': dep_list,
+#         }
+#
+#         return render(request, 'users/index.html', context=context)
+#
+# ######################################
+# # 用户邮箱
+# ######################################
+# class UserEmailView(LoginStatusCheck, View):
+#     def get(self, request):
+#         # 页面选择
+#         web_chose_left_1 = 'user_management'
+#         web_chose_left_2 = 'user_info'
+#         web_chose_middle = 'user_email'
+#
+#         context = {
+#             'web_chose_left_1': web_chose_left_1,
+#             'web_chose_left_2': web_chose_left_2,
+#             'web_chose_middle': web_chose_middle,
+#         }
+#         return render(request, 'users/user/user_change_email.html', context=context)
+#
+# ######################################
+# # 发送修改用户邮箱验证码
+# ######################################
+# class SendChangeUserEmailCodeView(LoginStatusCheck, View):
+#     def post(self, request):
+#         email = request.POST.get('email')
+#         if UserProfile.objects.filter(email=email):
+#             return HttpResponse('{"status":"falied", "msg":"该邮箱已经被绑定为其它用户！"}', content_type='application/json')
+#         else:
+#             send_status = send_email_verificode(email, 'change_email')
+#             if send_status:
+#                 return HttpResponse('{"status":"success", "msg":"邮件已发送，请注意查收！"}', content_type='application/json')
+#             else:
+#                 return HttpResponse('{"status":"failed", "msg":"邮件发送失败，请检查！"}', content_type='application/json')
+#
+# ######################################
+# # 修改用户邮箱
+# ######################################
+# class ChangeUserEmailView(LoginStatusCheck, View):
+#     def post(self, request):
+#         email = request.POST.get('email')
+#         code = request.POST.get('code')
+#
+#         if (email is not None) and (email != ''):
+#             if (code is not None) and (code != ''):
+#                 if (len(code) == 4):
+#                     code_record = UserEmailVirificationCode.objects.filter(code=code).latest('add_time')
+#                     if code_record is not None:
+#                         if code_record.email == email:
+#                             if (datetime.datetime.now() - code_record.add_time).seconds < 300:
+#                                 user = request.user
+#                                 user.email = email
+#                                 user.save()
+#                                 return HttpResponse('{"status":"success", "msg":"邮箱修改成功！"}',
+#                                                     content_type='application/json')
+#                             else:
+#                                 return HttpResponse('{"status":"failed", "msg":"验证码已过期！"}',
+#                                                     content_type='application/json')
+#                         else:
+#                             return HttpResponse('{"status":"failed", "msg":"邮箱错误！"}', content_type='application/json')
+#                     else:
+#                         return HttpResponse('{"status":"failed", "msg":"验证码错误！"}', content_type='application/json')
+#                 else:
+#                     return HttpResponse('{"status":"failed", "msg":"验证码错误！"}', content_type='application/json')
+#             else:
+#                 return HttpResponse('{"status":"failed", "msg":"验证码不能为空！"}', content_type='application/json')
+#         else:
+#             return HttpResponse('{"status":"failed", "msg":"邮箱不能为空！"}', content_type='application/json')
+#
 

@@ -5,7 +5,7 @@
 # @file : user_api.py
 # @software : PyCharm
 
-from users.serializers import *
+from users.serializers import UserSerializer,deptSerializer,unitSerializer
 from ..filter import *
 from utils.code_response import responseFomat
 from ..models import *
