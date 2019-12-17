@@ -74,6 +74,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     # 'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     # users
     'users',
     # 分页
@@ -96,7 +98,6 @@ INSTALLED_APPS = [
     'vechain',
     # 巡检监督
     'sys_inspect',
-    'rest_framework'
 ]
 
 
@@ -107,9 +108,14 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PARSER_CLASSES':[
+        'rest_framework.parsers.JSONParser',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+
     'PAGE_SIZE': 10,
 }
 
@@ -117,6 +123,7 @@ REST_FRAMEWORK = {
 # 中间件配置
 ######################################
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',    # 配置跨域中间件
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -152,7 +159,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'oms.wsgi.application'
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 ######################################

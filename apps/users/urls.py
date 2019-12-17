@@ -4,6 +4,7 @@ User app
 from django.urls import path,include
 from .views import *
 from users.apis.user_api import *
+from rest_framework_jwt.views import obtain_jwt_token
 
 __all__=['urlpatterns','app_name']
 
@@ -44,10 +45,10 @@ dept_detail = deptViewSet.as_view({
 
 urlpatterns = [
     # 首页
-    # path('', IndexView.as_view(), name='index'),
+    path('', IndexView.as_view(), name='index'),
 
     # 登录
-    path('login', LoginView.as_view(), name='login'),
+    path('login/', userLogin.as_view(), name='login'),
 
     # 登出
     path('logout', LogoutView.as_view(), name='logout'),

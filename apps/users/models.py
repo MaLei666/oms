@@ -52,7 +52,7 @@ class UserCompany(models.Model):
 class UserDepartment(models.Model):
     name = models.CharField(verbose_name='部门名称', max_length=20)
     unit = models.ForeignKey(UserCompany, verbose_name='所属单位ID', on_delete=models.CASCADE)
-    unit_name=models.CharField(verbose_name='所属单位',max_length=30)
+    unit_name=models.CharField(verbose_name='所属单位',max_length=30, blank=True, null=True)
     connect = models.CharField(verbose_name='联系人', max_length=30, blank=True, null=True)
     connect_phone = models.CharField(verbose_name='联系电话', max_length=30, blank=True, null=True)
     create_user = models.CharField(verbose_name='创建者', max_length=45,null=True,blank=True)

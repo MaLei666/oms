@@ -9,8 +9,9 @@ from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import make_password
 from django.db.models import Q
 from django.urls import reverse
+from django.conf import settings
 from django.core.mail import send_mail, EmailMultiAlternatives
-from django.contrib.sessions.models import Session
+import json
 
 ######################################
 # 第三方模块
@@ -49,6 +50,37 @@ def UserOperation(op_user,belong,status,op_num,operation,action):
     except Exception as e:
         return e
 
+
+######################################
+# 首页
+######################################
+class IndexView(LoginStatusCheck, View):
+    def get(self, request):
+        # 获取年月列表
+        ym_list = []
+        # tr_list = []
+        # dep_list = []
+        y_now = datetime.datetime.now().year
+        m_now = datetime.datetime.now().month
+        i = 0
+        while (i < 12):
+            ym_list.append(str(y_now) + '-' + str(m_now))
+            # tr_list.append(TroubleRecord.objects.filter(event_time__year=y_now, event_time__month=m_now).count())
+            # dep_list.append(DeployRecord.objects.filter(deploy_time__year=y_now, deploy_time__month=m_now).count())
+
+            m_now = m_now - 1
+            if m_now == 0:
+                m_now = 12
+                y_now = y_now - 1
+
+            i += 1
+
+        # tr_list = list(reversed(tr_list))
+        ym_list = list(reversed(ym_list))
+        # dep_list = list(reversed(dep_list))
+
+        return render(request, 'users/index.html', context=context)
+
 ######################################
 # 登录
 ######################################
@@ -59,8 +91,9 @@ class LoginView(View):
         # 输入合法
         # if user_login_form.is_valid():
             # 获取提交的登录信息
-        login_username = request.POST.get('username')
-        login_password = request.POST.get('password')
+        data=json.loads(request.body)
+        login_username = data.get('username')
+        login_password = data.get('password')
 
         # 认证用户
         user = authenticate(username=login_username, password=login_password)
@@ -93,7 +126,7 @@ class LoginView(View):
                               operation=5,
                               action="用户 [ %s ] 登录了系统" % user.user_name)
 
-                return responseFomat().dataHandleSucceeded()
+                return HttpResponseRedirect(reverse('users:index'))
         else:
             return responseFomat().dataHandleFailed()
         # else:
@@ -472,49 +505,6 @@ def permission_denied(request):
     return render(request, 'error/403.html')
 
 
-#
-# ######################################
-# # 首页
-# ######################################
-# class IndexView(LoginStatusCheck, View):
-#     def get(self, request):
-#         web_chose_left_1 = 'index'
-#         web_chose_left_2 = ''
-#         web_chose_middle = ''
-#
-#         # 获取年月列表
-#         ym_list = []
-#         # tr_list = []
-#         # dep_list = []
-#         y_now = datetime.datetime.now().year
-#         m_now = datetime.datetime.now().month
-#         i = 0
-#         while (i < 12):
-#             ym_list.append(str(y_now) + '-' + str(m_now))
-#             # tr_list.append(TroubleRecord.objects.filter(event_time__year=y_now, event_time__month=m_now).count())
-#             # dep_list.append(DeployRecord.objects.filter(deploy_time__year=y_now, deploy_time__month=m_now).count())
-#
-#             m_now = m_now - 1
-#             if m_now == 0:
-#                 m_now = 12
-#                 y_now = y_now - 1
-#
-#             i += 1
-#
-#         # tr_list = list(reversed(tr_list))
-#         ym_list = list(reversed(ym_list))
-#         # dep_list = list(reversed(dep_list))
-#
-#         context = {
-#             'web_chose_left_1': web_chose_left_1,
-#             'web_chose_left_2': web_chose_left_2,
-#             'web_chose_middle': web_chose_middle,
-#             'ym_list': ym_list,
-#             # 'tr_list': tr_list,
-#             # 'dep_list': dep_list,
-#         }
-#
-#         return render(request, 'users/index.html', context=context)
 #
 # ######################################
 # # 用户邮箱

@@ -125,6 +125,7 @@ class deptSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         validated_data['unit_id']=self.context['request'].data['unit_id']
+        validated_data['unit_name']=UserDepartment.objects.get(unit_id=validated_data['unit_id']).name
         validated_data['create_user']=self.context['request'].user.username
         validated_data['user_id_create']=self.context['request'].user.id
         obj=super(deptSerializer, self).create(validated_data=validated_data)
