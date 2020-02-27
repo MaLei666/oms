@@ -24,11 +24,11 @@
 # from rest_framework_jwt.views import APIView
 # from rest_framework.exceptions import PermissionDenied
 #
-# __all__ = ['systemViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfo_view',
+# __all__ = ['osViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfo_view',
 #            'operation_record_view']
 #
 #
-# class systemViewSet(viewsets.ModelViewSet):
+# class osViewSet(viewsets.ModelViewSet):
 #     serializer_class =
 #     queryset = UserCompany.objects.all().order_by('id')
 #     filter_class = unitFilter

@@ -860,7 +860,7 @@ class OSListView(LoginStatusCheck, View):
                 'keyword': keyword,
                 'system_nums': system_nums,
             }
-            return render(request, 'host_management/other/system_list.html', context=context)
+            return render(request, 'host_management/other/os_list.html', context=context)
         else:
             return HttpResponse(status=403)
 

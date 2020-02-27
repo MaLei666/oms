@@ -230,6 +230,7 @@ class change_pw_view(APIView):
                               username=request.user.username,
                               user_name = request.user.user_name,
                               role = request.user.role,
+                              user_id=request.user.id,
                               unit_id = request.user.unit_id,
                               unit_name = request.user.unit_name,
                               dept_id = request.user.dept_id,

@@ -21,7 +21,7 @@ STATUS_CHOICES=(
 # 操作系统表
 ######################################
 class operatingSystemInfo(Model):
-    name = CharField(verbose_name='系统名称', max_length=30,unique=True)
+    name = CharField(verbose_name='系统名称', max_length=30)
     version = CharField(verbose_name='系统版本', max_length=10, blank=True, null=True)
     bit = PositiveSmallIntegerField(verbose_name='位数', choices=((32, '32位'), (64, '64位')),blank=True, null=True)
     user_id_create = BigIntegerField(verbose_name='创建用户id', null=True, blank=True)

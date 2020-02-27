@@ -15,11 +15,11 @@ from ..models import *
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-__all__ = ['systemViewSet', 'projectViewSet', 'useViewSet','idcViewSet','rackViewSet','hostViewSet',
+__all__ = ['osViewSet', 'projectViewSet', 'useViewSet','idcViewSet','rackViewSet','hostViewSet',
            'hostserviceViewSet','databaseViewSet','databaseDBViewSet',]
 
 
-class systemViewSet(viewsets.ModelViewSet):
+class osViewSet(viewsets.ModelViewSet):
     serializer_class =systemSerializer
     queryset = operatingSystemInfo.objects.all().order_by('id')
     filter_class = systemFilter
@@ -44,9 +44,6 @@ class systemViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         try:
-            if self.queryset.get(name=request.data['name']):
-                return Response(self.code.duplicate_data())
-            else:
                 kwargs['partial'] = True
                 self.update(request, *args, **kwargs)
                 return Response(self.code.request_edit_succeed())
@@ -135,14 +132,13 @@ class useViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         try:
-            if self.queryset.get(name=request.data['name']):
-                return Response(self.code.duplicate_data())
-            else:
-                kwargs['partial'] = True
-                self.update(request, *args, **kwargs)
-                return Response(self.code.request_edit_succeed())
+            self.queryset.get(name=request.data['name'])
+            return Response(self.code.duplicate_data())
         except:
-            return Response(self.code.internal_server_error())
+            kwargs['partial'] = True
+            self.update(request, *args, **kwargs)
+            return Response(self.code.request_edit_succeed())
+
 
     def destroy(self, request, *args, **kwargs):
         try:

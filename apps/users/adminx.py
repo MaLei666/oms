@@ -111,7 +111,7 @@ class UserSetting(object):
     #         )
     #     }),
     # )
-    list_display = ('id','username','user_name', 'role','gender','unit_name','dept_name','mobile','email', 'status', 'create_time')
+    list_display = ('id','username','user_name', 'role','gender','unit_id','unit_name','dept_id','dept_name','mobile','email', 'status', 'create_time')
     list_filter = ('is_staff', 'gender', 'is_active', 'groups')
     search_fields = ('username','user_name','unit_name', 'dept_name', 'mobile')
     ordering = ('role',)

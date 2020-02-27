@@ -9,7 +9,7 @@ __all__=['UserOperation','login_info']
 from operation_record.models import UserOperationRecord
 from users.models import UserLoginInfo
 
-def UserOperation(op_user,username,user_name,role,unit_id,unit_name,dept_id,dept_name
+def UserOperation(op_user,username,user_name,role,user_id,unit_id,unit_name,dept_id,dept_name
                   ,belong,status,op_num,operation,action):
     try:
         op_record = UserOperationRecord()
@@ -17,6 +17,7 @@ def UserOperation(op_user,username,user_name,role,unit_id,unit_name,dept_id,dept
         op_record.username = username
         op_record.user_name = user_name
         op_record.role = role
+        op_record.user_id=user_id
         op_record.unit_id = unit_id
         op_record.unit_name = unit_name
         op_record.dept_id = dept_id

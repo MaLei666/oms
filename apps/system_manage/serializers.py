@@ -15,7 +15,7 @@ __all__=['portSerializer','domainNameSerializer','domainResolveSerializer','data
 class portSerializer(serializers.ModelSerializer):
     class Meta:
         model=portToPortInfo
-        fields = ['id', 'unit_name','dept_name','ip_out','port_out','ip_in','port_in','use',
+        fields = ['id', 'unit_id','unit_name','dept_id','dept_name','ip_out','port_out','ip_in','port_in','use',
                   'create_user','create_time','update_time','comment','status']
 
     def create(self, validated_data):
@@ -28,6 +28,7 @@ class portSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -48,6 +49,7 @@ class portSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -64,6 +66,7 @@ class portSerializer(serializers.ModelSerializer):
                       username=request.user.username,
                       user_name = request.user.user_name,
                       role = request.user.role,
+                      user_id=request.user.id,
                       unit_id = request.user.unit_id,
                       unit_name = request.user.unit_name,
                       dept_id = request.user.dept_id,
@@ -79,7 +82,7 @@ class portSerializer(serializers.ModelSerializer):
 class domainNameSerializer(serializers.ModelSerializer):
     class Meta:
         model=domainNameInfo
-        fields = ['id', 'name', 'unit_name','dept_name','create_user','create_time','update_time','comment','status']
+        fields = ['id', 'name', 'unit_id','unit_name','dept_id','dept_name','create_user','create_time','update_time','comment','status']
 
     def create(self, validated_data):
         validated_data['create_user']=self.context['request'].user.username
@@ -91,6 +94,7 @@ class domainNameSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -111,6 +115,7 @@ class domainNameSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -127,6 +132,7 @@ class domainNameSerializer(serializers.ModelSerializer):
                       username=request.user.username,
                       user_name = request.user.user_name,
                       role = request.user.role,
+                      user_id=request.user.id,
                       unit_id = request.user.unit_id,
                       unit_name = request.user.unit_name,
                       dept_id = request.user.dept_id,
@@ -142,7 +148,7 @@ class domainNameSerializer(serializers.ModelSerializer):
 class domainResolveSerializer(serializers.ModelSerializer):
     class Meta:
         model=domainNameResolveInfo
-        fields = ['id', 'name','domain_name', 'unit_name','dept_name','ip','create_user','create_time',
+        fields = ['id', 'name','domain_name', 'unit_id','unit_name','dept_id','dept_name','ip','create_user','create_time',
                   'update_time','comment','status']
 
     def create(self, validated_data):
@@ -155,6 +161,7 @@ class domainResolveSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -175,6 +182,7 @@ class domainResolveSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -191,6 +199,7 @@ class domainResolveSerializer(serializers.ModelSerializer):
                       username=request.user.username,
                       user_name = request.user.user_name,
                       role = request.user.role,
+                      user_id=request.user.id,
                       unit_id = request.user.unit_id,
                       unit_name = request.user.unit_name,
                       dept_id = request.user.dept_id,
@@ -219,6 +228,7 @@ class dataDictSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -239,6 +249,7 @@ class dataDictSerializer(serializers.ModelSerializer):
                       username=self.context['request'].user.username,
                       user_name=self.context['request'].user.user_name,
                       role=self.context['request'].user.role,
+                      user_id=self.context['request'].user.id,
                       unit_id=self.context['request'].user.unit_id,
                       unit_name=self.context['request'].user.unit_name,
                       dept_id=self.context['request'].user.dept_id,
@@ -255,6 +266,7 @@ class dataDictSerializer(serializers.ModelSerializer):
                       username=request.user.username,
                       user_name = request.user.user_name,
                       role = request.user.role,
+                      user_id=request.user.id,
                       unit_id = request.user.unit_id,
                       unit_name = request.user.unit_name,
                       dept_id = request.user.dept_id,

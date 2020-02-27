@@ -28,13 +28,13 @@ urlpatterns = [
     path('', include('users.urls',namespace='users')),
 
     # host management
-    path('host/management/', include('host_management.urls')),
+    path('host/', include('host_management.urls')),
 
     # system_manage
-    path('system/manage/',include('system_manage.urls')),
+    path('system/',include('system_manage.urls')),
 
     # platform management
-    path('platform/management/', include('platform_management.urls')),
+    path('platform/', include('platform_management.urls')),
 
     # message
     # path('message/', include('message.urls')),

@@ -8,12 +8,12 @@ from host_management.apis.host_api import *
 app_name = 'host_management'
 
 
-system_list=systemViewSet.as_view({
+os_list=osViewSet.as_view({
             'get': 'list',
             'post': 'create'
             }
         )
-system_detail = systemViewSet.as_view({
+os_detail = osViewSet.as_view({
             'get':'retrieve',
             'patch': 'partial_update',
             'delete': 'destroy'
@@ -110,22 +110,28 @@ databaseDB_detail = databaseDBViewSet.as_view({
 
 urlpatterns = [
     # 操作系统列表
-    path('os/list', system_list, name='os_List'),
+    path('os/list', os_list, name='os_list'),
 
     # 添加系统
-    path('os/add', system_list, name='add_os'),
+    path('os/add', os_list, name='add_os'),
+
+    # 系统详情
+    path('os/info/<int:system_id>', os_detail, name='os_info'),
 
     # 修改系统
-    path('os/edit/<int:system_id>', system_detail, name='edit_os'),
+    path('os/edit/<int:system_id>', os_detail, name='edit_os'),
 
     # 删除系统
-    path('os/delete/<int:system_id>', system_detail, name='del_os'),
+    path('os/delete/<int:system_id>', os_detail, name='del_os'),
 
     # 项目列表
     path('project/list', project_list, name='project_List'),
 
     # 添加项目
     path('project/add', project_list, name='add_project'),
+
+    # 项目详情
+    path('project/info/<int:project_id>', project_detail, name='info_project'),
 
     # 编辑项目
     path('project/edit/<int:project_id>', project_detail, name='edit_project'),
