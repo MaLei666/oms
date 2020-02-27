@@ -34,7 +34,7 @@ class GlobalSetting(object):
     #                 {
     #                     'title': '平台用户',
     #                     'icon': 'fa fa-bug',
-    #                     'url': self.get_model_url(UserProfile,'changelist')
+    #                     'url': self.get_model_url(userProfile,'changelist')
     #
     #                 },
     #

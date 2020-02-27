@@ -11,20 +11,15 @@ from .models import *
 ######################################
 # 注册
 ######################################
-xadmin.site.register(OperatingSystemInfo)
-# xadmin.site.register(OperatingEnvironmentInfo)
-# xadmin.site.register(IdcInfo)
-xadmin.site.register(UseInfo)
-xadmin.site.register(ProjectInfo)
-xadmin.site.register(HostInfo)
-xadmin.site.register(HostServiceInfo)
-xadmin.site.register(DatabaseInfo)
-xadmin.site.register(DatabaseDBInfo)
-xadmin.site.register(DatabaseUserInfo)
-# xadmin.site.register(NetworkDviceInfo)
-xadmin.site.register(PortToPortInfo)
-xadmin.site.register(DomainNameInfo)
-xadmin.site.register(DomainNameResolveInfo)
+xadmin.site.register(operatingSystemInfo)
+xadmin.site.register(idcInfo)
+xadmin.site.register(rackInfo)
+xadmin.site.register(useInfo)
+xadmin.site.register(projectInfo)
+xadmin.site.register(hostInfo)
+xadmin.site.register(hostServiceInfo)
+xadmin.site.register(databaseInfo)
+xadmin.site.register(databaseDBInfo)
 
 
 

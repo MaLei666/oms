@@ -20,7 +20,7 @@ class UserFilter(django_filters.FilterSet):
     status=django_filters.CharFilter(method="status_filter")
 
     class Meta:
-        model = UserProfile
+        model = userProfile
         fields = ['role', 'unit_id', 'dept_id', 'mobile', 'username','user_name','status']
 
     @staticmethod

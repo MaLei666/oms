@@ -48,10 +48,10 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
 
     # 登录
-    path('login/', userLogin.as_view(), name='login'),
+    path('login/', obtain_jwt_token, name='login'),
 
     # 登出
-    path('logout', LogoutView.as_view(), name='logout'),
+    path('logout/', logout_view.as_view(), name='logout'),
 
     # 单位列表
     path('unit/list', unit_list, name='unit_list'),
@@ -85,38 +85,13 @@ urlpatterns = [
     path('user/edit/<int:user_id>', users_detail, name='user_edit'),
     # 用户删除
     path('user/delete/<int:user_id>', users_detail, name='user_delete'),
-
-    # # 用户激活请求
-    # path('email/active', SendActiveUserEmailView.as_view(), name='send_active_email'),
-    #
-    # # 用户激活处理
-    # path('active/<str:active_code>', ActiveUserView.as_view(), name='active'),
-
-    # 忘记密码
-    path('forget', ForgetPasswordView.as_view(), name='forget'),
-
-    # 重置密码
-    path('reset/<str:reset_code>', ResetPasswordView.as_view(), name='reset'),
-
     # 修改密码
-    path('modify', ModifyPasswordView.as_view(), name='modify'),
-
-
-
-    # 用户头像
-    path('user/avatar', UserAvatarView.as_view(), name='user_avatar'),
-
-    # 上传修改用户头像
-    path('user/avatar/change/upload', ChangeUserAvatarUploadView.as_view(), name='change_user_avatar_upload'),
-
-    # 选择修改用户头像
-    path('user/avatar/change/chose', ChangeUserAvatarChoseView.as_view(), name='change_user_avatar_chose'),
-
+    # path('modify', ModifyPasswordView.as_view(), name='modify'),
     # 用户密码
     # path('user/password', UserPasswordView.as_view(), name='user_password'),
 
     # 修改用户密码
-    path('user/password/change', ChangeUserPasswordView.as_view(), name='change_user_password'),
+    path('user/password/change', change_pw_view.as_view(), name='change_user_password'),
 
     # # 用户邮箱
     # path('user/email', UserEmailView.as_view(), name='user_email'),
@@ -130,10 +105,10 @@ urlpatterns = [
 
 
     # 用户登录日志
-    path('user/login/record', UserLoginRecordView.as_view(), name='login_record'),
+    path('user/login/record', logininfo_view.as_view(), name='login_record'),
 
     # 用户操作日志
-    path('user/operation/record', UserOperationRecordView.as_view(), name='op_record'),
+    path('user/operation/record', operation_record_view.as_view(), name='op_record'),
 
     # 获取帮助
     # path('help', AskHelpView.as_view(), name='help'),

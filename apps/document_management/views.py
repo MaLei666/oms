@@ -125,7 +125,7 @@ class DocumentListView(LoginStatusCheck, View):
                     return HttpResponse(status=404)
 
             # 用户
-            users = UserProfile.objects.all()
+            users = userProfile.objects.all()
 
             # 判断用户筛选
             check_user = int(request.GET.get('user', '0'))

@@ -44,19 +44,19 @@ class HostListView(LoginStatusCheck, View):
             web_chose_middle = ''
 
             # 操作系统
-            systems = OperatingSystemInfo.objects.filter(status=1)
+            systems = operatingSystemInfo.objects.filter(status=1)
 
             # 项目
-            projects = ProjectInfo.objects.filter(status=1)
+            projects = projectInfo.objects.filter(status=1)
 
             # 用途
-            uses = UseInfo.objects.filter(status=1)
+            uses = useInfo.objects.filter(status=1)
 
             # 用户
-            users = UserProfile.objects.filter(status=1)
+            users = userProfile.objects.filter(status=1)
 
             # 获取主机记录
-            host_records = HostInfo.objects.filter(status=1).order_by('-update_time')
+            host_records = hostInfo.objects.filter(status=1).order_by('-update_time')
 
             # 筛选条件
             project = int(request.GET.get('project', '0'))
@@ -114,7 +114,7 @@ class HostListView(LoginStatusCheck, View):
 ########################################################################################################################
 class WebSSHView(LoginStatusCheck, View):
     def post(self, request, host_id):
-        host = HostInfo.objects.get(id=int(host_id))
+        host = hostInfo.objects.get(id=int(host_id))
         ret = {}
         try:
             if host.out_ip:
@@ -145,11 +145,11 @@ class AddHostInfoView(LoginStatusCheck, View):
             if add_host_info_form.is_valid():
                 in_ip = request.POST.get('in_ip')
 
-                if HostInfo.objects.filter(in_ip=in_ip).filter(status=1):
+                if hostInfo.objects.filter(in_ip=in_ip).filter(status=1):
                     return HttpResponse('{"status":"failed", "msg":"该 IP 的主机已经存在，请检查！"}',
                                         content_type='application/json')
 
-                host = HostInfo()
+                host = hostInfo()
                 host.in_ip = request.POST.get('in_ip')
                 host.out_ip = request.POST.get('out_ip', '')
                 host.system_id = int(request.POST.get('system'))
@@ -191,25 +191,25 @@ class HostInfoView(LoginStatusCheck, View):
         web_chose_middle = ''
 
         # 操作系统
-        systems = OperatingSystemInfo.objects.filter(status=1)
+        systems = operatingSystemInfo.objects.filter(status=1)
 
         # 项目
-        projects = ProjectInfo.objects.filter(status=1)
+        projects = projectInfo.objects.filter(status=1)
 
         # 用户
-        users = UserProfile.objects.filter(status=1)
+        users = userProfile.objects.filter(status=1)
 
         # 用途
-        uses = UseInfo.objects.filter(status=1)
+        uses = useInfo.objects.filter(status=1)
 
         # 信息
-        records = HostInfo.objects.get(id=host_id)
+        records = hostInfo.objects.get(id=host_id)
 
         # 服务
-        services = HostServiceInfo.objects.filter(host_id=host_id).filter(status=1)
+        services = hostServiceInfo.objects.filter(host_id=host_id).filter(status=1)
 
         # 判断是否添加数据库
-        is_install_db = DatabaseInfo.objects.filter(host_id=int(host_id)).filter(status=1)
+        is_install_db = databaseInfo.objects.filter(host_id=int(host_id)).filter(status=1)
 
         if is_install_db:
             for each in is_install_db:
@@ -239,7 +239,7 @@ class DeleteHostView(LoginStatusCheck, View):
     def post(self, request):
         try:
             host_id = request.POST.get('host_id')
-            host = HostInfo.objects.get(id=int(host_id))
+            host = hostInfo.objects.get(id=int(host_id))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -266,7 +266,7 @@ class EditHostInfoView(LoginStatusCheck, View):
             if edit_host_info_form.is_valid():
 
                 # 获取主机
-                host = HostInfo.objects.get(id=int(request.POST.get('host_id')))
+                host = hostInfo.objects.get(id=int(request.POST.get('host_id')))
                 host.in_ip = request.POST.get('in_ip')
                 host.out_ip = request.POST.get('out_ip', '')
                 host.system_id = int(request.POST.get('system'))
@@ -309,11 +309,11 @@ class DatabaseListView(LoginStatusCheck, View):
         web_chose_middle = ''
 
         # 主机列表
-        hosts = HostInfo.objects.filter(status=1)
+        hosts = hostInfo.objects.filter(status=1)
         # 用户
-        users = UserProfile.objects.filter(status=1)
+        users = userProfile.objects.filter(status=1)
         # 数据库记录
-        db_records = DatabaseInfo.objects.filter(status=1).order_by('-update_time')
+        db_records = databaseInfo.objects.filter(status=1).order_by('-update_time')
 
         # 记录数量
         record_nums = db_records.count()
@@ -352,16 +352,16 @@ class DatabaseInfoView(LoginStatusCheck, View):
         web_chose_left_2 = 'database'
         web_chose_middle = ''
         # 用户
-        users = UserProfile.objects.filter(status=1)
+        users = userProfile.objects.filter(status=1)
         # 主机列表
-        hosts = HostInfo.objects.filter(status=1)
+        hosts = hostInfo.objects.filter(status=1)
 
         # 数据库基本信息
-        db_records = DatabaseInfo.objects.get(id=int(db_id))
+        db_records = databaseInfo.objects.get(id=int(db_id))
         # 数据库库信息
-        db_db_records = DatabaseDBInfo.objects.filter(db_id=int(db_id)).filter(status=1).order_by('-update_time')
+        db_db_records = databaseDBInfo.objects.filter(db_id=int(db_id)).filter(status=1).order_by('-update_time')
         # 数据库用户信息
-        db_user_records = DatabaseUserInfo.objects.filter(db_id=int(db_id)).filter(status=1).order_by('-update_time')
+        db_user_records = databaseUserInfo.objects.filter(db_id=int(db_id)).filter(status=1).order_by('-update_time')
 
         context = {
             'web_chose_left_1': web_chose_left_1,
@@ -383,13 +383,13 @@ class DatabaseInfoView(LoginStatusCheck, View):
 class AddDatabaseInfoView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            if DatabaseInfo.objects.filter(host_id=int(request.POST.get('host_id'))).filter(status=1):
+            if databaseInfo.objects.filter(host_id=int(request.POST.get('host_id'))).filter(status=1):
                 return HttpResponse('{"status":"failed", "msg":"该主机的记录已经存在，请检查！"}', content_type='application/json')
 
             add_db_info_form = AddDatabaseInfoForm(request.POST)
 
             if add_db_info_form.is_valid():
-                db_info = DatabaseInfo()
+                db_info = databaseInfo()
                 db_info.host_id = int(request.POST.get('host_id'))
                 db_info.db_name = request.POST.get('db_name')
                 db_info.db_version = request.POST.get('db_version')
@@ -426,13 +426,13 @@ class EditDatabaseInfoView(LoginStatusCheck, View):
         if request.user.role <3:
             edit_db_info_form = EditDatabaseInfoForm(request.POST)
             if edit_db_info_form.is_valid():
-                db_info = DatabaseInfo.objects.get(id=int(request.POST.get('db_id')))
+                db_info = databaseInfo.objects.get(id=int(request.POST.get('db_id')))
 
                 # 判断记录是否重复
                 db_host = int(request.POST.get('host_id'))
 
                 if db_info.host_id != db_host:
-                    if DatabaseInfo.objects.filter(host_id=db_host).filter(status=1):
+                    if databaseInfo.objects.filter(host_id=db_host).filter(status=1):
                         return HttpResponse('{"status":"failed", "msg":"该主机的记录已经存在，请检查！"}',
                                             content_type='application/json')
 
@@ -469,7 +469,7 @@ class EditDatabaseInfoView(LoginStatusCheck, View):
 class DeleteDatabaseInfoView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            db_info = DatabaseInfo.objects.get(id=int(request.POST.get('db_id')))
+            db_info = databaseInfo.objects.get(id=int(request.POST.get('db_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -492,14 +492,14 @@ class DeleteDatabaseInfoView(LoginStatusCheck, View):
 class AddDatabaseDBView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            if DatabaseDBInfo.objects.filter(db_id=int(request.POST.get('db_id'))).filter(
+            if databaseDBInfo.objects.filter(db_id=int(request.POST.get('db_id'))).filter(
                     name=request.POST.get('name')).filter(status=1):
                 return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
 
             add_db_form = AddDatabaseDBForm(request.POST)
 
             if add_db_form.is_valid():
-                db_info = DatabaseDBInfo()
+                db_info = databaseDBInfo()
                 db_info.db_id = request.POST.get('db_id')
                 db_info.name = request.POST.get('name')
                 db_info.add_time=datetime.datetime.now()
@@ -533,11 +533,11 @@ class AddDatabaseDBView(LoginStatusCheck, View):
 class EditDatabaseDBView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            db_info = DatabaseDBInfo.objects.get(id=int(request.POST.get('db_id')))
+            db_info = databaseDBInfo.objects.get(id=int(request.POST.get('db_id')))
 
             # 判断记录是否存在
             if db_info.name != request.POST.get('name'):
-                if DatabaseDBInfo.objects.filter(db_id=int(request.POST.get('db_db_id'))).filter(
+                if databaseDBInfo.objects.filter(db_id=int(request.POST.get('db_db_id'))).filter(
                         name=request.POST.get('name')).filter(status=1):
                     return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
 
@@ -574,7 +574,7 @@ class EditDatabaseDBView(LoginStatusCheck, View):
 class DeleteDatabaseDBView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            db_info = DatabaseDBInfo.objects.get(id=int(request.POST.get('db_id')))
+            db_info = databaseDBInfo.objects.get(id=int(request.POST.get('db_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -597,14 +597,14 @@ class AddDatabaseUserView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
             # 判断用户
-            db_user = DatabaseUserInfo.objects.filter(db_id=int(request.POST.get('db_id'))).filter(
+            db_user = databaseUserInfo.objects.filter(db_id=int(request.POST.get('db_id'))).filter(
                 username=request.POST.get('username'))
             if db_user:
                 return HttpResponse('{"status":"failed", "msg":"该用户已存在，请检查！"}', content_type='application/json')
 
             add_db_user_form = AddDatabaseUserForm(request.POST)
             if add_db_user_form.is_valid():
-                db_user = DatabaseUserInfo()
+                db_user = databaseUserInfo()
                 db_user.db_id = int(request.POST.get('db_id'))
                 db_user.username = request.POST.get('username')
                 db_user.password = request.POST.get('password')
@@ -616,7 +616,7 @@ class AddDatabaseUserView(LoginStatusCheck, View):
                 db_user.save()
 
                 for each in request.POST.getlist('dbs'):
-                    db = DatabaseDBInfo.objects.get(id=int(each))
+                    db = databaseDBInfo.objects.get(id=int(each))
                     db_user.grant_db.add(db)
                     db_user.save()
 
@@ -644,12 +644,12 @@ class EditDatabaseUserView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
             # 判断用户
-            db_user = DatabaseUserInfo.objects.get(id=int(request.POST.get('db_user_id')))
+            db_user = databaseUserInfo.objects.get(id=int(request.POST.get('db_user_id')))
 
             new_username = request.POST.get('username')
 
             if db_user.username != new_username:
-                if DatabaseUserInfo.objects.filter(username=new_username).filter(status=1):
+                if databaseUserInfo.objects.filter(username=new_username).filter(status=1):
                     return HttpResponse('{"status":"failed", "msg":"该用户已存在，请检查！"}', content_type='application/json')
 
             edit_db_user_form = EditDatabaseUserForm(request.POST)
@@ -663,7 +663,7 @@ class EditDatabaseUserView(LoginStatusCheck, View):
                 db_user.save()
 
                 for each in request.POST.getlist('dbs'):
-                    db = DatabaseDBInfo.objects.get(id=int(each))
+                    db = databaseDBInfo.objects.get(id=int(each))
                     db_user.grant_db.add(db)
                     db_user.save()
 
@@ -691,7 +691,7 @@ class DeleteDatabaseUserView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
             # 判断用户
-            db_user = DatabaseUserInfo.objects.get(id=int(request.POST.get('db_user_id')))
+            db_user = databaseUserInfo.objects.get(id=int(request.POST.get('db_user_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -720,7 +720,7 @@ class AddHostServiceView(LoginStatusCheck, View):
         if request.user.role <3:
             add_service_form = AddHostServiceForm(request.POST)
             if add_service_form.is_valid():
-                service = HostServiceInfo()
+                service = hostServiceInfo()
                 host = int(request.POST.get('host_id'))
                 service.host_id = host
                 service.name = request.POST.get('name')
@@ -762,7 +762,7 @@ class EditHostServiceView(LoginStatusCheck, View):
         if request.user.role <3:
             edit_service_form = EditHostServiceForm(request.POST)
             if edit_service_form.is_valid():
-                service = HostServiceInfo.objects.get(id=int(request.POST.get('ser_id')))
+                service = hostServiceInfo.objects.get(id=int(request.POST.get('ser_id')))
                 service.name = request.POST.get('name')
                 service.version = request.POST.get('version')
                 service.listen_user = request.POST.get('listen_user')
@@ -799,7 +799,7 @@ class DeleteHostServiceView(LoginStatusCheck, View):
     def post(self, request):
         try:
             ser_id = request.POST.get('ser_id')
-            service = HostServiceInfo.objects.get(id=int(ser_id))
+            service = hostServiceInfo.objects.get(id=int(ser_id))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -828,7 +828,7 @@ class OSListView(LoginStatusCheck, View):
             web_chose_middle = ''
 
             # 获取操作系统
-            systems = OperatingSystemInfo.objects.filter(status=1).order_by('-update_time')
+            systems = operatingSystemInfo.objects.filter(status=1).order_by('-update_time')
 
             # 关键字
             keyword = request.GET.get('keyword', '')
@@ -877,13 +877,13 @@ class AddOSView(LoginStatusCheck, View):
                 name = request.POST.get('name')
                 version = request.POST.get('version')
                 bit = int(request.POST.get('bit'))
-                check_os = OperatingSystemInfo.objects.filter(name=name).filter(version=version).filter(bit=bit).filter(
+                check_os = operatingSystemInfo.objects.filter(name=name).filter(version=version).filter(bit=bit).filter(
                     status=1)
                 if check_os:
                     return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
 
                 # 添加记录
-                os = OperatingSystemInfo()
+                os = operatingSystemInfo()
                 os.name = name
                 os.version = version
                 os.bit = bit
@@ -918,7 +918,7 @@ class EditOSView(LoginStatusCheck, View):
         if request.user.role <3:
             edit_os_form = EditOsForm(request.POST)
             if edit_os_form.is_valid():
-                os = OperatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
+                os = operatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
                 os.name = request.POST.get('name')
                 os.version = request.POST.get('version')
                 os.bit = int(request.POST.get('bit'))
@@ -949,7 +949,7 @@ class EditOSView(LoginStatusCheck, View):
 class DeleteOSView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            os = OperatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
+            os = operatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -977,10 +977,10 @@ class ProjectListView(LoginStatusCheck, View):
             web_chose_middle = ''
 
             # 人员
-            users = UserProfile.objects.filter(status=1)
+            users = userProfile.objects.filter(status=1)
 
             # 获取操作系统
-            projects = ProjectInfo.objects.filter(status=1).order_by('-update_time')
+            projects = projectInfo.objects.filter(status=1).order_by('-update_time')
 
             # 关键字
             keyword = request.GET.get('keyword', '')
@@ -1029,12 +1029,12 @@ class AddProjectView(LoginStatusCheck, View):
             if add_project_form.is_valid():
                 # 判断是否有相同的记录
                 name = request.POST.get('name')
-                check_pro = ProjectInfo.objects.filter(name=name).filter(status=1)
+                check_pro = projectInfo.objects.filter(name=name).filter(status=1)
                 if check_pro:
                     return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
 
                 # 添加记录
-                pro = ProjectInfo()
+                pro = projectInfo()
                 pro.name = name
                 pro.op_user_id = int(request.POST.get('op_user'))
                 pro.run_env = request.POST.get('run_env')
@@ -1068,7 +1068,7 @@ class EditProjectView(LoginStatusCheck, View):
         if request.user.role <3:
             edit_project_form = EditProjectForm(request.POST)
             if edit_project_form.is_valid():
-                pro = ProjectInfo.objects.get(id=int(request.POST.get('pro_id')))
+                pro = projectInfo.objects.get(id=int(request.POST.get('pro_id')))
                 pro.name = request.POST.get('name')
                 pro.op_user_id = int(request.POST.get('op_user'))
                 pro.run_env = request.POST.get('run_env')
@@ -1098,7 +1098,7 @@ class EditProjectView(LoginStatusCheck, View):
 class DeleteProjectView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            pro = ProjectInfo.objects.get(id=int(request.POST.get('pro_id')))
+            pro = projectInfo.objects.get(id=int(request.POST.get('pro_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -1115,471 +1115,6 @@ class DeleteProjectView(LoginStatusCheck, View):
             return HttpResponse(status=403)
 
 ######################################
-# 端口映射列表
-######################################
-class PortToPortListView(LoginStatusCheck, View):
-    def get(self, request):
-        if request.user.role <3:
-            # 页面选择
-            web_chose_left_1 = 'port_domain'
-            web_chose_left_2 = 'port_port'
-            web_chose_middle = ''
-
-            records = PortToPortInfo.objects.filter(status=1).order_by('-update_time')
-
-            # 关键字
-            keyword = request.GET.get('keyword', '')
-            if keyword != '':
-                records = records.filter(
-                    Q(ip_in=keyword) | Q(port_in=keyword) | Q(ip_out=keyword) | Q(port_out=keyword) | Q(
-                        use__icontains=keyword) | Q(desc__icontains=keyword))
-
-            # 数量
-            record_nums = records.count()
-
-            # 判断页码
-            try:
-                page = request.GET.get('page', 1)
-            except PageNotAnInteger:
-                page = 1
-
-            # 对取到的数据进行分页，记得定义每页的数量
-            p = Paginator(records, 16, request=request)
-
-            # 分页处理后的 QuerySet
-            records = p.page(page)
-
-            context = {
-                'web_chose_left_1': web_chose_left_1,
-                'web_chose_left_2': web_chose_left_2,
-                'web_chose_middle': web_chose_middle,
-                'records': records,
-                'keyword': keyword,
-                'record_nums': record_nums,
-            }
-            return render(request, 'host_management/port/port_to_port_list.html', context=context)
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 添加映射
-######################################
-class AddPortToPortView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            ip_in = request.POST.get('ip_in')
-            port_in = request.POST.get('port_in')
-
-            if PortToPortInfo.objects.filter(ip_in=ip_in).filter(port_in=port_in).filter(status=1):
-                return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            add_port_to_port_form = AddPortToPortForm(request.POST)
-
-            if add_port_to_port_form.is_valid():
-                port_info = PortToPortInfo()
-                port_info.ip_out = request.POST.get('ip_out', '')
-                port_info.port_out = request.POST.get('port_out')
-                port_info.ip_in = ip_in
-                port_info.port_in = port_in
-                port_info.use = request.POST.get('use')
-                port_info.desc = request.POST.get('desc', '')
-                port_info.add_user = request.user
-                port_info.update_user = request.user
-                port_info.status = 1
-                port_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 1
-                op_record.status = 1
-                op_record.op_num = port_info.id
-                op_record.operation = 1
-                op_record.action = "添加 [ %s:%s ] 映射：[ %s:%s ]" % (port_info.ip_out, port_info.port_out, port_info.ip_in, port_info.port_in)
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"添加映射成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 编辑映射
-######################################
-class EditPortToPortView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            port_info = PortToPortInfo.objects.get(id=int(request.POST.get('p_id')))
-
-            ip_in = request.POST.get('ip_in')
-            port_in = request.POST.get('port_in')
-
-            if (port_info.ip_in != ip_in) and (port_info.port_in != port_in):
-                if PortToPortInfo.objects.filter(ip_in=ip_in).filter(port_in=port_in).filter(status=1):
-                    return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            edit_port_to_port_form = EditPortToPortForm(request.POST)
-
-            if edit_port_to_port_form.is_valid():
-                port_info.ip_out = request.POST.get('ip_out', '')
-                port_info.port_out = request.POST.get('port_out')
-                port_info.ip_in = ip_in
-                port_info.port_in = port_in
-                port_info.use = request.POST.get('use')
-                port_info.desc = request.POST.get('desc', '')
-                port_info.update_user = request.user
-                port_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 1
-                op_record.status = 1
-                op_record.op_num = port_info.id
-                op_record.operation = 2
-                op_record.action = "编辑 [ %s:%s ] 映射：[ %s:%s ]" % (port_info.ip_out, port_info.port_out, port_info.ip_in, port_info.port_in)
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"编辑映射成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 删除映射
-######################################
-class DeletePortToPortView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            port_info = PortToPortInfo.objects.get(id=int(request.POST.get('p_id')))
-
-            # 添加操作记录
-            op_record = UserOperationRecord()
-            op_record.op_user = request.user
-            op_record.belong = 1
-            op_record.status = 1
-            op_record.op_num = port_info.id
-            op_record.operation = 4
-            op_record.action = "停用 [ %s:%s ] 映射：[ %s:%s ]" % (port_info.ip_out, port_info.port_out, port_info.ip_in, port_info.port_in)
-            op_record.save()
-            port_info.delete()
-
-            return HttpResponse('{"status":"success", "msg":"停用映射成功！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 域名列表
-######################################
-class DomainNameListView(LoginStatusCheck, View):
-    def get(self, request):
-        if request.user.role <3:
-            # 页面选择
-            web_chose_left_1 = 'port_domain'
-            web_chose_left_2 = 'domain_name'
-            web_chose_middle = ''
-
-            records = DomainNameInfo.objects.filter(status=1).order_by('-update_time')
-
-            # 关键字
-            keyword = request.GET.get('keyword', '')
-            if keyword != '':
-                records = records.filter(
-                    Q(name__icontains=keyword) | Q(desc__icontains=keyword))
-
-            # 数量
-            record_nums = records.count()
-
-            # 判断页码
-            try:
-                page = request.GET.get('page', 1)
-            except PageNotAnInteger:
-                page = 1
-
-            # 对取到的数据进行分页，记得定义每页的数量
-            p = Paginator(records, 16, request=request)
-
-            # 分页处理后的 QuerySet
-            records = p.page(page)
-
-            context = {
-                'web_chose_left_1': web_chose_left_1,
-                'web_chose_left_2': web_chose_left_2,
-                'web_chose_middle': web_chose_middle,
-                'records': records,
-                'keyword': keyword,
-                'record_nums': record_nums,
-            }
-            return render(request, 'host_management/port/domain_name_list.html', context=context)
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 添加域名
-######################################
-class AddDomainNameView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            name = request.POST.get('name')
-
-            if DomainNameInfo.objects.filter(name=name).filter(status=1):
-                return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            add_domain_name_form = AddDomainNameForm(request.POST)
-
-            if add_domain_name_form.is_valid():
-                domain_info = DomainNameInfo()
-                domain_info.name = request.POST.get('name')
-                domain_info.desc = request.POST.get('desc', '')
-                domain_info.add_user = request.user
-                domain_info.update_user = request.user
-                domain_info.status = 1
-                domain_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 1
-                op_record.status = 1
-                op_record.op_num = domain_info.id
-                op_record.operation = 1
-                op_record.action = "添加域名：%s" % domain_info.name
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"添加域名成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 修改域名
-######################################
-class EditDomainNameView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            domain_info = DomainNameInfo.objects.get(id=int(request.POST.get('do_id')))
-
-            name = request.POST.get('name')
-
-            if domain_info.name != name:
-                if DomainNameInfo.objects.filter(name=name).filter(status=1):
-                    return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            edit_domain_name_form = EditDomainNameForm(request.POST)
-
-            if edit_domain_name_form.is_valid():
-                domain_info.name = request.POST.get('name')
-                domain_info.desc = request.POST.get('desc', '')
-                domain_info.update_user = request.user
-                domain_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 1
-                op_record.status = 1
-                op_record.op_num = domain_info.id
-                op_record.operation = 2
-                op_record.action = "修改域名：%s" % domain_info.name
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"修改域名成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 删除域名
-######################################
-class DeleteDomainNameView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            domain_info = DomainNameInfo.objects.get(id=int(request.POST.get('do_id')))
-
-            # 添加操作记录
-            op_record = UserOperationRecord()
-            op_record.op_user = request.user
-            op_record.belong = 1
-            op_record.status = 1
-            op_record.op_num = domain_info.id
-            op_record.operation = 4
-            op_record.action = "停用域名：%s" % domain_info.name
-            op_record.save()
-            domain_info.delete()
-
-            return HttpResponse('{"status":"success", "msg":"停用域名成功！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 域名解析列表
-######################################
-class DomainNameResolveListView(LoginStatusCheck, View):
-    def get(self, request):
-        if request.user.role <3:
-            # 页面选择
-            web_chose_left_1 = 'port_domain'
-            web_chose_left_2 = 'domain_resolve'
-            web_chose_middle = ''
-
-            records = DomainNameResolveInfo.objects.filter(status=1).order_by('-update_time')
-
-            # 关键字
-            keyword = request.GET.get('keyword', '')
-            if keyword != '':
-                records = records.filter(Q(ip=keyword) | Q(domain_name__name__icontains=keyword) | Q(desc__icontains=keyword))
-
-            # 数量
-            record_nums = records.count()
-
-            # 判断页码
-            try:
-                page = request.GET.get('page', 1)
-            except PageNotAnInteger:
-                page = 1
-
-            # 对取到的数据进行分页，记得定义每页的数量
-            p = Paginator(records, 16, request=request)
-
-            # 分页处理后的 QuerySet
-            records = p.page(page)
-
-            domains = DomainNameInfo.objects.filter(status=1)
-
-            context = {
-                'web_chose_left_1': web_chose_left_1,
-                'web_chose_left_2': web_chose_left_2,
-                'web_chose_middle': web_chose_middle,
-                'records': records,
-                'keyword': keyword,
-                'record_nums': record_nums,
-                'domains': domains,
-            }
-            return render(request, 'host_management/port/domain_name_resolve_list.html', context=context)
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 添加域名解析
-######################################
-class AddDomainNameResolveView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            name = request.POST.get('name')
-            domain_name_id = int(request.POST.get('domain_name'))
-
-            if DomainNameResolveInfo.objects.filter(name=name).filter(domain_name_id=domain_name_id).filter(status=1):
-                return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            add_domain_resolve_form = AddDomainNameResolveForm(request.POST)
-
-            if add_domain_resolve_form.is_valid():
-                domain_info = DomainNameResolveInfo()
-                domain_info.name = name
-                domain_info.domain_name_id = domain_name_id
-                domain_info.desc = request.POST.get('desc', '')
-                domain_info.ip = request.POST.get('ip')
-                domain_info.add_user = request.user
-                domain_info.update_user = request.user
-                domain_info.status = 1
-                domain_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 1
-                op_record.status = 1
-                op_record.op_num = domain_info.id
-                op_record.operation = 1
-                op_record.action = "添加域名解析：%s" % (domain_info.name)
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"添加域名解析成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 修改域名解析
-######################################
-class EditDomainNameResolveView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            domain_info = DomainNameResolveInfo.objects.get(id=int(request.POST.get('do_id')))
-
-            name = request.POST.get('name')
-            domain_name_id = int(request.POST.get('domain_name'))
-
-            if (domain_info.name != name) and (domain_info.domain_name_id != domain_name_id):
-                if DomainNameResolveInfo.objects.filter(name=name).filter(domain_name_id=domain_name_id).filter(status=1):
-                    return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            edit_domain_reslove_form = EditDomainNameResolveForm(request.POST)
-
-            if edit_domain_reslove_form.is_valid():
-                domain_info.name = name
-                domain_info.domain_name_id = domain_name_id
-                domain_info.ip = request.POST.get('ip')
-                domain_info.desc = request.POST.get('desc', '')
-                domain_info.update_user = request.user
-                domain_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 1
-                op_record.status = 1
-                op_record.op_num = domain_info.id
-                op_record.operation = 2
-                op_record.action = "修改域名解析：%s.%s" % (domain_info.name, domain_info.domain_name.name)
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"修改域名解析成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 删除域名解析
-######################################
-class DeleteDomainNameResolveView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            domain_info = DomainNameResolveInfo.objects.get(id=int(request.POST.get('do_id')))
-
-            # 添加操作记录
-            op_record = UserOperationRecord()
-            op_record.op_user = request.user
-            op_record.belong = 1
-            op_record.status = 1
-            op_record.op_num = domain_info.id
-            op_record.operation = 4
-            op_record.action = "停用域名解析：%s.%s" % (domain_info.name, domain_info.domain_name.name)
-            op_record.save()
-            domain_info.delete()
-
-            return HttpResponse('{"status":"success", "msg":"停用域名成功！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-######################################
 # 用途管理
 ######################################
 class UseListView(LoginStatusCheck, View):
@@ -1591,7 +1126,7 @@ class UseListView(LoginStatusCheck, View):
             web_chose_middle = ''
 
             # 获取环境
-            uses = UseInfo.objects.filter(status=1).order_by('-update_time')
+            uses = useInfo.objects.filter(status=1).order_by('-update_time')
 
             # 关键字
             keyword = request.GET.get('keyword', '')
@@ -1639,12 +1174,12 @@ class AddUseView(LoginStatusCheck, View):
             if add_use_form.is_valid():
                 # 判断是否有相同的记录
                 name = request.POST.get('name')
-                check_use = UseInfo.objects.filter(name=name).filter(status=1)
+                check_use = useInfo.objects.filter(name=name).filter(status=1)
                 if check_use:
                     return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
 
                 # 添加记录
-                use = UseInfo()
+                use = useInfo()
                 use.name = name
                 use.desc = request.POST.get('desc', '')
                 use.add_user = request.user
@@ -1677,7 +1212,7 @@ class EditUseView(LoginStatusCheck, View):
         if request.user.role <3:
             edit_use_form = EditUseForm(request.POST)
             if edit_use_form.is_valid():
-                use = UseInfo.objects.get(id=int(request.POST.get('use_id')))
+                use = useInfo.objects.get(id=int(request.POST.get('use_id')))
                 use.name = request.POST.get('name')
                 use.desc = request.POST.get('desc', '')
                 use.update_user = request.user
@@ -1706,7 +1241,7 @@ class EditUseView(LoginStatusCheck, View):
 class DeleteUseView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            use = UseInfo.objects.get(id=int(request.POST.get('use_id')))
+            use = useInfo.objects.get(id=int(request.POST.get('use_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -1789,151 +1324,6 @@ class HostOperationView(LoginStatusCheck, View):
             return render(request, 'host_management/other/host_op_record.html', context=context)
         else:
             return HttpResponse(status=403)
-
-
-
-######################################
-# 数据字典列表
-######################################
-class DictListView(LoginStatusCheck, View):
-    def get(self, request):
-        if request.user.role <3:
-            # 页面选择
-            web_chose_left_1 = 'basic_setting'
-            web_chose_left_2 = 'dict'
-            web_chose_middle = ''
-
-            dicts = DataDictInfo.objects.filter()
-
-            # 数量
-            record_nums = dicts.count()
-
-            # 判断页码
-            try:
-                page = request.GET.get('page', 1)
-            except PageNotAnInteger:
-                page = 1
-
-            # 对取到的数据进行分页，记得定义每页的数量
-            p = Paginator(dicts, 16, request=request)
-
-            # 分页处理后的 QuerySet
-            dicts = p.page(page)
-
-
-            context = {
-                'web_chose_left_1': web_chose_left_1,
-                'web_chose_left_2': web_chose_left_2,
-                'web_chose_middle': web_chose_middle,
-                'dicts': dicts,
-                'record_nums': record_nums,
-            }
-            return render(request, 'host_management/other/data_dict_list.html', context=context)
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 添加数据字典
-######################################
-class AddDictView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            name = request.POST.get('name')
-            value = request.POST.get('value')
-
-            if DataDictInfo.objects.filter(name=name).filter(value=value):
-                return HttpResponse('{"status":"failed", "msg":"该记录已存在，请检查！"}', content_type='application/json')
-
-            add_dict_form = AddDictForm(request.POST)
-
-            if add_dict_form.is_valid():
-                dict_info = DataDictInfo()
-                dict_info.name = name
-                dict_info.value = value
-                dict_info.remarks = request.POST.get('remarks', '')
-                dict_info.create_by=request.user.id
-                dict_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 6
-                op_record.status = 1
-                op_record.op_num = dict_info.id
-                op_record.operation = 1
-                op_record.action = "添加数据字典：%s" % (dict_info.name)
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"添加域名解析成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 修改数据字典
-######################################
-class EditDictView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            dict_info = DataDictInfo.objects.get(name=request.POST.get('name'))
-            name = request.POST.get('name')
-            value = request.POST.get('value')
-
-            if (dict_info.name != name) and (dict_info.value != value):
-                if DataDictInfo.objects.filter(name=name).filter(value=value):
-                    return HttpResponse('{"status":"failed", "msg":"该数据已存在，请检查！"}', content_type='application/json')
-
-            edit_dict_form = EditDictForm(request.POST)
-
-            if edit_dict_form.is_valid():
-                dict_info.name = name
-                dict_info.value = value
-                dict_info.remarks = request.POST.get('remarks')
-                dict_info.save()
-
-                # 添加操作记录
-                op_record = UserOperationRecord()
-                op_record.op_user = request.user
-                op_record.belong = 6
-                op_record.status = 1
-                op_record.op_num = dict_info.id
-                op_record.operation = 2
-                op_record.action = "修改数据字典：%s.%s" % (dict_info.name, dict_info.value)
-                op_record.save()
-
-                return HttpResponse('{"status":"success", "msg":"修改数据字典成功！"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status":"failed", "msg":"填写不合法，请检查！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
-
-######################################
-# 删除数据字典
-######################################
-class DeleteDictView(LoginStatusCheck, View):
-    def post(self, request):
-        if request.user.role <3:
-            dict_info = DataDictInfo.objects.get(id=int(request.POST.get('id')))
-
-            # 添加操作记录
-            op_record = UserOperationRecord()
-            op_record.op_user = request.user
-            op_record.belong = 6
-            op_record.status = 1
-            op_record.op_num = dict_info.id
-            op_record.operation = 4
-            op_record.action = "删除数据字典：%s.%s" % (dict_info.name, dict_info.value)
-            op_record.save()
-            dict_info.delete()
-
-            return HttpResponse('{"status":"success", "msg":"删除数据字典成功！"}', content_type='application/json')
-        else:
-            return HttpResponse(status=403)
-
 
 
 

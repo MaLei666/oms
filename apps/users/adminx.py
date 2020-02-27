@@ -31,7 +31,7 @@ class GlobalSetting(object):
     #                 {
     #                     'title': '平台用户',
     #                     'icon': 'fa fa-bug',
-    #                     'url': self.get_model_url(UserProfile,'changelist')
+    #                     'url': self.get_model_url(userProfile,'changelist')
     #
     #                 },
     #
@@ -56,7 +56,6 @@ class UserSetting(object):
     # fieldsets=()
     form_layout = (
         Fieldset('用户信息',
-                'avatar',
                 'role',
                 'username',
                 'user_name',
@@ -83,7 +82,6 @@ class UserSetting(object):
     # fieldsets = (
     #     ('用户信息', {
     #         'fields': (
-    #             'avatar',
     #             'role',
     #             'username',
     #             'user_name',
@@ -125,9 +123,8 @@ class UserSetting(object):
 ######################################
 xadmin.site.register(UserCompany)
 xadmin.site.register(UserDepartment)
-xadmin.site.unregister(UserProfile)
-xadmin.site.register(UserProfile,UserSetting)
-xadmin.site.register(UserEmailVirificationCode)
+xadmin.site.unregister(userProfile)
+xadmin.site.register(userProfile,UserSetting)
 xadmin.site.register(UserLoginInfo)
 xadmin.site.register(views.CommAdminView,GlobalSetting)
 xadmin.site.register(views.BaseAdminView,BaseSetting)

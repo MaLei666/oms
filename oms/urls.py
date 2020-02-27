@@ -30,6 +30,9 @@ urlpatterns = [
     # host management
     path('host/management/', include('host_management.urls')),
 
+    # system_manage
+    path('system/manage/',include('system_manage.urls')),
+
     # platform management
     path('platform/management/', include('platform_management.urls')),
 

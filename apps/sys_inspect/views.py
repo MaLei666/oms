@@ -25,7 +25,7 @@ from utils.login_check import LoginStatusCheck
 from .forms import *
 from .models import *
 from operation_record.models import UserOperationRecord
-from host_management.models import DataDictInfo
+from system_manage.models import dataDictInfo
 
 ######################################
 # 巡检设备列表
@@ -41,7 +41,7 @@ class InspectDevInfoViews(LoginStatusCheck, View):
 
         devices = InspectDevInfo.objects.filter()
         # 用户
-        users = UserProfile.objects.filter()
+        users = userProfile.objects.filter()
 
         # 部门
         depts=UserDepartment.objects.filter()
@@ -50,7 +50,7 @@ class InspectDevInfoViews(LoginStatusCheck, View):
         units = UserCompany.objects.filter()
 
         # 数据字典
-        dicts=DataDictInfo.objects.filter()
+        dicts=dataDictInfo.objects.filter()
 
         devices_nums = devices.count()
 
@@ -195,7 +195,7 @@ class ContentViews(LoginStatusCheck, View):
 
         title = '任务列表'
         # 用户
-        users = UserProfile.objects.filter()
+        users = userProfile.objects.filter()
 
         # 公司
         units = UserCompany.objects.filter()
@@ -253,7 +253,7 @@ class AddContView(LoginStatusCheck, View):
                 content.unit_id=request.POST.get('unit_id')
                 content.unit_name=UserCompany.objects.get(id=content.unit_id).name
                 content.user_id=request.POST.get('user_id')
-                content.user_name=UserProfile.objects.get(id=content.user_id).user_name
+                content.user_name=userProfile.objects.get(id=content.user_id).user_name
                 content.create_user=request.user.user_name
 
 

@@ -2,159 +2,249 @@
 Host management app
 """
 from django.urls import path
-from host_management.views import *
+from host_management.apis.host_api import *
 
 
 app_name = 'host_management'
 
+
+system_list=systemViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+system_detail = systemViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+project_list=projectViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+project_detail = projectViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+use_list=useViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+use_detail = useViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+idc_list=idcViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+idc_detail = idcViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+rack_list=rackViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+rack_detail = rackViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+host_list=hostViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+host_detail = hostViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+host_service_list=hostserviceViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+host_service_detail = hostserviceViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+database_list=databaseViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+database_detail = databaseViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+
+databaseDB_list=databaseDBViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+databaseDB_detail = databaseDBViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
 urlpatterns = [
-    # 主机列表
-    path('list', HostListView.as_view(), name='host_list'),
-
-    # webssh
-    path(r'webssh/<int:host_id>', WebSSHView.as_view(), name='web_ssh'),
-
-    # 主机详情
-    path('info/<int:host_id>', HostInfoView.as_view(), name='host_info'),
-
-    # 添加主机
-    path('info/add', AddHostInfoView.as_view(), name='add_host'),
-
-    # 删除主机
-    path('info/delete', DeleteHostView.as_view(), name='del_host'),
-    # path('info/<int:host_id>', DeleteHostView.as_view(), name='del_host'),
-
-    # 修改主机
-    path('info/edit', EditHostInfoView.as_view(), name='edit_host'),
-
-    # 添加主机服务
-    path('service/add', AddHostServiceView.as_view(), name='add_host_service'),
-
-    # 修改主机服务
-    path('service/edit', EditHostServiceView.as_view(), name='edit_host_service'),
-
-    # 删除主机服务
-    path('service/delete', DeleteHostServiceView.as_view(), name='del_host_service'),
-
-    # 数据库列表
-    path('database/list', DatabaseListView.as_view(), name='db_list'),
-
-    # 数据库详情
-    path('database/info/<int:db_id>', DatabaseInfoView.as_view(), name='db_info'),
-
-    # 添加数据库信息
-    path('database/add', AddDatabaseInfoView.as_view(), name='add_db'),
-
-    # 修改数据库信息
-    path('database/edit', EditDatabaseInfoView.as_view(), name='edit_db'),
-
-    # 删除数据库信息
-    path('database/delete', DeleteDatabaseInfoView.as_view(), name='del_db'),
-
-    # 添加数据库库表
-    path('database/db/add', AddDatabaseDBView.as_view(), name='add_db_db'),
-
-    # 修改数据库库表
-    path('database/db/edit', EditDatabaseDBView.as_view(), name='edit_db_db'),
-
-    # 删除数据库库表
-    path('database/db/delete', DeleteDatabaseDBView.as_view(), name='del_db_db'),
-
-    # 添加数据库用户
-    path('database/user/add', AddDatabaseUserView.as_view(), name='add_db_user'),
-
-    # 修改数据库用户
-    path('database/user/edit', EditDatabaseUserView.as_view(), name='edit_db_user'),
-
-    # 删除数据库用户
-    path('database/user/delete', DeleteDatabaseUserView.as_view(), name='del_db_user'),
-
-    # 操作记录
-    path('operation/record', HostOperationView.as_view(), name='host_op_record'),
-
     # 操作系统列表
-    path('os/list', OSListView.as_view(), name='os_List'),
+    path('os/list', system_list, name='os_List'),
 
     # 添加系统
-    path('os/add', AddOSView.as_view(), name='add_os'),
+    path('os/add', system_list, name='add_os'),
 
     # 修改系统
-    path('os/edit', EditOSView.as_view(), name='edit_os'),
+    path('os/edit/<int:system_id>', system_detail, name='edit_os'),
 
     # 删除系统
-    path('os/delete', DeleteOSView.as_view(), name='del_os'),
+    path('os/delete/<int:system_id>', system_detail, name='del_os'),
 
     # 项目列表
-    path('project/list', ProjectListView.as_view(), name='project_List'),
+    path('project/list', project_list, name='project_List'),
 
     # 添加项目
-    path('project/add', AddProjectView.as_view(), name='add_project'),
+    path('project/add', project_list, name='add_project'),
 
     # 编辑项目
-    path('project/edit', EditProjectView.as_view(), name='edit_project'),
+    path('project/edit/<int:project_id>', project_detail, name='edit_project'),
 
     # 删除项目
-    path('project/delete', DeleteProjectView.as_view(), name='del_project'),
+    path('project/delete/<int:project_id>', project_detail, name='del_project'),
 
     # 用途列表
-    path('use/list', UseListView.as_view(), name='use_List'),
+    path('use/list', use_list, name='use_List'),
 
     # 添加用途
-    path('use/add', AddUseView.as_view(), name='add_use'),
+    path('use/add', use_list, name='add_use'),
 
     # 修改用途
-    path('use/edit', EditUseView.as_view(), name='edit_use'),
+    path('use/edit/<int:use_id>', use_detail, name='edit_use'),
 
     # 删除用途
-    path('use/delete', DeleteUseView.as_view(), name='del_use'),
+    path('use/delete/<int:use_id>', use_detail, name='del_use'),
 
-    # 端口映射列表
-    path('port/to/port/list', PortToPortListView.as_view(), name='port_port_list'),
+    # 机房列表
+    path('idc/list', idc_list, name='idc_list'),
 
-    # 添加端口映射
-    path('port/to/port/add', AddPortToPortView.as_view(), name='port_port_add'),
+    # 添加机房
+    path('idc/add', idc_list, name='idc_host'),
 
-    # 修改端口映射
-    path('port/to/port/edit', EditPortToPortView.as_view(), name='port_port_edit'),
+    # 机房详情
+    path('idc/<int:idc_id>', idc_detail, name='idc_info'),
 
-    # 删除端口映射
-    path('port/to/port/delete', DeletePortToPortView.as_view(), name='port_port_del'),
+    # 修改机房
+    path('idc/edit/<int:idc_id>', idc_detail, name='idc_host'),
 
-    # 域名列表
-    path('domainname/list', DomainNameListView.as_view(), name='domain_name_list'),
+    # 删除机房
+    path('idc/delete/<int:idc_id>', idc_detail, name='idc_host'),
 
-    # 添加域名
-    path('domainname/add', AddDomainNameView.as_view(), name='domain_name_add'),
+    # 机柜列表
+    path('rack/list', rack_list, name='rack_list'),
 
-    # 编辑域名
-    path('domainname/edit', EditDomainNameView.as_view(), name='domain_name_edit'),
+    # 添加机柜
+    path('rack/add', rack_list, name='add_rack'),
 
-    # 删除域名
-    path('domainname/delete', DeleteDomainNameView.as_view(), name='domain_name_del'),
+    # 机柜详情
+    path('rack/<int:rack_id>', rack_detail, name='rack_info'),
 
-    # 域名解析列表
-    path('domainname/resolve/list', DomainNameResolveListView.as_view(), name='domain_resolve_list'),
+    # 修改机柜
+    path('rack/edit/<int:rack_id>', host_detail, name='edit_rack'),
 
-    # 添加域名解析
-    path('domainname/resolve/add', AddDomainNameResolveView.as_view(), name='domain_resolve_add'),
+    # 删除机柜
+    path('rack/delete/<int:rack_id>', host_detail, name='del_rack'),
 
-    # 编辑域名解析
-    path('domainname/resolve/edit', EditDomainNameResolveView.as_view(), name='domain_resolve_edit'),
+    # # webssh
+    # path(r'webssh/<int:host_id>', WebSSHView, name='web_ssh'),
 
-    # 删除域名解析
-    path('domainname/resolve/delete', DeleteDomainNameResolveView.as_view(), name='domain_resolve_del'),
+    # 主机列表
+    path('host/list', host_list, name='host_list'),
 
-    #数据字典
-    path('dict/list', DictListView.as_view(), name='dict_list'),
+    # 添加主机
+    path('host/add', host_list, name='add_host'),
 
-    #添加数据字典
-    path('dict/add', AddDictView.as_view(), name='add_dict'),
+    # 主机详情
+    path('host/<int:host_id>', host_detail, name='host_info'),
 
-    #修改数据字典
-    path('dict/edit', EditDictView.as_view(), name='edit_dict'),
+    # 修改主机
+    path('host/edit/<int:host_id>', host_detail, name='edit_host'),
 
-    #删除数据字典
-    path('dict/delete', DeleteDictView.as_view(), name='delete_dict'),
+    # 删除主机
+    path('host/delete/<int:host_id>', host_detail, name='del_host'),
+
+    # 添加主机服务
+    path('service/add', host_service_list, name='add_host_service'),
+
+    # 修改主机服务
+    path('service/edit/<int:host_service_id>', host_service_detail, name='edit_host_service'),
+
+    # 删除主机服务
+    path('service/delete/<int:host_service_id>', host_service_detail, name='del_host_service'),
+
+    # 数据库连接列表
+    path('database/list', database_list, name='db_list'),
+
+    # 数据库连接详情
+    path('database/info/<int:db_id>', database_detail, name='db_info'),
+
+    # 添加数据库信息
+    path('database/add', database_list, name='add_db'),
+
+    # 修改数据库信息
+    path('database/edit/<int:db_id>', database_detail, name='edit_db'),
+
+    # 删除数据库信息
+    path('database/delete/<int:db_id>', database_detail, name='del_db'),
+
+    # 数据库列表
+    path('database/db/list', databaseDB_list, name='db_list'),
+
+    # 数据库详情
+    path('database/db/info/<int:db_db_id>', databaseDB_detail, name='db_info'),
+
+    # 添加数据库库表
+    path('database/db/add', databaseDB_list, name='add_db_db'),
+
+    # 修改数据库库表
+    path('database/db/edit/<int:db_db_id>', databaseDB_detail, name='edit_db_db'),
+
+    # 删除数据库库表
+    path('database/db/delete/<int:db_db_id>', databaseDB_detail, name='del_db_db'),
+
+    # # 添加数据库用户
+    # path('database/user/add', AddDatabaseUserView, name='add_db_user'),
+    #
+    # # 修改数据库用户
+    # path('database/user/edit', EditDatabaseUserView, name='edit_db_user'),
+    #
+    # # 删除数据库用户
+    # path('database/user/delete', DeleteDatabaseUserView, name='del_db_user'),
+    #
+    # # 操作记录
+    # path('operation/record', HostOperationView, name='host_op_record'),
+
+
 
 ]
 
