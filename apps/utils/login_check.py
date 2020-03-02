@@ -28,16 +28,8 @@ def jwt_response_payload_handler(token, user=None, request=None):
         # 保存登录信息
         login_info(1,
                    user,
-                   user.username,
-                   user.user_name,
-                   user.role,
-                   user.unit_id,
-                   user.unit_name,
-                   user.dept_id,
-                   user.dept_name,
                    request.META['HTTP_USER_AGENT'],
-                   request.META['REMOTE_ADDR'],
-                   user.address)
+                   request.META['REMOTE_ADDR'])
 
         return {
             'token': token,

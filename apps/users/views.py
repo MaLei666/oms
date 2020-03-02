@@ -3,16 +3,6 @@
 ######################################
 from django.shortcuts import render, HttpResponseRedirect, redirect, reverse
 from django.views import View
-from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponse
-from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth.hashers import make_password
-from django.db.models import Q
-from django.urls import reverse
-from django.conf import settings
-from django.core.mail import send_mail, EmailMultiAlternatives
-import json
-
 ######################################
 # 第三方模块
 ######################################

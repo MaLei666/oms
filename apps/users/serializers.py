@@ -29,14 +29,6 @@ class UserSerializer(serializers.ModelSerializer):
 
         # 添加操作记录
         UserOperation(op_user = self.context['request'].user,
-                      username=self.context['request'].user.username,
-                      user_name=self.context['request'].user.user_name,
-                      role=self.context['request'].user.role,
-                      user_id=self.context['request'].user.id,
-                      unit_id=self.context['request'].user.unit_id,
-                      unit_name=self.context['request'].user.unit_name,
-                      dept_id=self.context['request'].user.dept_id,
-                      dept_name=self.context['request'].user.dept_name,
                       belong = 2,
                       status = 1,
                       op_num = obj.id,
@@ -50,14 +42,6 @@ class UserSerializer(serializers.ModelSerializer):
         obj=super(UserSerializer,self).update(validated_data=validated_data,instance=instance)
 
         UserOperation(op_user=self.context['request'].user,
-                      username=self.context['request'].user.username,
-                      user_name=self.context['request'].user.user_name,
-                      role=self.context['request'].user.role,
-                      user_id=self.context['request'].user.id,
-                      unit_id=self.context['request'].user.unit_id,
-                      unit_name=self.context['request'].user.unit_name,
-                      dept_id=self.context['request'].user.dept_id,
-                      dept_name=self.context['request'].user.dept_name,
                       belong=2,
                       status=1,
                       op_num=obj.id,
@@ -67,14 +51,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     def delete(self,request,instance):
         UserOperation(op_user=request.user,
-                      username=request.user.username,
-                      user_name = request.user.user_name,
-                      role = request.user.role,
-                      user_id=request.user.id,
-                      unit_id = request.user.unit_id,
-                      unit_name = request.user.unit_name,
-                      dept_id = request.user.dept_id,
-                      dept_name = request.user.dept_name,
                       belong=2,
                       status=1,
                       op_num=instance.id,
@@ -96,14 +72,6 @@ class unitSerializer(serializers.ModelSerializer):
 
         # 添加操作记录
         UserOperation(op_user = self.context['request'].user,
-                      username=self.context['request'].user.username,
-                      user_name=self.context['request'].user.user_name,
-                      role=self.context['request'].user.role,
-                      user_id=self.context['request'].user.id,
-                      unit_id=self.context['request'].user.unit_id,
-                      unit_name=self.context['request'].user.unit_name,
-                      dept_id=self.context['request'].user.dept_id,
-                      dept_name=self.context['request'].user.dept_name,
                       belong = 2,
                       status = 1,
                       op_num = obj.id,
@@ -117,14 +85,6 @@ class unitSerializer(serializers.ModelSerializer):
         obj=super(unitSerializer,self).update(validated_data=validated_data,instance=instance)
 
         UserOperation(op_user=self.context['request'].user,
-                      username=self.context['request'].user.username,
-                      user_name=self.context['request'].user.user_name,
-                      role=self.context['request'].user.role,
-                      user_id=self.context['request'].user.id,
-                      unit_id=self.context['request'].user.unit_id,
-                      unit_name=self.context['request'].user.unit_name,
-                      dept_id=self.context['request'].user.dept_id,
-                      dept_name=self.context['request'].user.dept_name,
                       belong=2,
                       status=1,
                       op_num=obj.id,
@@ -134,14 +94,6 @@ class unitSerializer(serializers.ModelSerializer):
 
     def delete(self,request,instance):
         UserOperation(op_user=request.user,
-                      username=request.user.username,
-                      user_name=request.user.user_name,
-                      role=request.user.role,
-                      user_id=request.user.id,
-                      unit_id=request.user.unit_id,
-                      unit_name=request.user.unit_name,
-                      dept_id=request.user.dept_id,
-                      dept_name=request.user.dept_name,
                       belong=2,
                       status=1,
                       op_num=instance.id,
@@ -164,14 +116,6 @@ class deptSerializer(serializers.ModelSerializer):
 
         # 添加操作记录
         UserOperation(op_user = self.context['request'].user,
-                      username=self.context['request'].user.username,
-                      user_name=self.context['request'].user.user_name,
-                      role=self.context['request'].user.role,
-                      user_id=self.context['request'].user.id,
-                      unit_id=self.context['request'].user.unit_id,
-                      unit_name=self.context['request'].user.unit_name,
-                      dept_id=self.context['request'].user.dept_id,
-                      dept_name=self.context['request'].user.dept_name,
                       belong = 2,
                       status = 1,
                       op_num = obj.id,
@@ -185,14 +129,6 @@ class deptSerializer(serializers.ModelSerializer):
         obj=super(deptSerializer,self).update(validated_data=validated_data,instance=instance)
 
         UserOperation(op_user=self.context['request'].user,
-                      username=self.context['request'].user.username,
-                      user_name=self.context['request'].user.user_name,
-                      role=self.context['request'].user.role,
-                      user_id=self.context['request'].user.id,
-                      unit_id=self.context['request'].user.unit_id,
-                      unit_name=self.context['request'].user.unit_name,
-                      dept_id=self.context['request'].user.dept_id,
-                      dept_name=self.context['request'].user.dept_name,
                       belong=2,
                       status=1,
                       op_num=obj.id,
@@ -202,14 +138,6 @@ class deptSerializer(serializers.ModelSerializer):
 
     def delete(self,request,instance):
         UserOperation(op_user=request.user,
-                      username=request.user.username,
-                      user_name=request.user.user_name,
-                      role=request.user.role,
-                      user_id=request.user.id,
-                      unit_id=request.user.unit_id,
-                      unit_name=request.user.unit_name,
-                      dept_id=request.user.dept_id,
-                      dept_name=request.user.dept_name,
                       belong=2,
                       status=1,
                       op_num=instance.id,

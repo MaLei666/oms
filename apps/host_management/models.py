@@ -9,7 +9,7 @@ from django.db.models import Model,CharField,PositiveIntegerField,DateTimeField,
 ######################################
 from users.models import userProfile
 
-__all__=['operatingSystemInfo','projectInfo','useInfo','hostInfo','hostServiceInfo','databaseInfo',
+__all__=['operatSystemInfo','projectInfo','useInfo','hostInfo','hostServiceInfo','databaseInfo',
          'databaseDBInfo','idcInfo','rackInfo']
 
 STATUS_CHOICES=(
@@ -20,7 +20,7 @@ STATUS_CHOICES=(
 ######################################
 # 操作系统表
 ######################################
-class operatingSystemInfo(Model):
+class operatSystemInfo(Model):
     name = CharField(verbose_name='系统名称', max_length=30)
     version = CharField(verbose_name='系统版本', max_length=10, blank=True, null=True)
     bit = PositiveSmallIntegerField(verbose_name='位数', choices=((32, '32位'), (64, '64位')),blank=True, null=True)
@@ -112,11 +112,14 @@ class rackInfo(Model):
     name=CharField(verbose_name='名称',max_length=100)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
+    dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)
+    dept_name = CharField(verbose_name='部门名称', max_length=100, null=True, blank=True)
     idc_id = BigIntegerField(verbose_name="机房id")
     idc_name = CharField(verbose_name="机房名称",max_length=100, null=True, blank=True)
     number = BigIntegerField(blank=True, null=True, verbose_name="机柜号")
     height = BigIntegerField(blank=True, null=True, verbose_name="机柜高度")
     power = BigIntegerField(blank=True, null=True, verbose_name="机柜电力")
+    user_id_create = BigIntegerField(verbose_name='创建用户id', null=True, blank=True)
     create_user = CharField(verbose_name='创建者', max_length=45, null=True, blank=True)
     create_time = DateTimeField(verbose_name='添加时间', auto_now_add=True, null=True, blank=True)
     update_user = CharField(verbose_name='更新者', max_length=45, blank=True, null=True)
@@ -132,7 +135,8 @@ class hostInfo(Model):
     hostname = CharField(verbose_name='主机名', max_length=30)
     in_ip = GenericIPAddressField(verbose_name='内网IP')
     out_ip = GenericIPAddressField(verbose_name='外网IP', blank=True, null=True)
-    system = CharField(verbose_name='操作系统', max_length=100,blank=True, null=True)
+    system_id = IntegerField(verbose_name='操作系统id',blank=True, null=True)
+    system=CharField(verbose_name='操作系统',max_length=200,blank=True, null=True)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
     dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)
@@ -147,10 +151,12 @@ class hostInfo(Model):
     network = IntegerField(verbose_name='带宽', blank=True, null=True)
     ssh_port = IntegerField(verbose_name='远程端口',null=True)
     root_ssh = BooleanField(verbose_name='是否允许 root 远程', default=True)
+    use_id = IntegerField(verbose_name='用途id', blank=True, null=True)
     use = CharField(verbose_name='用途', max_length=200, blank=True, null=True)
+    project_id = IntegerField(verbose_name='项目id',blank=True, null=True)
     project = CharField(verbose_name='项目', max_length=200, blank=True, null=True)
-    admin_user = CharField(verbose_name='管理员用户', max_length=20, blank=True, null=True)
-    admin_pass = CharField(verbose_name='管理员密码', max_length=50, blank=True, null=True)
+    admin_user = CharField(verbose_name='管理员用户', max_length=200, blank=True, null=True)
+    admin_pass = CharField(verbose_name='管理员密码', max_length=500, blank=True, null=True)
     user_id_create = BigIntegerField(verbose_name='创建用户id', null=True, blank=True)
     create_user = CharField(verbose_name='创建者', max_length=45, null=True, blank=True)
     create_time = DateTimeField(verbose_name='添加时间', auto_now_add=True, null=True, blank=True)
@@ -172,19 +178,21 @@ class hostInfo(Model):
 ######################################
 class hostServiceInfo(Model):
     host_id = IntegerField(verbose_name='主机id')
-    hostname = CharField(verbose_name='主机名', max_length=30)
+    hostname = CharField(verbose_name='主机名', max_length=30, null=True, blank=True)
+    in_ip = GenericIPAddressField(verbose_name='内网IP', blank=True, null=True)
+    out_ip = GenericIPAddressField(verbose_name='外网IP', blank=True, null=True)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
     dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)
     dept_name = CharField(verbose_name='部门名称', max_length=100, null=True, blank=True)
     name = CharField(verbose_name='服务名称', max_length=30)
     version = CharField(verbose_name='服务版本', max_length=20, blank=True, null=True)
-    listen_user = CharField(verbose_name='监听用户', max_length=20)
-    listen_port = CharField(verbose_name='监听端口', max_length=30)
-    ins_path = CharField(verbose_name='安装路径', max_length=100)
+    listen_user = CharField(verbose_name='监听用户', max_length=20, null=True, blank=True)
+    listen_port = CharField(verbose_name='监听端口', max_length=30, null=True, blank=True)
+    ins_path = CharField(verbose_name='安装路径', max_length=100, null=True, blank=True)
     log_path = CharField(verbose_name='日志路径', max_length=100, blank=True, null=True)
     backup_path = CharField(verbose_name='备份路径', max_length=100, blank=True, null=True)
-    start_cmd = CharField(verbose_name='启动命令', max_length=100)
+    start_cmd = CharField(verbose_name='启动命令', max_length=100, null=True, blank=True)
     comment= CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     user_id_create = BigIntegerField(verbose_name='创建用户id', null=True, blank=True)
     create_user = CharField(verbose_name='创建者', max_length=45, null=True, blank=True)
@@ -205,16 +213,16 @@ class hostServiceInfo(Model):
 # 数据库服务
 ######################################
 class databaseInfo(Model):
-    host = ForeignKey(hostInfo, verbose_name='主机', related_name='db_host', on_delete=CASCADE)
-    hostname = CharField(verbose_name='主机名', max_length=30)
+    host_id = IntegerField(verbose_name='主机id')
+    hostname = CharField(verbose_name='主机名', max_length=30, blank=True, null=True)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
     dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)
     dept_name = CharField(verbose_name='部门名称', max_length=100, null=True, blank=True)
     db_name = CharField(verbose_name='数据库名称', max_length=20, blank=True, null=True)
     db_version = CharField(verbose_name='数据库版本', max_length=20, blank=True, null=True)
-    db_admin_user = CharField(verbose_name='数据库管理员', max_length=20)
-    db_admin_pass = CharField(verbose_name='数据库管理员密码', max_length=50)
+    db_admin_user = CharField(verbose_name='数据库管理员', max_length=200)
+    db_admin_pass = CharField(verbose_name='数据库管理员密码', max_length=500)
     user_id_create = BigIntegerField(verbose_name='创建用户id', null=True, blank=True)
     create_user = CharField(verbose_name='创建者', max_length=45, null=True, blank=True)
     create_time = DateTimeField(verbose_name='添加时间', auto_now_add=True, null=True, blank=True)
@@ -235,7 +243,10 @@ class databaseInfo(Model):
 # 数据库
 ######################################
 class databaseDBInfo(Model):
-    db = ForeignKey(databaseInfo, verbose_name='数据库', related_name='db_db_db', on_delete=CASCADE)
+    host_id = IntegerField(verbose_name='主机id')
+    hostname = CharField(verbose_name='主机名', max_length=30, blank=True, null=True)
+    db_id = IntegerField(verbose_name='数据库服务id')
+    db_name = CharField(verbose_name='数据库服务名称', max_length=20, blank=True, null=True)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
     dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)

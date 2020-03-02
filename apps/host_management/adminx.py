@@ -11,7 +11,7 @@ from .models import *
 ######################################
 # 注册
 ######################################
-xadmin.site.register(operatingSystemInfo)
+xadmin.site.register(operatSystemInfo)
 xadmin.site.register(idcInfo)
 xadmin.site.register(rackInfo)
 xadmin.site.register(useInfo)

@@ -158,7 +158,7 @@ urlpatterns = [
     path('idc/add', idc_list, name='idc_host'),
 
     # 机房详情
-    path('idc/<int:idc_id>', idc_detail, name='idc_info'),
+    path('idc/info/<int:idc_id>', idc_detail, name='idc_info'),
 
     # 修改机房
     path('idc/edit/<int:idc_id>', idc_detail, name='idc_host'),
@@ -173,13 +173,13 @@ urlpatterns = [
     path('rack/add', rack_list, name='add_rack'),
 
     # 机柜详情
-    path('rack/<int:rack_id>', rack_detail, name='rack_info'),
+    path('rack/info/<int:rack_id>', rack_detail, name='rack_info'),
 
     # 修改机柜
-    path('rack/edit/<int:rack_id>', host_detail, name='edit_rack'),
+    path('rack/edit/<int:rack_id>', rack_detail, name='edit_rack'),
 
     # 删除机柜
-    path('rack/delete/<int:rack_id>', host_detail, name='del_rack'),
+    path('rack/delete/<int:rack_id>', rack_detail, name='del_rack'),
 
     # # webssh
     # path(r'webssh/<int:host_id>', WebSSHView, name='web_ssh'),
@@ -191,7 +191,7 @@ urlpatterns = [
     path('host/add', host_list, name='add_host'),
 
     # 主机详情
-    path('host/<int:host_id>', host_detail, name='host_info'),
+    path('host/info/<int:host_id>', host_detail, name='host_info'),
 
     # 修改主机
     path('host/edit/<int:host_id>', host_detail, name='edit_host'),
@@ -199,8 +199,14 @@ urlpatterns = [
     # 删除主机
     path('host/delete/<int:host_id>', host_detail, name='del_host'),
 
+    # 主机服务列表
+    path('service/list', host_service_list, name='list_host_service'),
+
     # 添加主机服务
     path('service/add', host_service_list, name='add_host_service'),
+
+    # 服务详情
+    path('service/info/<int:host_service_id>', host_service_detail, name='info_host_service'),
 
     # 修改主机服务
     path('service/edit/<int:host_service_id>', host_service_detail, name='edit_host_service'),

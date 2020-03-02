@@ -16,7 +16,7 @@ class systemFilter(django_filters.FilterSet):
     status=django_filters.CharFilter(method="status_filter")
 
     class Meta:
-        model = operatingSystemInfo
+        model = operatSystemInfo
         fields = ['version', 'bit', 'status']
 
     @staticmethod

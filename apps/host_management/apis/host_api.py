@@ -21,7 +21,7 @@ __all__ = ['osViewSet', 'projectViewSet', 'useViewSet','idcViewSet','rackViewSet
 
 class osViewSet(viewsets.ModelViewSet):
     serializer_class =systemSerializer
-    queryset = operatingSystemInfo.objects.all().order_by('id')
+    queryset = operatSystemInfo.objects.all().order_by('id')
     filter_class = systemFilter
     lookup_url_kwarg = 'system_id'
     code = response_fomat()
@@ -248,7 +248,7 @@ class rackViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['idc_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['rack_id']).unit_id:
             instance = self.get_object()
             rackSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -472,7 +472,7 @@ class databaseDBViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
     def create(self, request, *args, **kwargs):
-        try:
+        # try:
             if request.user.role<3 \
                     or (request.user.role==3 and request.user.unit_id == request.data['unit_id']) \
                     or (request.user.role>3 and request.user.dept_id == request.data['dept_id']):
@@ -482,8 +482,8 @@ class databaseDBViewSet(viewsets.ModelViewSet):
                 return Response(self.code.request_add_succeed())
             else:
                 return Response(self.code.no_permission())
-        except:
-            return Response(self.code.internal_server_error())
+        # except:
+        #     return Response(self.code.internal_server_error())
 
 
     def partial_update(self, request, *args, **kwargs):

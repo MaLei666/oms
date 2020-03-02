@@ -44,7 +44,7 @@ class HostListView(LoginStatusCheck, View):
             web_chose_middle = ''
 
             # 操作系统
-            systems = operatingSystemInfo.objects.filter(status=1)
+            systems = operatSystemInfo.objects.filter(status=1)
 
             # 项目
             projects = projectInfo.objects.filter(status=1)
@@ -191,7 +191,7 @@ class HostInfoView(LoginStatusCheck, View):
         web_chose_middle = ''
 
         # 操作系统
-        systems = operatingSystemInfo.objects.filter(status=1)
+        systems = operatSystemInfo.objects.filter(status=1)
 
         # 项目
         projects = projectInfo.objects.filter(status=1)
@@ -828,7 +828,7 @@ class OSListView(LoginStatusCheck, View):
             web_chose_middle = ''
 
             # 获取操作系统
-            systems = operatingSystemInfo.objects.filter(status=1).order_by('-update_time')
+            systems = operatSystemInfo.objects.filter(status=1).order_by('-update_time')
 
             # 关键字
             keyword = request.GET.get('keyword', '')
@@ -877,13 +877,13 @@ class AddOSView(LoginStatusCheck, View):
                 name = request.POST.get('name')
                 version = request.POST.get('version')
                 bit = int(request.POST.get('bit'))
-                check_os = operatingSystemInfo.objects.filter(name=name).filter(version=version).filter(bit=bit).filter(
+                check_os = operatSystemInfo.objects.filter(name=name).filter(version=version).filter(bit=bit).filter(
                     status=1)
                 if check_os:
                     return HttpResponse('{"status":"failed", "msg":"该记录已经存在，请检查！"}', content_type='application/json')
 
                 # 添加记录
-                os = operatingSystemInfo()
+                os = operatSystemInfo()
                 os.name = name
                 os.version = version
                 os.bit = bit
@@ -918,7 +918,7 @@ class EditOSView(LoginStatusCheck, View):
         if request.user.role <3:
             edit_os_form = EditOsForm(request.POST)
             if edit_os_form.is_valid():
-                os = operatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
+                os = operatSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
                 os.name = request.POST.get('name')
                 os.version = request.POST.get('version')
                 os.bit = int(request.POST.get('bit'))
@@ -949,7 +949,7 @@ class EditOSView(LoginStatusCheck, View):
 class DeleteOSView(LoginStatusCheck, View):
     def post(self, request):
         if request.user.role <3:
-            os = operatingSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
+            os = operatSystemInfo.objects.get(id=int(request.POST.get('sys_id')))
 
             # 添加操作记录
             op_record = UserOperationRecord()

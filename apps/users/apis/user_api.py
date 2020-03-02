@@ -200,8 +200,7 @@ class logout_view(APIView):
         login_info(2,
                    request.user,
                    request.META['HTTP_USER_AGENT'],
-                   request.META['REMOTE_ADDR'],
-                   request.user.address)
+                   request.META['REMOTE_ADDR'])
 
         logout(request)
 
@@ -227,14 +226,6 @@ class change_pw_view(APIView):
                 request.user.save()
                 # 添加操作记录
                 UserOperation(op_user=request.user,
-                              username=request.user.username,
-                              user_name = request.user.user_name,
-                              role = request.user.role,
-                              user_id=request.user.id,
-                              unit_id = request.user.unit_id,
-                              unit_name = request.user.unit_name,
-                              dept_id = request.user.dept_id,
-                              dept_name = request.user.dept_name,
                               belong=3,
                               status=1,
                               op_num=request.user.id,
