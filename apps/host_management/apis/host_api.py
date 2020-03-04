@@ -472,7 +472,7 @@ class databaseDBViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
     def create(self, request, *args, **kwargs):
-        # try:
+        try:
             if request.user.role<3 \
                     or (request.user.role==3 and request.user.unit_id == request.data['unit_id']) \
                     or (request.user.role>3 and request.user.dept_id == request.data['dept_id']):
@@ -482,8 +482,8 @@ class databaseDBViewSet(viewsets.ModelViewSet):
                 return Response(self.code.request_add_succeed())
             else:
                 return Response(self.code.no_permission())
-        # except:
-        #     return Response(self.code.internal_server_error())
+        except:
+            return Response(self.code.internal_server_error())
 
 
     def partial_update(self, request, *args, **kwargs):

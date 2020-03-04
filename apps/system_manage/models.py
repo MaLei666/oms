@@ -75,12 +75,13 @@ class domainNameInfo(Model):
 ######################################
 class domainNameResolveInfo(Model):
     name = CharField(verbose_name='二级域名', max_length=20)
-    domain_name = ForeignKey(domainNameInfo, verbose_name='域名', on_delete=CASCADE)
+    ip = GenericIPAddressField(verbose_name='IP地址')
+    domain_name_id = IntegerField(verbose_name='域名id',default=0)
+    domain_name=CharField(verbose_name='域名', max_length=100, null=True, blank=True)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
     dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)
     dept_name = CharField(verbose_name='部门名称', max_length=100, null=True, blank=True)
-    ip = GenericIPAddressField(verbose_name='IP地址')
     comment= CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     user_id_create = BigIntegerField(verbose_name='创建用户id', null=True, blank=True)
     create_user = CharField(verbose_name='创建者', max_length=45, null=True, blank=True)
@@ -102,7 +103,7 @@ class domainNameResolveInfo(Model):
 class dataDictInfo(Model):
     name =CharField(max_length=100,verbose_name='标签名',null=True,blank=True)
     value =CharField(max_length=100,verbose_name='数据值',null=True,blank=True)
-    type =CharField(max_length=100,verbose_name='',null=True,blank=True)
+    type =CharField(max_length=100,verbose_name='类型标志',null=True,blank=True)
     description =CharField(max_length=100,verbose_name='类型',null=True,blank=True)
     sort =DecimalField(max_digits=10,decimal_places=0,verbose_name='排序（升序)',null=True,blank=True)
     parent_id =BigIntegerField(null=True,blank=True,verbose_name='父级编号')

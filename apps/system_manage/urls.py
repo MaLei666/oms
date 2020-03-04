@@ -2,60 +2,116 @@
 Host management app
 """
 from django.urls import path
-from system_manage.views import *
-
+from system_manage.apis.system_api import *
 
 app_name = 'system_manage'
+
+
+port_list=portViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+port_detail = portViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+domain_list=domainViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+domain_detail = domainViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+domain_resv_list=domainResvViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+domain_resv_detail = domainResvViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
+
+dict_list=dataDictViewSet.as_view({
+            'get': 'list',
+            'post': 'create'
+            }
+        )
+dict_detail = dataDictViewSet.as_view({
+            'get':'retrieve',
+            'patch': 'partial_update',
+            'delete': 'destroy'
+        })
 
 urlpatterns = [
 
     # 端口映射列表
-    path('port/to/port/list', PortToPortListView.as_view(), name='port_port_list'),
+    path('port/list', port_list, name='port_list'),
 
     # 添加端口映射
-    path('port/to/port/add', AddPortToPortView.as_view(), name='port_port_add'),
+    path('port/add', port_list, name='port_add'),
+
+    # 端口映射详情
+    path('port/info/<int:port_id>', port_detail, name='port_info'),
 
     # 修改端口映射
-    path('port/to/port/edit', EditPortToPortView.as_view(), name='port_port_edit'),
+    path('port/edit/<int:port_id>', port_detail, name='port_edit'),
 
     # 删除端口映射
-    path('port/to/port/delete', DeletePortToPortView.as_view(), name='port_port_del'),
+    path('port/delete/<int:port_id>', port_detail, name='port_del'),
 
     # 域名列表
-    path('domainname/list', DomainNameListView.as_view(), name='domain_name_list'),
+    path('domain/list', domain_list, name='domain_list'),
 
     # 添加域名
-    path('domainname/add', AddDomainNameView.as_view(), name='domain_name_add'),
+    path('domain/add', domain_list, name='domain_add'),
+
+    # 域名详情
+    path('domain/info/<int:domain_id>', domain_detail, name='domain_info'),
 
     # 编辑域名
-    path('domainname/edit', EditDomainNameView.as_view(), name='domain_name_edit'),
+    path('domain/edit/<int:domain_id>', domain_detail, name='domain_edit'),
 
     # 删除域名
-    path('domainname/delete', DeleteDomainNameView.as_view(), name='domain_name_del'),
+    path('domain/delete/<int:domain_id>', domain_detail, name='domain_del'),
 
     # 域名解析列表
-    path('domainname/resolve/list', DomainNameResolveListView.as_view(), name='domain_resolve_list'),
+    path('domain/resolve/list', domain_resv_list, name='domain_resolve_list'),
 
     # 添加域名解析
-    path('domainname/resolve/add', AddDomainNameResolveView.as_view(), name='domain_resolve_add'),
+    path('domain/resolve/add', domain_resv_list, name='domain_resolve_add'),
+
+    # 域名解析详情
+    path('domain/resolve/info/<int:domain_resv_id>', domain_resv_detail, name='domain_resolve_info'),
 
     # 编辑域名解析
-    path('domainname/resolve/edit', EditDomainNameResolveView.as_view(), name='domain_resolve_edit'),
+    path('domain/resolve/edit/<int:domain_resv_id>', domain_resv_detail, name='domain_resolve_edit'),
 
     # 删除域名解析
-    path('domainname/resolve/delete', DeleteDomainNameResolveView.as_view(), name='domain_resolve_del'),
+    path('domain/resolve/delete/<int:domain_resv_id>', domain_resv_detail, name='domain_resolve_del'),
 
     #数据字典
-    path('dict/list', DictListView.as_view(), name='dict_list'),
+    path('dict/list', dict_list, name='dict_list'),
 
     #添加数据字典
-    path('dict/add', AddDictView.as_view(), name='add_dict'),
+    path('dict/add', dict_list, name='add_dict'),
+
+    # 数据字典详情
+    path('dict/info/<int:dict_id>', dict_detail, name='info_dict'),
 
     #修改数据字典
-    path('dict/edit', EditDictView.as_view(), name='edit_dict'),
+    path('dict/edit/<int:dict_id>', dict_detail, name='edit_dict'),
 
     #删除数据字典
-    path('dict/delete', DeleteDictView.as_view(), name='delete_dict'),
+    path('dict/delete/<int:dict_id>', dict_detail, name='delete_dict'),
 
 ]
 
