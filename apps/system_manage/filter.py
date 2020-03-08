@@ -13,15 +13,15 @@ class portFilter(django_filters.FilterSet):
     ip_in=django_filters.CharFilter(method="ip_in_filter")
     ip_out=django_filters.CharFilter(method="ip_out_filter")
     port_out=django_filters.CharFilter(method="port_out_filter")
-    unit_id=django_filters.CharFilter(method="unit_id_filter")
-    dept_id=django_filters.CharFilter(method="dept_id_filter")
+    unit_name=django_filters.CharFilter(method="unit_name_filter")
+    dept_name=django_filters.CharFilter(method="dept_name_filter")
     port_in=django_filters.CharFilter(method="port_in_filter")
     use=django_filters.CharFilter(method="use_filter")
     status=django_filters.CharFilter(method="status_filter")
 
     class Meta:
         model = portToPortInfo
-        fields = ['ip_in', 'ip_out','port_out','unit_id', 'dept_id', 'port_in','use','status']
+        fields = ['ip_in', 'ip_out','port_out','unit_name', 'dept_name', 'port_in','use','status']
 
     @staticmethod
     def ip_in_filter(queryset, value):
@@ -36,12 +36,12 @@ class portFilter(django_filters.FilterSet):
         return queryset.filter(port_out__icontains=value)
 
     @staticmethod
-    def unit_id_filter(queryset, value):
-        return queryset.filter(unit_id__icontains=value)
+    def unit_name_filter(queryset, value):
+        return queryset.filter(unit_name__icontains=value)
 
     @staticmethod
-    def dept_id_filter(queryset, value):
-        return queryset.filter(dept_id__icontains=value)
+    def dept_name_filter(queryset, value):
+        return queryset.filter(dept_name__icontains=value)
 
     @staticmethod
     def port_in_filter(queryset, value):
@@ -58,25 +58,25 @@ class portFilter(django_filters.FilterSet):
 
 class domainFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(method="name_filter")
-    unit_id=django_filters.CharFilter(method="unit_id_filter")
-    dept_id=django_filters.CharFilter(method="dept_id_filter")
+    unit_name=django_filters.CharFilter(method="unit_name_filter")
+    dept_name=django_filters.CharFilter(method="dept_name_filter")
     status=django_filters.CharFilter(method="status_filter")
 
     class Meta:
         model = domainNameInfo
-        fields = ['name','unit_id', 'dept_id','status']
+        fields = ['name','unit_name', 'dept_name','status']
 
     @staticmethod
     def name_filter(queryset, value):
         return queryset.filter(name__icontains=value)
 
     @staticmethod
-    def unit_id_filter(queryset, value):
-        return queryset.filter(unit_id__icontains=value)
+    def unit_name_filter(queryset, value):
+        return queryset.filter(unit_name__icontains=value)
 
     @staticmethod
-    def dept_id_filter(queryset, value):
-        return queryset.filter(dept_id__icontains=value)
+    def dept_name_filter(queryset, value):
+        return queryset.filter(dept_name__icontains=value)
 
     @staticmethod
     def status_filter(queryset, value):
@@ -85,14 +85,14 @@ class domainFilter(django_filters.FilterSet):
 class domainResolveFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(method="name_filter")
     domain_name=django_filters.CharFilter(method="domain_name_filter")
-    unit_id=django_filters.CharFilter(method="unit_id_filter")
-    dept_id=django_filters.CharFilter(method="dept_id_filter")
+    unit_name=django_filters.CharFilter(method="unit_name_filter")
+    dept_name=django_filters.CharFilter(method="dept_name_filter")
     ip=django_filters.CharFilter(method="ip_filter")
     status=django_filters.CharFilter(method="status_filter")
 
     class Meta:
         model = domainNameResolveInfo
-        fields = ['name', 'domain_name','unit_id', 'dept_id', 'ip','status']
+        fields = ['name', 'domain_name','unit_name', 'dept_name', 'ip','status']
 
     @staticmethod
     def name_filter(queryset, value):
@@ -103,12 +103,12 @@ class domainResolveFilter(django_filters.FilterSet):
         return queryset.filter(domain_name__icontains=value)
 
     @staticmethod
-    def unit_id_filter(queryset, value):
-        return queryset.filter(unit_id__icontains=value)
+    def unit_name_filter(queryset, value):
+        return queryset.filter(unit_name__icontains=value)
 
     @staticmethod
-    def dept_id_filter(queryset, value):
-        return queryset.filter(dept_id__icontains=value)
+    def dept_name_filter(queryset, value):
+        return queryset.filter(dept_name__icontains=value)
 
     @staticmethod
     def ip_filter(queryset, value):

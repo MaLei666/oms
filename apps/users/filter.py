@@ -12,8 +12,8 @@ __all__=['UserFilter','unitFilter','deptFilter']
 
 class UserFilter(django_filters.FilterSet):
     role=django_filters.CharFilter(method="role_filter")
-    unit_id=django_filters.CharFilter(method="unit_id_filter")
-    dept_id=django_filters.CharFilter(method="dept_id_filter")
+    unit_name=django_filters.CharFilter(method="unit_name_filter")
+    dept_name=django_filters.CharFilter(method="dept_name_filter")
     mobile = django_filters.CharFilter(method="mobile_filter")
     username = django_filters.CharFilter(method="username_filter")
     user_name=django_filters.CharFilter(method="user_name_filter")
@@ -29,11 +29,11 @@ class UserFilter(django_filters.FilterSet):
 
     @staticmethod
     def unit_id_filter(queryset, value):
-        return queryset.filter(unit_id__icontains=value)
+        return queryset.filter(unit_id=value)
 
     @staticmethod
     def dept_id_filter(queryset, value):
-        return queryset.filter(dept_id__icontains=value)
+        return queryset.filter(dept_id=value)
 
     @staticmethod
     def mobile_filter(queryset, value):
