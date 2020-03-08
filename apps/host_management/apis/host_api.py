@@ -513,3 +513,30 @@ class databaseDBViewSet(viewsets.ModelViewSet):
         except:
             return Response(self.code.internal_server_error())
 
+
+# ########################################################################################################################
+# ## wessh主机视图
+# ########################################################################################################################
+# class WebSSHView(LoginStatusCheck, View):
+#     def post(self, request, host_id):
+#         host = hostInfo.objects.get(id=int(host_id))
+#         ret = {}
+#         try:
+#             if host.out_ip:
+#                 ip = host.out_ip
+#             else:
+#                 ip = host.in_ip
+#
+#             port = host.ssh_port
+#
+#             username = host.admin_user
+#             password = host.admin_pass
+#
+#             ret = {"ip": ip, 'port': port, "username": username, 'password': password, "static": True}
+#         except Exception as e:
+#             ret['status'] = False
+#             ret['error'] = '请求错误,{}'.format(e)
+#         finally:
+#             return HttpResponse(json.dumps(ret))
+
+

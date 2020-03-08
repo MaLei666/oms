@@ -29,7 +29,8 @@ class portSerializer(serializers.ModelSerializer):
                       status = 1,
                       op_num = obj.id,
                       operation = 1,
-                      action = "新增端口映射 [ %s ]——[ %s ]" % (validated_data['port_out'],validated_data['port_in']))
+                      action = "新增 [ %s:%s ] 映射：[ %s:%s ]" % (validated_data['ip_out'],validated_data['port_out'],
+                                                              validated_data['ip_in'],validated_data['port_in']))
         return obj
 
     def update(self, instance, validated_data):
@@ -42,7 +43,8 @@ class portSerializer(serializers.ModelSerializer):
                       status=1,
                       op_num=obj.id,
                       operation=2,
-                      action="修改端口映射 [ %s ]——[ %s ]" % (instance.port_out,instance.port_in))
+                      action="修改[ %s:%s ] 映射：[ %s:%s ]" % (instance.ip_out,instance.port_out,
+                                                           instance.ip_in,instance.port_in))
         return obj
 
     def delete(self,request,instance):
@@ -51,7 +53,8 @@ class portSerializer(serializers.ModelSerializer):
                       status=1,
                       op_num=instance.id,
                       operation=4,
-                      action="删除端口映射 [ %s ]——[ %s ]" % (instance.port_out,instance.port_in))
+                      action="删除[ %s:%s ] 映射：[ %s:%s ]" % (instance.ip_out,instance.port_out,
+                                                           instance.ip_in,instance.port_in))
         return instance
 
 
