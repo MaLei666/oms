@@ -17,9 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
         model=userProfile
         fields = ['id', 'last_login', 'username', 'email','role','user_name','unit_id','unit_name','dept_id',
                   'dept_name','position','mobile','gender','create_time','update_time','comment','status']
-        read_only_fields = (
-            'id',
-        )
+
 
     def create(self, validated_data):
         validated_data['password']=make_password(self.context['request'].data['password'])
@@ -63,7 +61,6 @@ class unitSerializer(serializers.ModelSerializer):
     class Meta:
         model=UserCompany
         fields = ['id', 'name','connect','connect_phone','address','create_user','create_time','comment','status']
-        read_only_fields = ('id',)
 
     def create(self, validated_data):
         validated_data['create_user']=self.context['request'].user.username
@@ -105,7 +102,6 @@ class deptSerializer(serializers.ModelSerializer):
     class Meta:
         model=UserDepartment
         fields = ['id', 'name','unit_id','unit_name','connect','connect_phone','create_user','create_time','comment','status']
-        read_only_fields = ('id',)
 
     def create(self, validated_data):
         validated_data['unit_id']=self.context['request'].data['unit_id']
@@ -150,4 +146,19 @@ class loginSerializer(serializers.ModelSerializer):
         model=UserLoginInfo
         fields=['id','action','user','username','user_name','role','unit_id','unit_name','dept_id',
                 'dept_name','agent','ip','address','add_time']
+
+        def create(self, validated_data):
+            validated_data['unit_id'] = self.user.unit_id
+            validated_data['unit_name'] = UserCompany.objects.get(id=validated_data['unit_id']).name
+            validated_data['create_user'] = self.context['request'].user.username
+            validated_data['user_id_create'] = self.context['request'].user.id
+            obj = super(loginSerializer, self).create(validated_data=validated_data)
+
+            # 添加操作记录
+            UserOperation(op_user=self.context['request'].user,
+                          belong=2,
+                          status=1,
+                          op_num=obj.id,
+                          operation=1,
+                          action="[%s]单位新增部门 [ %s ]" % (validated_data['unit_name'], validated_data['name']))
 

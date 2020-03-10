@@ -38,7 +38,7 @@ class Document(Model):
     status = IntegerField(verbose_name='状态', choices=STATUS_CHOICE,default=1)
 
     class Meta:
-        verbose_name = '文档表'
+        verbose_name = '文档'
         verbose_name_plural = verbose_name
 
     def __str__(self):

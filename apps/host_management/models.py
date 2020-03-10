@@ -105,6 +105,13 @@ class idcInfo(Model):
     comment= CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     status = PositiveSmallIntegerField(verbose_name='状态', choices=(STATUS_CHOICES), default=1)
 
+    class Meta:
+        verbose_name = '机房'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
 ######################################
 # 机柜表
 ######################################
@@ -127,6 +134,12 @@ class rackInfo(Model):
     comment= CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     status = PositiveSmallIntegerField(verbose_name='状态', choices=(STATUS_CHOICES), default=1)
 
+    class Meta:
+        verbose_name = '机柜'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
 
 ######################################
 # 主机信息表
@@ -215,6 +228,8 @@ class hostServiceInfo(Model):
 class databaseInfo(Model):
     host_id = IntegerField(verbose_name='主机id')
     hostname = CharField(verbose_name='主机名', max_length=30, blank=True, null=True)
+    in_ip = GenericIPAddressField(verbose_name='内网IP')
+    out_ip = GenericIPAddressField(verbose_name='外网IP', blank=True, null=True)
     unit_id = IntegerField(verbose_name='单位ID', null=True, blank=True)
     unit_name = CharField(verbose_name='单位名称', max_length=100, null=True, blank=True)
     dept_id = IntegerField(verbose_name='部门ID', null=True, blank=True)
@@ -236,7 +251,7 @@ class databaseInfo(Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.host.in_ip
+        return self.in_ip
 
 
 ######################################
@@ -266,4 +281,4 @@ class databaseDBInfo(Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return ("%s - %s") % (self.db.db_name, self.name)
+        return ("%s - %s") % (self.db_name, self.name)

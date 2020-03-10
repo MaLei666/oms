@@ -12,7 +12,7 @@ from users.models import UserLoginInfo
 def UserOperation(op_user,belong,status,op_num,operation,action):
     try:
         op_record = UserOperationRecord()
-        op_record.op_user = op_user
+        op_record.op_user = op_user.id
         op_record.username = op_user.username
         op_record.user_name = op_user.user_name
         op_record.role = op_user.role
@@ -34,7 +34,7 @@ def UserOperation(op_user,belong,status,op_num,operation,action):
 def login_info(action,user,agent,ip):
     login_record = UserLoginInfo()
     login_record.action = action
-    login_record.user = user
+    login_record.user = user.id
     login_record.username=user.username
     login_record.user_name=user.user_name
     login_record.role=user.role

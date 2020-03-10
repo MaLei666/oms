@@ -1,12 +1,10 @@
 ######################################
 # Django 模块
 ######################################
-# from django.contrib import admin
 import xadmin
-# from django.contrib.auth.admin import UserAdmin
-from django.contrib.admin.models import LogEntry
-from xadmin.layout import Row,Fieldset
+from xadmin.layout import Fieldset
 from xadmin import views
+
 ######################################
 # 自己写的模块
 ######################################
@@ -19,7 +17,7 @@ class BaseSetting(object):
 
 class GlobalSetting(object):
     site_title = u"运维管理平台"
-    site_footer = u"power by bc"
+    site_footer = u"power by malei"
     menu_style = "accordion"
 
     # def get_site_menu(self):
@@ -37,19 +35,63 @@ class GlobalSetting(object):
     #
     #             )
     #         },
-            # {
-            #     'title': 'Bug统计',
-            #     'icon': 'fa fa-bug',
-            #     'menus':(
-            #         {
-            #             'title': 'Bug表',
-            #             'icon': 'fa fa-bug',
-            #             'url': "https://www.cnblogs.com/yoyoketang/"  # 自定义跳转列表
-            #
-            #         },)
-            # }
+    #
+    #     ]
 
-        # ]
+class unitSetting(object):
+    # fieldsets=()
+    form_layout = (
+        Fieldset('单位信息',
+                'name',
+                'connect',
+                'connect_phone',
+                'address',
+                'comment',
+                'status',
+            )
+    )
+    list_display = ['id','name','connect', 'connect_phone','address','comment','status']
+    list_filter = ['name', 'status']
+    search_fields = ['name','connect','connect_phone', 'address']
+    ordering = ['id']
+
+
+class deptSetting(object):
+    # fieldsets=()
+    form_layout = (
+        Fieldset('部门信息',
+                 'unit_name',
+                 'name',
+                 'connect',
+                 'connect_phone',
+                 'comment',
+                 'status',
+            )
+    )
+    list_display = ['id','unit_name','name','connect', 'connect_phone','comment','status']
+    list_filter = ['name', 'unit_name','status']
+    search_fields = ['name','connect','connect_phone','unit_name']
+    ordering = ['id','unit_id']
+
+class loginSetting(object):
+    # fieldsets=()
+    form_layout = (
+        Fieldset('登录信息',
+                 'unit_name',
+                 'dept_name',
+                 'username',
+                 'user_name',
+                 'action',
+                 'agent',
+                 'ip',
+                 'address',
+                 'add_time',
+            )
+    )
+    list_display = ['id','unit_name','dept_name','username', 'user_name','action','agent','ip','address','add_time']
+    list_filter = ['action']
+    search_fields = ['unit_name','dept_name','user_name']
+    ordering = ['-add_time']
 
 
 class UserSetting(object):
@@ -59,9 +101,13 @@ class UserSetting(object):
                 'role',
                 'username',
                 'user_name',
+                'unit_name',
+                'dept_name',
                 'mobile',
                 'email',
                 'gender',
+                'position',
+                'address',
                 'comment',
             ),
         Fieldset('用户状态',
@@ -76,56 +122,25 @@ class UserSetting(object):
         Fieldset('用户密码',
                 'password',
         ),
-        Fieldset(None,
-                 )
+        # Fieldset(None,
+        #         #          )
     )
-    # fieldsets = (
-    #     ('用户信息', {
-    #         'fields': (
-    #             'role',
-    #             'username',
-    #             'user_name',
-    #             'mobile',
-    #             'email',
-    #             'gender',
-    #             'comment',
-    #         )
-    #     }),
-    #     ('用户状态', {
-    #         'fields': (
-    #             'status',
-    #             'is_staff',
-    #             'is_active',
-    #
-    #         )
-    #     }),
-    #     ('用户权限', {
-    #         'fields': (
-    #             'groups',
-    #             'user_permissions'
-    #         )
-    #     }),
-    #     ('用户密码', {
-    #         'fields': (
-    #             'password',
-    #         )
-    #     }),
-    # )
-    list_display = ('id','username','user_name', 'role','gender','unit_id','unit_name','dept_id','dept_name','mobile','email', 'status', 'create_time')
-    list_filter = ('is_staff', 'gender', 'is_active', 'groups')
-    search_fields = ('username','user_name','unit_name', 'dept_name', 'mobile')
-    ordering = ('role',)
+    list_display = ['id','username','user_name', 'role','gender','unit_name','dept_name','position','mobile','email',
+                    'status', 'create_time']
+    list_filter = ['unit_name','dept_name','gender', 'status']
+    search_fields = ['username','user_name','unit_name', 'dept_name', 'mobile','position']
+    ordering = ['role','id']
 
 
 
 ######################################
 # 注册
 ######################################
-xadmin.site.register(UserCompany)
-xadmin.site.register(UserDepartment)
 xadmin.site.unregister(userProfile)
 xadmin.site.register(userProfile,UserSetting)
-xadmin.site.register(UserLoginInfo)
+xadmin.site.register(UserLoginInfo,loginSetting)
+xadmin.site.register(UserCompany,unitSetting)
+xadmin.site.register(UserDepartment,deptSetting)
 xadmin.site.register(views.CommAdminView,GlobalSetting)
 xadmin.site.register(views.BaseAdminView,BaseSetting)
 # xadmin.site.register(LogEntry)

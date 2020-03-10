@@ -3,7 +3,7 @@
 ######################################
 from django.db.models import Model,CharField,DateTimeField,IntegerField,ForeignKey,\
     PositiveSmallIntegerField,GenericIPAddressField,EmailField,BigIntegerField,CASCADE
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,AbstractUser
 
 __all__=['userProfile','UserDepartment','UserCompany','UserLoginInfo','UserLoginInfo']
 
@@ -43,7 +43,7 @@ class UserCompany(Model):
 ######################################
 class UserDepartment(Model):
     name = CharField(verbose_name='部门名称', max_length=20)
-    unit = ForeignKey(UserCompany, verbose_name='所属单位ID', on_delete=CASCADE)
+    unit_id = IntegerField(verbose_name='所属单位ID', blank=True, null=True)
     unit_name=CharField(verbose_name='所属单位',max_length=30, blank=True, null=True)
     connect = CharField(verbose_name='联系人', max_length=30, blank=True, null=True)
     connect_phone = CharField(verbose_name='联系电话', max_length=30, blank=True, null=True)
@@ -59,52 +59,16 @@ class UserDepartment(Model):
     class Meta:
         verbose_name = '部门'
         verbose_name_plural = verbose_name
-        unique_together=('unit','name')
+        unique_together=('unit_id','name')
 
     def __str__(self):
         return self.name
 
-# ######################################
-# # 职位表
-# ######################################
-# class UserPosition(Model):
-#     name = CharField(verbose_name='职位', max_length=20)
-#     desc = CharField(verbose_name='描述', max_length=200, blank=True, null=True)
-#     add_time = DateTimeField(verbose_name='添加时间', auto_now_add=True)
-#
-#     class Meta:
-#         verbose_name = '职位'
-#         verbose_name_plural = verbose_name
-#
-#     def __str__(self):
-#         return "%s - %s - %s" % (self.department.company.name, self.department.name, self.name)
-
-class MyBaseUserManager(BaseUserManager):
-    def create_user(self,username, email, password=None):
-        user = self.model(
-            username=username,
-            email=self.normalize_email(email),
-        )
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(self,username, email, password=None):
-        user = self.create_user(
-            username,
-            email,
-            password=password,
-        )
-        user.role = 0
-        user.save(using=self._db)
-        return user
-
-
 ######################################
 # 用户扩展表
 ######################################
-class userProfile(AbstractBaseUser):
-    objects=MyBaseUserManager()
+class userProfile(AbstractUser):
+    # objects=MyBaseUserManager()
     role = PositiveSmallIntegerField(verbose_name='角色', choices=ROLE_CHOICES,null=True,blank=True)
     username=CharField(verbose_name='登录账号',max_length=100,unique=True)
     user_name = CharField(verbose_name='用户姓名', max_length=100)
@@ -114,7 +78,7 @@ class userProfile(AbstractBaseUser):
     dept_name=CharField(verbose_name='部门名称',max_length=100, null=True, blank=True)
     mobile = CharField(verbose_name='手机号', max_length=20, null=True, blank=True)
     address=CharField(verbose_name='居住地',max_length=200,null=True,blank=True)
-    email=EmailField(verbose_name='电子邮件',null=True,blank=True)
+    # email=EmailField(verbose_name='电子邮件',null=True,blank=True)
     gender = IntegerField(verbose_name='性别', choices=GENDER_CHOICES, default='1',null=True, blank=True)
     position = CharField(verbose_name='职位',max_length=100,null=True,blank=True)
     user_id_create=BigIntegerField(verbose_name='创建用户id',null=True,blank=True)
@@ -125,8 +89,8 @@ class userProfile(AbstractBaseUser):
     comment = CharField(verbose_name='备注', max_length=200, blank=True, null=True)
     status = PositiveSmallIntegerField(verbose_name='状态', choices=STATUS_CHOICES, default=1)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS=['email']
+    # USERNAME_FIELD = 'username'
+    # REQUIRED_FIELDS=['email']
 
     class Meta:
         verbose_name = '用户'
@@ -140,7 +104,7 @@ class userProfile(AbstractBaseUser):
 ######################################
 class UserLoginInfo(Model):
     action = PositiveSmallIntegerField(verbose_name='动作', choices=ACTION_CHOICES, default=1)
-    user = ForeignKey(userProfile, verbose_name='用户', on_delete=CASCADE)
+    user = IntegerField(verbose_name='用户id', default=1000)
     username=CharField(verbose_name='用户名',max_length=200)
     user_name = CharField(verbose_name='用户姓名', max_length=100, null=True, blank=True)
     role=IntegerField(verbose_name='用户角色',default=10)
@@ -154,9 +118,9 @@ class UserLoginInfo(Model):
     add_time = DateTimeField(verbose_name='添加时间', auto_now_add=True, blank=True, null=True)
 
     class Meta:
-        verbose_name = '用户登录信息'
+        verbose_name = '登录信息'
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user.username
+        return self.username
 
