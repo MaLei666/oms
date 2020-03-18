@@ -39,7 +39,7 @@ class CompanyPlatformListView(LoginStatusCheck, View):
 
         title = '内部平台'
 
-        platforms = PlatformInfo.objects.filter(belong=1)
+        platforms = platformInfo.objects.filter(belong=1)
 
         platform_nums = platforms.count()
 
@@ -74,7 +74,7 @@ class AddCompanyPlatformView(LoginStatusCheck, View):
             name = request.POST.get("name", "")
             url = request.POST.get("url", "")
             if (name != "") and (url != ""):
-                plat_obj = PlatformInfo()
+                plat_obj = platformInfo()
                 plat_obj.name = name
                 plat_obj.url = url
                 plat_obj.belong = 1
@@ -96,7 +96,7 @@ class EditPlatInfoView(LoginStatusCheck, View):
             if edit_host_info_form.is_valid():
 
                 # 获取主机
-                plat = PlatformInfo.objects.get(id=int(request.POST.get('plat_id')))
+                plat = platformInfo.objects.get(id=int(request.POST.get('plat_id')))
                 plat.name = request.POST.get('name')
                 plat.url = request.POST.get('url')
                 plat.save()
@@ -125,7 +125,7 @@ class DeletePlatformView(LoginStatusCheck, View):
     def post(self, request):
         try:
             plat_id = request.POST.get('plat_id')
-            plat = PlatformInfo.objects.get(id=int(plat_id))
+            plat = platformInfo.objects.get(id=int(plat_id))
 
             # 添加操作记录
             op_record = UserOperationRecord()
@@ -149,14 +149,14 @@ class EditPlatformUserView(LoginStatusCheck, View):
         try:
             pu_id = request.POST.get('pu_id', '')
             if pu_id != '':
-                pu = PlatformUserInfo.objects.get(id=int(pu_id))
+                pu = platformUserInfo.objects.get(id=int(pu_id))
                 pu.username = request.POST.get('username', '')
                 pu.password = request.POST.get('password', '')
                 pu.update_user = request.user
                 pu.save()
             else:
                 platform_id = int(request.POST.get('platform_id'))
-                pu = PlatformUserInfo()
+                pu = platformUserInfo()
                 pu.platform_id = platform_id
                 pu.username = request.POST.get('username', '')
                 pu.password = request.POST.get('password', '')
@@ -181,7 +181,7 @@ class OtherPlatformListView(LoginStatusCheck, View):
 
         title = '其它平台'
 
-        platforms = PlatformInfo.objects.filter(belong=2)
+        platforms = platformInfo.objects.filter(belong=2)
 
         platform_nums = platforms.count()
 
@@ -219,7 +219,7 @@ class AddOtherPlatformView(LoginStatusCheck, View):
 
 
             if (name != "") and (url != ""):
-                plat_obj = PlatformInfo()
+                plat_obj = platformInfo()
                 plat_obj.name = name
                 plat_obj.url = url
                 plat_obj.belong = 2

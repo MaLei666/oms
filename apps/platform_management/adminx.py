@@ -2,5 +2,5 @@
 from .models import *
 import xadmin
 # Register your models here.
-xadmin.site.register(PlatformInfo)
-xadmin.site.register(PlatformUserInfo)
+xadmin.site.register(platformInfo)
+xadmin.site.register(platformUserInfo)

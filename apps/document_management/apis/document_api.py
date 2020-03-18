@@ -27,9 +27,13 @@ class docViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         if user.is_authenticated:
-            return self.queryset
-        else:
-            return self.code.authenticat_failed()
+            if user.role < 3:
+                return self.queryset.all.order_by('id')
+            elif user.role == 3:
+                return self.queryset.filter(unit_id=user.unit_id)
+            else:
+                return self.queryset.filter(dept_id=user.dept_id, unit_id=user.unit_id)
+        return Response(self.code.authenticat_failed())
 
     def create(self, request, *args, **kwargs):
         try:
