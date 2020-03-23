@@ -36,7 +36,6 @@ use_list=useViewSet.as_view({
             }
         )
 use_detail = useViewSet.as_view({
-            'get':'retrieve',
             'patch': 'partial_update',
             'delete': 'destroy'
         })
@@ -243,18 +242,6 @@ urlpatterns = [
 
     # 删除数据库库表
     path('database/db/delete/<int:db_db_id>', databaseDB_detail, name='del_db_db'),
-
-    # # 添加数据库用户
-    # path('database/user/add', AddDatabaseUserView, name='add_db_user'),
-    #
-    # # 修改数据库用户
-    # path('database/user/edit', EditDatabaseUserView, name='edit_db_user'),
-    #
-    # # 删除数据库用户
-    # path('database/user/delete', DeleteDatabaseUserView, name='del_db_user'),
-    #
-    # # 操作记录
-    # path('operation/record', HostOperationView, name='host_op_record'),
 
 
 

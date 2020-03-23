@@ -12,17 +12,13 @@ from ..models import *
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import logout,authenticate
 from utils.commen_method import login_info,UserOperation
-from utils.login_check import LoginStatusCheck
-from django.views import View
-from users.forms import ChangeUserPasswordForm
 from operation_record.serializers import operaSerializer,UserOperationRecord
 ######################################
 # 第三方模块
 ######################################
-from rest_framework import status, generics, viewsets, renderers, permissions
+from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework_jwt.views import APIView
-from rest_framework.exceptions import PermissionDenied
 
 __all__ = ['UserViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfo_view',
            'operation_record_view']
@@ -211,8 +207,7 @@ class logout_view(APIView):
 ######################################
 class change_pw_view(APIView):
     def post(self, request):
-        change_user_password_form = ChangeUserPasswordForm(request.data)
-        if change_user_password_form.is_valid():
+        try:
             cur_password = request.data.get('cur_password')
             new_password = request.data.get('new_password')
             renew_password = request.data.get('renew_password')
@@ -232,12 +227,9 @@ class change_pw_view(APIView):
                               operation=2,
                               action="用户 [ %s ] 修改了密码" % request.user.user_name)
 
-
-
-
                 return Response(response_fomat().request_edit_succeed())
-        else:
-            return Response(response_fomat().data_illegal())
+        except:
+            return Response(response_fomat().internal_server_error())
 
 ######################################
 # 用户登录信息查询

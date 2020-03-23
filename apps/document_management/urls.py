@@ -32,8 +32,5 @@ urlpatterns = [
     path('edit/<int:doc_id>', doc_detail, name='doc_edit'),
 
     # 删除文档
-    path('delete/<int:doc_id>', doc_detail, name='doc_del'),
-
-    # 脚本下载
-    # path('script/download/<int:doc_id>', DocumentDownloadView, name='doc_script_download'),
+    path('delete/<int:doc_id>', doc_detail, name='doc_del')
 ]

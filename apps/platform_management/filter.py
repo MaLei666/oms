@@ -43,6 +43,8 @@ class platFilter(django_filters.FilterSet):
 
 class platUserFilter(django_filters.FilterSet):
     platform = django_filters.CharFilter(method="platform_filter")
+    unit_name = django_filters.CharFilter(method="unit_name_filter")
+    dept_name = django_filters.CharFilter(method="dept_name_filter")
     username=django_filters.CharFilter(method="username_filter")
     status=django_filters.CharFilter(method="status_filter")
 
@@ -57,6 +59,14 @@ class platUserFilter(django_filters.FilterSet):
     @staticmethod
     def username_filter(queryset, value):
         return queryset.filter(username__icontains=value)
+
+    @staticmethod
+    def unit_name_filter(queryset, value):
+        return queryset.filter(unit_name__icontains=value)
+
+    @staticmethod
+    def dept_name_filter(queryset, value):
+        return queryset.filter(dept_name__icontains=value)
 
     @staticmethod
     def status_filter(queryset, value):

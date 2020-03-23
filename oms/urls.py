@@ -1,12 +1,9 @@
-from django.contrib import admin
 from django.urls import path, include,re_path
 from django.conf.urls import url
 from oms.settings import MEDIA_ROOT
 from django.views.static import serve
-from document_management.views import upload_image
 from django.conf import settings
 import xadmin
-import rest_framework
 
 
 # 错误页面
@@ -36,17 +33,9 @@ urlpatterns = [
     # platform management
     path('platform/', include('platform_management.urls')),
 
-    # message
-    # path('message/', include('message.urls')),
-
     # document management
     path('document/', include('document_management.urls')),
 
-    # CKeditor上传图片
-    path('uploadimg/', upload_image),
-
-    # online
-    # path('online/', include('online_management.urls')),
 
 
 ]

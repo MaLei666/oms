@@ -2,7 +2,6 @@
 User app
 """
 from django.urls import path,include
-from .views import *
 from users.apis.user_api import *
 from rest_framework_jwt.views import obtain_jwt_token
 
@@ -101,8 +100,6 @@ urlpatterns = [
     #
     # # 修改用户邮箱
     # path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
-
-
 
     # 用户登录日志
     path('user/login/record', logininfo_view.as_view(), name='login_record'),

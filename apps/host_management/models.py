@@ -1,8 +1,8 @@
 #####################################
 # Django 模块
 ######################################
-from django.db.models import Model,CharField,PositiveIntegerField,DateTimeField,IntegerField,ForeignKey,BooleanField,\
-    PositiveSmallIntegerField,GenericIPAddressField,DecimalField,BigIntegerField,CASCADE,ManyToManyField,FloatField
+from django.db.models import Model,CharField,DateTimeField,IntegerField,BooleanField,\
+    PositiveSmallIntegerField,GenericIPAddressField,BigIntegerField
 
 ######################################
 # 自定义模块
