@@ -43,8 +43,6 @@ dept_detail = deptViewSet.as_view({
         })
 
 urlpatterns = [
-    # 首页
-    path('', IndexView.as_view(), name='index'),
 
     # 登录
     path('login/', obtain_jwt_token, name='login'),
