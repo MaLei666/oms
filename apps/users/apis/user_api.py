@@ -19,16 +19,17 @@ from operation_record.serializers import operaSerializer,UserOperationRecord
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework_jwt.views import APIView
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
 
-__all__ = ['UserViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfo_view',
-           'operation_record_view']
+__all__ = ['UserViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfoView',
+           'operationView']
 
 
-class unitViewSet(viewsets.ModelViewSet):
+class unitViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = unitSerializer
     queryset = UserCompany.objects.all().order_by('id')
     filter_class = unitFilter
-    lookup_url_kwarg = 'unit_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -52,7 +53,7 @@ class unitViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                (request.user.unit_id == kwargs['unit_id'] and request.user.role == 3):
+                (request.user.unit_id == kwargs['pk'] and request.user.role == 3):
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -69,11 +70,11 @@ class unitViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class deptViewSet(viewsets.ModelViewSet):
+class deptViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = deptSerializer
     queryset = UserDepartment.objects.all().order_by('id')
     filter_class = deptFilter
-    lookup_url_kwarg = 'dept_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -103,11 +104,11 @@ class deptViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.dept_id == self.kwargs['dept_id'] or \
+                request.user.dept_id == self.kwargs['pk'] or \
                 (request.user.role == 3 and request.user.unit_id == self.queryset.get(
-                    id=self.kwargs['dept_id']).unit_id):
+                    id=self.kwargs['pk']).unit_id):
             try:
-                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['dept_id']).unit_id,
+                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['pk']).unit_id,
                                   name=request.data['name'])
                 return Response(self.code.duplicate_data())
             except:
@@ -120,7 +121,7 @@ class deptViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
                 (request.user.unit_id == self.queryset.get(
-                    id=self.kwargs['dept_id']).unit_id and request.user.role == 3):
+                    id=self.kwargs['pk']).unit_id and request.user.role == 3):
             instance = self.get_object()
             deptSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -129,11 +130,11 @@ class deptViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = userProfile.objects.all().order_by('id')
     filter_class = UserFilter
-    lookup_url_kwarg = 'user_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -165,7 +166,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         instance = self.get_object()
-        if request.user.id == kwargs['user_id'] or \
+        if request.user.id == kwargs['pk'] or \
                 (request.user.role < 3 and request.user.role < instance.role) or \
                 (request.user.unit_id == instance.unit_id and request.user.role < instance.role) or \
                 (request.user.dept_id == instance.dept_id and request.user.role < instance.role):
@@ -234,23 +235,23 @@ class change_pw_view(APIView):
 ######################################
 # 用户登录信息查询
 ######################################
-class logininfo_view(APIView):
-    queryset=UserLoginInfo.objects.all().order_by('id')
+class logininfoView(CacheResponseMixin,viewsets.ModelViewSet):
+    serializer_class = loginSerializer
+    queryset = UserLoginInfo.objects.all().order_by('id')
+    code = response_fomat()
 
-    def get(self,request):
+    def get_queryset(self):
         try:
-            user = request.user
+            user = self.request.user
             if user.is_authenticated:
                 if user.role<3:
-                    info=self.queryset.filter(role__gte=user.role)
+                     return self.queryset.filter(role__gte=user.role)
                 elif user.role==3:
-                    info= self.queryset.filter(unit_id=user.unit_id, role__gte=user.role)
+                    return self.queryset.filter(unit_id=user.unit_id, role__gte=user.role)
                 elif user.role==4:
-                    info= self.queryset.filter(dept_id=user.dept_id, role__gte=user.role)
+                    return self.queryset.filter(dept_id=user.dept_id, role__gte=user.role)
                 else:
-                    info= self.queryset.filter(user_id=user.id).order_by('id')
-                serializer = loginSerializer(info, many=True)
-                return Response(serializer.data)
+                    return self.queryset.filter(user=user.id).order_by('id')
             else:
                 return Response(response_fomat().authenticat_failed())
         except:
@@ -259,23 +260,22 @@ class logininfo_view(APIView):
 ######################################
 # 用户操作查询
 ######################################
-class operation_record_view(APIView):
+class operationView(CacheResponseMixin,viewsets.ModelViewSet):
+    serializer_class = operaSerializer
     queryset=UserOperationRecord.objects.all().order_by('id')
 
-    def get(self,request):
+    def get_queryset(self):
         try:
-            user = request.user
+            user = self.request.user
             if user.is_authenticated:
                 if user.role<3:
-                    info=self.queryset.filter(role__gte=user.role)
+                    return self.queryset.filter(role__gte=user.role)
                 elif user.role==3:
-                    info= self.queryset.filter(unit_id=user.unit_id, role__gte=user.role)
+                    return self.queryset.filter(unit_id=user.unit_id, role__gte=user.role)
                 elif user.role==4:
-                    info= self.queryset.filter(dept_id=user.dept_id, role__gte=user.role)
+                    return self.queryset.filter(dept_id=user.dept_id, role__gte=user.role)
                 else:
-                    info= self.queryset.filter(user_id=user.id).order_by('id')
-                serializer = operaSerializer(info, many=True)
-                return Response(serializer.data)
+                    return self.queryset.filter(user_id=user.id).order_by('id')
             else:
                 return Response(response_fomat().authenticat_failed())
         except:

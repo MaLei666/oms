@@ -60,13 +60,13 @@ urlpatterns = [
     path('port/add', port_list, name='port_add'),
 
     # 端口映射详情
-    path('port/info/<int:port_id>', port_detail, name='port_info'),
+    path('port/info/<int:pk>', port_detail, name='port_info'),
 
     # 修改端口映射
-    path('port/edit/<int:port_id>', port_detail, name='port_edit'),
+    path('port/edit/<int:pk>', port_detail, name='port_edit'),
 
     # 删除端口映射
-    path('port/delete/<int:port_id>', port_detail, name='port_del'),
+    path('port/delete/<int:pk>', port_detail, name='port_del'),
 
     # 域名列表
     path('domain/list', domain_list, name='domain_list'),
@@ -75,13 +75,13 @@ urlpatterns = [
     path('domain/add', domain_list, name='domain_add'),
 
     # 域名详情
-    path('domain/info/<int:domain_id>', domain_detail, name='domain_info'),
+    path('domain/info/<int:pk>', domain_detail, name='domain_info'),
 
     # 编辑域名
-    path('domain/edit/<int:domain_id>', domain_detail, name='domain_edit'),
+    path('domain/edit/<int:pk>', domain_detail, name='domain_edit'),
 
     # 删除域名
-    path('domain/delete/<int:domain_id>', domain_detail, name='domain_del'),
+    path('domain/delete/<int:pk>', domain_detail, name='domain_del'),
 
     # 域名解析列表
     path('domain/resolve/list', domain_resv_list, name='domain_resolve_list'),
@@ -90,13 +90,13 @@ urlpatterns = [
     path('domain/resolve/add', domain_resv_list, name='domain_resolve_add'),
 
     # 域名解析详情
-    path('domain/resolve/info/<int:domain_resv_id>', domain_resv_detail, name='domain_resolve_info'),
+    path('domain/resolve/info/<int:pk>', domain_resv_detail, name='domain_resolve_info'),
 
     # 编辑域名解析
-    path('domain/resolve/edit/<int:domain_resv_id>', domain_resv_detail, name='domain_resolve_edit'),
+    path('domain/resolve/edit/<int:pk>', domain_resv_detail, name='domain_resolve_edit'),
 
     # 删除域名解析
-    path('domain/resolve/delete/<int:domain_resv_id>', domain_resv_detail, name='domain_resolve_del'),
+    path('domain/resolve/delete/<int:pk>', domain_resv_detail, name='domain_resolve_del'),
 
     #数据字典
     path('dict/list', dict_list, name='dict_list'),
@@ -105,13 +105,13 @@ urlpatterns = [
     path('dict/add', dict_list, name='add_dict'),
 
     # 数据字典详情
-    path('dict/info/<int:dict_id>', dict_detail, name='info_dict'),
+    path('dict/info/<int:pk>', dict_detail, name='info_dict'),
 
     #修改数据字典
-    path('dict/edit/<int:dict_id>', dict_detail, name='edit_dict'),
+    path('dict/edit/<int:pk>', dict_detail, name='edit_dict'),
 
     #删除数据字典
-    path('dict/delete/<int:dict_id>', dict_detail, name='delete_dict'),
+    path('dict/delete/<int:pk>', dict_detail, name='delete_dict'),
 
 ]
 

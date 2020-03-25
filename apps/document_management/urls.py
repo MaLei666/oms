@@ -26,11 +26,11 @@ urlpatterns = [
     path('add', doc_list, name='doc_add'),
 
     # 文档详情
-    path('info/<int:doc_id>', doc_detail, name='doc_detail'),
+    path('info/<int:pk>', doc_detail, name='doc_detail'),
 
     # 修改文档
-    path('edit/<int:doc_id>', doc_detail, name='doc_edit'),
+    path('edit/<int:pk>', doc_detail, name='doc_edit'),
 
     # 删除文档
-    path('delete/<int:doc_id>', doc_detail, name='doc_del')
+    path('delete/<int:pk>', doc_detail, name='doc_del')
 ]

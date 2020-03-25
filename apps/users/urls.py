@@ -42,6 +42,16 @@ dept_detail = deptViewSet.as_view({
             'delete': 'destroy'
         })
 
+login_list=logininfoView.as_view({
+    'get': 'list',
+
+})
+
+oprea_list=operationView.as_view({
+    'get': 'list',
+
+})
+
 urlpatterns = [
 
     # 登录
@@ -55,33 +65,33 @@ urlpatterns = [
     # 单位添加
     path('unit/add', unit_list, name='unit_add'),
     # 单位详情
-    path('unit/info/<int:unit_id>', unit_detail, name='unit_info'),
+    path('unit/info/<int:pk>', unit_detail, name='unit_info'),
     # 单位修改
-    path('unit/edit/<int:unit_id>',unit_detail, name='unit_edit'),
+    path('unit/edit/<int:pk>',unit_detail, name='unit_edit'),
     # 单位删除
-    path('unit/delete/<int:unit_id>', unit_detail, name='unit_delete'),
+    path('unit/delete/<int:pk>', unit_detail, name='unit_delete'),
 
     # 部门列表
     path('dept/list', dept_list, name='dept_list'),
     # 部门添加
     path('dept/add', dept_list, name='dept_add'),
     # 部门详情
-    path('dept/info/<int:dept_id>', dept_detail, name='dept_info'),
+    path('dept/info/<int:pk>', dept_detail, name='dept_info'),
     # 部门修改
-    path('dept/edit/<int:dept_id>', dept_detail, name='dept_edit'),
+    path('dept/edit/<int:pk>', dept_detail, name='dept_edit'),
     # 部门删除
-    path('dept/delete/<int:dept_id>', dept_detail, name='dept_delete'),
+    path('dept/delete/<int:pk>', dept_detail, name='dept_delete'),
 
     # 用户列表
     path('user/list', user_list, name='user_list'),
     # 用户详情
-    path('user/info/<int:user_id>', users_detail, name='user_info'),
+    path('user/info/<int:pk>', users_detail, name='user_info'),
     # 用户添加
     path('user/add', user_list, name='user_add'),
     # 用户修改
-    path('user/edit/<int:user_id>', users_detail, name='user_edit'),
+    path('user/edit/<int:pk>', users_detail, name='user_edit'),
     # 用户删除
-    path('user/delete/<int:user_id>', users_detail, name='user_delete'),
+    path('user/delete/<int:pk>', users_detail, name='user_delete'),
     # 修改密码
     # path('modify', ModifyPasswordView.as_view(), name='modify'),
     # 用户密码
@@ -100,10 +110,10 @@ urlpatterns = [
     # path('user/email/change', ChangeUserEmailView.as_view(), name='change_user_email'),
 
     # 用户登录日志
-    path('user/login/record', logininfo_view.as_view(), name='login_record'),
+    path('user/login/record', login_list, name='login_record'),
 
     # 用户操作日志
-    path('user/operation/record', operation_record_view.as_view(), name='op_record'),
+    path('user/operation/record', oprea_list, name='op_record'),
 
     # 获取帮助
     # path('help', AskHelpView.as_view(), name='help'),

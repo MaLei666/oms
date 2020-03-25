@@ -115,13 +115,13 @@ urlpatterns = [
     path('os/add', os_list, name='add_os'),
 
     # 系统详情
-    path('os/info/<int:system_id>', os_detail, name='os_info'),
+    path('os/info/<int:pk>', os_detail, name='os_info'),
 
     # 修改系统
-    path('os/edit/<int:system_id>', os_detail, name='edit_os'),
+    path('os/edit/<int:pk>', os_detail, name='edit_os'),
 
     # 删除系统
-    path('os/delete/<int:system_id>', os_detail, name='del_os'),
+    path('os/delete/<int:pk>', os_detail, name='del_os'),
 
     # 项目列表
     path('project/list', project_list, name='project_List'),
@@ -130,13 +130,13 @@ urlpatterns = [
     path('project/add', project_list, name='add_project'),
 
     # 项目详情
-    path('project/info/<int:project_id>', project_detail, name='info_project'),
+    path('project/info/<int:pk>', project_detail, name='info_project'),
 
     # 编辑项目
-    path('project/edit/<int:project_id>', project_detail, name='edit_project'),
+    path('project/edit/<int:pk>', project_detail, name='edit_project'),
 
     # 删除项目
-    path('project/delete/<int:project_id>', project_detail, name='del_project'),
+    path('project/delete/<int:pk>', project_detail, name='del_project'),
 
     # 用途列表
     path('use/list', use_list, name='use_List'),
@@ -145,10 +145,10 @@ urlpatterns = [
     path('use/add', use_list, name='add_use'),
 
     # 修改用途
-    path('use/edit/<int:use_id>', use_detail, name='edit_use'),
+    path('use/edit/<int:pk>', use_detail, name='edit_use'),
 
     # 删除用途
-    path('use/delete/<int:use_id>', use_detail, name='del_use'),
+    path('use/delete/<int:pk>', use_detail, name='del_use'),
 
     # 机房列表
     path('idc/list', idc_list, name='idc_list'),
@@ -157,13 +157,13 @@ urlpatterns = [
     path('idc/add', idc_list, name='idc_host'),
 
     # 机房详情
-    path('idc/info/<int:idc_id>', idc_detail, name='idc_info'),
+    path('idc/info/<int:pk>', idc_detail, name='idc_info'),
 
     # 修改机房
-    path('idc/edit/<int:idc_id>', idc_detail, name='idc_host'),
+    path('idc/edit/<int:pk>', idc_detail, name='idc_host'),
 
     # 删除机房
-    path('idc/delete/<int:idc_id>', idc_detail, name='idc_host'),
+    path('idc/delete/<int:pk>', idc_detail, name='idc_host'),
 
     # 机柜列表
     path('rack/list', rack_list, name='rack_list'),
@@ -172,16 +172,16 @@ urlpatterns = [
     path('rack/add', rack_list, name='add_rack'),
 
     # 机柜详情
-    path('rack/info/<int:rack_id>', rack_detail, name='rack_info'),
+    path('rack/info/<int:pk>', rack_detail, name='rack_info'),
 
     # 修改机柜
-    path('rack/edit/<int:rack_id>', rack_detail, name='edit_rack'),
+    path('rack/edit/<int:pk>', rack_detail, name='edit_rack'),
 
     # 删除机柜
-    path('rack/delete/<int:rack_id>', rack_detail, name='del_rack'),
+    path('rack/delete/<int:pk>', rack_detail, name='del_rack'),
 
     # # webssh
-    # path(r'webssh/<int:host_id>', WebSSHView, name='web_ssh'),
+    # path(r'webssh/<int:pk>', WebSSHView, name='web_ssh'),
 
     # 主机列表
     path('host/list', host_list, name='host_list'),
@@ -190,13 +190,13 @@ urlpatterns = [
     path('host/add', host_list, name='add_host'),
 
     # 主机详情
-    path('host/info/<int:host_id>', host_detail, name='host_info'),
+    path('host/info/<int:pk>', host_detail, name='host_info'),
 
     # 修改主机
-    path('host/edit/<int:host_id>', host_detail, name='edit_host'),
+    path('host/edit/<int:pk>', host_detail, name='edit_host'),
 
     # 删除主机
-    path('host/delete/<int:host_id>', host_detail, name='del_host'),
+    path('host/delete/<int:pk>', host_detail, name='del_host'),
 
     # 主机服务列表
     path('service/list', host_service_list, name='list_host_service'),
@@ -205,43 +205,43 @@ urlpatterns = [
     path('service/add', host_service_list, name='add_host_service'),
 
     # 服务详情
-    path('service/info/<int:host_service_id>', host_service_detail, name='info_host_service'),
+    path('service/info/<int:pk>', host_service_detail, name='info_host_service'),
 
     # 修改主机服务
-    path('service/edit/<int:host_service_id>', host_service_detail, name='edit_host_service'),
+    path('service/edit/<int:pk>', host_service_detail, name='edit_host_service'),
 
     # 删除主机服务
-    path('service/delete/<int:host_service_id>', host_service_detail, name='del_host_service'),
+    path('service/delete/<int:pk>', host_service_detail, name='del_host_service'),
 
     # 数据库连接列表
     path('database/list', database_list, name='db_list'),
 
     # 数据库连接详情
-    path('database/info/<int:db_id>', database_detail, name='db_info'),
+    path('database/info/<int:pk>', database_detail, name='db_info'),
 
     # 添加数据库信息
     path('database/add', database_list, name='add_db'),
 
     # 修改数据库信息
-    path('database/edit/<int:db_id>', database_detail, name='edit_db'),
+    path('database/edit/<int:pk>', database_detail, name='edit_db'),
 
     # 删除数据库信息
-    path('database/delete/<int:db_id>', database_detail, name='del_db'),
+    path('database/delete/<int:pk>', database_detail, name='del_db'),
 
     # 数据库列表
     path('database/db/list', databaseDB_list, name='db_list'),
 
     # 数据库详情
-    path('database/db/info/<int:db_db_id>', databaseDB_detail, name='db_info'),
+    path('database/db/info/<int:pk>', databaseDB_detail, name='db_info'),
 
     # 添加数据库库表
     path('database/db/add', databaseDB_list, name='add_db_db'),
 
     # 修改数据库库表
-    path('database/db/edit/<int:db_db_id>', databaseDB_detail, name='edit_db_db'),
+    path('database/db/edit/<int:pk>', databaseDB_detail, name='edit_db_db'),
 
     # 删除数据库库表
-    path('database/db/delete/<int:db_db_id>', databaseDB_detail, name='del_db_db'),
+    path('database/db/delete/<int:pk>', databaseDB_detail, name='del_db_db'),
 
 
 

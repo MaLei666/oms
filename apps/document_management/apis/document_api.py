@@ -9,6 +9,8 @@ from document_management.serializers import *
 from ..filter import *
 from utils.code_response import response_fomat
 from ..models import *
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
+
 ######################################
 # 第三方模块
 ######################################
@@ -17,18 +19,17 @@ from rest_framework.response import Response
 
 __all__ = ['docViewSet']
 
-class docViewSet(viewsets.ModelViewSet):
+class docViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class =docSerializer
     queryset = Document.objects.all().order_by('id')
     filter_class = docFilter
-    lookup_url_kwarg = 'doc_id'
     code = response_fomat()
 
     def get_queryset(self):
         user = self.request.user
         if user.is_authenticated:
             if user.role < 3:
-                return self.queryset.all.order_by('id')
+                return self.queryset.all().order_by('id')
             elif user.role == 3:
                 return self.queryset.filter(unit_id=user.unit_id)
             else:
@@ -52,8 +53,8 @@ class docViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 \
-                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['doc_id']).unit_id) \
-                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['doc_id']).dept_id):
+                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -63,8 +64,8 @@ class docViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['doc_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['doc_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 docSerializer().delete(request, instance)
                 self.perform_destroy(instance)

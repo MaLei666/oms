@@ -14,14 +14,16 @@ from ..models import *
 ######################################
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
+
 
 __all__ = ['platViewSet', 'platUserViewSet']
 
-class platViewSet(viewsets.ModelViewSet):
+class platViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class =platSerializer
     queryset = platformInfo.objects.all().order_by('id')
     filter_class = platFilter
-    lookup_url_kwarg = 'plat_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -51,8 +53,8 @@ class platViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 \
-                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['plat_id']).unit_id) \
-                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['plat_id']).dept_id):
+                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -62,8 +64,8 @@ class platViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['plat_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['plat_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 platSerializer().delete(request, instance)
                 self.perform_destroy(instance)
@@ -74,11 +76,11 @@ class platViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class platUserViewSet(viewsets.ModelViewSet):
+class platUserViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class =platUserSerializer
     queryset = platformUserInfo.objects.all().order_by('id')
     filter_class = platUserFilter
-    lookup_url_kwarg = 'platuser_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -108,8 +110,8 @@ class platUserViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 \
-                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['platuser_id']).unit_id) \
-                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['platuser_id']).dept_id):
+                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -119,8 +121,8 @@ class platUserViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['platuser_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['platuser_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 platUserSerializer().delete(request, instance)
                 self.perform_destroy(instance)

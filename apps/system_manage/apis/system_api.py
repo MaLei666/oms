@@ -14,21 +14,23 @@ from ..models import *
 ######################################
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
+
 
 __all__ = ['portViewSet', 'domainViewSet', 'domainResvViewSet','dataDictViewSet',]
 
-class portViewSet(viewsets.ModelViewSet):
+class portViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class =portSerializer
     queryset = portToPortInfo.objects.all().order_by('id')
     filter_class = portFilter
-    lookup_url_kwarg = 'port_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
         user = self.request.user
         if user.is_authenticated:
             if user.role < 3:
-                return self.queryset.all.order_by('id')
+                return self.queryset.all().order_by('id')
             elif user.role == 3:
                 return self.queryset.filter(unit_id=user.unit_id)
             else:
@@ -51,7 +53,7 @@ class portViewSet(viewsets.ModelViewSet):
     def partial_update(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 or \
-                    request.user.unit_id == self.queryset.get(id=self.kwargs['port_id']).unit_id:
+                    request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
                 kwargs['partial'] = True
                 self.update(request, *args, **kwargs)
                 return Response(self.code.request_edit_succeed())
@@ -63,7 +65,7 @@ class portViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 or \
-                    request.user.unit_id == self.queryset.get(id=self.kwargs['port_id']).unit_id:
+                    request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
                 instance = self.get_object()
                 portSerializer().delete(request, instance)
                 self.perform_destroy(instance)
@@ -74,11 +76,11 @@ class portViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class domainViewSet(viewsets.ModelViewSet):
+class domainViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = domainNameSerializer
     queryset = domainNameInfo.objects.all().order_by('id')
     filter_class = domainFilter
-    lookup_url_kwarg = 'domain_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -105,7 +107,7 @@ class domainViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['domain_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -114,7 +116,7 @@ class domainViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['domain_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             instance = self.get_object()
             domainNameSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -123,10 +125,10 @@ class domainViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class domainResvViewSet(viewsets.ModelViewSet):
+class domainResvViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = domainResolveSerializer
     queryset = domainNameResolveInfo.objects.all().order_by('id')
-    lookup_url_kwarg = 'domain_resv_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -154,7 +156,7 @@ class domainResvViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['domain_resv_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -163,7 +165,7 @@ class domainResvViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['domain_resv_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             instance = self.get_object()
             domainResolveSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -172,11 +174,11 @@ class domainResvViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class dataDictViewSet(viewsets.ModelViewSet):
+class dataDictViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = dataDictSerializer
     queryset = dataDictInfo.objects.all().order_by('id')
     filter_class = dataDictFilter
-    lookup_url_kwarg = 'dict_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):

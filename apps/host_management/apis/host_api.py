@@ -14,16 +14,18 @@ from ..models import *
 ######################################
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
+
 
 __all__ = ['osViewSet', 'projectViewSet', 'useViewSet','idcViewSet','rackViewSet','hostViewSet',
            'hostserviceViewSet','databaseViewSet','databaseDBViewSet',]
 
 
-class osViewSet(viewsets.ModelViewSet):
+class osViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class =systemSerializer
     queryset = operatSystemInfo.objects.all().order_by('id')
     filter_class = systemFilter
-    lookup_url_kwarg = 'system_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -60,11 +62,11 @@ class osViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class projectViewSet(viewsets.ModelViewSet):
+class projectViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = projectSerializer
     queryset = projectInfo.objects.all().order_by('id')
     filter_class = projectFilter
-    lookup_url_kwarg = 'project_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -91,9 +93,9 @@ class projectViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['project_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             try:
-                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['project_id']).unit_id,
+                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['pk']).unit_id,
                                   name=request.data['name'])
                 return Response(self.code.duplicate_data())
             except:
@@ -105,7 +107,7 @@ class projectViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['project_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             instance = self.get_object()
             projectSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -114,11 +116,11 @@ class projectViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class useViewSet(viewsets.ModelViewSet):
+class useViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = useSerializer
     queryset = useInfo.objects.all().order_by('id')
     filter_class = useFilter
-    lookup_url_kwarg = 'use_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def create(self, request, *args, **kwargs):
@@ -150,11 +152,11 @@ class useViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class idcViewSet(viewsets.ModelViewSet):
+class idcViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = idcSerializer
     queryset = idcInfo.objects.all().order_by('id')
     filter_class = idcFilter
-    lookup_url_kwarg = 'idc_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -181,9 +183,9 @@ class idcViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['idc_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             try:
-                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['idc_id']).unit_id,
+                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['pk']).unit_id,
                                   name=request.data['name'])
                 return Response(self.code.duplicate_data())
             except:
@@ -195,7 +197,7 @@ class idcViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['idc_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             instance = self.get_object()
             idcSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -204,10 +206,10 @@ class idcViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class rackViewSet(viewsets.ModelViewSet):
+class rackViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = rackSerializer
     queryset = rackInfo.objects.all().order_by('id')
-    lookup_url_kwarg = 'rack_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -234,9 +236,9 @@ class rackViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['rack_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             try:
-                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['rack_id']).unit_id,
+                self.queryset.get(unit_id=self.queryset.get(id=self.kwargs['pk']).unit_id,
                                   name=request.data['name'])
                 return Response(self.code.duplicate_data())
             except:
@@ -248,7 +250,7 @@ class rackViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if request.user.role < 3 or \
-                request.user.unit_id == self.queryset.get(id=self.kwargs['rack_id']).unit_id:
+                request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id:
             instance = self.get_object()
             rackSerializer().delete(request, instance)
             self.perform_destroy(instance)
@@ -257,11 +259,11 @@ class rackViewSet(viewsets.ModelViewSet):
             return Response(self.code.no_permission())
 
 
-class hostViewSet(viewsets.ModelViewSet):
+class hostViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = hostSerializer
     queryset = hostInfo.objects.all().order_by('id')
     filter_class = hostFilter
-    lookup_url_kwarg = 'host_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -296,8 +298,8 @@ class hostViewSet(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         if request.user.role < 3 \
-                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['host_id']).unit_id) \
-                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['host_id']).dept_id):
+                or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
             kwargs['partial'] = True
             self.update(request, *args, **kwargs)
             return Response(self.code.request_edit_succeed())
@@ -307,8 +309,8 @@ class hostViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['host_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['host_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 hostSerializer().delete(request, instance)
                 self.perform_destroy(instance)
@@ -319,11 +321,11 @@ class hostViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class hostserviceViewSet(viewsets.ModelViewSet):
+class hostserviceViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = hostServiceSerializer
     queryset = hostServiceInfo.objects.all().order_by('id')
     filter_class = hostServiceFilter
-    lookup_url_kwarg = 'host_service_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -359,8 +361,8 @@ class hostserviceViewSet(viewsets.ModelViewSet):
     def partial_update(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['host_service_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['host_service_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 kwargs['partial'] = True
                 self.update(request, *args, **kwargs)
                 return Response(self.code.request_edit_succeed())
@@ -372,8 +374,8 @@ class hostserviceViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['host_service_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['host_service_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 hostServiceSerializer().delete(request, instance)
                 self.perform_destroy(instance)
@@ -384,11 +386,11 @@ class hostserviceViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class databaseViewSet(viewsets.ModelViewSet):
+class databaseViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = databaseSerializer
     queryset = databaseInfo.objects.all().order_by('id')
     filter_class = databaseFilter
-    lookup_url_kwarg = 'db_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -424,8 +426,8 @@ class databaseViewSet(viewsets.ModelViewSet):
     def partial_update(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['db_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['db_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 kwargs['partial'] = True
                 self.update(request, *args, **kwargs)
                 return Response(self.code.request_edit_succeed())
@@ -437,8 +439,8 @@ class databaseViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['db_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['db_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 databaseSerializer().delete(request, instance)
                 self.perform_destroy(instance)
@@ -449,11 +451,11 @@ class databaseViewSet(viewsets.ModelViewSet):
             return Response(self.code.internal_server_error())
 
 
-class databaseDBViewSet(viewsets.ModelViewSet):
+class databaseDBViewSet(CacheResponseMixin,viewsets.ModelViewSet):
     serializer_class = databaseDBSerializer
     queryset = databaseDBInfo.objects.all().order_by('id')
     filter_class = databaseDBFilter
-    lookup_url_kwarg = 'db_db_id'
+    lookup_url_kwarg = 'pk'
     code = response_fomat()
 
     def get_queryset(self):
@@ -489,8 +491,8 @@ class databaseDBViewSet(viewsets.ModelViewSet):
     def partial_update(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['db_db_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['db_db_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 kwargs['partial'] = True
                 self.update(request, *args, **kwargs)
                 return Response(self.code.request_edit_succeed())
@@ -502,8 +504,8 @@ class databaseDBViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if request.user.role < 3 \
-                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['db_db_id']).unit_id) \
-                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['db_db_id']).dept_id):
+                    or (request.user.role==3 and request.user.unit_id == self.queryset.get(id=self.kwargs['pk']).unit_id) \
+                    or (request.user.role > 3 and request.user.dept_id == self.queryset.get(id=self.kwargs['pk']).dept_id):
                 instance = self.get_object()
                 databaseDBSerializer().delete(request, instance)
                 self.perform_destroy(instance)
@@ -518,8 +520,8 @@ class databaseDBViewSet(viewsets.ModelViewSet):
 # ## wessh主机视图
 # ########################################################################################################################
 # class WebSSHView(LoginStatusCheck, View):
-#     def post(self, request, host_id):
-#         host = hostInfo.objects.get(id=int(host_id))
+#     def post(self, request, pk):
+#         host = hostInfo.objects.get(id=int(pk))
 #         ret = {}
 #         try:
 #             if host.out_ip:

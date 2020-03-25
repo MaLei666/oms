@@ -36,13 +36,13 @@ urlpatterns = [
     path('add', plat_list, name='platform_add'),
 
     # 平台详情
-    path('info/<int:plat_id>', plat_detail, name='platform_info'),
+    path('info/<int:pk>', plat_detail, name='platform_info'),
 
     # 编辑平台
-    path('edit/<int:plat_id>', plat_detail, name='platform_edit'),
+    path('edit/<int:pk>', plat_detail, name='platform_edit'),
 
     # 删除平台
-    path('delete/<int:plat_id>', plat_detail, name='platform_delete'),
+    path('delete/<int:pk>', plat_detail, name='platform_delete'),
 
     # 平台用户列表
     path('user/list', platuser_list, name='platuser_list'),
@@ -51,13 +51,13 @@ urlpatterns = [
     path('user/add', platuser_list, name='platuser_add'),
 
     # 平台用户详情
-    path('user/info/<int:platuser_id>', platuser_detail, name='platuser_info'),
+    path('user/info/<int:pk>', platuser_detail, name='platuser_info'),
 
     # 编辑用户平台
-    path('user/edit/<int:platuser_id>', platuser_detail, name='platuser_edit'),
+    path('user/edit/<int:pk>', platuser_detail, name='platuser_edit'),
 
     # 删除平台用户
-    path('user/delete/<int:platuser_id>', platuser_detail, name='platuser_delete'),
+    path('user/delete/<int:pk>', platuser_detail, name='platuser_delete'),
 
 
 ]
