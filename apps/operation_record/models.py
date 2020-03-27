@@ -6,7 +6,7 @@ from django.db.models import Model,CharField,DateTimeField,IntegerField,Positive
 from users.models import userProfile
 
 ACTION_CHOICES=((1, '主机管理'), (2, '系统管理'), (3, '用户管理'), (4, '文档管理'),(5, '巡检监督'),(6,'平台管理'))
-OPERATION_CHOICES=((1, '添加'), (2, '修改'), (3, '启用'), (4, '停用'), (5, '登录'), (6, '退出'))
+OPERATION_CHOICES=((1, '添加'), (2, '修改'), (3, '启用'), (4, '删除'), (5, '登录'), (6, '退出'))
 STATUS_CHOICES=((1, '公开'), (2, '不公开'))
 ######################################
 # 用户操作表

@@ -36,6 +36,8 @@ urlpatterns = [
     # document management
     path('document/', include('document_management.urls')),
 
+    # operation_record
+    path('operation/', include('operation_record.urls')),
 
 
 ]

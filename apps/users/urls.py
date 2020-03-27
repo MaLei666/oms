@@ -47,11 +47,6 @@ login_list=logininfoView.as_view({
 
 })
 
-oprea_list=operationView.as_view({
-    'get': 'list',
-
-})
-
 urlpatterns = [
 
     # 登录
@@ -111,9 +106,6 @@ urlpatterns = [
 
     # 用户登录日志
     path('user/login/record', login_list, name='login_record'),
-
-    # 用户操作日志
-    path('user/operation/record', oprea_list, name='op_record'),
 
     # 获取帮助
     # path('help', AskHelpView.as_view(), name='help'),

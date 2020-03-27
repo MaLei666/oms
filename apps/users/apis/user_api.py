@@ -12,7 +12,6 @@ from ..models import *
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import logout,authenticate
 from utils.commen_method import login_info,UserOperation
-from operation_record.serializers import operaSerializer,UserOperationRecord
 ######################################
 # 第三方模块
 ######################################
@@ -21,8 +20,7 @@ from rest_framework.response import Response
 from rest_framework_jwt.views import APIView
 from rest_framework_extensions.cache.mixins import CacheResponseMixin
 
-__all__ = ['UserViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfoView',
-           'operationView']
+__all__ = ['UserViewSet', 'unitViewSet', 'deptViewSet','logout_view','change_pw_view','logininfoView']
 
 
 class unitViewSet(CacheResponseMixin,viewsets.ModelViewSet):
@@ -252,30 +250,6 @@ class logininfoView(CacheResponseMixin,viewsets.ModelViewSet):
                     return self.queryset.filter(dept_id=user.dept_id, role__gte=user.role)
                 else:
                     return self.queryset.filter(user=user.id).order_by('id')
-            else:
-                return Response(response_fomat().authenticat_failed())
-        except:
-            return Response(response_fomat().internal_server_error())
-
-######################################
-# 用户操作查询
-######################################
-class operationView(CacheResponseMixin,viewsets.ModelViewSet):
-    serializer_class = operaSerializer
-    queryset=UserOperationRecord.objects.all().order_by('id')
-
-    def get_queryset(self):
-        try:
-            user = self.request.user
-            if user.is_authenticated:
-                if user.role<3:
-                    return self.queryset.filter(role__gte=user.role)
-                elif user.role==3:
-                    return self.queryset.filter(unit_id=user.unit_id, role__gte=user.role)
-                elif user.role==4:
-                    return self.queryset.filter(dept_id=user.dept_id, role__gte=user.role)
-                else:
-                    return self.queryset.filter(user_id=user.id).order_by('id')
             else:
                 return Response(response_fomat().authenticat_failed())
         except:
