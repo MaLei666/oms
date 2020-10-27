@@ -9,7 +9,7 @@ verify_ssl = true
 asn1crypto = "==0.24.0"
 bcrypt = "==3.1.4"
 cffi = "==1.11.5"
-cryptography = "==2.3"
+cryptography = "==3.2"
 django = "==2.0.12"
 django-pure-pagination = "==0.3.0"
 idna = "==2.7"
